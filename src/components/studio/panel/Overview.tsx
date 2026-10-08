@@ -8,10 +8,10 @@ import { Num } from "../Num";
 import { useAnalysis } from "../useAnalysis";
 import { nameOf } from "./names";
 
-function Card({ view, title, children }: { view: View; title: string; children: React.ReactNode }) {
+function Card({ view, title, children, wide }: { view: View; title: string; children: React.ReactNode; wide?: boolean }) {
   const setView = useStudio((s) => s.setView);
   return (
-    <button className="nc" onClick={() => setView(view)} aria-label={`Open ${title}`}>
+    <button className={`nc ${wide ? "wide" : ""}`} onClick={() => setView(view)} aria-label={`Open ${title}`}>
       <span className="nc-h">{title}<ChevronRight className="ic" size={14} aria-hidden /></span>
       {children}
     </button>
@@ -29,7 +29,6 @@ export function Overview() {
   const busiest = Math.max(0, ...Object.values(sim.edgeLoad));
   const yours = Object.keys(sim.yours).length;
   const real = Object.keys(sim.priced).filter((k) => sim.priced[k] && !sim.yours[k]).length;
-  const counted = Object.keys(sim.priced).length;
   const total = BUCKETS.reduce((s, b) => s + sim.buckets[b], 0) || 1;
 
   return (
@@ -47,11 +46,6 @@ export function Overview() {
           <b className="nc-big"><Num value={hot ? (sim.util[hot.id] ?? 0) : 0} format={fmtPct} /><small> {hot ? nameOf(hot) : "idle"}</small></b>
           <span className="nc-sub"><Num value={sim.latencyMs} format={(n) => `${Math.round(n)} ms`} /> · <Num value={sim.errorPct} format={(n) => `${(n * 100).toFixed(n > 0 ? 1 : 0)}% errors`} /> · {sim.headroom ? `${sim.headroom.toFixed(1)}× room` : "n/a"}</span>
         </Card>
-        <Card view="cost" title="Cost">
-          <b className="nc-big"><Num value={sim.unitCost} format={fmtUnit} /><small> /user/mo</small></b>
-          <span className="nc-sub"><Num value={sim.cost} format={fmtMoney} />/mo · mostly {sim.topBucket ?? "n/a"}</span>
-          <span className="nc-stack" aria-hidden>{BUCKETS.map((b) => sim.buckets[b] > 0 && <i key={b} className={b === sim.topBucket ? "top" : ""} style={{ flex: sim.buckets[b] / total }} />)}</span>
-        </Card>
         <Card view="fit" title="Fit">
           {servers.length ? (
             <>
@@ -62,12 +56,13 @@ export function Overview() {
             <><b className="nc-big">None</b><span className="nc-sub">Add a server to check fit</span></>
           )}
         </Card>
-        <div className="nc nc-static" aria-label="Price coverage">
-          <span className="nc-h">Price data</span>
-          <b className="nc-big">{real + yours}<small> of {counted} real or yours</small></b>
-          <span className="nc-sub">{real + yours ? `${real} real price${real === 1 ? "" : "s"}, ${yours} yours. The rest are illustrative` : "All costs are illustrative so far"}</span>
-        </div>
+        <Card view="cost" title="Cost" wide>
+          <b className="nc-big"><Num value={sim.unitCost} format={fmtUnit} /><small> /user/mo</small></b>
+          <span className="nc-sub"><Num value={sim.cost} format={fmtMoney} />/mo · mostly {sim.topBucket ?? "n/a"}</span>
+          <span className="nc-stack" aria-hidden>{BUCKETS.map((b) => sim.buckets[b] > 0 && <i key={b} className={b === sim.topBucket ? "top" : ""} style={{ flex: sim.buckets[b] / total }} />)}</span>
+        </Card>
       </div>
+      <p className="nc-note">{real + yours ? `${real} real price${real === 1 ? "" : "s"}, ${yours} yours, the rest illustrative.` : "All costs are illustrative so far."}</p>
 
       <div className="why" key={why.title + why.accent}>
         <h5>{why.title} {why.accent && <em>{why.accent}</em>}</h5>

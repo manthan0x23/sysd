@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { PanelLeftClose, Search } from "lucide-react";
 import { useReactFlow } from "@xyflow/react";
-import { CATEGORIES, COUNTS, TYPE_BY_ID, offeringsOf, searchTypes } from "@/lib/catalog";
+import { CATEGORIES, TYPE_BY_ID, offeringsOf, searchTypes } from "@/lib/catalog";
 import { ServiceIcon } from "./ServiceIcon";
 import { useStudio } from "@/store/useStudio";
 
@@ -54,12 +54,13 @@ export function Palette() {
 
   return (
     <aside className={`panel left ${open ? "" : "collapsed"}`} aria-label="Components" inert={!open}>
-      <button className="panel-x" title="Fold into an icon" aria-label="Fold the component list into an icon" onClick={() => useStudio.getState().setUi("left", false)}><PanelLeftClose className="ic" size={16} aria-hidden /></button>
-      <div className="search">
-        <Search className="ic" size={15} aria-hidden />
-        <input placeholder="Search services" aria-label="Search services or providers" value={q} onChange={(e) => setQ(e.target.value)} />
+      <div className="pal-head">
+        <div className="search">
+          <Search className="ic" size={15} aria-hidden />
+          <input placeholder="Search services" aria-label="Search services or providers" value={q} onChange={(e) => setQ(e.target.value)} />
+        </div>
+        <button className="pal-fold" title="Fold into an icon" aria-label="Fold the component list into an icon" onClick={() => useStudio.getState().setUi("left", false)}><PanelLeftClose className="ic" size={16} aria-hidden /></button>
       </div>
-      <p className="note" style={{ margin: "8px 2px 0" }}>{COUNTS.types} services · {COUNTS.offerings} provider options</p>
       {CATEGORIES.map((cat, i) => {
         const items = results.filter((r) => r.type.category === cat);
         if (!items.length) return null;

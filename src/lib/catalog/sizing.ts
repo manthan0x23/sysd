@@ -46,3 +46,25 @@ export const PROFILES: Record<string, SizingProfile> = {
   workflow: p("Airflow-style scheduler and workers: RAM 2 GB, CPU 1 core, disk 5 GB.",
     () => ({ cpu: 1, ramGb: 2, diskGb: 5 })),
 };
+
+/**
+ * How much a language runtime needs compared with Node.js for the same traffic. Rule of thumb only: real cost per request
+ * depends far more on the work each request does than on the language.
+ */
+const RUNTIME_FACTOR: Record<string, { cpu: number; ram: number }> = {
+  "Node.js": { cpu: 1, ram: 1 }, Bun: { cpu: 0.8, ram: 0.9 }, Deno: { cpu: 0.9, ram: 1 },
+  Go: { cpu: 0.25, ram: 0.3 }, Rust: { cpu: 0.2, ram: 0.15 },
+  Python: { cpu: 1.9, ram: 1.5 }, Java: { cpu: 0.6, ram: 2.2 }, ".NET": { cpu: 0.5, ram: 1.2 },
+  PHP: { cpu: 1.5, ram: 1.2 }, "Ruby on Rails": { cpu: 3, ram: 2 },
+};
+
+/** The sizing profile for a self-hosted service, adjusted for the chosen language runtime where there is one. */
+export function profileFor(base: SizingProfile | undefined, product: string | undefined): SizingProfile | undefined {
+  const f = product ? RUNTIME_FACTOR[product] : undefined;
+  if (!base || !f) return base;
+  return {
+    basis: `${base.basis} Scaled for ${product}: ${f.cpu}x the CPU and ${f.ram}x the RAM of Node.js.`,
+    confidence: base.confidence,
+    run: (i) => { const r = base.run(i); return { ...r, cpu: Math.max(0.1, r.cpu * f.cpu), ramGb: Math.max(0.1, r.ramGb * f.ram) }; },
+  };
+}

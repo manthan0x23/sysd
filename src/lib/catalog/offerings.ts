@@ -33,6 +33,8 @@ const RAW: Record<string, Row[]> = {
     ["AWS", "Elastic Beanstalk", M], ["AWS", "App Runner", M], ["Google Cloud", "App Engine", M],
     ["Microsoft Azure", "App Service", M], ["Heroku", "Dynos", M], ["Render", "Web services", M], ["Railway", "Services", M],
     ["Fly.io", "Machines", M], ["DigitalOcean", "App Platform", M],
+    ["Self-hosted", "Node.js", SH], ["Self-hosted", "Go", SH], ["Self-hosted", "Rust", SH], ["Self-hosted", "Python", SH], ["Self-hosted", "Java", SH],
+    ["Self-hosted", ".NET", SH], ["Self-hosted", "PHP", SH], ["Self-hosted", "Ruby on Rails", SH], ["Self-hosted", "Bun", SH], ["Self-hosted", "Deno", SH],
   ],
   containers: [
     ["AWS", "ECS on Fargate", S], ["AWS", "ECS on EC2", M], ["Google Cloud", "Cloud Run", S], ["Microsoft Azure", "Container Apps", S],
@@ -42,6 +44,8 @@ const RAW: Record<string, Row[]> = {
   worker: [
     ["AWS", "Batch", M], ["Google Cloud", "Cloud Run jobs", S], ["Modal", "Functions", S], ["Inngest", "Functions", SAAS],
     ["Trigger.dev", "Tasks", SAAS], ["Temporal", "Workers", SAAS], ["Render", "Background workers", M],
+    ["Self-hosted", "Node.js", SH], ["Self-hosted", "Go", SH], ["Self-hosted", "Rust", SH], ["Self-hosted", "Python", SH], ["Self-hosted", "Java", SH],
+    ["Self-hosted", ".NET", SH], ["Self-hosted", "PHP", SH], ["Self-hosted", "Ruby on Rails", SH], ["Self-hosted", "Bun", SH], ["Self-hosted", "Deno", SH],
   ],
   k8s: [
     ["AWS", "EKS", M], ["Google Cloud", "GKE", M], ["Microsoft Azure", "AKS", M], ["DigitalOcean", "DOKS", M],

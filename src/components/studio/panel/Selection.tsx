@@ -7,6 +7,7 @@ import {
   AUTO_PLAN_ID, BUCKETS, CUSTOM_PLAN_ID, TYPE_BY_ID, offeringLabel, plansOf,
 } from "@/lib/catalog";
 import { HOST_OVERHEAD } from "@/lib/fit";
+import { profileFor } from "@/lib/catalog/sizing";
 import { fmtInt, fmtMoney } from "@/lib/format";
 import { DEFAULT_CUSTOM, isAuto, needOf, offeringOf } from "@/lib/model";
 import { OBJECT_PRICES } from "@/lib/pricing/data";
@@ -167,12 +168,15 @@ export function ComponentCard() {
       )}
       {type.host === "container" && fit && <p className="note">Needs {needOf(fit.need)}. {fit.children} service{fit.children === 1 ? "" : "s"} inside.</p>}
 
-      {!type.host && offering?.model === "self-hosted" && type.hostable && (
+      {!type.host && offering?.model === "self-hosted" && type.hostable && (() => {
+        const profile = profileFor(type.hostable, offering.product)!;
+        return (
         <>
           <p className="note">{parent ? `Runs on ${nameOf(parent)}.` : "Not on a server yet: drag it into a server block to check the fit."}</p>
-          <p className="note"><b>Needs {needOf(type.hostable.run({ rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100 }))}.</b> {type.hostable.basis} <em>({type.hostable.confidence === "sourced" ? "sourced" : "rule of thumb, roughly ±50%"})</em></p>
+          <p className="note"><b>Needs {needOf(profile.run({ rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100 }))}.</b> {profile.basis} <em>({profile.confidence === "sourced" ? "sourced" : "rule of thumb, roughly ±50%"})</em></p>
         </>
-      )}
+        );
+      })()}
 
       {type.role !== "source" && (
         <div className="own-cost">

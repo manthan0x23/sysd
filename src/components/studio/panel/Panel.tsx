@@ -30,7 +30,7 @@ export function Panel() {
       {hasEdge && <LinkEditor />}
       <div className="view-h">
         {view !== "overview" && <button className="back" onClick={() => setView("overview")} aria-label="Back to all numbers"><ArrowLeft className="ic" size={15} aria-hidden /></button>}
-        <div><h2>{TITLE[view]}</h2><small>{HINT[view]}</small></div>
+        <div><h2>{TITLE[view]}</h2>{view !== "overview" && <small>{HINT[view]}</small>}</div>
       </div>
       <div className="view" key={view}>
         {view === "overview" && <Overview />}

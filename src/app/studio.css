@@ -364,7 +364,7 @@ body, .panel, .nav, .node, .host, .why, .card, .nc { transition: background-colo
 .dock-chips span { display: flex; flex-direction: column; padding: 3px 10px; border-left: 1px solid var(--line); min-width: 0; }
 .dock-chips small { color: var(--ink2); font-size: 11px; }
 .dock-chips b { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
-.dock-chips .bad b { text-decoration: underline wavy var(--ring); text-underline-offset: 3px; }
+.dock-chips .bad b { color: var(--hot); }
 .dock-stack { display: flex; gap: 2px; height: 10px; margin: 0 14px 8px; border-radius: 5px; overflow: hidden; background: var(--line); flex: none; }
 .dock-stack i { display: block; min-width: 3px; transition: flex .5s cubic-bezier(.22, 1, .36, 1); }
 .dock-stack .s0 { background: var(--ring); } .dock-stack .s1 { background: color-mix(in oklab, var(--ink) 60%, transparent); }
@@ -518,3 +518,34 @@ body, .panel, .nav, .node, .host, .why, .card, .nc { transition: background-colo
 .dock.full th, .dock.full td { padding: 10px 16px; }
 .dock-chips span { flex: none; }
 .dock-chips b, .dock-chips b * { white-space: nowrap; }
+
+/* ---- declutter: palette and numbers panel ---- */
+.panel.left { padding: 0 6px 12px 12px; }
+.pal-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 6px; padding: 12px 6px 8px 0; background: var(--surface); }
+.pal-head .search { flex: 1; min-width: 0; padding: 7px 10px; font-size: 13.5px; }
+.pal-fold { all: unset; flex: none; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; cursor: pointer; color: var(--ink2); }
+.pal-fold:hover { background: color-mix(in oklab, var(--ink) 7%, transparent); color: var(--ink); }
+.pal-fold:focus-visible { outline: 2px solid var(--ring); outline-offset: 1px; }
+.panel.left .search { margin-right: 0; }
+.cat { margin-top: 2px; padding-right: 6px; }
+.cat + .cat { border-top: 1px solid var(--line); }
+.cat summary { padding: 11px 2px 6px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.pi { gap: 10px; padding: 4px 6px; min-height: 34px; }
+.pi .ni { width: 24px; height: 24px; border-radius: 7px; }
+.pt { font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.pt small { display: inline; margin-left: 6px; }
+
+.view-h h2 { font: 400 26px/1.1 var(--font-serif), Georgia, serif; }
+.view-h small { font-size: 12px; }
+.ncs { gap: 8px; margin-bottom: 8px; }
+.nc { padding: 10px 12px; gap: 2px; border-radius: 12px; }
+.nc.wide { grid-column: 1 / -1; }
+.nc-big { font-size: 19px; }
+.nc-big small { font-size: 11.5px; }
+.nc-sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nc-note { margin: 0 2px 14px; color: var(--ink2); font-size: 11.5px; }
+.why { background: color-mix(in oklab, var(--ac) 45%, var(--surface)); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.why h5 { font: 600 14px/1.3 var(--font-sans), system-ui, sans-serif; letter-spacing: 0; margin-bottom: 4px; }
+.why h5 em { font-style: normal; font-weight: 700; }
+.why p { font-size: 12.5px; line-height: 1.5; }
+.why .tip { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }

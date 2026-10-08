@@ -19,6 +19,9 @@ export const PRODUCT_ICON: Record<string, string> = {
   "Google Cloud|Cloud Run functions": "logos:google-cloud-functions", "Google Cloud|Cloud Run": "logos:google-cloud-run",
   "Google|Gemini API": "logos:google-gemini", "Google Cloud|Vertex AI": "logos:google-cloud",
   // Self-hosted software
+  "Self-hosted|Node.js": "logos:nodejs-icon", "Self-hosted|Go": "logos:go", "Self-hosted|Rust": "logos:rust", "Self-hosted|Python": "logos:python",
+  "Self-hosted|Java": "logos:java", "Self-hosted|.NET": "logos:dotnet", "Self-hosted|PHP": "logos:php", "Self-hosted|Ruby on Rails": "logos:rails",
+  "Self-hosted|Bun": "logos:bun", "Self-hosted|Deno": "logos:deno",
   "Self-hosted|PostgreSQL": "logos:postgresql", "Self-hosted|MySQL / MariaDB": "logos:mysql", "Self-hosted|MongoDB": "logos:mongodb-icon",
   "Self-hosted|Redis / Valkey": "logos:redis", "Self-hosted|Apache Kafka": "logos:kafka-icon", "Self-hosted|Elasticsearch / OpenSearch": "logos:elasticsearch",
   "Self-hosted|Grafana Loki": "logos:grafana", "Self-hosted|Prometheus + Grafana": "logos:grafana", "nginx|Self-hosted": "logos:nginx",

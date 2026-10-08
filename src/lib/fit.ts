@@ -1,3 +1,4 @@
+import { profileFor } from "@/lib/catalog/sizing";
 import { TYPE_BY_ID, plansOf, type Need, type Plan } from "./catalog";
 import { explicitPlan, isAuto, offeringOf, type StudioNode } from "./model";
 import type { SimResult, Workload } from "./sim";
@@ -45,7 +46,7 @@ export function computeFits(nodes: StudioNode[], sim: SimResult, w: Workload): R
       for (const c of kids.get(n.id) ?? []) { const r = needOfNode(c); need = add(need, r.need); count += r.count; }
       return { need, count };
     }
-    const profile = type.hostable;
+    const profile = profileFor(type.hostable, offeringOf(n.data)?.product);
     if (!profile) return { need: ZERO, count: 1 };
     return { need: profile.run({ rps: sim.load[n.id] ?? 0, dataGb: w.dataGb, readPct: w.readPct }), count: 1 };
   };
