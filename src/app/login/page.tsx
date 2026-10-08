@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { connection } from "next/server";
+import { ThemeToggle } from "@/components/studio/ThemeToggle";
 import { Logo } from "@/components/Logo";
 import { PROVIDERS } from "@/auth";
 import { currentUser } from "@/server/session";
@@ -23,6 +24,7 @@ async function LoginBody({ searchParams }: { searchParams: Promise<{ next?: stri
   return (
     <main className="login">
       <Link href="/" className="login-logo"><Logo size={26} />{APP_NAME}</Link>
+      <span className="login-theme"><ThemeToggle /></span>
       <section className="login-card" aria-labelledby="login-h">
         <h1 id="login-h">Sign in to <em>{APP_NAME}</em></h1>
         <p>Your designs live in your profile, so everything here starts with a GitHub or Google account. There are no passwords and no email sign-up.</p>

@@ -106,7 +106,7 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
       </Menu>
       {isNew && <button className="ib" title="Reset to the sample" aria-label="Reset to the sample system" onClick={reset}><RotateCcw className="ic" size={16} aria-hidden /></button>}
       <ThemeToggle />
-      {!pro && <Link href="/upgrade" className="ib crown" title="Upgrade to Pro" aria-label="Upgrade to Pro"><Crown className="ic" size={16} aria-hidden /></Link>}
+      {!pro && <Link href="/upgrade" className="ib wide crown" title="Upgrade to Pro" aria-label="Upgrade to Pro"><Crown className="ic" size={16} aria-hidden /><span>Go Pro</span></Link>}
     </div>
   );
 }

@@ -47,7 +47,7 @@ async function Body() {
           <Lock size={18} aria-hidden />
           <div>
             <b>Teams are part of Pro</b>
-            <p>Invite people as viewers or editors and keep your designs together in one place. Pro is not open for sign-up yet.{data.teams.length ? "" : " If someone invites you to their team, you can join for free."}</p>
+            <p>Invite people as viewers or editors and keep your designs together in one place. Pro is not open for sign-up yet.{data.teams.length ? "" : " If someone invites you to their team, you can join at no charge."}</p>
           </div>
         </div>
       )}

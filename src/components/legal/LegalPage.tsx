@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/studio/ThemeToggle";
 import { Logo } from "@/components/Logo";
 import { APP_NAME, CONTACT_EMAIL, LEGAL_UPDATED } from "@/lib/brand";
 import "./legal.css";
@@ -11,7 +12,7 @@ export function Contact() {
 export function LegalPage({ title, children }: { title: string; children: ReactNode }) {
   return (
     <main className="legal">
-      <header><Link href="/" className="legal-logo"><Logo size={24} />{APP_NAME}</Link></header>
+      <header><Link href="/" className="legal-logo"><Logo size={24} />{APP_NAME}</Link><ThemeToggle /></header>
       <article>
         <h1>{title}</h1>
         <p className="legal-date">Last updated {LEGAL_UPDATED}</p>

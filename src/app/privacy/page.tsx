@@ -15,7 +15,7 @@ export default function Privacy() {
         <li><b>Your content:</b> designs you save (services, links, traffic numbers, names, notes, uploaded icons), their titles and status, and the preview image we draw for each.</li>
         <li><b>Sharing and team data:</b> share links you create with a view count and last-viewed time (not who viewed), team names, members, roles and invites.</li>
         <li><b>Welcome answers (all optional):</b> your role, why you are here, your experience level, the clouds you use and a company or school name. They tailor the product and give context to the AI agent when it launches.</li>
-        <li><b>Plan:</b> whether your account is Free or Pro.</li>
+        <li><b>Plan:</b> whether your account is on Starter or Pro.</li>
         <li><b>Technical data:</b> standard server logs kept by our hosting (such as IP address, browser and requested page) for security and reliability.</li>
       </ul>
       <p>We use Vercel Web Analytics to count visits and pages viewed. It does not use cookies and does not follow you across other websites. We run no advertising trackers.</p>

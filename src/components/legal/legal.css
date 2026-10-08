@@ -1,5 +1,5 @@
 .legal { min-height: 100vh; background: var(--bg); color: var(--ink); padding: 24px 16px 64px; }
-.legal header { max-width: 720px; margin: 0 auto 32px; }
+.legal header { max-width: 720px; margin: 0 auto 32px; display: flex; align-items: center; justify-content: space-between; }
 .legal-logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 17px; letter-spacing: -0.02em; color: inherit; text-decoration: none; }
 .legal article { max-width: 720px; margin: 0 auto; line-height: 1.65; }
 .legal h1 { font: 400 44px/1.1 var(--font-serif), Georgia, serif; letter-spacing: -0.02em; text-wrap: balance; }

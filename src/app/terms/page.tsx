@@ -32,7 +32,7 @@ export default function Terms() {
       <p>Team owners control who joins and at what level (viewer or editor). Designs in a team can be seen and, for editors, changed by its members.</p>
 
       <h2>Plans and payment</h2>
-      <p>{APP_NAME} is free to use. A paid Pro plan (AI agent, teams, exports) is planned. When payments launch, prices, billing terms and refund rules will be shown before you pay and will apply to that purchase. Features may move between plans.</p>
+      <p>{APP_NAME} has a Starter plan that costs nothing. A paid Pro plan (AI agent, teams, exports) is planned. When payments launch, prices, billing terms and refund rules will be shown before you pay and will apply to that purchase. Features may move between plans.</p>
 
       <h2>Acceptable use</h2>
       <ul>
@@ -46,7 +46,7 @@ export default function Terms() {
       <p>The service is provided as it is, may have bugs, and may change or go down. We may add, change or remove features. We can update these terms; the date above shows the latest version, and using the service after a change means you accept it.</p>
 
       <h2>No warranty and limits on liability</h2>
-      <p>To the extent the law allows, the service comes with no warranties, and we are not liable for indirect or consequential loss, lost profit or lost data. Our total liability for any claim is limited to what you paid us in the 12 months before it, or zero if you use the free plan. Nothing here limits liability that cannot be limited by law.</p>
+      <p>To the extent the law allows, the service comes with no warranties, and we are not liable for indirect or consequential loss, lost profit or lost data. Our total liability for any claim is limited to what you paid us in the 12 months before it, or zero if you use the Starter plan. Nothing here limits liability that cannot be limited by law.</p>
 
       <h2>Ending your use</h2>
       <p>You can stop using {APP_NAME} at any time. To have your account and designs deleted, contact us (see below). We may end access for breach of these terms.</p>

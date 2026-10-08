@@ -31,7 +31,7 @@ async function Body() {
         )}
         <h2>Start a team</h2>
         {plan === "pro" ? <CreateTeamForm /> : (
-          <p className="gate">Teams are part of the Pro plan. Pro is not open for sign-up yet. People you are invited by can still join their teams for free.</p>
+          <p className="gate">Teams are part of the Pro plan. Pro is not open for sign-up yet. People you are invited by can still join their teams at no charge.</p>
         )}
       </main>
     </>

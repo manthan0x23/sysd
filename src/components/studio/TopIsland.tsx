@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Copy } from "lucide-react";
+import { Copy, Crown } from "lucide-react";
 import { signOutAction } from "@/app/actions";
 import { duplicateDesignAction } from "@/app/actions/designs";
 import { copySharedAction } from "@/app/actions/shares";
 import { Logo } from "@/components/Logo";
-import { APP_NAME } from "@/lib/brand";
+import { APP_NAME, PLAN_LABEL } from "@/lib/brand";
 import { useStudio } from "@/store/useStudio";
 import { ShareButton } from "./ShareButton";
 import type { StudioUser } from "./Studio";
@@ -68,6 +68,8 @@ export function TopIsland({ user, plan, dirty, shareToken }: { user: StudioUser;
         <Logo size={24} /><span>{APP_NAME}</span><i className={`dot ${state}`} aria-hidden />
       </button>
 
+      {!pro && <Link href="/upgrade" className="top-gopro" title="Upgrade to Pro: exports, teams and the AI agent"><Crown size={14} aria-hidden /><span>Go Pro</span></Link>}
+
       <div className="acct-wrap">
         <button className="avatar-btn" aria-label={`Account: ${user.name}`} aria-haspopup="menu" aria-expanded={menu} title={user.name} onClick={() => setMenu((m) => !m)}>
           {user.image
@@ -77,7 +79,7 @@ export function TopIsland({ user, plan, dirty, shareToken }: { user: StudioUser;
         </button>
         {menu && (
           <div className="menu-pop down" role="menu">
-            <p className="menu-h"><b>{user.name}</b><span className={`ph-plan ${plan}`}>{pro ? "Pro" : "Free"}</span></p>
+            <p className="menu-h"><b>{user.name}</b><Link href="/upgrade" className={`ph-plan ${plan}`}>{pro ? "Pro" : `${PLAN_LABEL.free} plan`}</Link></p>
             {!pro && <Link role="menuitem" className="mi" href="/upgrade"><b>Upgrade to Pro</b><small>AI agent, teams and exports</small></Link>}
             <Link role="menuitem" className="mi" href="/home"><b>Home</b><small>All your designs</small></Link>
             <Link role="menuitem" className="mi" href="/teams"><b>Teams</b><small>{pro ? "Manage your teams" : "Join or view teams"}</small></Link>

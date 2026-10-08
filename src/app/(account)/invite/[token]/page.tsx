@@ -23,7 +23,7 @@ async function Body({ params }: { params: Promise<{ token: string }> }) {
         {invite ? (
           <>
             <h1>Join {invite.teamName}</h1>
-            <p className="lede">You were invited as {invite.role === "editor" ? "an editor, so you can change the team's designs" : "a viewer, so you can look at the team's designs but not change them"}. Joining is free.</p>
+            <p className="lede">You were invited as {invite.role === "editor" ? "an editor, so you can change the team's designs" : "a viewer, so you can look at the team's designs but not change them"}. Joining costs nothing.</p>
             <AcceptInvite token={token} />
           </>
         ) : (
