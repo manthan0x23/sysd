@@ -1,0 +1,33 @@
+.up h1 em { font-style: italic; }
+.up-toggles { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 18px; }
+.up-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+.up-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 26px 24px; }
+.up-card.pro { border: 1.5px solid var(--ring); }
+.up-card h2 { margin: 0 0 6px !important; }
+.up-price { font-size: 15px; color: var(--ink2); margin: 0; }
+.up-price b { font: 400 44px/1.1 var(--font-serif), Georgia, serif; color: var(--ink); letter-spacing: -0.02em; }
+.up-sub { margin: 6px 0 0; font-size: 13.5px; color: var(--ink2); }
+.up-card ul { list-style: none; margin: 20px 0 22px; padding: 0; display: grid; gap: 12px; }
+.up-card li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; }
+.up-card li svg { flex: none; margin-top: 3px; }
+.up-card li small { display: block; color: var(--ink2); font-size: 13px; margin-top: 2px; }
+.up-note, .up-fine { font-size: 13px; color: var(--ink2); margin-top: 12px; }
+.up-fine { margin-top: 20px; }
+.wf { display: grid; gap: 22px; margin-top: 28px; }
+.wf-set { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
+.wf-set legend, .wf-legend { font-weight: 600; font-size: 14.5px; padding: 0; }
+.wf-legend small { font-weight: 400; color: var(--ink2); }
+.wf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.wf-chip { all: unset; box-sizing: border-box; cursor: pointer; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; transition: background-color .16s, border-color .16s; }
+.wf-chip:hover { border-color: var(--ink2); }
+.wf-chip.on { background: var(--ac); color: var(--acink); border-color: var(--ring); }
+.wf-chip:focus-visible, .wf-skip:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.wf-input { box-sizing: border-box; width: 100%; max-width: 360px; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
+.wf-actions { display: flex; align-items: center; gap: 18px; }
+.wf-skip { all: unset; cursor: pointer; color: var(--ink2); font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.wf-skip:hover { color: var(--ink); }
+.up-toggles .seg { display: flex; background: color-mix(in oklab, var(--ink) 7%, transparent); border-radius: 999px; padding: 3px; }
+.up-toggles .seg button { all: unset; cursor: pointer; padding: 6px 16px; border-radius: 999px; color: var(--ink2); font-weight: 500; font-size: 14px; transition: background .14s, color .14s; }
+.up-toggles .seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--line); }
+.up-toggles .seg button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.up-fine a { color: inherit; text-underline-offset: 3px; }

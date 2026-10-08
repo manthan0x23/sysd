@@ -15,6 +15,13 @@
       "when": 1791479554666,
       "tag": "0001_left_cargill",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791482220910,
+      "tag": "0002_unique_valeria_richards",
+      "breakpoints": true
     }
   ]
 }

@@ -9,6 +9,7 @@ import { PageSkeleton } from "@/components/pages/PageSkeleton";
 import { APP_NAME } from "@/lib/brand";
 import { listDesigns } from "@/server/designs";
 import { getPlan } from "@/server/plans";
+import { needsWelcome } from "@/server/profile";
 import { currentUser } from "@/server/session";
 
 export const metadata: Metadata = { title: `Home | ${APP_NAME}` };
@@ -17,6 +18,7 @@ async function Body() {
   await connection();
   const u = await currentUser();
   if (!u) redirect("/login?next=/home");
+  if (await needsWelcome(u.id)) redirect("/welcome");
   const [data, plan] = await Promise.all([listDesigns(u.id), getPlan(u.id)]);
   const first = u.name.split(" ")[0];
   return (

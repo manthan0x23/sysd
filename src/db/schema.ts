@@ -1,4 +1,5 @@
 import { sql } from "drizzle-orm";
+import type { Profile } from "@/lib/profile";
 import { index, integer, jsonb, pgEnum, pgTable, primaryKey, text, timestamp, uniqueIndex, uuid } from "drizzle-orm/pg-core";
 
 /** free: sketch, estimate, save designs. pro: also the AI agent and teams. */
@@ -20,6 +21,10 @@ export const users = pgTable("users", {
   planExpiresAt: ts("plan_expires_at"),
   createdAt: ts("created_at").notNull().defaultNow(),
   lastLoginAt: ts("last_login_at").notNull().defaultNow(),
+  /** Optional answers from the welcome screen. They give the AI agent context; every one can stay empty. */
+  profile: jsonb("profile").$type<Profile>(),
+  /** Set when the welcome screen was finished or skipped, so it is only offered once. */
+  onboardedAt: ts("onboarded_at"),
 });
 
 /**

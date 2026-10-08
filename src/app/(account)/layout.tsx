@@ -18,7 +18,7 @@ async function Who() {
   const plan = await getPlan(u.id);
   return (
     <>
-      <span className={`ph-plan ${plan}`} title={plan === "pro" ? "Pro: AI agent and teams" : "Free plan"}>{plan === "pro" ? "Pro" : "Free"}</span>
+      <Link href="/upgrade" className={`ph-plan ${plan}`} title={plan === "pro" ? "Your Pro plan" : "Free plan. See what Pro adds"}>{plan === "pro" ? "Pro" : "Free"}</Link>
       <span className="ph-name">{u.name}</span>
       <form action={signOutAction}><button className="ph-link" type="submit">Sign out</button></form>
     </>
