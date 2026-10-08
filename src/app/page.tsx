@@ -34,7 +34,6 @@ export default function Landing() {
         <Link href="/" className="lp-logo" aria-label={`${APP_NAME} home`}><Logo size={26} />{APP_NAME}</Link>
         <nav aria-label="Sections">
           <a href="#how">How it works</a>
-          <a href="#data">Where prices come from</a>
         </nav>
         <span className="lp-grow" />
         <ThemeToggle />
@@ -52,6 +51,9 @@ export default function Landing() {
         </div>
         <p className="lp-micro">Open to everyone while we build. Sign in with GitHub or Google.</p>
 
+        <div className="lp-stage">
+          <div className="lp-hero-shot"><Shot name="hero" w={2880} h={1960} priority sizes="(max-width: 1100px) 100vw, 1240px" alt="The Sysd canvas: a web app drawn as connected blocks, each showing how full it is, with Postgres highlighted at 82 percent and a panel beside it showing the monthly cost per user and why Postgres is busy." /></div>
+        </div>
       </section>
 
       <p className="lp-rail-cap">Pick from the tools and clouds you already know</p>

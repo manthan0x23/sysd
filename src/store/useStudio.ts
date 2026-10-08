@@ -74,7 +74,9 @@ const INITIAL_NODES: StudioNode[] = [
 ];
 const link = (s: string, t: string): Edge => ({ id: `e-${s}-${t}`, source: s, target: t, type: "flow" });
 const INITIAL_EDGES: Edge[] = [
-  link("client", "cdn"), link("client", "lb"), link("cdn", "s3"), link("lb", "api"),
+  link("client", "cdn"), link("client", "lb"),
+  // A CDN answers most requests itself, so only a small share reaches storage.
+  { ...link("cdn", "s3"), data: { weight: 5 } }, link("lb", "api"),
   link("api", "cache"), link("api", "db"), link("api", "queue"), link("queue", "worker"),
 ];
 
