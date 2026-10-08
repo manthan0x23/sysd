@@ -6,7 +6,9 @@ import { UserError } from "./doc";
 export type Interval = "month" | "year";
 
 const env = (k: string) => process.env[k]?.trim() || "";
-const productFor = (i: Interval) => env(i === "month" ? "DODO_PRODUCT_PRO_MONTH" : "DODO_PRODUCT_PRO_YEAR");
+/** INR has its own products (a Dodo product has one base currency); without them INR falls back to converting the USD one. */
+const productFor = (i: Interval, currency: "USD" | "INR" = "USD") =>
+  (currency === "INR" && env(i === "month" ? "DODO_PRODUCT_PRO_MONTH_INR" : "DODO_PRODUCT_PRO_YEAR_INR")) || env(i === "month" ? "DODO_PRODUCT_PRO_MONTH" : "DODO_PRODUCT_PRO_YEAR");
 
 /** Billing is off until the keys and both products are configured, so the upgrade button stays inert. */
 export const billingEnabled = () => !!(env("DODO_PAYMENTS_API_KEY") && env("DODO_PAYMENTS_WEBHOOK_KEY") && productFor("month") && productFor("year"));
@@ -25,7 +27,7 @@ export async function startCheckout(user: { id: string; name: string; email: str
   const [u] = await db.select({ plan: schema.users.plan, exp: schema.users.planExpiresAt }).from(schema.users).where(eq(schema.users.id, user.id)).limit(1);
   if (u?.plan === "pro" && (!u.exp || u.exp.getTime() > Date.now())) throw new UserError("You are already on Pro.");
   const session = await dodo().checkoutSessions.create({
-    product_cart: [{ product_id: productFor(interval), quantity: 1 }],
+    product_cart: [{ product_id: productFor(interval, currency), quantity: 1 }],
     customer: { email: user.email, name: user.name },
     billing_currency: currency,
     // The webhook finds the account from this, never from the email address.
