@@ -11,7 +11,7 @@ export * from "./plans";
 /** Search across type names, categories and every provider/product name ("neon" finds Postgres). */
 export function searchTypes(q: string): { type: ServiceType; via?: string }[] {
   const t = q.trim().toLowerCase();
-  const base = SERVICE_TYPES.filter((s) => s.role !== "source");
+  const base = SERVICE_TYPES;
   if (!t) return base.map((type) => ({ type }));
   const hits: { type: ServiceType; via?: string }[] = [];
   for (const type of base) {

@@ -1,9 +1,10 @@
 "use client";
 
-import { Handle, NodeResizer, Position, type NodeProps } from "@xyflow/react";
+import { Handle, NodeResizer, NodeToolbar, Position, type NodeProps } from "@xyflow/react";
 import { TYPE_BY_ID, offeringLabel } from "@/lib/catalog";
 import { needOf, offeringOf, type StudioNode } from "@/lib/model";
-import { useReadOnly } from "@/store/useStudio";
+import { Trash2 } from "lucide-react";
+import { useReadOnly, useStudio } from "@/store/useStudio";
 import { Num } from "./Num";
 import { NodeTitle } from "./NodeTitle";
 import { ServiceIcon } from "./ServiceIcon";
@@ -24,6 +25,7 @@ const VERDICT = { fits: "Fits", tight: "Tight", over: "Does not fit", open: "" }
 /** A group block that holds other nodes: a server/VPS, or a Docker container inside one. */
 export function HostNode({ id, data, selected }: NodeProps<StudioNode>) {
   const readOnly = useReadOnly();
+  const ro = readOnly;
   const type = TYPE_BY_ID[data.typeId];
   const fit = data.fit;
   const offering = offeringOf(data);
@@ -32,6 +34,11 @@ export function HostNode({ id, data, selected }: NodeProps<StudioNode>) {
   return (
     <div className={`host ${type.host} ${selected ? "sel" : ""} ${fit?.verdict ?? ""}`}>
       <NodeResizer isVisible={selected && !readOnly} minWidth={server ? 360 : 220} minHeight={server ? 220 : 130} lineStyle={{ borderColor: "var(--ring)" }} handleStyle={{ background: "var(--surface)", border: "1.5px solid var(--ring)", width: 9, height: 9, borderRadius: 3 }} />
+      {selected && !ro && (
+        <NodeToolbar position={Position.Top} offset={8}>
+          <button className="ntb" onClick={() => useStudio.getState().removeNodes([id])} title="Delete (Backspace)" aria-label={`Delete ${data.name || "this service"}`}><Trash2 className="ic" size={15} aria-hidden /></button>
+        </NodeToolbar>
+      )}
       <Handle type="target" position={Position.Left} />
       <header>
         <ServiceIcon typeId={data.typeId} offering={offering} custom={data.icon} size={16} />

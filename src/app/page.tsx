@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { HeroDecor } from "@/components/landing/HeroDecor";
+import { IconRail } from "@/components/landing/IconRail";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/studio/ThemeToggle";
 import { APP_NAME } from "@/lib/brand";
@@ -46,6 +48,7 @@ export default function Landing() {
       </header>
 
       <section className="lp-hero">
+        <HeroDecor />
         <h1>Draw the system.<br /><em>See what it costs.</em></h1>
         <p className="lp-sub">Drag services onto a canvas, set the traffic, and see where it breaks and what each choice costs.</p>
         <div className="lp-actions">
@@ -61,6 +64,9 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      <p className="lp-rail-cap">Compare real options from the providers you already use</p>
+      <IconRail />
 
       <section className="lp-proof" aria-label="What is in the catalog today">
         <div><b>{COUNTS.types}</b><span>services, from Postgres and Kafka to payments and IoT</span></div>
@@ -121,6 +127,8 @@ export default function Landing() {
       <footer className="lp-footer">
         <span className="lp-logo"><Logo size={22} />{APP_NAME}</span>
         <span>© 2026 {APP_NAME}</span>
+        <Link href="/terms">Terms</Link>
+        <Link href="/privacy">Privacy</Link>
         <Link href="/app">{CTA}</Link>
       </footer>
     </div>

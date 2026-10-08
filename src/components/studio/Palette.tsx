@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { PanelLeftClose, Search } from "lucide-react";
 import { useReactFlow } from "@xyflow/react";
 import { CATEGORIES, COUNTS, TYPE_BY_ID, offeringsOf, searchTypes } from "@/lib/catalog";
 import { ServiceIcon } from "./ServiceIcon";
@@ -40,6 +40,7 @@ function freeSpot(
 export function Palette() {
   const [q, setQ] = useState("");
   const addNode = useStudio((s) => s.addNode);
+  const open = useStudio((s) => s.ui.left);
   const { screenToFlowPosition } = useReactFlow();
   const results = useMemo(() => searchTypes(q), [q]);
   const searching = q.trim().length > 0;
@@ -52,7 +53,8 @@ export function Palette() {
   };
 
   return (
-    <aside className="panel left" aria-label="Components">
+    <aside className={`panel left ${open ? "" : "collapsed"}`} aria-label="Components" inert={!open}>
+      <button className="panel-x" title="Fold into an icon" aria-label="Fold the component list into an icon" onClick={() => useStudio.getState().setUi("left", false)}><PanelLeftClose className="ic" size={16} aria-hidden /></button>
       <div className="search">
         <Search className="ic" size={15} aria-hidden />
         <input placeholder="Search services" aria-label="Search services or providers" value={q} onChange={(e) => setQ(e.target.value)} />

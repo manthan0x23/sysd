@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, type DragEvent } from "react";
 import {
-  Background, BackgroundVariant, Controls, MarkerType, ReactFlow, useReactFlow,
+  Background, BackgroundVariant, MarkerType, ReactFlow, useReactFlow,
   type Edge, type NodeChange,
 } from "@xyflow/react";
 import { TYPE_BY_ID } from "@/lib/catalog";
@@ -25,7 +25,7 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
   const mode = useStudio((s) => s.mode);
   const selectedId = useStudio((s) => s.selectedId);
   const selectedEdgeId = useStudio((s) => s.selectedEdgeId);
-  const { onNodesChange, onEdgesChange, onConnect, addNode, reparent, select, selectEdge } = useStudio.getState();
+  const { onNodesChange, onEdgesChange, onConnect, addNode, reparent, select, selectEdge, rememberDeleted } = useStudio.getState();
   const { screenToFlowPosition, getInternalNode } = useReactFlow();
 
   const learn = mode === "learn";
@@ -108,11 +108,17 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
         onDrop={onDrop} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = "move"; }}
         defaultEdgeOptions={{ type: "flow" }}
         snapToGrid snapGrid={GRID} minZoom={0.2} maxZoom={1.6} nodesDraggable={!readOnly} nodesConnectable={!readOnly}
-        fitView fitViewOptions={{ padding: { top: "110px", right: "400px", bottom: "40px", left: "260px" } }}
+        fitView fitViewOptions={{ padding: { top: "80px", right: "400px", bottom: "110px", left: "260px" } }}
         deleteKeyCode={readOnly ? null : ["Backspace", "Delete"]}
+        onBeforeDelete={async ({ nodes: dn, edges: de }) => {
+          const st = useStudio.getState();
+          const ids = new Set(dn.map((n) => n.id));
+          const label = dn.length > 1 ? `${dn.length} services` : dn[0] ? (st.nodes.find((n) => n.id === dn[0].id)?.data.name || "service") : "link";
+          rememberDeleted(label, st.nodes.filter((n) => ids.has(n.id)), st.edges.filter((e) => de.some((x) => x.id === e.id) || ids.has(e.source) || ids.has(e.target)));
+          return true;
+        }}
       >
         <Background variant={BackgroundVariant.Dots} gap={22} size={1.2} color="var(--dot)" />
-        <Controls showInteractive={false} position="bottom-center" orientation="horizontal" />
       </ReactFlow>
     </section>
   );

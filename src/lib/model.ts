@@ -2,6 +2,9 @@ import type { Node } from "@xyflow/react";
 import type { FitResult } from "./fit";
 import { AUTO_PLAN_ID, CUSTOM_PLAN_ID, OFFERING_BY_ID, TYPE_BY_ID, plansOf, type Need, type Offering, type Plan, type ServiceType } from "./catalog";
 
+/** The user's own figure for a component: a fixed monthly amount, plus an amount per million requests it handles. */
+export interface CustomCost { fixed: number; perMillion: number; bucket?: "compute" | "storage" | "transfer" | "managed" | "people" }
+
 export interface CustomPlan { vcpu: number; ramGb: number; diskGb: number; price: number }
 
 export interface NodeData extends Record<string, unknown> {
@@ -14,6 +17,8 @@ export interface NodeData extends Record<string, unknown> {
   /** A listed plan id, "custom", or "auto" (cheapest tier that fits, recomputed as numbers change). */
   planId?: string;
   custom?: CustomPlan;
+  /** Overrides every other price for this component; the cost is "yours". */
+  customCost?: CustomCost;
   /** Derived for rendering; never stored or exported. */
   util?: number | null;
   load?: number;

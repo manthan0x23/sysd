@@ -146,6 +146,6 @@ export const SERVICE_TYPES: ServiceType[] = RAW_TYPES.map((x) => ({ ...x, short:
 
 export const TYPE_BY_ID: Record<string, ServiceType> = Object.fromEntries(SERVICE_TYPES.map((x) => [x.id, x]));
 export const CATEGORIES: Category[] = [
-  "Hosts", "Compute", "Databases", "Caches", "Storage", "Network", "Messaging",
+  "Clients", "Hosts", "Compute", "Databases", "Caches", "Storage", "Network", "Messaging",
   "Data & analytics", "Search & vector", "AI", "Observability", "Security & identity", "Product & business", "Media & realtime", "Dev & delivery",
 ];

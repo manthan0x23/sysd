@@ -1,0 +1,12 @@
+.legal { min-height: 100vh; background: var(--bg); color: var(--ink); padding: 24px 16px 64px; }
+.legal header { max-width: 720px; margin: 0 auto 32px; }
+.legal-logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 17px; letter-spacing: -0.02em; color: inherit; text-decoration: none; }
+.legal article { max-width: 720px; margin: 0 auto; line-height: 1.65; }
+.legal h1 { font: 400 44px/1.1 var(--font-serif), Georgia, serif; letter-spacing: -0.02em; text-wrap: balance; }
+.legal h2 { font: 600 20px/1.3 var(--font-sans), system-ui, sans-serif; margin: 36px 0 8px; }
+.legal p, .legal li { color: var(--ink2); }
+.legal p { margin-top: 10px; }
+.legal ul { margin: 10px 0 0 20px; display: grid; gap: 6px; }
+.legal a { color: var(--ink); text-underline-offset: 3px; }
+.legal-date { font-size: 14px; }
+.legal-nav { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; }

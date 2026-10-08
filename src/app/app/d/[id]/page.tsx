@@ -3,9 +3,11 @@ import { notFound, redirect } from "next/navigation";
 import { connection } from "next/server";
 import { Suspense } from "react";
 import { Studio } from "@/components/studio/Studio";
+import { StudioSkeleton } from "@/components/studio/StudioSkeleton";
 import { APP_NAME } from "@/lib/brand";
 import { UserError } from "@/server/doc";
 import { getDesign } from "@/server/designs";
+import { getPlan } from "@/server/plans";
 import { currentUser } from "@/server/session";
 
 export const metadata: Metadata = { title: `Design | ${APP_NAME}`, robots: { index: false } };
@@ -20,12 +22,13 @@ async function Gate({ params }: { params: Promise<{ id: string }> }) {
   let d;
   try { d = await getDesign(u.id, id); } catch (e) { if (e instanceof UserError) notFound(); throw e; }
   const initial = { id: d.id, title: d.title, status: d.status, rev: d.rev, teamId: d.teamId, level: d.level, doc: d.doc };
-  return <Studio user={{ name: u.name, image: u.image }} initial={initial} hydrateKey={`d-${d.id}`} />;
+  const plan = await getPlan(u.id);
+  return <Studio user={{ name: u.name, image: u.image }} plan={plan} initial={initial} hydrateKey={`d-${d.id}`} />;
 }
 
 export default function DesignPage({ params }: { params: Promise<{ id: string }> }) {
   return (
-    <Suspense fallback={<div className="studio" aria-busy="true" />}>
+    <Suspense fallback={<StudioSkeleton />}>
       <Gate params={params} />
     </Suspense>
   );

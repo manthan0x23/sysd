@@ -72,6 +72,8 @@ export const designs = pgTable("designs", {
   status: designStatus("status").notNull().default("draft"),
   /** The whole canvas: nodes, links, workload. Validated on every write (see server/doc.ts). */
   doc: jsonb("doc").notNull(),
+  /** A small SVG preview of the canvas, drawn on the server at each save (see server/thumb.ts). */
+  thumb: text("thumb"),
   /** Bumped on every write; a save with a stale revision is refused instead of overwriting. */
   rev: integer("rev").notNull().default(1),
   createdAt: ts("created_at").notNull().defaultNow(),

@@ -4,7 +4,7 @@ import {
   type Connection, type Edge, type OnConnect, type OnEdgesChange, type OnNodesChange,
 } from "@xyflow/react";
 import { AUTO_PLAN_ID, TYPE_BY_ID, defaultOffering, offeringsOf, plansOf, selfHostedOf } from "@/lib/catalog";
-import { DEFAULT_CUSTOM, type CustomPlan, type NodeData, type StudioNode } from "@/lib/model";
+import { DEFAULT_CUSTOM, type CustomCost, type CustomPlan, type NodeData, type StudioNode } from "@/lib/model";
 import { fromDoc, type DesignDoc } from "@/lib/doc";
 import { DEFAULT_WORKLOAD, type Workload } from "@/lib/sim";
 
@@ -86,6 +86,16 @@ interface Studio {
   selectedId: string | null;
   selectedEdgeId: string | null;
   view: View;
+  /** Whether the cost and traffic breakdown table is open. */
+  dockOpen: boolean;
+  dockFull: boolean;
+  setDockFull: (v: boolean) => void;
+  setDock: (open: boolean) => void;
+  /** Which surfaces are open. Each one can fold into a single icon island. */
+  ui: { left: boolean; right: boolean; util: boolean };
+  setUi: (key: "left" | "right" | "util", open: boolean) => void;
+  /** Replaces an empty or edited canvas with the sample system. */
+  loadSample: () => void;
   design: DesignState;
   hydrate: (key: string, d: InitialDesign | null) => void;
   setTitle: (t: string) => void;
@@ -95,9 +105,18 @@ interface Studio {
   onNodesChange: OnNodesChange<StudioNode>;
   onEdgesChange: OnEdgesChange;
   onConnect: OnConnect;
-  addNode: (typeId: string, position: { x: number; y: number }, parentId?: string) => void;
+  addNode: (typeId: string, position: { x: number; y: number }, parentId?: string) => string;
   reparent: (id: string, parentId: string | null, position: { x: number; y: number }) => void;
   rename: (id: string, name: string) => void;
+  setCustomCost: (id: string, cost: CustomCost | undefined) => void;
+  /** Removes nodes (and anything inside them, and their links) and remembers them for Undo. */
+  removeNodes: (ids: string[]) => void;
+  removeEdges: (ids: string[]) => void;
+  /** What was just deleted, so a toast can offer to bring it back. */
+  deleted: { label: string; nodes: StudioNode[]; edges: Edge[]; at: number } | null;
+  rememberDeleted: (label: string, nodes: StudioNode[], edges: Edge[]) => void;
+  undoDelete: () => void;
+  dismissDeleted: () => void;
   setIcon: (id: string, icon: string | undefined) => void;
   setOffering: (id: string, offeringId: string) => void;
   setPlan: (id: string, planId: string) => void;
@@ -123,6 +142,13 @@ export const useStudio = create<Studio>((set) => ({
   selectedId: "db",
   selectedEdgeId: null,
   view: "overview",
+  dockOpen: false,
+  dockFull: false,
+  setDockFull: (dockFull) => set({ dockFull }),
+  setDock: (dockOpen) => set({ dockOpen }),
+  ui: { left: true, right: true, util: true },
+  setUi: (key, open) => set((s) => ({ ui: { ...s.ui, [key]: open } })),
+  loadSample: () => set({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD }),
   design: NEW_DESIGN,
   hydrate: (key, d) =>
     set(() => {
@@ -140,11 +166,11 @@ export const useStudio = create<Studio>((set) => ({
   onNodesChange: (changes) => set((s) => ({ nodes: applyNodeChanges(changes, s.nodes) })),
   onEdgesChange: (changes) => set((s) => ({ edges: applyEdgeChanges(changes, s.edges) })),
   onConnect: (c: Connection) => set((s) => ({ edges: addEdge({ ...c, type: "flow" }, s.edges) })),
-  addNode: (typeId, position, parentId) =>
-    set((s) => {
-      const id = `${typeId}-${Date.now().toString(36)}-${counter++}`;
-      return { nodes: orderNodes([...s.nodes, makeNode(id, typeId, position, parentId)]), selectedId: id, selectedEdgeId: null };
-    }),
+  addNode: (typeId, position, parentId) => {
+    const id = `${typeId}-${Date.now().toString(36)}-${counter++}`;
+    set((s) => ({ nodes: orderNodes([...s.nodes, makeNode(id, typeId, position, parentId)]), selectedId: id, selectedEdgeId: null }));
+    return id;
+  },
   reparent: (id, parentId, position) =>
     set((s) => ({
       nodes: orderNodes(
@@ -166,6 +192,42 @@ export const useStudio = create<Studio>((set) => ({
       ),
     })),
   setIcon: (id, icon) => set((s) => ({ nodes: patchData(s.nodes, id, { icon }) })),
+  setCustomCost: (id, customCost) => set((s) => ({ nodes: patchData(s.nodes, id, { customCost }) })),
+  deleted: null,
+  rememberDeleted: (label, nodes, edges) => set({ deleted: { label, nodes, edges, at: Date.now() } }),
+  dismissDeleted: () => set({ deleted: null }),
+  undoDelete: () => set((s) => {
+    if (!s.deleted) return {};
+    const have = new Set(s.nodes.map((n) => n.id));
+    const haveE = new Set(s.edges.map((e) => e.id));
+    const nodes = orderNodes([...s.nodes, ...s.deleted.nodes.filter((n) => !have.has(n.id))]);
+    const ids = new Set(nodes.map((n) => n.id));
+    // a restored link needs both ends to exist
+    const edges = [...s.edges, ...s.deleted.edges.filter((e) => !haveE.has(e.id) && ids.has(e.source) && ids.has(e.target))];
+    return { nodes, edges, deleted: null };
+  }),
+  removeNodes: (ids) => set((s) => {
+    const gone = new Set(ids);
+    let grew = true;
+    while (grew) { grew = false; for (const n of s.nodes) if (n.parentId && gone.has(n.parentId) && !gone.has(n.id)) { gone.add(n.id); grew = true; } }
+    const nodes = s.nodes.filter((n) => !gone.has(n.id));
+    const removedNodes = s.nodes.filter((n) => gone.has(n.id));
+    const removedEdges = s.edges.filter((e) => gone.has(e.source) || gone.has(e.target));
+    if (!removedNodes.length) return {};
+    const first = removedNodes[0];
+    const label = removedNodes.length > 1 ? `${removedNodes.length} services` : (first.data.name || TYPE_BY_ID[first.data.typeId].short || TYPE_BY_ID[first.data.typeId].label);
+    return {
+      nodes, edges: s.edges.filter((e) => !removedEdges.includes(e)),
+      selectedId: s.selectedId && gone.has(s.selectedId) ? null : s.selectedId, selectedEdgeId: null,
+      deleted: { label, nodes: removedNodes, edges: removedEdges, at: Date.now() },
+    };
+  }),
+  removeEdges: (ids) => set((s) => {
+    const gone = new Set(ids);
+    const removed = s.edges.filter((e) => gone.has(e.id));
+    if (!removed.length) return {};
+    return { edges: s.edges.filter((e) => !gone.has(e.id)), selectedEdgeId: null, deleted: { label: "link", nodes: [], edges: removed, at: Date.now() } };
+  }),
   rename: (id, name) => set((s) => ({ nodes: patchData(s.nodes, id, { name: name.trim().slice(0, 40) || undefined }) })),
   setOffering: (id, offeringId) =>
     set((s) => {

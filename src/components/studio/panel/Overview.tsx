@@ -27,7 +27,8 @@ export function Overview() {
   const over = servers.filter((n) => a.fits[n.id]?.verdict === "over").length;
   const links = a.edges.length;
   const busiest = Math.max(0, ...Object.values(sim.edgeLoad));
-  const real = Object.values(sim.priced).filter(Boolean).length;
+  const yours = Object.keys(sim.yours).length;
+  const real = Object.keys(sim.priced).filter((k) => sim.priced[k] && !sim.yours[k]).length;
   const counted = Object.keys(sim.priced).length;
   const total = BUCKETS.reduce((s, b) => s + sim.buckets[b], 0) || 1;
 
@@ -63,8 +64,8 @@ export function Overview() {
         </Card>
         <div className="nc nc-static" aria-label="Price coverage">
           <span className="nc-h">Price data</span>
-          <b className="nc-big">{real}<small> of {counted} real</small></b>
-          <span className="nc-sub">{real ? "Others use illustrative figures" : "All costs are illustrative so far"}</span>
+          <b className="nc-big">{real + yours}<small> of {counted} real or yours</small></b>
+          <span className="nc-sub">{real + yours ? `${real} real price${real === 1 ? "" : "s"}, ${yours} yours. The rest are illustrative` : "All costs are illustrative so far"}</span>
         </div>
       </div>
 

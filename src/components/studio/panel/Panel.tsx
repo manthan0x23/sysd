@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, PanelRightClose } from "lucide-react";
 import { useStudio, type View } from "@/store/useStudio";
 import { Overview } from "./Overview";
 import { ComponentCard, LinkEditor } from "./Selection";
@@ -21,9 +21,11 @@ export function Panel() {
   const setView = useStudio((s) => s.setView);
   const hasNode = useStudio((s) => s.selectedId != null);
   const hasEdge = useStudio((s) => s.selectedEdgeId != null);
+  const open = useStudio((s) => s.ui.right);
 
   return (
-    <aside className="panel right" aria-label="Details and numbers">
+    <aside className={`panel right ${open ? "" : "collapsed"}`} aria-label="Details and numbers" inert={!open}>
+      <button className="panel-x" title="Fold into an icon" aria-label="Fold the details panel into an icon" onClick={() => useStudio.getState().setUi("right", false)}><PanelRightClose className="ic" size={16} aria-hidden /></button>
       {hasNode && <ComponentCard />}
       {hasEdge && <LinkEditor />}
       <div className="view-h">

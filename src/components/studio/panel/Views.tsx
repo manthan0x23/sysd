@@ -141,7 +141,7 @@ export function CostView() {
           <li key={n.id}>
             <button className="row" onClick={() => select(n.id)}>
               <span className="row-t"><ServiceIcon typeId={n.data.typeId} offering={offeringOf(n.data)} size={12} className="mini" />{nameOf(n)}</span>
-              <span className="row-n"><Num value={sim.nodeCost[n.id] ?? 0} format={fmtMoney} /> <small className={sim.priced[n.id] ? "real" : ""}>{sim.priced[n.id] ? "real price" : "illustrative"}</small></span>
+              <span className="row-n"><Num value={sim.nodeCost[n.id] ?? 0} format={fmtMoney} /> <small className={sim.priced[n.id] ? "real" : ""}>{sim.yours[n.id] ? "your figure" : sim.priced[n.id] ? "real price" : "illustrative"}</small></span>
             </button>
           </li>
         ))}

@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Check, Copy, Link2, Share2 } from "lucide-react";
 import { createShareAction, listSharesAction, revokeShareAction } from "@/app/actions/shares";
 import { useStudio } from "@/store/useStudio";
@@ -15,7 +16,7 @@ const ago = (iso: string | null) => {
 };
 
 /** Read-only links to the design, with how many times each was opened. */
-export function ShareButton() {
+export function ShareButton({ onOpenChange }: { onOpenChange?: (open: boolean) => void }) {
   const design = useStudio((s) => s.design);
   const [open, setOpen] = useState(false);
   const [rows, setRows] = useState<Row[] | null>(null);
@@ -23,6 +24,15 @@ export function ShareButton() {
   const [busy, setBusy] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
   const box = useRef<HTMLDivElement>(null);
+  const btn = useRef<HTMLButtonElement>(null);
+  const pop = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
+  useEffect(() => { onOpenChange?.(open); }, [open, onOpenChange]);
+  useLayoutEffect(() => {
+    if (!open || !btn.current) return;
+    const r = btn.current.getBoundingClientRect();
+    setPos({ top: r.bottom + 12, left: Math.max(12, Math.min(r.right - 400, window.innerWidth - 412)) });
+  }, [open]);
 
   const load = useCallback(async (id: string) => {
     const r = await listSharesAction(id);
@@ -31,7 +41,7 @@ export function ShareButton() {
 
   useEffect(() => {
     if (!open) return;
-    const down = (e: PointerEvent) => { if (!box.current?.contains(e.target as Node)) setOpen(false); };
+    const down = (e: PointerEvent) => { const t = e.target as Node; if (!box.current?.contains(t) && !pop.current?.contains(t)) setOpen(false); };
     const key = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
     document.addEventListener("pointerdown", down); document.addEventListener("keydown", key);
     return () => { document.removeEventListener("pointerdown", down); document.removeEventListener("keydown", key); };
@@ -58,9 +68,9 @@ export function ShareButton() {
 
   return (
     <div className="share" ref={box}>
-      <button className="tb" onClick={() => { const next = !open; setOpen(next); if (next && design.id) void load(design.id); }} aria-expanded={open} aria-haspopup="dialog"><Share2 className="ic" size={15} aria-hidden />Share</button>
-      {open && (
-        <div className="share-pop" role="dialog" aria-label="Share this design">
+      <button ref={btn} className="tb" onClick={() => { const next = !open; setOpen(next); if (next && design.id) void load(design.id); }} aria-expanded={open} aria-haspopup="dialog"><Share2 className="ic" size={15} aria-hidden />Share</button>
+      {open && pos && createPortal(
+        <div ref={pop} className="share-pop" role="dialog" aria-label="Share this design" style={{ top: pos.top, left: pos.left }}>
           <h3>Share a read-only link</h3>
           {!design.id ? (
             <>
@@ -86,7 +96,8 @@ export function ShareButton() {
             </>
           )}
           {error && <p className="note err" role="alert">{error}</p>}
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );

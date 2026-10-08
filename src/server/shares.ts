@@ -56,8 +56,16 @@ export async function copyShared(userId: string, token: string) {
   if (!/^[A-Za-z0-9_-]{16,64}$/.test(token)) throw new UserError("That link is not valid.");
   const [sh] = await db.select({ designId: shares.designId, expiresAt: shares.expiresAt, revokedAt: shares.revokedAt }).from(shares).where(eq(shares.token, token)).limit(1);
   if (!sh || sh.revokedAt || (sh.expiresAt && sh.expiresAt.getTime() < Date.now())) throw new UserError("That link is no longer active.");
-  const [d] = await db.select({ title: designs.title, doc: designs.doc }).from(designs).where(eq(designs.id, sh.designId)).limit(1);
+  const [d] = await db.select({ title: designs.title, doc: designs.doc, thumb: designs.thumb }).from(designs).where(eq(designs.id, sh.designId)).limit(1);
   if (!d) throw new UserError("That design no longer exists.");
-  const [row] = await db.insert(designs).values({ ownerId: userId, teamId: null, title: `${d.title} (copy)`.slice(0, 80), status: "draft", doc: d.doc }).returning({ id: designs.id });
+  const [row] = await db.insert(designs).values({ ownerId: userId, teamId: null, title: `${d.title} (copy)`.slice(0, 80), status: "draft", doc: d.doc, thumb: d.thumb }).returning({ id: designs.id });
   return row;
+}
+
+/** The newest active share link for a design, created when there is none. Used so an export can carry a link. */
+export async function ensureShare(userId: string, designId: string) {
+  await editableDesign(userId, designId);
+  const [live] = await db.select({ token: shares.token }).from(shares)
+    .where(and(eq(shares.designId, designId), isNull(shares.revokedAt))).orderBy(desc(shares.createdAt)).limit(1);
+  return live?.token ?? (await createShare(userId, designId)).token;
 }

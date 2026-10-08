@@ -3,13 +3,12 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { connection } from "next/server";
 import { Suspense } from "react";
-import { AppHeader } from "@/components/pages/AppHeader";
+import { PageSkeleton } from "@/components/pages/PageSkeleton";
 import { CreateTeamForm } from "@/components/pages/TeamForms";
 import { APP_NAME } from "@/lib/brand";
 import { getPlan } from "@/server/plans";
 import { currentUser } from "@/server/session";
 import { listTeams } from "@/server/teams";
-import "../pages.css";
 
 export const metadata: Metadata = { title: `Teams | ${APP_NAME}` };
 
@@ -20,7 +19,6 @@ async function Body() {
   const [plan, teams] = await Promise.all([getPlan(u.id), listTeams(u.id)]);
   return (
     <>
-      <AppHeader user={u} plan={plan} here="teams" />
       <main className="pm">
         <h1>Teams</h1>
         <p className="lede">Share designs with the people you work with. Members are viewers or editors.</p>
@@ -41,5 +39,5 @@ async function Body() {
 }
 
 export default function TeamsPage() {
-  return <Suspense fallback={<main className="pm" aria-busy="true" />}><Body /></Suspense>;
+  return <Suspense fallback={<PageSkeleton rows={2} />}><Body /></Suspense>;
 }

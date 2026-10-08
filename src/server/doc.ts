@@ -14,6 +14,7 @@ const Node = z.object({
   offering: z.string().max(160).optional(),
   plan: z.string().max(60).optional(),
   custom: z.object({ vcpu: finite(0, 100_000), ramGb: finite(0, 1_000_000), diskGb: finite(0, 10_000_000), price: finite(0, 10_000_000) }).optional(),
+  cost: z.object({ fixed: finite(0, 1e9), perMillion: finite(0, 1e9), bucket: z.enum(["compute", "storage", "transfer", "managed", "people"]).optional() }).optional(),
   parent: id.optional(),
   x: finite(-1e6, 1e6), y: finite(-1e6, 1e6),
   width: finite(0, 1e5).optional(), height: finite(0, 1e5).optional(),

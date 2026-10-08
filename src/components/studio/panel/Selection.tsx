@@ -1,10 +1,10 @@
 "use client";
 
-import { Upload } from "lucide-react";
+import { Trash2, Upload } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 import { iconFromFile } from "@/lib/uploadIcon";
 import {
-  AUTO_PLAN_ID, CUSTOM_PLAN_ID, TYPE_BY_ID, offeringLabel, plansOf,
+  AUTO_PLAN_ID, BUCKETS, CUSTOM_PLAN_ID, TYPE_BY_ID, offeringLabel, plansOf,
 } from "@/lib/catalog";
 import { HOST_OVERHEAD } from "@/lib/fit";
 import { fmtInt, fmtMoney } from "@/lib/format";
@@ -28,7 +28,7 @@ export function ComponentCard() {
   const ro = useReadOnly();
   const a = useAnalysis();
   const selectedId = useStudio((s) => s.selectedId);
-  const { rename, setOffering, setPlan, setCustom, setIcon } = useStudio.getState();
+  const { rename, setOffering, setPlan, setCustom, setIcon, setCustomCost, removeNodes } = useStudio.getState();
   const node = a.nodes.find((n) => n.id === selectedId);
   const fileRef = useRef<HTMLInputElement>(null);
   const [iconError, setIconError] = useState<string | null>(null);
@@ -174,7 +174,37 @@ export function ComponentCard() {
         </>
       )}
 
-      {est && (
+      {type.role !== "source" && (
+        <div className="own-cost">
+          <div className="own-h">
+            <span>Your own cost</span>
+            {node.data.customCost
+              ? <button type="button" className="pill-btn" disabled={ro} onClick={() => setCustomCost(node.id, undefined)}>Use prices instead</button>
+              : <button type="button" className="pill-btn" disabled={ro} onClick={() => setCustomCost(node.id, { fixed: Math.round(est?.monthly ?? 0), perMillion: 0 })}>Set my own</button>}
+          </div>
+          {node.data.customCost ? (
+            <>
+              <div className="custom">
+                <label><span>Fixed, $ per month</span>
+                  <input type="number" min={0} step="any" disabled={ro} value={node.data.customCost.fixed} onChange={(e) => setCustomCost(node.id, { ...node.data.customCost!, fixed: Math.max(0, +e.target.value) })} />
+                </label>
+                <label><span>Per 1M requests, $</span>
+                  <input type="number" min={0} step="any" disabled={ro} value={node.data.customCost.perMillion} onChange={(e) => setCustomCost(node.id, { ...node.data.customCost!, perMillion: Math.max(0, +e.target.value) })} />
+                </label>
+              </div>
+              <label className="field">
+                <span>Counts as</span>
+                <select disabled={ro} value={node.data.customCost.bucket ?? type.bucket ?? "managed"} onChange={(e) => setCustomCost(node.id, { ...node.data.customCost!, bucket: e.target.value as (typeof BUCKETS)[number] })}>
+                  {BUCKETS.map((b) => <option key={b} value={b}>{b[0].toUpperCase() + b.slice(1)}</option>)}
+                </select>
+              </label>
+              <p className="note">Replaces every other price for this service. The fixed amount is charged every month; the per-request part scales with the traffic that reaches it ({fmtInt(usage.rps)} req/s now).</p>
+            </>
+          ) : <p className="note">Use this when you already know the price, such as a negotiated rate or a service we do not list.</p>}
+        </div>
+      )}
+
+      {est && !node.data.customCost && (
         <div className="est">
           <div className="est-top"><span>Estimated at your load</span><b><Num value={est.monthly} format={(n) => `${fmtMoney(n)}/mo`} /></b></div>
           <ul>{est.lines.map((l) => <li key={l.label}><span>{l.label}</span><b>{usd(l.amount)}</b></li>)}</ul>
@@ -189,6 +219,12 @@ export function ComponentCard() {
         </p>
       )}
       {type.role !== "source" && usage.rps > 0 && !type.host && <p className="note">{fmtInt(usage.rps)} requests per second reach it ({fmtInt(usage.rps * SECONDS_PER_MONTH / 1e6)}M a month).</p>}
+      {!ro && (
+        <div className="del-row">
+          <button type="button" className="pill-btn danger" onClick={() => removeNodes([node.id])}><Trash2 className="ic" size={13} aria-hidden /> Delete {type.host ? "this block" : "this service"}</button>
+          {type.host && fit && fit.children > 0 && <small>Also removes the {fit.children} service{fit.children === 1 ? "" : "s"} inside. You can undo it.</small>}
+        </div>
+      )}
     </section>
   );
 }
@@ -198,7 +234,7 @@ export function LinkEditor() {
   const ro = useReadOnly();
   const a = useAnalysis();
   const edgeId = useStudio((s) => s.selectedEdgeId);
-  const { setEdgeWeight } = useStudio.getState();
+  const { setEdgeWeight, removeEdges } = useStudio.getState();
   const edge = a.edges.find((e) => e.id === edgeId);
   if (!edge) return null;
   const from = a.nodes.find((n) => n.id === edge.source);
@@ -233,6 +269,7 @@ export function LinkEditor() {
         <input type="range" min={0} max={100} step={1} disabled={ro} value={Math.round(manual ?? share * 100)} onChange={(e) => setEdgeWeight(edge.id, +e.target.value)} />
       </label>
       <div className="row-actions">
+        {!ro && <button className="pill-btn danger" onClick={() => removeEdges([edge.id])}><Trash2 className="ic" size={13} aria-hidden /> Remove link</button>}
         <button className="pill-btn" disabled={ro || manual == null} onClick={() => setEdgeWeight(edge.id, undefined)}>Automatic for this link</button>
         {siblings.length > 1 && <button className="pill-btn" disabled={ro || !siblings.some((e) => (e.data as { weight?: number } | undefined)?.weight != null)} onClick={() => siblings.forEach((e) => setEdgeWeight(e.id, undefined))}>Reset all from {nameOf(from)}</button>}
       </div>

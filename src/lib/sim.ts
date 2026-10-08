@@ -1,7 +1,7 @@
 import type { Edge } from "@xyflow/react";
 import { BUCKETS, TYPE_BY_ID, type Bucket } from "./catalog";
 import { offeringOf, type StudioNode } from "./model";
-import type { Estimate } from "./pricing/estimate";
+import { SECONDS_PER_MONTH, type Estimate } from "./pricing/estimate";
 
 export interface Workload {
   users: number;
@@ -28,6 +28,8 @@ export interface SimResult {
   nodeCost: Record<string, number>;
   /** True where the cost comes from real prices; false where it is the built-in illustrative figure. */
   priced: Record<string, boolean>;
+  /** True where the user entered the cost themselves. */
+  yours: Record<string, boolean>;
   /** Monthly cost per bucket. */
   buckets: Record<Bucket, number>;
   topBucket: Bucket | null;
@@ -115,6 +117,7 @@ export function simulate(nodes: N[], edges: Edge[], w: Workload, ctx: CostContex
   const util: Record<string, number | null> = {};
   const nodeCost: Record<string, number> = {};
   const priced: Record<string, boolean> = {};
+  const yours: Record<string, boolean> = {};
   let maxUtil = 0;
   let hottestId: string | null = null;
   let cost = 0;
@@ -130,6 +133,19 @@ export function simulate(nodes: N[], edges: Edge[], w: Workload, ctx: CostContex
   for (const n of nodes) {
     const kind = TYPE_BY_ID[n.data.typeId];
     const model = offeringOf(n.data)?.model;
+    const own = n.data.customCost;
+    if (own && kind.role !== "source") {
+      // The user's own figure replaces every other price for this component, including operating time.
+      const monthly = own.fixed + own.perMillion * (((load[n.id] ?? 0) * SECONDS_PER_MONTH) / 1e6);
+      bill(n.id, own.bucket ?? kind.bucket ?? "managed", monthly, true);
+      yours[n.id] = true;
+      if (kind.role === "host" || kind.cap == null) { util[n.id] = null; continue; }
+      const l0 = load[n.id] ?? 0, u0 = l0 / kind.cap;
+      util[n.id] = u0;
+      if (l0 > 0 && u0 > maxUtil) { maxUtil = u0; hottestId = n.id; }
+      if (u0 > 1) errorPct = Math.max(errorPct, 1 - 1 / u0);
+      continue;
+    }
     if (kind.role === "host") {
       util[n.id] = null;
       if (kind.host === "server") {
@@ -169,7 +185,7 @@ export function simulate(nodes: N[], edges: Edge[], w: Workload, ctx: CostContex
 
   const topBucket = cost > 0 ? BUCKETS.reduce((a, b) => (buckets[b] > buckets[a] ? b : a)) : null;
   const unitCost = w.users > 0 ? cost / w.users : 0;
-  return { load, util, edgeLoad, entryRps: sources.length ? entryRps * sources.length : 0, latencyMs, headroom: maxUtil > 0 ? 1 / maxUtil : null, cost, nodeCost, priced, buckets, topBucket, unitCost, errorPct, hottestId };
+  return { load, util, edgeLoad, entryRps: sources.length ? entryRps * sources.length : 0, latencyMs, headroom: maxUtil > 0 ? 1 / maxUtil : null, cost, nodeCost, priced, yours, buckets, topBucket, unitCost, errorPct, hottestId };
 }
 
 export interface Explanation { title: string; accent: string; body: string }
