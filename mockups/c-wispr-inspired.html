@@ -1,0 +1,176 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Systemd mock-up C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='light'}</script>
+<style>
+:root{--bg:#FFFFEB;--surface:#FFFEF7;--ink:#1A1A1A;--ink2:#5E5E50;--line:#E4E4D0;--dot:#DADAC0;--ac:#F0D7FF;--acink:#1A1A1A;--ring:#1A1A1A;--serif:'EB Garamond',Georgia,serif;--sans:Figtree,system-ui,-apple-system,sans-serif;color-scheme:light}
+:root[data-theme=dark]{--bg:#14140E;--surface:#1D1D15;--ink:#F3F1E1;--ink2:#A6A491;--line:#33322A;--dot:#2A2A22;--ring:#F0D7FF;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 14px/1.45 var(--sans);height:100vh;overflow:hidden;position:relative}
+.ic{flex:none;display:block}
+/* nav */
+nav{position:absolute;z-index:5;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 32px));height:56px;display:flex;align-items:center;gap:16px;padding:0 8px 0 16px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.logo{display:flex;align-items:center;gap:8px;font:600 17px var(--sans);letter-spacing:-.02em}
+.seg{display:flex;background:color-mix(in oklab,var(--ink) 7%,transparent);border-radius:999px;padding:3px;margin-left:8px}
+.seg button{all:unset;cursor:pointer;padding:5px 16px;border-radius:999px;color:var(--ink2);font-weight:500;transition:background .14s,color .14s}
+.seg button[aria-pressed=true]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+.sp{flex:1}.proj{color:var(--ink2)}
+.tb{all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;padding:7px 10px;border-radius:8px;color:var(--ink2);font-weight:500;transition:color .14s,background .14s}
+.tb:hover{color:var(--ink);background:color-mix(in oklab,var(--ink) 6%,transparent)}
+.btn{all:unset;cursor:pointer;padding:9px 18px;border-radius:8px;background:var(--ac);color:var(--acink);border:2px solid var(--ring);font-weight:600;transition:transform .14s}
+.btn:hover{transform:translateY(-1px)}
+:focus-visible{outline:2px solid var(--ring);outline-offset:2px}
+#theme .moon{display:none}:root[data-theme=dark] #theme .sun{display:none}:root[data-theme=dark] #theme .moon{display:block}
+/* canvas */
+.canvas{position:absolute;inset:0;background-image:radial-gradient(var(--dot) 1.2px,transparent 1.2px);background-size:22px 22px;overflow:auto}
+.stage{position:absolute;left:240px;top:150px;width:900px;height:400px}
+.stage>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.edge{fill:none;stroke:var(--ink2);stroke-width:1.5;opacity:.7}
+.pill{position:absolute;transform:translate(-50%,-50%);font:600 11px var(--sans);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 7px;color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.node{position:absolute;width:142px;height:64px;background:var(--surface);border:1px solid var(--line);border-radius:12px;display:grid;grid-template-columns:26px 1fr;grid-template-rows:1fr auto;gap:2px 8px;padding:9px 10px 8px;cursor:grab;transition:border-color .14s,transform .14s}
+.node:hover{border-color:var(--ink2);transform:translateY(-1px)}
+.node.sel{background:var(--ac);color:var(--acink);border:2px solid var(--ring);padding:8px 9px 7px}
+.ni{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink);background:var(--bg);flex:none}
+.node.sel .ni{background:#fff8;border-color:#1a1a1a33;color:#1A1A1A}
+.nm{display:flex;flex-direction:column;min-width:0;justify-content:center}.nm strong{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nm small{color:var(--ink2);font-size:11px}.node.sel small{color:#1A1A1Acc}
+.ut{grid-column:1/-1;display:flex;align-items:center;gap:8px}.bar{flex:1;height:3px;background:color-mix(in oklab,var(--ink) 12%,transparent);border-radius:2px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ink2)}
+.node.sel .bar i{background:#1A1A1A}.ut b{font:600 10px var(--sans);color:var(--ink2);font-variant-numeric:tabular-nums}.node.sel .ut b{color:#1A1A1A}
+/* floating panels */
+.panel{position:absolute;z-index:4;top:88px;bottom:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;overflow:auto}
+.left{left:16px;width:216px}.right{right:16px;width:280px}
+.search{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;color:var(--ink2);background:var(--bg)}
+.search input{all:unset;flex:1;color:var(--ink)}
+h4{font-weight:500;font-size:12px;color:var(--ink2);margin:18px 0 6px}
+.pi{display:flex;align-items:center;gap:10px;padding:5px 6px;border-radius:8px;cursor:grab;border:1px solid transparent;transition:border-color .14s,background .14s}
+.pi:hover{border-color:var(--line);background:var(--bg)}
+.sec{margin-bottom:14px}.sec>h4:first-child{margin-top:0}
+.sl{display:block;margin:9px 0}.sl span{display:flex;justify-content:space-between;color:var(--ink2)}.sl b{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--ring);margin-top:6px}
+.kpi{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}.kpi b{font-weight:600;font-variant-numeric:tabular-nums}
+.cost{font:400 44px/1 var(--serif);letter-spacing:-.02em;margin:4px 0 4px}.cost em{font-style:italic}
+.note{color:var(--ink2);font-size:12px}
+.why{background:var(--ac);color:var(--acink);border:2px solid var(--ring);border-radius:12px;padding:14px}
+.why h5{font:400 22px/1.15 var(--serif);letter-spacing:-.01em;margin-bottom:6px}.why h5 em{font-style:italic}.why p{font-size:13px;color:#1A1A1Acc}
+@media(max-width:1100px){.left,.right{display:none}.stage{left:24px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<nav><span class="logo"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1" />
+  <rect x="2" y="16" width="6" height="6" rx="1" />
+  <rect x="9" y="2" width="6" height="6" rx="1" />
+  <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
+  <path d="M12 12V8" /></svg>Systemd</span>
+<div class="seg" role="group" aria-label="Mode"><button aria-pressed="true">Design</button><button aria-pressed="false">Learn</button></div>
+<span class="sp"></span><span class="proj">Untitled design</span><span class="sp"></span>
+<button class="tb"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+  <polyline points="7 10 12 15 17 10" />
+  <line x1="12" x2="12" y1="15" y2="3" /></svg>Export</button><button class="tb"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3" />
+  <circle cx="6" cy="12" r="3" />
+  <circle cx="18" cy="19" r="3" />
+  <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+  <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg>Share</button>
+<button class="tb" id="theme" aria-label="Toggle light and dark theme"><span class="sun"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" /></svg></span><span class="moon"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg></span></button>
+<button class="btn">Sign in</button></nav>
+<aside class="panel left"><div class="search"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></svg><input placeholder="Search components" aria-label="Search components"></div><h4>Compute</h4><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg></span>Lambda</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+  <line x1="6" x2="6.01" y1="6" y2="6" />
+  <line x1="6" x2="6.01" y1="18" y2="18" /></svg></span>EC2</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 7.7c0-.6-.4-1.2-.8-1.5l-6.3-3.9a1.72 1.72 0 0 0-1.7 0l-10.3 6c-.5.2-.9.8-.9 1.4v6.6c0 .5.4 1.2.8 1.5l6.3 3.9a1.72 1.72 0 0 0 1.7 0l10.3-6c.5-.3.9-1 .9-1.5Z" />
+  <path d="M10 21.9V14L2.1 9.1" />
+  <path d="m10 14 11.9-6.9" />
+  <path d="M14 19.8v-8.1" />
+  <path d="M18 17.5V9.4" /></svg></span>Container</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2" />
+  <rect width="6" height="6" x="9" y="9" rx="1" />
+  <path d="M15 2v2" />
+  <path d="M15 20v2" />
+  <path d="M2 15h2" />
+  <path d="M2 9h2" />
+  <path d="M20 15h2" />
+  <path d="M20 9h2" />
+  <path d="M9 2v2" />
+  <path d="M9 20v2" /></svg></span>Worker</div><h4>Data</h4><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+  <path d="M3 12A9 3 0 0 0 21 12" /></svg></span>Postgres · RDS</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 15 21.84" />
+  <path d="M21 5V8" />
+  <path d="M21 12L18 17H22L19 22" />
+  <path d="M3 12A9 3 0 0 0 14.59 14.87" /></svg></span>DynamoDB</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 19v-3" />
+  <path d="M10 19v-3" />
+  <path d="M14 19v-3" />
+  <path d="M18 19v-3" />
+  <path d="M8 11V9" />
+  <path d="M16 11V9" />
+  <path d="M12 11V9" />
+  <path d="M2 15h20" />
+  <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" /></svg></span>Redis cache</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1" />
+  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
+  <path d="M10 12h4" /></svg></span>Object storage</div><h4>Network</h4><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5" />
+  <path d="M8 3H3v5" />
+  <path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" />
+  <path d="m15 9 6-6" /></svg></span>Load balancer</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" /></svg></span>CDN</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2.5" />
+  <path d="m10.2 6.3-3.9 3.9" />
+  <circle cx="4.5" cy="12" r="2.5" />
+  <path d="M7 12h10" />
+  <circle cx="19.5" cy="12" r="2.5" />
+  <path d="m13.8 17.7 3.9-3.9" />
+  <circle cx="12" cy="19.5" r="2.5" /></svg></span>API gateway</div><h4>Messaging</h4><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12h11" />
+  <path d="M10 18h11" />
+  <path d="M10 6h11" />
+  <path d="M4 10h2" />
+  <path d="M4 6h1v4" />
+  <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></svg></span>Queue · SQS</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg></span>Kafka</div><div class="pi" draggable="true"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
+  <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
+  <circle cx="12" cy="9" r="2" />
+  <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
+  <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
+  <path d="M9.5 18h5" />
+  <path d="m8 22 4-11 4 11" /></svg></span>Pub/Sub</div></aside>
+<section class="canvas"><div class="stage"><svg><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--ink2)"/></marker></defs><path d="M142,202 L152,202 Q164,202 164,190 L164,84 Q164,72 176,72 L179,72" class="edge" marker-end="url(#ar)"/><path d="M142,202 L179,202" class="edge" marker-end="url(#ar)"/><path d="M328,72 L365,72" class="edge" marker-end="url(#ar)"/><path d="M328,202 L365,202" class="edge" marker-end="url(#ar)"/><path d="M514,202 L524,202 Q536,202 536,190 L536,84 Q536,72 548,72 L551,72" class="edge" marker-end="url(#ar)"/><path d="M514,202 L551,202" class="edge" marker-end="url(#ar)"/><path d="M514,202 L524,202 Q536,202 536,214 L536,320 Q536,332 548,332 L551,332" class="edge" marker-end="url(#ar)"/><path d="M700,332 L737,332" class="edge" marker-end="url(#ar)"/></svg><span class="pill" style="left:350.0px;top:72px">2.1k/s</span><span class="pill" style="left:350.0px;top:202px">1.2k/s</span><span class="pill" style="left:536.0px;top:202px">420/s</span><span class="pill" style="left:722.0px;top:332px">90/s</span><div class="node" style="left:0px;top:170px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" />
+  <path d="M10 19v-3.96 3.15" />
+  <path d="M7 19h5" />
+  <rect width="6" height="10" x="16" y="12" rx="2" /></svg></span><div class="nm"><strong>Client</strong><small>Web, mobile</small></div></div><div class="node" style="left:186px;top:40px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" /></svg></span><div class="nm"><strong>CDN</strong><small>CloudFront</small></div><div class="ut"><div class="bar"><i style="width:22%"></i></div><b>22%</b></div></div><div class="node" style="left:186px;top:170px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5" />
+  <path d="M8 3H3v5" />
+  <path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" />
+  <path d="m15 9 6-6" /></svg></span><div class="nm"><strong>Load balancer</strong><small>ALB</small></div><div class="ut"><div class="bar"><i style="width:31%"></i></div><b>31%</b></div></div><div class="node" style="left:372px;top:40px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1" />
+  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
+  <path d="M10 12h4" /></svg></span><div class="nm"><strong>Storage</strong><small>S3</small></div><div class="ut"><div class="bar"><i style="width:12%"></i></div><b>12%</b></div></div><div class="node" style="left:372px;top:170px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg></span><div class="nm"><strong>API</strong><small>Lambda</small></div><div class="ut"><div class="bar"><i style="width:58%"></i></div><b>58%</b></div></div><div class="node" style="left:558px;top:40px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 19v-3" />
+  <path d="M10 19v-3" />
+  <path d="M14 19v-3" />
+  <path d="M18 19v-3" />
+  <path d="M8 11V9" />
+  <path d="M16 11V9" />
+  <path d="M12 11V9" />
+  <path d="M2 15h20" />
+  <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z" /></svg></span><div class="nm"><strong>Cache</strong><small>ElastiCache</small></div><div class="ut"><div class="bar"><i style="width:44%"></i></div><b>44%</b></div></div><div class="node hot sel" style="left:558px;top:170px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3" />
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+  <path d="M3 12A9 3 0 0 0 21 12" /></svg></span><div class="nm"><strong>Postgres</strong><small>RDS</small></div><div class="ut"><div class="bar"><i style="width:82%"></i></div><b>82%</b></div></div><div class="node" style="left:558px;top:300px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12h11" />
+  <path d="M10 18h11" />
+  <path d="M10 6h11" />
+  <path d="M4 10h2" />
+  <path d="M4 6h1v4" />
+  <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></svg></span><div class="nm"><strong>Queue</strong><small>SQS</small></div><div class="ut"><div class="bar"><i style="width:27%"></i></div><b>27%</b></div></div><div class="node" style="left:744px;top:300px"><span class="ni"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+  <line x1="6" x2="6.01" y1="6" y2="6" />
+  <line x1="6" x2="6.01" y1="18" y2="18" /></svg></span><div class="nm"><strong>Worker</strong><small>EC2</small></div><div class="ut"><div class="bar"><i style="width:49%"></i></div><b>49%</b></div></div></div></section>
+<aside class="panel right">
+<div class="sec"><h4>Workload</h4><label class="sl"><span>Users<b data-k="u">250k</b></span><input type="range" min="1" max="100" value="40" data-k="u"></label><label class="sl"><span>Requests per second<b data-k="r">1,200</b></span><input type="range" min="1" max="100" value="35" data-k="r"></label><label class="sl"><span>Peak requests per second<b data-k="p">4,800</b></span><input type="range" min="1" max="100" value="60" data-k="p"></label><label class="sl"><span>Read : write<b data-k="w">90 : 10</b></span><input type="range" min="1" max="100" value="90" data-k="w"></label></div>
+<div class="sec"><h4>Metrics</h4><div class="kpi"><span>p95 latency</span><b>142 ms</b></div><div class="kpi"><span>Availability</span><b>99.9%</b></div><div class="kpi"><span>Bottleneck</span><b>Postgres</b></div></div>
+<div class="sec"><h4>Estimated cost</h4><div class="cost">$1,284</div><div class="note">per month, illustrative numbers</div></div>
+<div class="why"><h5>Why Postgres is at <em>82%</em></h5><p>The cache absorbs about 80% of reads, so 420 of 1,200 requests per second still reach the database. A higher hit rate or a read replica brings it down.</p></div>
+</aside>
+<script>
+document.getElementById('theme').onclick=function(){var r=document.documentElement,n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}};
+document.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})}});
+var f={u:function(p){return Math.round(p*6.25)+'k'},r:function(p){return Math.round(p*34.3).toLocaleString()},p:function(p){return Math.round(p*80).toLocaleString()},w:function(p){return p+' : '+(100-p)}};
+document.querySelectorAll('input[type=range]').forEach(function(i){i.oninput=function(){document.querySelector('b[data-k='+i.dataset.k+']').textContent=f[i.dataset.k](+i.value)}});
+</script></body></html>
