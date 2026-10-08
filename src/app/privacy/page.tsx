@@ -18,7 +18,7 @@ export default function Privacy() {
         <li><b>Plan:</b> whether your account is Free or Pro.</li>
         <li><b>Technical data:</b> standard server logs kept by our hosting (such as IP address, browser and requested page) for security and reliability.</li>
       </ul>
-      <p>We do not run advertising or analytics trackers.</p>
+      <p>We use Vercel Web Analytics to count visits and pages viewed. It does not use cookies and does not follow you across other websites. We run no advertising trackers.</p>
 
       <h2>How we use it</h2>
       <ul>
@@ -34,7 +34,7 @@ export default function Privacy() {
       <h2>Who else handles your data</h2>
       <ul>
         <li><b>GitHub and Google</b> for sign-in.</li>
-        <li><b>Vercel</b> hosts the website and receives requests to it.</li>
+        <li><b>Vercel</b> hosts the website, receives requests to it and provides the visit counts.</li>
         <li><b>Neon</b> hosts the database that stores your account and designs.</li>
         <li>A <b>payment provider</b>, once paid plans launch. We will name it here before then.</li>
       </ul>

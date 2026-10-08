@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@dodopayments/nextjs": "^0.3.9",
+    "@vercel/analytics": "^2.0.1",
     "@xyflow/react": "^12.12.0",
     "dodopayments": "^2.54.0",
     "drizzle-orm": "^0.45.4",

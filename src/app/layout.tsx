@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Figtree } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { APP_NAME } from "@/lib/brand";
 import "@xyflow/react/dist/style.css";
 import "./globals.css";
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }
