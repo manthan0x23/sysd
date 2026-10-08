@@ -13,10 +13,22 @@ const PRO: [string, string?][] = [
   ["AI agent", "Describe a system and it builds it for you. Coming in a later release."],
 ];
 
-export function PriceCards({ pro }: { pro: boolean }) {
+export function PriceCards({ pro, billing, manage, notice }: { pro: boolean; billing: boolean; manage: boolean; notice?: string }) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
   const [cur, setCur] = useState<Currency>("USD");
   const [per, setPer] = useState<"month" | "year">("month");
   const p = PRO_PRICES[cur];
+  const buy = async () => {
+    setBusy(true); setErr(null);
+    try {
+      const r = await fetch("/api/billing/checkout", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ interval: per, currency: cur }) });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.url) { location.assign(j.url); return; }
+      setErr(j.error ?? "Could not start checkout. Try again.");
+    } catch { setErr("Could not reach the server. Try again."); }
+    setBusy(false);
+  };
   const fmt = (n: number) => `${p.symbol}${n.toLocaleString(cur === "INR" ? "en-IN" : "en-US")}`;
   const shown = per === "month" ? p.month : p.year;
   const yearlyAsMonthly = Math.round(p.year / 12);
@@ -44,9 +56,12 @@ export function PriceCards({ pro }: { pro: boolean }) {
           {per === "year" && <p className="up-sub">About {fmt(yearlyAsMonthly)} a month, billed yearly</p>}
           <p className="up-sub">Founding price for the first 100 people: {fmt(p.founding)} a month for as long as you stay.</p>
           <ul>{PRO.map(([t, d]) => <li key={t}><Check size={15} aria-hidden /><span><b>{t}</b>{d && <small>{d}</small>}</span></li>)}</ul>
+          {notice && <p className="up-note" role="status">{notice}</p>}
           {pro
-            ? <p className="up-note">You are on Pro.</p>
-            : <><button className="btn-sm" disabled>Pro opens soon</button><p className="up-note">Payments are not live yet, so there is nothing to buy today. Prices may change before launch.</p></>}
+            ? <><p className="up-note">You are on Pro.</p>{manage && <a className="btn-sm" href="/api/billing/portal">Manage billing</a>}</>
+            : billing
+              ? <><button className="btn-sm" disabled={busy} onClick={() => void buy()}>{busy ? "Opening checkout…" : "Upgrade to Pro"}</button>{err && <p className="note err" role="alert">{err}</p>}<p className="up-note">Secure checkout by Dodo Payments, our merchant of record. Cancel any time from Manage billing.</p></>
+              : <><button className="btn-sm" disabled>Pro opens soon</button><p className="up-note">Payments are not live yet, so there is nothing to buy today. Prices may change before launch.</p></>}
         </section>
       </div>
       <p className="up-fine">Prices exclude any tax that applies where you live. <Link href="/terms">Terms</Link> · <Link href="/privacy">Privacy</Link></p>

@@ -23,6 +23,9 @@ export const users = pgTable("users", {
   lastLoginAt: ts("last_login_at").notNull().defaultNow(),
   /** Optional answers from the welcome screen. They give the AI agent context; every one can stay empty. */
   profile: jsonb("profile").$type<Profile>(),
+  /** Dodo Payments ids, set by the billing webhook. The subscription decides plan and planExpiresAt. */
+  dodoCustomerId: text("dodo_customer_id"),
+  dodoSubscriptionId: text("dodo_subscription_id"),
   /** Set when the welcome screen was finished or skipped, so it is only offered once. */
   onboardedAt: ts("onboarded_at"),
 });

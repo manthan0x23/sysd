@@ -102,7 +102,7 @@
 .dcard-body { padding: 16px 18px 18px; }
 .thumb { aspect-ratio: 16 / 10.5; }
 .thumb-art svg { padding: 16px; }
-.tile-new { min-height: 100%; }
+.tile-new { min-height: 280px; gap: 6px; padding: 28px 20px; }
 .tile-new b { font-size: 17px; }
 .list li { padding: 16px 18px; border-radius: 16px; }
 .premium, .gate { max-width: 52em; }
@@ -110,3 +110,9 @@
 .sk-card { height: 300px; border-radius: 20px; }
 .ph { padding: 16px 40px; }
 @media (max-width: 700px) { .pm { padding: 28px 16px 90px; } .ph { padding: 12px 16px; } }
+
+.tile-new svg { box-sizing: content-box; padding: 12px; border-radius: 999px; background: var(--ac); color: var(--acink); border: 1.5px solid var(--ring); margin-bottom: 10px; transition: transform .2s cubic-bezier(.22, 1, .36, 1); }
+.tile-new:hover svg { transform: rotate(90deg); }
+.tile-new small { font-size: 13.5px; text-align: center; }
+.tile-new:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.ph-plan { text-decoration: none; }

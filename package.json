@@ -16,7 +16,9 @@
     "plan": "node scripts/set-plan.mjs"
   },
   "dependencies": {
+    "@dodopayments/nextjs": "^0.3.9",
     "@xyflow/react": "^12.12.0",
+    "dodopayments": "^2.54.0",
     "drizzle-orm": "^0.45.4",
     "elkjs": "^0.12.0",
     "exceljs": "^4.4.0",
