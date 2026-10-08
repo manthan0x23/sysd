@@ -33,3 +33,10 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 .studio { position: fixed; inset: 0; overflow: hidden; background: var(--bg); }
+
+/* shared small controls */
+.btn-sm { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 8px; background: var(--ac); color: var(--acink); border: 1.5px solid var(--ring); font-weight: 600; font-size: 13.5px; text-decoration: none; white-space: nowrap; transition: transform .14s, background-color .16s; }
+.btn-sm:hover { transform: translateY(-1px); }
+.btn-sm:active { transform: scale(.985); }
+.btn-sm:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.btn-sm:disabled { opacity: .5; cursor: default; transform: none; }

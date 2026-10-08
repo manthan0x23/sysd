@@ -25,12 +25,13 @@ interface Props {
   onChange: (id: string) => void;
   /** Shown at the bottom of the list, e.g. a note on how options are ranked. */
   footer?: ReactNode;
+  disabled?: boolean;
 }
 
 const MAX_H = 360;
 
 /** A listbox that matches the rest of the UI and can show prices, badges and logos per option. */
-export function Picker({ label, value, options, onChange, footer }: Props) {
+export function Picker({ label, value, options, onChange, footer, disabled }: Props) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const [pos, setPos] = useState<{ left: number; top?: number; bottom?: number; width: number; maxH: number } | null>(null);
@@ -83,7 +84,7 @@ export function Picker({ label, value, options, onChange, footer }: Props) {
   return (
     <div className="picker">
       <button
-        ref={btn} type="button" className="pk-btn" aria-haspopup="listbox" aria-expanded={open} aria-controls={open ? id : undefined} aria-label={label}
+        ref={btn} type="button" className="pk-btn" disabled={disabled} aria-haspopup="listbox" aria-expanded={open} aria-controls={open ? id : undefined} aria-label={label}
         onClick={() => (open ? setOpen(false) : openList())} onKeyDown={onKey}
       >
         {selected?.icon}

@@ -20,7 +20,7 @@ const GRID: [number, number] = [11, 11];
 /** Keep children clear of the host header (top) and fit meters (bottom). */
 const inside = (p: { x: number; y: number }) => ({ x: Math.max(12, p.x), y: Math.max(66, p.y) });
 
-export function Canvas() {
+export function Canvas({ readOnly }: { readOnly: boolean }) {
   const { nodes, edges, sim, fits } = useAnalysis();
   const mode = useStudio((s) => s.mode);
   const selectedId = useStudio((s) => s.selectedId);
@@ -73,6 +73,7 @@ export function Canvas() {
 
   const onDrop = (e: DragEvent) => {
     e.preventDefault();
+    if (readOnly) return;
     const typeId = e.dataTransfer.getData(DRAG_TYPE);
     if (!typeId || !TYPE_BY_ID[typeId]) return;
     const p = screenToFlowPosition({ x: e.clientX, y: e.clientY });
@@ -85,6 +86,7 @@ export function Canvas() {
   };
 
   const onNodeDragStop = (_: unknown, node: StudioNode) => {
+    if (readOnly) return;
     const internal = getInternalNode(node.id);
     if (!internal) return;
     const abs = internal.internals.positionAbsolute;
@@ -105,9 +107,9 @@ export function Canvas() {
         onNodeClick={(_, n) => select(n.id)} onEdgeClick={(_, e) => selectEdge(e.id)} onPaneClick={() => { select(null); selectEdge(null); }} onNodeDragStop={onNodeDragStop}
         onDrop={onDrop} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = "move"; }}
         defaultEdgeOptions={{ type: "flow" }}
-        snapToGrid snapGrid={GRID} minZoom={0.2} maxZoom={1.6}
+        snapToGrid snapGrid={GRID} minZoom={0.2} maxZoom={1.6} nodesDraggable={!readOnly} nodesConnectable={!readOnly}
         fitView fitViewOptions={{ padding: { top: "110px", right: "400px", bottom: "40px", left: "260px" } }}
-        deleteKeyCode={["Backspace", "Delete"]}
+        deleteKeyCode={readOnly ? null : ["Backspace", "Delete"]}
       >
         <Background variant={BackgroundVariant.Dots} gap={22} size={1.2} color="var(--dot)" />
         <Controls showInteractive={false} position="bottom-center" orientation="horizontal" />

@@ -2,25 +2,25 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { connection } from "next/server";
 import { Suspense } from "react";
-import { auth } from "@/auth";
 import { Studio } from "@/components/studio/Studio";
 import { APP_NAME } from "@/lib/brand";
+import { currentUser } from "@/server/session";
 
 export const metadata: Metadata = { title: `Canvas | ${APP_NAME}` };
 
 /** Everything in the app belongs to a profile: no session, no canvas. */
-async function Gate() {
+async function Gate({ searchParams }: { searchParams: Promise<{ fresh?: string }> }) {
   await connection(); // the session is per request, so this cannot be prerendered
-  const session = await auth();
-  const u = session?.user;
+  const u = await currentUser();
   if (!u) redirect("/login");
-  return <Studio user={{ name: u.name ?? u.email ?? "Account", image: u.image ?? null }} />;
+  const fresh = (await searchParams).fresh?.replace(/[^\w-]/g, "").slice(0, 16) || "0";
+  return <Studio user={{ name: u.name, image: u.image }} initial={null} hydrateKey={`new-${fresh}`} />;
 }
 
-export default function CanvasPage() {
+export default function CanvasPage({ searchParams }: { searchParams: Promise<{ fresh?: string }> }) {
   return (
     <Suspense fallback={<div className="studio" aria-busy="true" />}>
-      <Gate />
+      <Gate searchParams={searchParams} />
     </Suspense>
   );
 }

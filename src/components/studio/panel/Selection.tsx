@@ -13,7 +13,7 @@ import { OBJECT_PRICES } from "@/lib/pricing/data";
 import { SECONDS_PER_MONTH } from "@/lib/pricing/estimate";
 import { offeringSummary, planSummary } from "@/lib/pricing/summary";
 import { splitFor, CACHE_HIT } from "@/lib/sim";
-import { useStudio } from "@/store/useStudio";
+import { useReadOnly, useStudio } from "@/store/useStudio";
 import { Num } from "../Num";
 import { Picker, type PickerOption } from "../Picker";
 import { ServiceIcon } from "../ServiceIcon";
@@ -25,6 +25,7 @@ const usd = (n: number) => `$${n.toLocaleString("en-US", { minimumFractionDigits
 
 /** The selected service: its name, which provider runs it, which tier, and what that costs. */
 export function ComponentCard() {
+  const ro = useReadOnly();
   const a = useAnalysis();
   const selectedId = useStudio((s) => s.selectedId);
   const { rename, setOffering, setPlan, setCustom, setIcon } = useStudio.getState();
@@ -110,12 +111,12 @@ export function ComponentCard() {
       <div className="field">
         <span>Name and icon</span>
         <div className="name-row">
-          <button type="button" className="icon-btn" onClick={() => fileRef.current?.click()} title={node.data.icon ? "Replace image" : "Upload your own icon"} aria-label={node.data.icon ? "Replace icon image" : "Upload an icon image"}>
+          <button type="button" className="icon-btn" disabled={ro} onClick={() => fileRef.current?.click()} title={node.data.icon ? "Replace image" : "Upload your own icon"} aria-label={node.data.icon ? "Replace icon image" : "Upload an icon image"}>
             <ServiceIcon typeId={type.id} offering={offering} custom={node.data.icon} size={16} />
             <Upload className="ic up" size={11} aria-hidden />
           </button>
-          <input className="text" key={node.id} defaultValue={node.data.name ?? ""} placeholder={`e.g. Cart ${type.short ?? type.label}`} maxLength={40} aria-label="Service name" onChange={(e) => rename(node.id, e.target.value)} />
-          {node.data.icon && <button type="button" className="pill-btn" onClick={() => { setIcon(node.id, undefined); setIconError(null); }}>Default icon</button>}
+          <input className="text" key={node.id} defaultValue={node.data.name ?? ""} placeholder={`e.g. Cart ${type.short ?? type.label}`} maxLength={40} readOnly={ro} aria-label="Service name" onChange={(e) => rename(node.id, e.target.value)} />
+          {node.data.icon && !ro && <button type="button" className="pill-btn" onClick={() => { setIcon(node.id, undefined); setIconError(null); }}>Default icon</button>}
           <input ref={fileRef} type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" hidden onChange={async (e) => {
             const f = e.target.files?.[0]; e.target.value = "";
             if (!f) return;
@@ -131,7 +132,7 @@ export function ComponentCard() {
           <div className="field">
             <span>Provider</span>
             <Picker
-              label="Provider" value={offering.id} options={providerOptions} onChange={(id) => setOffering(node.id, id)}
+              label="Provider" disabled={ro} value={offering.id} options={providerOptions} onChange={(id) => setOffering(node.id, id)}
               footer={<>Ranked by estimated monthly cost at your current load. Options within 15% of the cheapest all count as <b>Best value</b>. Only options with real prices are ranked.</>}
             />
           </div>
@@ -141,7 +142,7 @@ export function ComponentCard() {
           <div className="field">
             <span>{planLabel}{type.host === "server" && fit?.auto ? " (auto)" : ""}</span>
             <Picker
-              label={planLabel} value={planValue} options={planOptions} onChange={(id) => setPlan(node.id, id)}
+              label={planLabel} disabled={ro} value={planValue} options={planOptions} onChange={(id) => setPlan(node.id, id)}
               footer={type.host === "server" ? <>Auto picks the cheapest plan that stays under {Math.round(0.85 * 100)}% of CPU, RAM and disk, and changes it as your numbers change.</> : undefined}
             />
           </div>
@@ -150,7 +151,7 @@ export function ComponentCard() {
             <div className="custom">
               {([["vcpu", "vCPU"], ["ramGb", "RAM GB"], ["diskGb", "Disk GB"], ["price", "$ / mo"]] as const).map(([k, l]) => (
                 <label key={k}><span>{l}</span>
-                  <input type="number" min={0} step="any" value={(node.data.custom ?? DEFAULT_CUSTOM)[k]} onChange={(e) => setCustom(node.id, { [k]: Math.max(0, +e.target.value) })} />
+                  <input type="number" min={0} step="any" disabled={ro} value={(node.data.custom ?? DEFAULT_CUSTOM)[k]} onChange={(e) => setCustom(node.id, { [k]: Math.max(0, +e.target.value) })} />
                 </label>
               ))}
             </div>
@@ -194,6 +195,7 @@ export function ComponentCard() {
 
 /** The selected link: how much of its source's traffic it carries, and a way to set that by hand. */
 export function LinkEditor() {
+  const ro = useReadOnly();
   const a = useAnalysis();
   const edgeId = useStudio((s) => s.selectedEdgeId);
   const { setEdgeWeight } = useStudio.getState();
@@ -228,11 +230,11 @@ export function LinkEditor() {
       <p className="note">{Math.round(share * 100)}% of what {nameOf(from)} sends on. {why[mode]}</p>
       <label className="sl">
         <span>Share of {nameOf(from)}&apos;s traffic<b>{Math.round((manual ?? share * 100))}%</b></span>
-        <input type="range" min={0} max={100} step={1} value={Math.round(manual ?? share * 100)} onChange={(e) => setEdgeWeight(edge.id, +e.target.value)} />
+        <input type="range" min={0} max={100} step={1} disabled={ro} value={Math.round(manual ?? share * 100)} onChange={(e) => setEdgeWeight(edge.id, +e.target.value)} />
       </label>
       <div className="row-actions">
-        <button className="pill-btn" disabled={manual == null} onClick={() => setEdgeWeight(edge.id, undefined)}>Automatic for this link</button>
-        {siblings.length > 1 && <button className="pill-btn" disabled={!siblings.some((e) => (e.data as { weight?: number } | undefined)?.weight != null)} onClick={() => siblings.forEach((e) => setEdgeWeight(e.id, undefined))}>Reset all from {nameOf(from)}</button>}
+        <button className="pill-btn" disabled={ro || manual == null} onClick={() => setEdgeWeight(edge.id, undefined)}>Automatic for this link</button>
+        {siblings.length > 1 && <button className="pill-btn" disabled={ro || !siblings.some((e) => (e.data as { weight?: number } | undefined)?.weight != null)} onClick={() => siblings.forEach((e) => setEdgeWeight(e.id, undefined))}>Reset all from {nameOf(from)}</button>}
       </div>
     </section>
   );

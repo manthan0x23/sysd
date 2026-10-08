@@ -3,6 +3,7 @@
 import { Handle, NodeResizer, Position, type NodeProps } from "@xyflow/react";
 import { TYPE_BY_ID, offeringLabel } from "@/lib/catalog";
 import { needOf, offeringOf, type StudioNode } from "@/lib/model";
+import { useReadOnly } from "@/store/useStudio";
 import { Num } from "./Num";
 import { NodeTitle } from "./NodeTitle";
 import { ServiceIcon } from "./ServiceIcon";
@@ -22,6 +23,7 @@ const VERDICT = { fits: "Fits", tight: "Tight", over: "Does not fit", open: "" }
 
 /** A group block that holds other nodes: a server/VPS, or a Docker container inside one. */
 export function HostNode({ id, data, selected }: NodeProps<StudioNode>) {
+  const readOnly = useReadOnly();
   const type = TYPE_BY_ID[data.typeId];
   const fit = data.fit;
   const offering = offeringOf(data);
@@ -29,7 +31,7 @@ export function HostNode({ id, data, selected }: NodeProps<StudioNode>) {
   const server = type.host === "server";
   return (
     <div className={`host ${type.host} ${selected ? "sel" : ""} ${fit?.verdict ?? ""}`}>
-      <NodeResizer isVisible={selected} minWidth={server ? 360 : 220} minHeight={server ? 220 : 130} lineStyle={{ borderColor: "var(--ring)" }} handleStyle={{ background: "var(--surface)", border: "1.5px solid var(--ring)", width: 9, height: 9, borderRadius: 3 }} />
+      <NodeResizer isVisible={selected && !readOnly} minWidth={server ? 360 : 220} minHeight={server ? 220 : 130} lineStyle={{ borderColor: "var(--ring)" }} handleStyle={{ background: "var(--surface)", border: "1.5px solid var(--ring)", width: 9, height: 9, borderRadius: 3 }} />
       <Handle type="target" position={Position.Left} />
       <header>
         <ServiceIcon typeId={data.typeId} offering={offering} custom={data.icon} size={16} />

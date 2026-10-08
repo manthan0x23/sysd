@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+import { upsertUser } from "@/server/users";
 
 /**
  * Sign-in is GitHub or Google only: no passwords, no email sign-up, no magic links.
@@ -17,4 +18,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   session: { strategy: "jwt" },
   pages: { signIn: "/login" },
   trustHost: true,
+  callbacks: {
+    // On the sign-in itself, find or create the database profile and keep its id in the session token.
+    async jwt({ token, user, account }) {
+      if (account && user) token.uid = await upsertUser(account.provider, account.providerAccountId, { name: user.name, email: user.email, image: user.image });
+      return token;
+    },
+    session({ session, token }) {
+      if (token.uid) session.user.id = token.uid;
+      return session;
+    },
+  },
 });

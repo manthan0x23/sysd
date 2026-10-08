@@ -6,16 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:up": "docker compose --env-file .env.local up -d --wait db",
+    "db:down": "docker compose --env-file .env.local down",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:psql": "docker exec -it sysd-db psql -U sysd -d sysd",
+    "test:db": "tsx scripts/test-db.mts",
+    "plan": "node scripts/set-plan.mjs"
   },
   "dependencies": {
     "@xyflow/react": "^12.12.0",
+    "drizzle-orm": "^0.45.4",
     "elkjs": "^0.12.0",
     "lucide-react": "^1.53.0",
     "next": "16.4.0",
     "next-auth": "^5.0.0-beta.32",
+    "postgres": "^3.4.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "zod": "^4.6.5",
     "zustand": "^5.0.15"
   },
   "devDependencies": {
@@ -24,8 +34,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.11",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

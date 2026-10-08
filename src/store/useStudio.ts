@@ -5,9 +5,37 @@ import {
 } from "@xyflow/react";
 import { AUTO_PLAN_ID, TYPE_BY_ID, defaultOffering, offeringsOf, plansOf, selfHostedOf } from "@/lib/catalog";
 import { DEFAULT_CUSTOM, type CustomPlan, type NodeData, type StudioNode } from "@/lib/model";
+import { fromDoc, type DesignDoc } from "@/lib/doc";
 import { DEFAULT_WORKLOAD, type Workload } from "@/lib/sim";
 
 export type Mode = "design" | "learn";
+export type Status = "draft" | "saved";
+export type Level = "owner" | "edit" | "view";
+export type Sync = "idle" | "saving" | "saved" | "error" | "conflict";
+
+/** Where the canvas came from and how it is doing against the database. id null = not saved anywhere yet. */
+export interface DesignState {
+  id: string | null;
+  title: string;
+  status: Status;
+  rev: number;
+  teamId: string | null;
+  level: Level | null;
+  /** True on a public share page: read-only, and nothing about it is saved. */
+  shared: boolean;
+  sync: Sync;
+  error: string | null;
+  /** JSON of the document as last saved, to tell real edits from layout noise. */
+  lastJson: string;
+  /** Title or status changed since the last save. */
+  metaDirty: boolean;
+  /** Changes with each hydrate so the page knows the right design is on screen. */
+  key: string | null;
+}
+
+export interface InitialDesign { id: string | null; title: string; status: Status; rev: number; teamId: string | null; level: Level | null; shared?: boolean; doc: DesignDoc | null }
+
+const NEW_DESIGN: DesignState = { id: null, title: "Untitled design", status: "draft", rev: 0, teamId: null, level: null, shared: false, sync: "idle", error: null, lastJson: "", metaDirty: false, key: null };
 export type View = "overview" | "inputs" | "traffic" | "load" | "cost" | "fit";
 
 /** Servers start on Auto (cheapest tier that fits); models start on the first listed one; the rest have no tiers. */
@@ -58,6 +86,12 @@ interface Studio {
   selectedId: string | null;
   selectedEdgeId: string | null;
   view: View;
+  design: DesignState;
+  hydrate: (key: string, d: InitialDesign | null) => void;
+  setTitle: (t: string) => void;
+  setStatus: (s: Status) => void;
+  setSync: (sync: Sync, error?: string | null) => void;
+  markSaved: (p: { id?: string; rev: number; json: string; status?: Status }) => void;
   onNodesChange: OnNodesChange<StudioNode>;
   onEdgesChange: OnEdgesChange;
   onConnect: OnConnect;
@@ -89,6 +123,20 @@ export const useStudio = create<Studio>((set) => ({
   selectedId: "db",
   selectedEdgeId: null,
   view: "overview",
+  design: NEW_DESIGN,
+  hydrate: (key, d) =>
+    set(() => {
+      if (!d) return { nodes: INITIAL_NODES, edges: INITIAL_EDGES, workload: DEFAULT_WORKLOAD, selectedId: "db", selectedEdgeId: null, view: "overview", design: { ...NEW_DESIGN, key } };
+      const body = d.doc ? fromDoc(d.doc) : { nodes: INITIAL_NODES, edges: INITIAL_EDGES, workload: DEFAULT_WORKLOAD };
+      return {
+        nodes: orderNodes(body.nodes), edges: body.edges, workload: body.workload, selectedId: null, selectedEdgeId: null, view: "overview",
+        design: { id: d.id, title: d.title, status: d.status, rev: d.rev, teamId: d.teamId, level: d.level, shared: Boolean(d.shared), sync: "idle", error: null, lastJson: d.doc ? JSON.stringify(d.doc) : "", metaDirty: false, key },
+      };
+    }),
+  setTitle: (title) => set((s) => ({ design: { ...s.design, title, metaDirty: true } })),
+  setStatus: (status) => set((s) => ({ design: { ...s.design, status, metaDirty: true } })),
+  setSync: (sync, error = null) => set((s) => ({ design: { ...s.design, sync, error } })),
+  markSaved: ({ id, rev, json, status }) => set((s) => ({ design: { ...s.design, id: id ?? s.design.id, rev, lastJson: json, status: status ?? s.design.status, metaDirty: false, sync: "saved", error: null, level: s.design.level ?? "owner" } })),
   onNodesChange: (changes) => set((s) => ({ nodes: applyNodeChanges(changes, s.nodes) })),
   onEdgesChange: (changes) => set((s) => ({ edges: applyEdgeChanges(changes, s.edges) })),
   onConnect: (c: Connection) => set((s) => ({ edges: addEdge({ ...c, type: "flow" }, s.edges) })),
@@ -134,5 +182,8 @@ export const useStudio = create<Studio>((set) => ({
   setEdgeWeight: (id, weight) =>
     set((s) => ({ edges: s.edges.map((e) => (e.id === id ? { ...e, data: { ...(e.data ?? {}), weight } } : e)) })),
   setView: (view) => set({ view }),
-  reset: () => set({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD }),
+  reset: () => set((s) => ({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD, design: s.design.id ? s.design : { ...s.design } })),
 }));
+
+/** True on share pages and for team viewers: the canvas can be explored but nothing can be changed. */
+export const useReadOnly = () => useStudio((s) => s.design.shared || s.design.level === "view");
