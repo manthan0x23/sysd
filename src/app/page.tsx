@@ -69,11 +69,11 @@ export default function Landing() {
           <h2>Will it run on the server you are eyeing?</h2>
           <p>Put a database, your app and a cache on a small server, and Sysd tells you straight: it will not fit, and here is what runs short. Choose the next size up and watch the warning disappear. No guessing, and no surprise upgrade the week you launch.</p>
         </div>
-        <div className="lp-media lp-frame"><Shot name="fit" w={1008} h={624} sizes="(max-width: 900px) 100vw, 600px" alt="A server block holding Postgres, an app server and Redis, marked Does not fit, with RAM at 10.2 of 4 GB and disk at 96.2 of 50 GB." /></div>
+        <div className="lp-media lp-frame"><Shot name="fit" w={1052} h={672} sizes="(max-width: 900px) 100vw, 600px" alt="A server block holding Postgres, a Node.js app server and Redis, marked Does not fit, with the meters showing that CPU, memory and disk needed are well over what the server plan offers." /></div>
       </section>
 
       <section className="lp-row lp-flip">
-        <div className="lp-media lp-frame lp-portrait"><Shot name="panel" w={576} h={1206} sizes="(max-width: 900px) 80vw, 340px" alt="Latency, errors and headroom next to a card explaining why Postgres is at 82 percent, then the cost per user per month split into compute, storage, transfer, managed and people." /></div>
+        <div className="lp-media lp-frame lp-portrait"><Shot name="panel" w={576} h={1360} sizes="(max-width: 900px) 80vw, 340px" alt="The Numbers panel: requests per second, traffic, load, fit and cost per user per month, with a plain-language box explaining why Postgres is at 82 percent." /></div>
         <div className="lp-copy">
           <h2>See your monthly bill, and where it goes.</h2>
           <p>Every design shows what each user costs you per month, split into servers, storage, data transfer, managed services and people&apos;s time. The biggest slice is called out, with the usual way to shrink it.</p>
