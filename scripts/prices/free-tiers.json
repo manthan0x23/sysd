@@ -1,55 +1,506 @@
 {
   "note": "Free-tier limits read from provider pages on the dates shown. `match` adds limits to a $0 tier already captured in the database (provider, tier name); entries with `offering` add a plan that was not captured as a price. A limit appears only where the page states a number; nothing is estimated. Monthly figures use 30 days.",
   "tiers": [
-    { "match": ["neon", "Free"], "limits": { "storageGb": 1, "computeHours": 100 } },
-    { "match": ["supabase", "Free"], "limits": { "storageGb": 0.5, "users": 50000, "egressGb": 5 } },
-    { "match": ["vercel", "Hobby"], "limits": { "requestsPerMonth": 1000000 }, "note": "Hobby is for non-commercial use." },
-    { "match": ["deno", "Free"], "limits": { "requestsPerMonth": 1000000 } },
-    { "match": ["mongodb", "Free"], "limits": { "storageGb": 0.5 } },
-    { "match": ["turso", "Free"], "limits": { "storageGb": 5 } },
-    { "match": ["upstash", "Redis Free"], "limits": { "ramGb": 0.25, "requestsPerMonth": 500000 } },
-    { "match": ["redis", "Free"], "limits": { "ramGb": 0.03 } },
-    { "match": ["render", "Free / 512 MB RAM (free)"], "limits": { "ramGb": 0.512 }, "note": "Free web services spin down when idle." },
-    { "match": ["render", "Postgres Free( limitations apply) / 256 MB RAM"], "limits": { "ramGb": 0.256 } },
-    { "match": ["render", "Key Value 25 MB RAM"], "limits": { "ramGb": 0.025 } },
-    { "match": ["auth0", "Free"], "limits": { "users": 25000 } },
-    { "match": ["clerk", "Hobby"], "limits": { "users": 50000 } },
-    { "match": ["sentry", "Developer (free)"], "limits": { "requestsPerMonth": 5000 }, "note": "5k errors a month." },
-    { "match": ["algolia", "Grow"], "limits": { "requestsPerMonth": 10000 } },
-    { "match": ["pinecone", "Starter"], "limits": { "storageGb": 2 } },
-    { "match": ["resend", "Free"], "limits": { "requestsPerMonth": 3000 }, "note": "100 emails a day, 3,000 a month." },
-    { "match": ["mailgun", "Free"], "limits": { "requestsPerMonth": 3000 }, "note": "100 emails a day." },
-    { "match": ["postmark", "Free"], "limits": { "requestsPerMonth": 100 } },
-    { "match": ["ably", "Free"], "limits": { "requestsPerMonth": 6000000 } },
-    { "match": ["couchbase", "Free"], "limits": { "storageGb": 8 } },
-    { "match": ["aiven", "Free"], "limits": { "storageGb": 1, "ramGb": 1, "vcpu": 1 } },
-    { "match": ["qdrant", "Free tier"], "limits": { "ramGb": 1, "storageGb": 4, "vcpu": 0.5 } },
-    { "match": ["zilliz", "Free"], "limits": { "storageGb": 5 } },
-    { "match": ["convex", "Free / Starter"], "limits": { "storageGb": 0.5, "requestsPerMonth": 1000000 } },
-    { "match": ["inngest", "Free"], "limits": { "requestsPerMonth": 50000 }, "note": "50k executions a month." },
-    { "match": ["memcachier", "Free"], "limits": { "ramGb": 0.025 } },
-    { "match": ["prisma", "Free"], "limits": { "requestsPerMonth": 1000000 } },
-
-    { "offering": "fn:cloudflare:workers", "label": "Workers Free", "limits": { "requestsPerMonth": 3000000 }, "note": "100,000 requests a day, 10 ms CPU per request.", "source": "https://developers.cloudflare.com/workers/platform/pricing/", "at": "2026-10-09" },
-    { "offering": "sqlite:cloudflare:d1", "label": "D1 Free", "limits": { "storageGb": 5 }, "note": "5 million rows read and 100,000 rows written a day.", "source": "https://developers.cloudflare.com/d1/platform/pricing/", "at": "2026-10-09" },
-    { "offering": "kv:cloudflare:kv", "label": "KV Free", "limits": { "storageGb": 1, "requestsPerMonth": 3000000 }, "note": "100,000 reads a day, but only 1,000 writes a day.", "source": "https://developers.cloudflare.com/kv/platform/pricing/", "at": "2026-10-09" },
-    { "offering": "static:cloudflare:pages", "label": "Pages Free", "limits": { "requestsPerMonth": 1000000000000000 }, "note": "Requests to static assets are free and unlimited.", "source": "https://developers.cloudflare.com/pages/functions/pricing/", "at": "2026-10-09" },
-
-    { "offering": "fn:aws:lambda", "label": "Always Free", "limits": { "requestsPerMonth": 1000000 }, "note": "1M requests and 400,000 GB-seconds a month.", "source": "https://aws.amazon.com/lambda/pricing/", "at": "2026-10-09" },
-    { "offering": "kv:aws:dynamodb", "label": "Always Free", "limits": { "storageGb": 25, "requestsPerMonth": 200000000 }, "note": "25 GB, 25 read and 25 write capacity units; about 200M requests a month depending on item size.", "source": "https://aws.amazon.com/dynamodb/pricing/", "at": "2026-10-09" },
-    { "offering": "queue:aws:sqs", "label": "Always Free", "limits": { "requestsPerMonth": 1000000 }, "source": "https://aws.amazon.com/sqs/pricing/", "at": "2026-10-09" },
-
-    { "offering": "fn:google-cloud:cloud-run-functions", "label": "Always Free", "limits": { "requestsPerMonth": 2000000, "egressGb": 5 }, "note": "2M invocations, 400,000 GB-seconds and 5 GB outbound a month.", "source": "https://cloud.google.com/free/docs/free-cloud-features", "at": "2026-10-09" },
-    { "offering": "containers:google-cloud:cloud-run", "label": "Always Free", "limits": { "requestsPerMonth": 2000000, "egressGb": 1 }, "note": "2M requests, 360,000 GB-seconds and 180,000 vCPU-seconds a month.", "source": "https://cloud.google.com/free/docs/free-cloud-features", "at": "2026-10-09" },
-    { "offering": "kv:google-cloud:firestore", "label": "Always Free", "limits": { "storageGb": 1, "requestsPerMonth": 1500000 }, "note": "1 GiB, 50,000 reads and 20,000 writes a day (the request limit here is the reads).", "source": "https://cloud.google.com/free/docs/free-cloud-features", "at": "2026-10-09" },
-    { "offering": "mongodb:google-cloud:firestore", "label": "Always Free", "limits": { "storageGb": 1, "requestsPerMonth": 1500000 }, "note": "1 GiB, 50,000 reads and 20,000 writes a day (the request limit here is the reads).", "source": "https://cloud.google.com/free/docs/free-cloud-features", "at": "2026-10-09" },
-    { "offering": "warehouse:google-cloud:bigquery", "label": "Always Free", "limits": { "storageGb": 10 }, "note": "10 GiB storage and 1 TiB of queries a month.", "source": "https://cloud.google.com/free/docs/free-cloud-features", "at": "2026-10-09" },
-    { "offering": "vps:google-cloud:compute-engine", "label": "e2-micro (Always Free)", "spec": { "vcpu": 0.25, "ramGb": 1, "diskGb": 30 }, "note": "One e2-micro a month in us-west1, us-central1 or us-east1, with 30 GB standard disk and 1 GB outbound. vCPU is the shared-core baseline.", "source": "https://cloud.google.com/free/docs/free-cloud-features", "at": "2026-10-09" },
-
-    { "offering": "auth:firebase:authentication", "label": "Spark (no cost)", "limits": { "users": 50000 }, "source": "https://firebase.google.com/pricing", "at": "2026-10-09" },
-    { "offering": "baas:firebase:platform", "label": "Spark (no cost)", "limits": { "storageGb": 1, "users": 50000, "requestsPerMonth": 1500000 }, "note": "Firestore 1 GiB and 50K reads a day, 50K monthly users.", "source": "https://firebase.google.com/pricing", "at": "2026-10-09" },
-
-    { "offering": "vps:oracle-cloud:compute", "label": "Always Free: Ampere A1 (2 OCPU, 12 GB)", "spec": { "vcpu": 2, "ramGb": 12, "diskGb": 47 }, "note": "1,500 OCPU-hours and 9,000 GB-hours a month, which is 2 OCPUs and 12 GB running all month. Idle instances may be reclaimed.", "source": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm", "at": "2026-10-09" },
-    { "offering": "vps:oracle-cloud:compute", "label": "Always Free: AMD Micro (1/8 OCPU, 1 GB)", "spec": { "vcpu": 0.125, "ramGb": 1, "diskGb": 47 }, "note": "Up to two instances; can burst above 1/8 of an OCPU.", "source": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm", "at": "2026-10-09" }
+    {
+      "match": [
+        "neon",
+        "Free"
+      ],
+      "limits": {
+        "storageGb": 1,
+        "computeHours": 100
+      }
+    },
+    {
+      "match": [
+        "supabase",
+        "Free"
+      ],
+      "limits": {
+        "storageGb": 0.5,
+        "users": 50000,
+        "egressGb": 5
+      }
+    },
+    {
+      "match": [
+        "vercel",
+        "Hobby"
+      ],
+      "limits": {
+        "requestsPerMonth": 1000000
+      },
+      "note": "Hobby is for non-commercial use."
+    },
+    {
+      "match": [
+        "deno",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 1000000
+      }
+    },
+    {
+      "match": [
+        "mongodb",
+        "Free"
+      ],
+      "limits": {
+        "storageGb": 0.5
+      }
+    },
+    {
+      "match": [
+        "turso",
+        "Free"
+      ],
+      "limits": {
+        "storageGb": 5
+      }
+    },
+    {
+      "match": [
+        "upstash",
+        "Redis Free"
+      ],
+      "limits": {
+        "ramGb": 0.25,
+        "requestsPerMonth": 500000
+      }
+    },
+    {
+      "match": [
+        "redis",
+        "Free"
+      ],
+      "limits": {
+        "ramGb": 0.03
+      }
+    },
+    {
+      "match": [
+        "render",
+        "Free / 512 MB RAM (free)"
+      ],
+      "limits": {
+        "ramGb": 0.512
+      },
+      "note": "Free web services spin down when idle."
+    },
+    {
+      "match": [
+        "render",
+        "Postgres Free( limitations apply) / 256 MB RAM"
+      ],
+      "limits": {
+        "ramGb": 0.256
+      }
+    },
+    {
+      "match": [
+        "render",
+        "Key Value 25 MB RAM"
+      ],
+      "limits": {
+        "ramGb": 0.025
+      }
+    },
+    {
+      "match": [
+        "auth0",
+        "Free"
+      ],
+      "limits": {
+        "users": 25000
+      }
+    },
+    {
+      "match": [
+        "clerk",
+        "Hobby"
+      ],
+      "limits": {
+        "users": 50000
+      }
+    },
+    {
+      "match": [
+        "sentry",
+        "Developer (free)"
+      ],
+      "limits": {
+        "requestsPerMonth": 5000
+      },
+      "note": "5k errors a month."
+    },
+    {
+      "match": [
+        "algolia",
+        "Grow"
+      ],
+      "limits": {
+        "requestsPerMonth": 10000
+      }
+    },
+    {
+      "match": [
+        "pinecone",
+        "Starter"
+      ],
+      "limits": {
+        "storageGb": 2
+      }
+    },
+    {
+      "match": [
+        "resend",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 3000
+      },
+      "note": "100 emails a day, 3,000 a month."
+    },
+    {
+      "match": [
+        "mailgun",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 3000
+      },
+      "note": "100 emails a day."
+    },
+    {
+      "match": [
+        "postmark",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 100
+      }
+    },
+    {
+      "match": [
+        "ably",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 6000000
+      }
+    },
+    {
+      "match": [
+        "couchbase",
+        "Free"
+      ],
+      "limits": {
+        "storageGb": 8
+      }
+    },
+    {
+      "match": [
+        "aiven",
+        "Free"
+      ],
+      "limits": {
+        "storageGb": 1,
+        "ramGb": 1,
+        "vcpu": 1
+      }
+    },
+    {
+      "match": [
+        "qdrant",
+        "Free tier"
+      ],
+      "limits": {
+        "ramGb": 1,
+        "storageGb": 4,
+        "vcpu": 0.5
+      }
+    },
+    {
+      "match": [
+        "zilliz",
+        "Free"
+      ],
+      "limits": {
+        "storageGb": 5
+      }
+    },
+    {
+      "match": [
+        "convex",
+        "Free / Starter"
+      ],
+      "limits": {
+        "storageGb": 0.5,
+        "requestsPerMonth": 1000000
+      }
+    },
+    {
+      "match": [
+        "inngest",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 50000
+      },
+      "note": "50k executions a month."
+    },
+    {
+      "match": [
+        "memcachier",
+        "Free"
+      ],
+      "limits": {
+        "ramGb": 0.025
+      }
+    },
+    {
+      "match": [
+        "prisma",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 1000000
+      }
+    },
+    {
+      "match": [
+        "sanity",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 250000
+      },
+      "note": "250k API requests a month (the pricing table's figure; CDN requests are separate at 1M)."
+    },
+    {
+      "match": [
+        "rudderstack",
+        "Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 250000
+      },
+      "note": "250K events a month; every request reaching it is counted as one event."
+    },
+    {
+      "match": [
+        "nhost",
+        "Starter"
+      ],
+      "limits": {
+        "storageGb": 1,
+        "egressGb": 5
+      },
+      "note": "1 GB database, 1 GB file storage, 5 GB egress; paused after a week of inactivity."
+    },
+    {
+      "match": [
+        "motherduck",
+        "Free (from $0)"
+      ],
+      "limits": {
+        "storageGb": 10,
+        "computeHours": 10
+      },
+      "note": "10 GB storage and 10 hours of Pulse compute a month."
+    },
+    {
+      "match": [
+        "upstash",
+        "QStash Free"
+      ],
+      "limits": {
+        "requestsPerMonth": 30000
+      },
+      "note": "1,000 messages a day (about 30,000 a month)."
+    },
+    {
+      "offering": "fn:cloudflare:workers",
+      "label": "Workers Free",
+      "limits": {
+        "requestsPerMonth": 3000000
+      },
+      "note": "100,000 requests a day, 10 ms CPU per request.",
+      "source": "https://developers.cloudflare.com/workers/platform/pricing/",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "sqlite:cloudflare:d1",
+      "label": "D1 Free",
+      "limits": {
+        "storageGb": 5
+      },
+      "note": "5 million rows read and 100,000 rows written a day.",
+      "source": "https://developers.cloudflare.com/d1/platform/pricing/",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "kv:cloudflare:kv",
+      "label": "KV Free",
+      "limits": {
+        "storageGb": 1,
+        "requestsPerMonth": 3000000
+      },
+      "note": "100,000 reads a day, but only 1,000 writes a day.",
+      "source": "https://developers.cloudflare.com/kv/platform/pricing/",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "static:cloudflare:pages",
+      "label": "Pages Free",
+      "limits": {
+        "requestsPerMonth": 1000000000000000
+      },
+      "note": "Requests to static assets are free and unlimited.",
+      "source": "https://developers.cloudflare.com/pages/functions/pricing/",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "fn:aws:lambda",
+      "label": "Always Free",
+      "limits": {
+        "requestsPerMonth": 1000000
+      },
+      "note": "1M requests and 400,000 GB-seconds a month.",
+      "source": "https://aws.amazon.com/lambda/pricing/",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "kv:aws:dynamodb",
+      "label": "Always Free",
+      "limits": {
+        "storageGb": 25,
+        "requestsPerMonth": 200000000
+      },
+      "note": "25 GB, 25 read and 25 write capacity units; about 200M requests a month depending on item size.",
+      "source": "https://aws.amazon.com/dynamodb/pricing/",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "queue:aws:sqs",
+      "label": "Always Free",
+      "limits": {
+        "requestsPerMonth": 1000000
+      },
+      "source": "https://aws.amazon.com/sqs/pricing/",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "fn:google-cloud:cloud-run-functions",
+      "label": "Always Free",
+      "limits": {
+        "requestsPerMonth": 2000000,
+        "egressGb": 5
+      },
+      "note": "2M invocations, 400,000 GB-seconds and 5 GB outbound a month.",
+      "source": "https://cloud.google.com/free/docs/free-cloud-features",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "containers:google-cloud:cloud-run",
+      "label": "Always Free",
+      "limits": {
+        "requestsPerMonth": 2000000,
+        "egressGb": 1
+      },
+      "note": "2M requests, 360,000 GB-seconds and 180,000 vCPU-seconds a month.",
+      "source": "https://cloud.google.com/free/docs/free-cloud-features",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "kv:google-cloud:firestore",
+      "label": "Always Free",
+      "limits": {
+        "storageGb": 1,
+        "requestsPerMonth": 1500000
+      },
+      "note": "1 GiB, 50,000 reads and 20,000 writes a day (the request limit here is the reads).",
+      "source": "https://cloud.google.com/free/docs/free-cloud-features",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "mongodb:google-cloud:firestore",
+      "label": "Always Free",
+      "limits": {
+        "storageGb": 1,
+        "requestsPerMonth": 1500000
+      },
+      "note": "1 GiB, 50,000 reads and 20,000 writes a day (the request limit here is the reads).",
+      "source": "https://cloud.google.com/free/docs/free-cloud-features",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "warehouse:google-cloud:bigquery",
+      "label": "Always Free",
+      "limits": {
+        "storageGb": 10
+      },
+      "note": "10 GiB storage and 1 TiB of queries a month.",
+      "source": "https://cloud.google.com/free/docs/free-cloud-features",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "vps:google-cloud:compute-engine",
+      "label": "e2-micro (Always Free)",
+      "spec": {
+        "vcpu": 0.25,
+        "ramGb": 1,
+        "diskGb": 30
+      },
+      "note": "One e2-micro a month in us-west1, us-central1 or us-east1, with 30 GB standard disk and 1 GB outbound. vCPU is the shared-core baseline.",
+      "source": "https://cloud.google.com/free/docs/free-cloud-features",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "auth:firebase:authentication",
+      "label": "Spark (no cost)",
+      "limits": {
+        "users": 50000
+      },
+      "source": "https://firebase.google.com/pricing",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "baas:firebase:platform",
+      "label": "Spark (no cost)",
+      "limits": {
+        "storageGb": 1,
+        "users": 50000,
+        "requestsPerMonth": 1500000
+      },
+      "note": "Firestore 1 GiB and 50K reads a day, 50K monthly users.",
+      "source": "https://firebase.google.com/pricing",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "vps:oracle-cloud:compute",
+      "label": "Always Free: Ampere A1 (2 OCPU, 12 GB)",
+      "spec": {
+        "vcpu": 2,
+        "ramGb": 12,
+        "diskGb": 47
+      },
+      "note": "1,500 OCPU-hours and 9,000 GB-hours a month, which is 2 OCPUs and 12 GB running all month. Idle instances may be reclaimed.",
+      "source": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm",
+      "at": "2026-10-09"
+    },
+    {
+      "offering": "vps:oracle-cloud:compute",
+      "label": "Always Free: AMD Micro (1/8 OCPU, 1 GB)",
+      "spec": {
+        "vcpu": 0.125,
+        "ramGb": 1,
+        "diskGb": 47
+      },
+      "note": "Up to two instances; can burst above 1/8 of an OCPU.",
+      "source": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm",
+      "at": "2026-10-09"
+    }
   ]
 }
