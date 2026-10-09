@@ -11,9 +11,22 @@ export interface Workload {
   peakRps: number;
   readPct: number; // 50-99
   atPeak: boolean;
+  /** Team and operations inputs. They matter to tools priced per seat, per CI minute, per monitor, per host or per GB of logs. */
+  seats: number;
+  ciMinutes: number;
+  monitors: number;
+  hosts: number;
+  ingestGb: number;
+  events: number;
 }
 
-export const DEFAULT_WORKLOAD: Workload = { users: 250_000, dataGb: 50, rps: 1200, peakRps: 4800, readPct: 90, atPeak: false };
+/** The operations inputs on their own, as free-tier checks and pricing see them. */
+export type OpsInputs = Pick<Workload, "seats" | "ciMinutes" | "monitors" | "hosts" | "ingestGb" | "events">;
+export const opsOf = (w: Workload): OpsInputs => ({ seats: w.seats, ciMinutes: w.ciMinutes, monitors: w.monitors, hosts: w.hosts, ingestGb: w.ingestGb, events: w.events });
+
+/** Defaults describe a small team (3 people, a modest pipeline, a few monitors); change them in Inputs. */
+export const DEFAULT_OPS: OpsInputs = { seats: 3, ciMinutes: 1500, monitors: 5, hosts: 3, ingestGb: 5, events: 100_000 };
+export const DEFAULT_WORKLOAD: Workload = { users: 250_000, dataGb: 50, rps: 1200, peakRps: 4800, readPct: 90, atPeak: false, ...DEFAULT_OPS };
 
 export interface SimResult {
   load: Record<string, number>;

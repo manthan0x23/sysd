@@ -4,7 +4,7 @@ import { computeFits, type FitResult } from "./fit";
 import { explicitPlan, isAuto, offeringOf, type StudioNode } from "./model";
 import { estimate, type Estimate } from "./pricing/estimate";
 import { pickPlan, type PickUsage } from "./pricing/pick";
-import { simulate, type SimResult, type Workload } from "./sim";
+import { opsOf, simulate, type SimResult, type Workload } from "./sim";
 
 export interface Analysis {
   sim: SimResult;
@@ -47,7 +47,7 @@ export function analyze(nodes: StudioNode[], edges: Edge[], w: Workload): Analys
     if (type.host === "server") serverPrice[n.id] = fits[n.id]?.plan?.price;
     else if (!type.host && type.cap != null) {
       const o = offeringOf(n.data);
-      estimates[n.id] = o && o.model !== "self-hosted" ? estimate(o, activePlan(n, { rps: first.load[n.id] ?? 0, dataGb: w.dataGb, readPct: w.readPct, users: w.users }), { rps: first.load[n.id] ?? 0, dataGb: w.dataGb, read: w.readPct / 100, users: w.users }) : null;
+      estimates[n.id] = o && o.model !== "self-hosted" ? estimate(o, activePlan(n, { rps: first.load[n.id] ?? 0, dataGb: w.dataGb, readPct: w.readPct, users: w.users, ops: opsOf(w) }), { rps: first.load[n.id] ?? 0, dataGb: w.dataGb, read: w.readPct / 100, users: w.users, ops: opsOf(w) }) : null;
     }
   }
   const sim = simulate(nodes, edges, w, { serverPrice, estimates });

@@ -321,6 +321,125 @@
       "note": "1,000 messages a day (about 30,000 a month)."
     },
     {
+      "match": [
+        "github",
+        "Free"
+      ],
+      "only": [
+        "ci:github:actions"
+      ],
+      "limits": {
+        "ciMinutes": 2000
+      },
+      "note": "2,000 CI/CD minutes a month on private repositories."
+    },
+    {
+      "match": [
+        "circleci",
+        "Free"
+      ],
+      "limits": {
+        "ciMinutes": 6000,
+        "seats": 5
+      },
+      "note": "6,000 build minutes (30,000 credits) a month and 5 active users."
+    },
+    {
+      "match": [
+        "doppler",
+        "Developer"
+      ],
+      "limits": {
+        "seats": 3
+      },
+      "note": "Free for 3 users, then $8 a month per extra user."
+    },
+    {
+      "match": [
+        "preset",
+        "Starter"
+      ],
+      "limits": {
+        "seats": 5
+      },
+      "note": "Free for up to 5 users."
+    },
+    {
+      "match": [
+        "prefect",
+        "Hobby"
+      ],
+      "limits": {
+        "seats": 2
+      },
+      "note": "2 users."
+    },
+    {
+      "match": [
+        "contentful",
+        "Free"
+      ],
+      "limits": {
+        "seats": 10
+      },
+      "note": "10 users; 10,000 records."
+    },
+    {
+      "match": [
+        "bugsnag",
+        "Free"
+      ],
+      "limits": {
+        "events": 7500
+      },
+      "note": "7.5K error events and 1M spans a month; 7 days of retention."
+    },
+    {
+      "match": [
+        "better-stack",
+        "Free"
+      ],
+      "limits": {
+        "monitors": 10,
+        "ingestGb": 3
+      },
+      "note": "10 monitors and heartbeats, 3 GB of logs retained for 3 days."
+    },
+    {
+      "match": [
+        "datadog",
+        "Infrastructure Free"
+      ],
+      "limits": {
+        "hosts": 5
+      },
+      "note": "Up to 5 hosts, 1-day metric retention."
+    },
+    {
+      "match": [
+        "grafana",
+        "Free"
+      ],
+      "only": [
+        "logs:grafana:cloud-loki",
+        "tracing:grafana:cloud-tempo"
+      ],
+      "limits": {
+        "ingestGb": 50
+      },
+      "note": "50 GB of logs (or traces) ingested a month."
+    },
+    {
+      "match": [
+        "imagekit",
+        "Forever free"
+      ],
+      "limits": {
+        "egressGb": 20
+      },
+      "note": "20 GB bandwidth and 3 GB media storage a month."
+    },
+    {
       "offering": "fn:cloudflare:workers",
       "label": "Workers Free",
       "limits": {

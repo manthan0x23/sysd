@@ -163,5 +163,30 @@ void DEFAULT_WORKLOAD;
   console.log(`code judge: $${sim.cost.toFixed(0)}/mo (people-time $${sim.buckets.people.toFixed(0)}, infrastructure $${(sim.cost - sim.buckets.people).toFixed(0)}), ${sim.latencyMs.toFixed(0)} ms`);
 }
 
+// ---- team and operations inputs decide free tiers and per-seat prices
+{
+  const { pickPlanInfo } = await import("../src/lib/pricing/pick");
+  const { estimate } = await import("../src/lib/pricing/estimate");
+  const { OFFERING_BY_ID } = await import("../src/lib/catalog/offerings");
+  const { DEFAULT_OPS } = await import("../src/lib/sim");
+  const base = { rps: 1, dataGb: 1, readPct: 90, users: 100 };
+  const at = (o: string, t: string, ops: Partial<typeof DEFAULT_OPS>) => pickPlanInfo(o, t, { ...base, ops: { ...DEFAULT_OPS, ...ops } }).plan;
+  eq("github actions free at 1,500 CI minutes", at("ci:github:actions", "ci", { ciMinutes: 1500 })?.free, true);
+  eq("github actions not free at 5,000 minutes", at("ci:github:actions", "ci", { ciMinutes: 5000 })?.free, undefined);
+  eq("doppler free for 3 people", at("secrets:doppler:secrets", "secrets", { seats: 3 })?.free, true);
+  eq("doppler not free for 8 people", at("secrets:doppler:secrets", "secrets", { seats: 8 })?.free, undefined);
+  eq("datadog free up to 5 hosts, not 20", [at("metrics:datadog:infrastructure-apm", "metrics", { hosts: 5 })?.free, at("metrics:datadog:infrastructure-apm", "metrics", { hosts: 20 })?.free], [true, undefined]);
+  eq("better stack free needs both monitors and logs to fit", [at("logs:better-stack:logs", "logs", { monitors: 5, ingestGb: 2 })?.free, at("logs:better-stack:logs", "logs", { monitors: 5, ingestGb: 30 })?.free], [true, undefined]);
+  // per-seat price scales with the team
+  const o = OFFERING_BY_ID["ci:github:actions"];
+  const team = (seats: number) => { const p = at("ci:github:actions", "ci", { seats, ciMinutes: 9000 }); return p ? estimate(o, p, { rps: 1, dataGb: 1, read: 0.9, users: 100, ops: { ...DEFAULT_OPS, seats } })?.monthly : undefined; };
+  const t5 = team(5), t50 = team(50);
+  if (!(t5 != null && t50 != null && t50 > t5)) { bad++; console.log("FAIL per-seat price should grow with the team", t5, t50); }
+  // old saved designs without the new fields load with defaults
+  const old = fromDoc({ version: 2, workload: { users: 10, dataGb: 1, rps: 1, peakRps: 2, readPct: 90, atPeak: false } as never, nodes: [], edges: [] });
+  eq("old design gets default seats", old.workload.seats, DEFAULT_OPS.seats);
+  eq("old design still validates", Boolean(parseDoc({ version: 2, workload: { users: 10, dataGb: 1, rps: 1, peakRps: 2, readPct: 90, atPeak: false }, nodes: [], edges: [] })), true);
+}
+
 console.log(bad ? `${bad} problem(s)` : "all checks passed");
 process.exit(bad ? 1 : 0);

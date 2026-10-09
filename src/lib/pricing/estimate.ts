@@ -1,4 +1,5 @@
 import type { Need, Offering, Plan } from "../catalog";
+import type { OpsInputs } from "../sim";
 import { OBJECT_PRICES } from "./data";
 
 export const SECONDS_PER_MONTH = 2_592_000; // 30 days
@@ -18,6 +19,8 @@ export interface Usage {
   read: number;
   /** Monthly active users (the workload's users), for tiers limited by them. */
   users?: number;
+  /** Team and operations inputs, for tiers limited by seats, CI minutes, monitors, hosts, log volume or events. */
+  ops?: OpsInputs;
   /** What a server must hold, including OS overhead. */
   need?: Need;
 }
@@ -38,6 +41,8 @@ export function describeLimits(l: Plan["limits"]): string {
     l.storageGb != null && `${l.storageGb} GB storage`, l.requestsPerMonth != null && `${big(l.requestsPerMonth)} requests a month`,
     l.users != null && `${big(l.users)} monthly users`, l.computeHours != null && `${big(l.computeHours)} compute hours a month`,
     l.ramGb != null && `${l.ramGb} GB RAM`, l.vcpu != null && `${l.vcpu} vCPU`, l.egressGb != null && `${l.egressGb} GB transfer a month`,
+    l.seats != null && `${l.seats} people`, l.ciMinutes != null && `${big(l.ciMinutes)} CI minutes a month`, l.monitors != null && `${l.monitors} monitors`,
+    l.hosts != null && `${l.hosts} hosts`, l.ingestGb != null && `${l.ingestGb} GB of logs a month`, l.events != null && `${big(l.events)} events a month`,
   ].filter(Boolean);
   return parts.length ? `, covers up to ${parts.join(", ")}` : "";
 }
@@ -95,6 +100,14 @@ export function estimate(o: Offering | undefined, plan: Plan | undefined, u: Usa
     return {
       monthly: 0, lines: [{ label: `${plan.label} (free)`, amount: 0 }],
       assumptions: [`Free tier${describeLimits(plan.limits)}. Beyond its limits the next paid tier applies.`, ...(plan.note ? [plan.note] : [])],
+    };
+  }
+  if (o.typeId !== "vps" && plan?.price != null && plan.perSeat) {
+    const seats = Math.max(1, Math.round(u.ops?.seats ?? 1));
+    const total = money(plan.price * seats);
+    return {
+      monthly: total, lines: [{ label: `${plan.label}: ${seats} seat${seats === 1 ? "" : "s"} \u00d7 $${plan.price}`, amount: total }],
+      assumptions: [`Priced per person per month, using your Team members input (${seats}).`, ...(plan.note ? [plan.note] : [])],
     };
   }
   if (o.typeId !== "vps" && plan?.price != null) {

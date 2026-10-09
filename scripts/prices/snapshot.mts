@@ -13,7 +13,7 @@ const r4 = (n: number) => Math.round(n * 10000) / 10000;
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /** Compact plan: i id, l label, c vcpu, r ramGb, d diskGb, p monthly USD, t [in, out, cached] per 1M tokens, n note. */
-interface P { i: string; l: string; c?: number; r?: number; d?: number; p?: number; t?: [number, number, number?]; n?: string | number; f?: 1; lim?: Record<string, number> }
+interface P { i: string; l: string; c?: number; r?: number; d?: number; p?: number; t?: [number, number, number?]; n?: string | number; f?: 1; s?: 1; lim?: Record<string, number> }
 const plans: Record<string, P[]> = {};
 const sources: Record<string, { url: string; at: string }> = {};
 const add = (offering: string, p: P, src: { url: string; at: string }) => {
@@ -28,7 +28,7 @@ const ymd = (d: Date) => d.toISOString().slice(0, 10);
 const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) ? v : undefined);
 
 // ----- free-tier limits read by hand from provider pages (see the file's own note)
-interface Curated { match?: [string, string]; offering?: string; label?: string; limits?: Record<string, number>; spec?: { vcpu: number; ramGb: number; diskGb: number }; note?: string; source?: string; at?: string }
+interface Curated { match?: [string, string]; only?: string[]; offering?: string; label?: string; limits?: Record<string, number>; spec?: { vcpu: number; ramGb: number; diskGb: number }; note?: string; source?: string; at?: string }
 const curated = (JSON.parse(readFileSync("scripts/prices/free-tiers.json", "utf8")) as { tiers: Curated[] }).tiers;
 const byMatch = new Map(curated.filter((c) => c.match).map((c) => [c.match!.join("|"), c]));
 const usedMatch = new Set<string>();
@@ -55,7 +55,8 @@ for (const { t, s } of tiers) {
     }
     if (t.amount == null || !t.unit) continue;
     const amount = Number(t.amount);
-    const monthly = t.unit === "month" ? amount : t.unit === "hour" ? amount * HOURS : null;
+    const perSeat = t.unit === "user-month" || t.unit === "seat-month";
+    const monthly = t.unit === "month" || perSeat ? amount : t.unit === "hour" ? amount * HOURS : null;
     // A $0 tier is a free tier (not a time-limited trial, not open-source software you run yourself).
     // Pages that say "starting at $0", pay-as-you-go, or "$5 free credits" are usage-priced, not a free tier.
     const nameOk = /free|hobby|starter|personal|developer|build|forever|spark|always|sandbox/i.test(t.tier) && !/pay as you go|standard|plus/i.test(t.tier);
@@ -67,7 +68,7 @@ for (const { t, s } of tiers) {
     if (cur) usedMatch.add(`${t.provider}|${t.tier}`);
     const vcpu = num(spec.vcpu), ram = num(spec.ramGb), disk = num(spec.diskGb);
     const note = joinNote(t.note, cur?.note);
-    add(o, { i: slug(t.tier), l: t.tier, ...(vcpu != null ? { c: vcpu } : {}), ...(ram != null ? { r: ram } : {}), ...(disk != null ? { d: disk } : {}), p: r4(monthly), ...(free ? { f: 1 as const } : {}), ...(free && cur?.limits ? { lim: cur.limits } : {}), ...(note ? { n: note } : {}) }, src);
+    add(o, { i: slug(t.tier), l: t.tier, ...(vcpu != null ? { c: vcpu } : {}), ...(ram != null ? { r: ram } : {}), ...(disk != null ? { d: disk } : {}), p: r4(monthly), ...(free ? { f: 1 as const } : {}), ...(perSeat ? { s: 1 as const } : {}), ...(free && cur?.limits && (!cur.only || cur.only.includes(o)) ? { lim: cur.limits } : {}), ...(note ? { n: note } : {}) }, src);
   }
 }
 

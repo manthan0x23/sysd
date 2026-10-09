@@ -12,7 +12,7 @@ const rateProviders = args.includes("--rates") ? args.slice(args.indexOf("--rate
 const withSource = sql`exists (select 1 from ${priceSources} s where s.id = ${priceTiers.sourceId} and s.url <> '')`;
 const tiers = await db.update(priceTiers).set({ status: "approved", reviewedAt: new Date() }).where(and(
   eq(priceTiers.status, "pending"), isNotNull(priceTiers.amount), gte(priceTiers.amount, "0"), lt(priceTiers.amount, "1000000"),
-  inArray(priceTiers.unit, ["month", "hour"]), withSource,
+  inArray(priceTiers.unit, ["month", "hour", "user-month", "seat-month"]), withSource,
 )).returning({ id: priceTiers.id });
 // Usage-priced tiers (per-token, per-GB...) have no flat amount; approve them when every rate is a positive number.
 const usage = await db.update(priceTiers).set({ status: "approved", reviewedAt: new Date() }).where(and(

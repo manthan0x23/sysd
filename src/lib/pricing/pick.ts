@@ -1,8 +1,9 @@
 import { OFFERING_BY_ID, TYPE_BY_ID, plansOf, type Need, type Plan } from "../catalog";
 import { profileFor } from "../catalog/sizing";
 import { AUTO_HEADROOM } from "../fit";
+import type { OpsInputs } from "../sim";
 
-export interface PickUsage { rps: number; dataGb: number; readPct: number; /** Monthly active users, for tiers limited by users. */ users?: number }
+export interface PickUsage { rps: number; dataGb: number; readPct: number; /** Monthly active users, for tiers limited by users. */ users?: number; /** Team and operations inputs. */ ops?: OpsInputs }
 
 const SECONDS_PER_MONTH = 2_592_000;
 const HOURS_PER_MONTH = 730;
@@ -13,7 +14,11 @@ const STORES_DATA = new Set(["db", "storage"]);
  * Does a free tier cover this load? Every limit we know must hold, and at least one must have been compared:
  * a free tier with no stated limits is never assumed to be enough.
  */
-export function freeFits(p: Plan, u: PickUsage, role: string | undefined, need: Need | undefined, scalesToZero = false): boolean {
+/** Outbound GB a month for services that serve files (CDN, images, media, storage): requests times an average 100 KB object. */
+const EGRESS_TYPES = new Set(["cdn", "images", "media", "object", "static"]);
+const egressOf = (typeId: string | undefined, u: PickUsage) => (typeId && EGRESS_TYPES.has(typeId) ? (u.rps * SECONDS_PER_MONTH * 100) / 1e6 : undefined);
+
+export function freeFits(p: Plan, u: PickUsage, role: string | undefined, need: Need | undefined, scalesToZero = false, typeId?: string): boolean {
   const L = p.limits;
   if (!p.free || !L) return false;
   let compared = 0;
@@ -23,6 +28,13 @@ export function freeFits(p: Plan, u: PickUsage, role: string | undefined, need: 
   return test(L.storageGb, role && STORES_DATA.has(role) ? u.dataGb : undefined)
     && test(L.requestsPerMonth, u.rps * SECONDS_PER_MONTH)
     && test(L.users, u.users)
+    && test(L.seats, u.ops?.seats)
+    && test(L.ciMinutes, u.ops?.ciMinutes)
+    && test(L.monitors, u.ops?.monitors)
+    && test(L.hosts, u.ops?.hosts)
+    && test(L.ingestGb, u.ops?.ingestGb)
+    && test(L.events, u.ops?.events)
+    && test(L.egressGb, egressOf(typeId, u))
     && test(L.computeHours, need ? need.cpu * HOURS_PER_MONTH * duty : undefined)
     && test(L.ramGb, need?.ramGb)
     && test(L.vcpu, need?.cpu)
@@ -43,11 +55,13 @@ export function pickPlan(offeringId: string, typeId: string, u: PickUsage, produ
 /** As pickPlan, and whether the tier's size was actually compared with the load (false: it is only the cheapest listed tier). */
 export function pickPlanInfo(offeringId: string, typeId: string, u: PickUsage, product?: string): { plan?: Plan; sized: boolean } {
   const all = plansOf(offeringId);
-  const priced = all.filter((p) => p.price != null && p.price > 0).sort((a, b) => a.price! - b.price!);
+  const seats = Math.max(1, Math.round(u.ops?.seats ?? 1));
+  const eff = (p: Plan) => p.price! * (p.perSeat ? seats : 1);
+  const priced = all.filter((p) => p.price != null && p.price > 0).sort((a, b) => eff(a) - eff(b));
   const profile = profileFor(TYPE_BY_ID[typeId]?.hostable, product);
   const need = profile?.run({ rps: u.rps, dataGb: u.dataGb, readPct: u.readPct });
   // A free tier wins whenever its stated limits cover the load.
-  const free = all.find((p) => freeFits(p, u, TYPE_BY_ID[typeId]?.role, need, OFFERING_BY_ID[offeringId]?.model === "serverless"));
+  const free = all.find((p) => freeFits(p, u, TYPE_BY_ID[typeId]?.role, need, OFFERING_BY_ID[offeringId]?.model === "serverless", typeId));
   if (free) return { plan: free, sized: true };
   if (!priced.length) return { sized: false };
   const sized = priced.filter((p) => p.spec);

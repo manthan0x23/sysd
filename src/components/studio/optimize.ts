@@ -2,7 +2,7 @@ import type { Edge } from "@xyflow/react";
 import { AUTO_PLAN_ID, TYPE_BY_ID, offeringLabel } from "@/lib/catalog";
 import { analyze } from "@/lib/analysis";
 import { offeringOf, type StudioNode } from "@/lib/model";
-import type { Workload } from "@/lib/sim";
+import { opsOf, type Workload } from "@/lib/sim";
 import { rankOfferings } from "./panel/options";
 
 /** Language and media models are chosen for quality, not price, so "best value" leaves them alone. */
@@ -25,7 +25,7 @@ export function optimizeForPrice(nodes: StudioNode[], edges: Edge[], w: Workload
     const load = a.sim.load[n.id] ?? 0;
     // Unconnected services are compared at an example load, as the inspector does.
     const rps = load > 0 ? load : type.cap != null && !type.host ? Math.max(1, (a.sim.entryRps || w.rps) * 0.1) : 0;
-    const usage = { rps, dataGb: w.dataGb, read: w.readPct / 100, users: w.users, need: a.fits[n.id]?.need };
+    const usage = { rps, dataGb: w.dataGb, read: w.readPct / 100, users: w.users, ops: opsOf(w), need: a.fits[n.id]?.need };
     const ranked = rankOfferings(n, usage);
     // Only prices we could size against the load compete; a bare "cheapest listed tier" is not a fair price.
     const best = ranked.find((r) => r.cost != null && !r.lowerBound);

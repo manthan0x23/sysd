@@ -27,6 +27,7 @@ export const DocSchema = z.object({
   version: z.literal(2),
   workload: z.object({
     users: finite(0, 1e11), dataGb: finite(0, 1e9), rps: finite(0, 1e9), peakRps: finite(0, 1e9), readPct: finite(0, 100), atPeak: z.boolean(),
+    seats: finite(0, 1e5).optional(), ciMinutes: finite(0, 1e8).optional(), monitors: finite(0, 1e6).optional(), hosts: finite(0, 1e6).optional(), ingestGb: finite(0, 1e8).optional(), events: finite(0, 1e12).optional(),
   }),
   nodes: z.array(Node).max(400),
   edges: z.array(z.object({ id, from: id, to: id, weight: finite(0, 100).optional() })).max(1200),

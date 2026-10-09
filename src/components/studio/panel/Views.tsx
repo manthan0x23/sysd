@@ -23,6 +23,14 @@ export function InputsView() {
       <LogSlider label="Data stored" value={w.dataGb} min={1} max={100_000} format={(n) => (n >= 1000 ? `${+(n / 1000).toPrecision(3)} TB` : `${fmtInt(n)} GB`)} onChange={(dataGb) => setWorkload({ dataGb })} />
       <LogSlider label="Read share" value={w.readPct} min={50} max={99} log={false} format={(n) => `${n} : ${100 - n}`} onChange={(readPct) => setWorkload({ readPct })} />
       <label className="check"><input type="checkbox" checked={w.atPeak} onChange={(e) => setWorkload({ atPeak: e.target.checked })} />Simulate at peak</label>
+      <h4 className="grp">Team and operations</h4>
+      <LogSlider label="Team members" value={w.seats} min={1} max={500} format={fmtInt} onChange={(seats) => setWorkload({ seats })} />
+      <LogSlider label="CI minutes a month" value={w.ciMinutes} min={10} max={1_000_000} format={fmtCompact} onChange={(ciMinutes) => setWorkload({ ciMinutes })} />
+      <LogSlider label="Uptime monitors" value={w.monitors} min={1} max={1000} format={fmtInt} onChange={(monitors) => setWorkload({ monitors })} />
+      <LogSlider label="Monitored hosts" value={w.hosts} min={1} max={1000} format={fmtInt} onChange={(hosts) => setWorkload({ hosts })} />
+      <LogSlider label="Logs and traces a month" value={w.ingestGb} min={1} max={100_000} format={(n) => `${fmtInt(n)} GB`} onChange={(ingestGb) => setWorkload({ ingestGb })} />
+      <LogSlider label="Tracked events a month" value={w.events} min={1000} max={1_000_000_000} format={fmtCompact} onChange={(events) => setWorkload({ events })} />
+      <p className="note">These only matter for tools priced by people, builds, monitors, hosts, log volume or events. They decide whether a free tier is enough and what Best value picks.</p>
       <p className="note">Requests per second is what the whole system receives. Every component below gets its share, which you can follow in Traffic.</p>
     </div>
   );

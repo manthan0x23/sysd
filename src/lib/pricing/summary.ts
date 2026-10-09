@@ -33,6 +33,7 @@ export function planSummary(p: Plan): string {
   const parts: string[] = [];
   if (p.spec) parts.push(`${p.spec.vcpu} vCPU`, `${p.spec.ramGb < 1 ? "512 MB" : `${p.spec.ramGb} GB`} RAM`, `${p.spec.diskGb} GB`);
   if (p.free) parts.push(`Free${describeLimits(p.limits)}`);
+  else if (p.price != null && p.perSeat) parts.push(`${usd(p.price)} per person a month`);
   else if (p.price != null) parts.push(`${usd(p.price)}/mo${p.priceIntro != null ? ` (intro ${usd(p.priceIntro)})` : ""}`);
   return parts.join(" · ");
 }

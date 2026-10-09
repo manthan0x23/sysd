@@ -55,7 +55,7 @@ const HAND_PLANS: Record<string, Plan[]> = {
  * point at the page they came from and the day they were fetched. `snapshot.review` says how far they were checked:
  * "checks-only" means mechanical sanity checks, not a person comparing each figure with the page.
  */
-interface SnapPlan { i: string; l: string; c?: number; r?: number; d?: number; p?: number; t?: [number, number, number?]; n?: number; f?: 1; lim?: Limits }
+interface SnapPlan { i: string; l: string; c?: number; r?: number; d?: number; p?: number; t?: [number, number, number?]; n?: number; f?: 1; s?: 1; lim?: Limits }
 const snap = snapshot as unknown as { version: number; review: string; notes: string[]; sources: Record<string, { url: string; at: string }>; plans: Record<string, SnapPlan[]> };
 export const PRICE_SNAPSHOT = { version: snap.version, review: snap.review };
 const fromSnapshot = (): Record<string, Plan[]> => Object.fromEntries(Object.entries(snap.plans).map(([offering, list]) => [
@@ -65,6 +65,7 @@ const fromSnapshot = (): Record<string, Plan[]> => Object.fromEntries(Object.ent
     ...(p.c != null && p.r != null ? { spec: { vcpu: p.c, ramGb: p.r, diskGb: p.d ?? 0 } } : {}),
     ...(p.p != null ? { price: p.p } : {}),
     ...(p.f ? { free: true } : {}),
+    ...(p.s ? { perSeat: true } : {}),
     ...(p.lim ? { limits: p.lim } : {}),
     ...(p.t ? { tokens: { inPerM: p.t[0], outPerM: p.t[1], cachedPerM: p.t[2] } } : {}),
     source: snap.sources[offering]?.url, fetchedAt: snap.sources[offering]?.at,

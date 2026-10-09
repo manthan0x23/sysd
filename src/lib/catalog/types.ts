@@ -72,6 +72,13 @@ export interface Limits {
   users?: number;
   /** Outbound transfer in GB per month. */
   egressGb?: number;
+  /** Team members, CI minutes a month, monitors, monitored hosts, GB of logs or traces ingested a month, events a month. */
+  seats?: number;
+  ciMinutes?: number;
+  monitors?: number;
+  hosts?: number;
+  ingestGb?: number;
+  events?: number;
 }
 
 /** A tier you can pick: a server size, or an LLM model. Each one carries where its numbers came from. */
@@ -82,6 +89,8 @@ export interface Plan {
   spec?: Spec;
   /** Sustained monthly price in USD (renewal price where an intro price exists). */
   price?: number;
+  /** Price is per team member per month; the estimate multiplies by the Team members input. */
+  perSeat?: boolean;
   /** A $0 plan. Its `limits` say how much it covers; beyond them the next tier applies. */
   free?: boolean;
   limits?: Limits;

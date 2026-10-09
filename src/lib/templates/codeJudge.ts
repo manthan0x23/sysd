@@ -1,7 +1,7 @@
 import type { Edge } from "@xyflow/react";
 import { fromDoc, toDoc, type DesignDoc } from "../doc";
 import { formatNodes } from "../layout";
-import type { Workload } from "../sim";
+import { DEFAULT_OPS, type Workload } from "../sim";
 
 /**
  * "Online code judge": people write code in the browser and submit it; sandboxed workers run it and the verdict is
@@ -10,7 +10,7 @@ import type { Workload } from "../sim";
  * on a runner server, so a hostile submission is contained. Sized for a first launch: about 10 users, 10 requests/s,
  * half reads and half writes.
  */
-const WORKLOAD: Workload = { users: 10, dataGb: 2, rps: 10, peakRps: 30, readPct: 50, atPeak: false };
+const WORKLOAD: Workload = { users: 10, dataGb: 2, rps: 10, peakRps: 30, readPct: 50, atPeak: false, ...DEFAULT_OPS };
 
 type N = DesignDoc["nodes"][number];
 const node = (id: string, type: string, name: string, extra: Partial<N> = {}): N => ({ id, type, name, x: 0, y: 0, ...extra });

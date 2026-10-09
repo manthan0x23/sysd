@@ -43,7 +43,8 @@ export function fromDoc(doc: DesignDoc): { nodes: StudioNode[]; edges: Edge[]; w
     return node;
   });
   const edges: Edge[] = doc.edges.map((e) => ({ id: e.id, source: e.from, target: e.to, type: "flow", ...(e.weight != null ? { data: { weight: e.weight } } : {}) }));
-  return { nodes, edges, workload: doc.workload };
+  // Designs saved before the operations inputs existed get the defaults.
+  return { nodes, edges, workload: { ...DEFAULT_WORKLOAD, ...doc.workload } };
 }
 
 /** An empty canvas: no services yet, default traffic numbers. */

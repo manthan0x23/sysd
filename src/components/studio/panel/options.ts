@@ -28,7 +28,7 @@ export function offeringCost(o: Offering, u: Usage): { cost: number | null; note
     const best = costs.reduce((a, b) => (b.c < a.c ? b : a));
     return { cost: best.c, note: `${best.p.label}, the cheapest model` };
   }
-  const { plan: flat, sized } = pickPlanInfo(o.id, o.typeId, { rps: u.rps, dataGb: u.dataGb, readPct: u.read * 100, users: u.users }, o.product);
+  const { plan: flat, sized } = pickPlanInfo(o.id, o.typeId, { rps: u.rps, dataGb: u.dataGb, readPct: u.read * 100, users: u.users, ops: u.ops }, o.product);
   const e = estimate(o, flat, u);
   return { cost: e ? e.monthly : null, note: flat && e ? flat.label : undefined, lowerBound: Boolean(flat && e && !sized && o.typeId !== "object") };
 }

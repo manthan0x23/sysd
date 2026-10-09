@@ -15,7 +15,7 @@ import { AUTOSCALE_TARGET, DEFAULT_CUSTOM, MAX_REPLICAS, hitRateOf, isAuto, need
 import { OBJECT_PRICES } from "@/lib/pricing/data";
 import { SECONDS_PER_MONTH } from "@/lib/pricing/estimate";
 import { offeringSummary, planSummary } from "@/lib/pricing/summary";
-import { splitFor, splitOptsFor, CACHE_HIT } from "@/lib/sim";
+import { splitFor, splitOptsFor, opsOf, CACHE_HIT } from "@/lib/sim";
 import { useReadOnly, useStudio } from "@/store/useStudio";
 import { Num } from "../Num";
 import { Picker, type PickerOption } from "../Picker";
@@ -99,7 +99,7 @@ export function ComponentCard() {
     // Compare options at an example load instead, and say so.
     const example = load === 0 && type.cap != null && !type.host;
     const rps = example ? Math.max(1, (a.sim.entryRps || a.workload.rps) * 0.1) : load;
-    const usage = { rps, dataGb: a.workload.dataGb, read: a.workload.readPct / 100, users: a.workload.users, need: fit?.need };
+    const usage = { rps, dataGb: a.workload.dataGb, read: a.workload.readPct / 100, users: a.workload.users, ops: opsOf(a.workload), need: fit?.need };
     const offering = offeringOf(node.data);
     return { type, fit, usage, example, offering, ranked: type.role === "source" ? [] : rankOfferings(node, usage), est: a.estimates[node.id] };
   }, [a, node]);
@@ -144,7 +144,7 @@ export function ComponentCard() {
       if (isAuto(node.data)) planValue = AUTO_PLAN_ID;
     } else if (rows.length) {
       const flat = type.id !== "llm";
-      const now = flat ? activePlan(node, { rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100, users: usage.users }) : undefined;
+      const now = flat ? activePlan(node, { rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100, users: usage.users, ops: usage.ops }) : undefined;
       planOptions = [
         ...(flat ? [{ id: AUTO_PLAN_ID, title: "Auto · sized to your load", sub: now ? `Now: ${now.label}${now.price != null ? ` · ${usd(now.price)}/mo` : ""}` : "Picks the cheapest tier that covers your load" }] : []),
         ...rows.map((r) => ({ id: r.plan.id, title: r.plan.label, sub: planSummary(r.plan) + (r.plan.note ? "" : ""), trailing: r.plan.free ? "Free" : money(r.cost), badge: r.plan.free ? { label: "Free tier", tone: "ok" as const } : tierBadge(r.tier) })),
@@ -161,7 +161,7 @@ export function ComponentCard() {
   const sources = [...(offering && OBJECT_PRICES[offering.id] ? [OBJECT_PRICES[offering.id]] : []), ...(fit?.plan?.source ? [fit.plan] : [])];
   // The tier the price comes from: the one picked by name, or for Auto the one Auto landed on.
   const activeSrc = offering && (plansOf(offering.id).find((p) => p.id === node.data.planId && p.source)
-    ?? (type.host !== "server" && type.id !== "llm" && isAuto(node.data) ? activePlan(node, { rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100, users: usage.users }) : undefined));
+    ?? (type.host !== "server" && type.id !== "llm" && isAuto(node.data) ? activePlan(node, { rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100, users: usage.users, ops: usage.ops }) : undefined));
 
   return (
     <section className="card sel-card" aria-label="Selected service">

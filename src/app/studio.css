@@ -569,3 +569,4 @@ body, .panel, .nav, .node, .host, .why, .card, .nc { transition: background-colo
 .stepper { display: flex; align-items: center; gap: 6px; margin: 6px 0; }
 .stepper input { width: 64px; text-align: center; font: 600 14px var(--font-sans), system-ui, sans-serif; padding: 6px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); }
 .note.err { color: var(--hot); }
+.grp { margin: 18px 0 4px; font: 600 11px/1 var(--font-sans), system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); }
