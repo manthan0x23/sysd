@@ -18,7 +18,7 @@ import { saveNow } from "./useAutosave";
 const stamp = () => Date.now().toString(36);
 
 /** A button that opens a small menu above the island. */
-function Menu({ label, icon, children, wide, width }: { label: string; icon: ReactNode; children: (close: () => void) => ReactNode; wide?: boolean; width?: number }) {
+function Menu({ label, icon, children, wide, width, down }: { label: string; icon: ReactNode; children: (close: () => void) => ReactNode; wide?: boolean; width?: number; /** Open below the button (for bars at the top of the screen). */ down?: boolean }) {
   const [open, setOpen] = useState(false);
   const box = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -31,7 +31,7 @@ function Menu({ label, icon, children, wide, width }: { label: string; icon: Rea
   return (
     <div className="menu" ref={box}>
       <button className={`ib ${wide ? "wide" : ""}`} title={label} aria-label={label} aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen((o) => !o)}>{icon}{wide && <span>{label}</span>}</button>
-      {open && <div className="menu-pop" role="menu" style={width ? { width } : undefined}>{children(() => setOpen(false))}</div>}
+      {open && <div className={`menu-pop ${down ? "down" : ""}`} role="menu" style={width ? { width } : undefined}>{children(() => setOpen(false))}</div>}
     </div>
   );
 }
@@ -60,7 +60,7 @@ export function FileIsland({ plan }: { plan: "free" | "pro" }) {
     <div className="island file-island" role="toolbar" aria-label="File">
       <div className="tgrp" data-label="File">
       <Link href="/home" className="ib" title="Home: all your designs" aria-label="Home"><Home className="ic" size={17} aria-hidden /></Link>
-      <Menu label="New design" icon={<FilePlus2 className="ic" size={17} aria-hidden />}>
+      <Menu down label="New design" icon={<FilePlus2 className="ic" size={17} aria-hidden />}>
         {(close) => (
           <>
             <button role="menuitem" className="mi" onClick={() => { close(); router.push(`/app?start=blank&fresh=${stamp()}`); }}><b>Blank canvas</b><small>Start from nothing</small></button>
@@ -75,7 +75,7 @@ export function FileIsland({ plan }: { plan: "free" | "pro" }) {
           <button className="ib" title="Save (Ctrl+S)" aria-label="Save" onClick={() => void saveNow("saved")}><Save className="ic" size={17} aria-hidden /></button>
         </>
       )}
-      <Menu label="Export" icon={<Download className="ic" size={17} aria-hidden />} width={330}>
+      <Menu down label="Export" icon={<Download className="ic" size={17} aria-hidden />} width={330}>
         {(close) => (
           <>
             <p className="menu-h">{pro ? "Download this design" : <><Lock className="ic" size={13} aria-hidden /> Exports are part of Pro</>}</p>
@@ -90,7 +90,7 @@ export function FileIsland({ plan }: { plan: "free" | "pro" }) {
         )}
       </Menu>
       {isNew && (
-        <Menu label="Reset to the sample" icon={<RotateCcw className="ic" size={16} aria-hidden />} width={240}>
+        <Menu down label="Reset to the sample" icon={<RotateCcw className="ic" size={16} aria-hidden />} width={240}>
           {(close) => (
             <>
               <p className="menu-h">Reset to the sample?</p>

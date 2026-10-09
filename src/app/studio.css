@@ -658,3 +658,4 @@ body, .panel, .nav, .node, .host, .why, .card, .nc { transition: background-colo
 .tgrp { position: relative; display: flex; align-items: center; gap: 2px; }
 .tgrp::before { display: none; }
 @media (max-width: 1100px) { .tgrp::before { display: none; } }
+.file-island .menu-pop.down { left: 0; right: auto; transform-origin: top left; }
