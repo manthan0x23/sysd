@@ -1,0 +1,22 @@
+{
+ "provider": "wasabi",
+ "currency": "USD",
+ "sources": [
+  "https://wasabi.com/cloud-storage-pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "object:wasabi:hot-cloud-storage"
+   ],
+   "tier": "Hot Cloud Storage",
+   "spec": {},
+   "price": {
+    "amount": 7.99,
+    "unit": "tb-month"
+   },
+   "note": "Starting at $7.99 per TB per month; page also shows $8.18 (unlabelled, maybe regional/incl. fees). No egress or API fees. 1 TB minimum."
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "provider": "kamatera",
+ "currency": "USD",
+ "sources": [
+  "https://www.kamatera.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:kamatera:cloud-servers"
+   ],
+   "tier": "Type A: 1 vCPU / 1 GB / 20 GB NVMe",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 1,
+    "diskGb": 20,
+    "transferGb": 5000
+   },
+   "price": {
+    "amount": 4,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:kamatera:cloud-servers"
+   ],
+   "tier": "Type A: 2 vCPU / 2 GB / 20 GB NVMe",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 2,
+    "diskGb": 20,
+    "transferGb": 5000
+   },
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:kamatera:cloud-servers"
+   ],
+   "tier": "Type A: 2 vCPU / 4 GB / 20 GB NVMe",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 20,
+    "transferGb": 5000
+   },
+   "price": {
+    "amount": 39,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Page labels only 'Type B - General Purpose' explicitly ($10/mo, 512 MB RAM / 5 GB, $0.014/hr). Pricing is configurable per resource; extra traffic $0.01/GB, extra storage $0.05/GB-month. The 'Type A' labels above are mine for the three unlabelled cards."
+}

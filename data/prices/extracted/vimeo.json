@@ -1,0 +1,10 @@
+{
+ "provider": "vimeo",
+ "currency": "USD",
+ "sources": [
+  "https://vimeo.com/enterprise/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned 136 bytes (blocked)."
+}

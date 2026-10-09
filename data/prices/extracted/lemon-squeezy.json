@@ -1,0 +1,30 @@
+{
+ "provider": "lemon-squeezy",
+ "currency": "USD",
+ "sources": [
+  "https://www.lemonsqueezy.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "payments:lemon-squeezy:merchant-of-record"
+   ],
+   "tier": "Merchant of record",
+   "spec": {},
+   "rates": [
+    {
+     "name": "percentage of transaction",
+     "amount": 5,
+     "unit": "percent"
+    },
+    {
+     "name": "fixed fee per transaction",
+     "amount": 0.5,
+     "unit": "fixed"
+    }
+   ],
+   "note": "5% + 50¢ per transaction; Lemon Squeezy is the merchant of record (handles sales tax/VAT)."
+  }
+ ]
+}

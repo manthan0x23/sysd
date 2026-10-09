@@ -1,0 +1,47 @@
+{
+ "provider": "trigger-dev",
+ "currency": "USD",
+ "sources": [
+  "https://trigger.dev/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "worker:trigger-dev:tasks"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "$5/month free usage credit."
+  },
+  {
+   "offerings": [
+    "worker:trigger-dev:tasks"
+   ],
+   "tier": "Hobby",
+   "spec": {},
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   },
+   "note": "$10/month credits included."
+  },
+  {
+   "offerings": [
+    "worker:trigger-dev:tasks"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 50,
+    "unit": "month"
+   },
+   "note": "$50/month credits included; extra seats $10/month per 50."
+  }
+ ],
+ "notes": "Compute billed per second by machine size (Micro 0.25 vCPU / 0.25 GB $0.0000169/s; Small 1x 0.5/0.5 $0.0000338/s; larger sizes in page table)."
+}

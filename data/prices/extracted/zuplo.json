@@ -1,0 +1,10 @@
+{
+ "provider": "zuplo",
+ "currency": "USD",
+ "sources": [
+  "https://zuplo.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Only a custom-domain add-on ($25/month for 2 domains) captured; plan prices not parsed."
+}

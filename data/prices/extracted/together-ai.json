@@ -1,0 +1,539 @@
+{
+ "provider": "together-ai",
+ "currency": "USD",
+ "sources": [
+  "https://www.together.ai/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>MiniMax M3](https://www.together.ai/models/minimax-m3)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.2,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Kimi K3<br><br>",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 15,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional pricing shown on the page until Oct 11, 2026; list price recorded."
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3.8-2.4T-A95B](https://www.together.ai/models/qwen3-8-max)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 6,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Muse Glimmer 30B](https://www.together.ai/models/muse-glimmer)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.35,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.5,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>DeepSeek V4 Pro 0813](https://www.together.ai/models/deepseek-v4-pro-0813)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.32,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3.96,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>GLM-5.3](https://www.together.ai/models/glm-5-3)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 4.4,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>GLM-5.3-Flash](https://www.together.ai/models/glm-5-3-flash)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.5,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>DeepSeek V4.1 Flash](https://www.together.ai/models/deepseek-v4-1-flash)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.2,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Tev1 4B Experimental](https://www.together.ai/models/tev1-4b-experimental)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.04,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Gemma 4 31B](https://www.together.ai/models/gemma-4-31b)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.39,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.97,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3.7-Plus](https://www.together.ai/models/qwen37-plus)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.32,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.28,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>GLM-5.2](https://www.together.ai/models/glm-52)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 4.4,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Ternary Bonsai 27B](https://www.together.ai/models/prism-ml-ternary-bonsai-27b)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Inkling](https://www.together.ai/models/inkling)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 4.05,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>DeepSeek V4 Flash 0731](https://www.together.ai/models/deepseek-v4-flash-0731)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.14,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.28,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3.8 Flash](https://www.together.ai/models/qwen3-8-flash)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.47,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3.7-Max](https://www.together.ai/models/qwen37-max)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 4.5,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>gpt-oss-120B](https://www.together.ai/models/gpt-oss-120b)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.6,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3.5-397B-A17B](https://www.together.ai/models/qwen3-5-397b-a17b)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.6,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3.6,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3.5 9B](https://www.together.ai/models/qwen3-5-9b)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.17,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.25,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Cogito v2.1 671B](https://www.together.ai/models/cogito-v2-1-671b)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.25,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Rnj-1 Instruct](https://www.together.ai/models/rnj-1-instruct)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.15,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Llama 3.3 70B](https://www.together.ai/models/llama-3-3-70b)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.04,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.04,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>MiniMax M2.7](https://www.together.ai/models/minimax-m2-7)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.2,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3.6-Plus](https://www.together.ai/models/qwen36-plus)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen2.5 7B Instruct Turbo](https://www.together.ai/models/qwen2-5-7b-instruct-turbo)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.3,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Llama 3 8B Instruct Lite](https://www.together.ai/models/llama-3-8b-instruct-lite)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.14,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.14,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:together-ai:inference"
+   ],
+   "tier": "![<br><br>Qwen3 235B A22B Instruct 2507 FP8 Throughput](https://www.together.ai/models/qwen3-235b-a22b-instruct-2507-fp8)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.6,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  }
+ ],
+ "notes": "Serverless on-demand per-1M-token table (first table). Batch table and dedicated GPU endpoint prices are separate."
+}

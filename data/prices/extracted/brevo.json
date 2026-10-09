@@ -1,0 +1,45 @@
+{
+ "provider": "brevo",
+ "currency": "USD",
+ "sources": [
+  "https://www.brevo.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "email:brevo:email"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   },
+   "note": "Shown as $9 ('no Brevo logo' add-on $10.80/mo)."
+  },
+  {
+   "offerings": [
+    "email:brevo:email"
+   ],
+   "tier": "Standard",
+   "spec": {},
+   "price": {
+    "amount": 18,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "email:brevo:email"
+   ],
+   "tier": "Professional",
+   "spec": {},
+   "price": {
+    "amount": 499,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Email send limits per plan not captured; Sales CRM seats: Essentials $27.92, Advanced $58.50/user/month (not relevant to email)."
+}

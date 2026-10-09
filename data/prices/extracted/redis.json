@@ -1,0 +1,49 @@
+{
+ "provider": "redis",
+ "currency": "USD",
+ "sources": [
+  "https://redis.io/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "redis:redis:cloud"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:redis:cloud"
+   ],
+   "tier": "Essentials (from)",
+   "spec": {},
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   },
+   "hourly": 0.007,
+   "note": "'From $0.007/hour; total $5/month'."
+  },
+  {
+   "offerings": [
+    "redis:redis:cloud"
+   ],
+   "tier": "Pro (from)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "from",
+     "amount": 0.014,
+     "unit": "hour"
+    }
+   ],
+   "note": "Minimum $200/month."
+  }
+ ]
+}

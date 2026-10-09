@@ -1,0 +1,45 @@
+{
+ "provider": "checkly",
+ "currency": "USD",
+ "sources": [
+  "https://www.checklyhq.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "uptime:checkly:synthetics"
+   ],
+   "tier": "Hobby",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "uptime:checkly:synthetics"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 24,
+    "unit": "month"
+   },
+   "note": "Billed annually; monthly billing price is higher."
+  },
+  {
+   "offerings": [
+    "uptime:checkly:synthetics"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 64,
+    "unit": "month"
+   },
+   "note": "Billed annually."
+  }
+ ]
+}

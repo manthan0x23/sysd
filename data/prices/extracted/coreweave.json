@@ -1,0 +1,268 @@
+{
+ "provider": "coreweave",
+ "currency": "USD",
+ "sources": [
+  "https://www.coreweave.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA GB200 NVL72",
+   "spec": {
+    "gpuModel": "NVIDIA GB200 NVL72"
+   },
+   "price": {
+    "amount": 42,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "inference single GPU",
+     "amount": 10.5,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA HGX B300",
+   "spec": {
+    "gpuModel": "NVIDIA HGX B300"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 35.84,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA HGX B200",
+   "spec": {
+    "gpuModel": "NVIDIA HGX B200"
+   },
+   "price": {
+    "amount": 68.8,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 34.11,
+     "unit": "hour"
+    },
+    {
+     "name": "inference single GPU",
+     "amount": 8.6,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA RTX PRO 6000 Blackwell Server Edition (High Memory)",
+   "spec": {
+    "gpuModel": "NVIDIA RTX PRO 6000 Blackwell Server Edition (High Memory)"
+   },
+   "price": {
+    "amount": 20,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 11.09,
+     "unit": "hour"
+    },
+    {
+     "name": "inference single GPU",
+     "amount": 2.5,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA RTX PRO 6000 Blackwell Server Edition (Standard Memory)",
+   "spec": {
+    "gpuModel": "NVIDIA RTX PRO 6000 Blackwell Server Edition (Standard Memory)"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 9.56,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA GH200",
+   "spec": {
+    "gpuModel": "NVIDIA GH200"
+   },
+   "price": {
+    "amount": 6.5,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "inference single GPU",
+     "amount": 6.5,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA HGX H100",
+   "spec": {
+    "gpuModel": "NVIDIA HGX H100"
+   },
+   "price": {
+    "amount": 49.24,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 19.71,
+     "unit": "hour"
+    },
+    {
+     "name": "inference single GPU",
+     "amount": 6.16,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA L40",
+   "spec": {
+    "gpuModel": "NVIDIA L40"
+   },
+   "price": {
+    "amount": 10,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 6.27,
+     "unit": "hour"
+    },
+    {
+     "name": "inference single GPU",
+     "amount": 1.25,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA HGX H200",
+   "spec": {
+    "gpuModel": "NVIDIA HGX H200"
+   },
+   "price": {
+    "amount": 50.44,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 20.93,
+     "unit": "hour"
+    },
+    {
+     "name": "inference single GPU",
+     "amount": 6.31,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA L40S",
+   "spec": {
+    "gpuModel": "NVIDIA L40S"
+   },
+   "price": {
+    "amount": 18,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 7.88,
+     "unit": "hour"
+    },
+    {
+     "name": "inference single GPU",
+     "amount": 2.25,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  },
+  {
+   "offerings": [
+    "gpu:coreweave:gpu-cloud"
+   ],
+   "tier": "NVIDIA A100",
+   "spec": {
+    "gpuModel": "NVIDIA A100"
+   },
+   "price": {
+    "amount": 21.6,
+    "unit": "hour"
+   },
+   "rates": [
+    {
+     "name": "spot",
+     "amount": 9.65,
+     "unit": "hour"
+    },
+    {
+     "name": "inference single GPU",
+     "amount": 2.7,
+     "unit": "hour"
+    }
+   ],
+   "note": "On-demand/spot prices are per node (multiple GPUs); inference price is per single GPU."
+  }
+ ]
+}

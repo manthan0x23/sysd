@@ -1,0 +1,30 @@
+{
+ "provider": "launchdarkly",
+ "currency": "USD",
+ "sources": [
+  "https://launchdarkly.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "flags:launchdarkly:feature-management"
+   ],
+   "tier": "Service connections",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per service connection (billed yearly)",
+     "amount": 10,
+     "unit": "other"
+    },
+    {
+     "name": "per 1k client-side MAU (billed yearly)",
+     "amount": 8.33,
+     "unit": "other"
+    }
+   ],
+   "note": "Per-month unit prices as shown; monthly billing is higher ($12 / $10 per 1K MAU)."
+  }
+ ]
+}

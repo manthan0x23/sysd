@@ -1,0 +1,98 @@
+{
+ "provider": "deepgram",
+ "currency": "USD",
+ "sources": [
+  "https://deepgram.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "speech:deepgram:speech"
+   ],
+   "tier": "Nova-3 Monolingual (pay as you go)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "current price",
+     "amount": 0.0048,
+     "unit": "minute"
+    },
+    {
+     "name": "regular price",
+     "amount": 0.0077,
+     "unit": "minute"
+    }
+   ],
+   "note": "Streaming same price. Growth plan $0.0042/min (regular $0.0065)."
+  },
+  {
+   "offerings": [
+    "speech:deepgram:speech"
+   ],
+   "tier": "Nova-3 Multilingual (pay as you go)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "current price",
+     "amount": 0.0058,
+     "unit": "minute"
+    },
+    {
+     "name": "regular price",
+     "amount": 0.0092,
+     "unit": "minute"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:deepgram:speech"
+   ],
+   "tier": "Flux English (pay as you go)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "current price",
+     "amount": 0.0065,
+     "unit": "minute"
+    },
+    {
+     "name": "regular price",
+     "amount": 0.0077,
+     "unit": "minute"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:deepgram:speech"
+   ],
+   "tier": "Flux Multilingual (pay as you go)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "price",
+     "amount": 0.0078,
+     "unit": "minute"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:deepgram:speech"
+   ],
+   "tier": "Text-to-speech Aura-2",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per 1K characters (pay as you go)",
+     "amount": 0.03,
+     "unit": "other"
+    }
+   ],
+   "note": "Aura-1 $0.015, Flux TTS $0.045 per 1K characters; Growth plan ~10% lower."
+  }
+ ],
+ "notes": "'Current price' is a promotional price; the struck-through 'regular price' is also recorded."
+}

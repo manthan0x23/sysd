@@ -1,0 +1,110 @@
+{
+ "provider": "bunny",
+ "currency": "USD",
+ "sources": [
+  "https://bunny.net/pricing/",
+  "https://bunny.net/pricing/stream/",
+  "https://bunny.net/database/",
+  "https://bunny.net/optimizer/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cdn:bunny:cdn"
+   ],
+   "tier": "Standard network (119 PoPs)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "from",
+     "amount": 0.01,
+     "unit": "gb"
+    }
+   ],
+   "note": "Regional prices $0.01 to $0.06/GB; region labels not captured. $1 monthly minimum."
+  },
+  {
+   "offerings": [
+    "cdn:bunny:cdn"
+   ],
+   "tier": "Volume network (10 PoPs)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "first 500 TB",
+     "amount": 0.005,
+     "unit": "gb"
+    },
+    {
+     "name": "500 TB - 1 PB",
+     "amount": 0.004,
+     "unit": "gb"
+    },
+    {
+     "name": "above",
+     "amount": 0.002,
+     "unit": "gb"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "media:bunny:stream"
+   ],
+   "tier": "Stream",
+   "spec": {},
+   "rates": [
+    {
+     "name": "encoding from",
+     "amount": 0.02,
+     "unit": "minute-video"
+    },
+    {
+     "name": "storage from",
+     "amount": 0.01,
+     "unit": "gb-month"
+    }
+   ],
+   "note": "Player, transcoding and security features free; $1 monthly minimum."
+  },
+  {
+   "offerings": [
+    "sqlite:bunny:database"
+   ],
+   "tier": "Bunny Database",
+   "spec": {},
+   "rates": [
+    {
+     "name": "rows read",
+     "amount": 0.3,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "rows written",
+     "amount": 0.3,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "storage per active region",
+     "amount": 0.1,
+     "unit": "gb-month"
+    }
+   ],
+   "note": "Free during public preview. Page also lists '$0.30 per billion rows' (reads)."
+  },
+  {
+   "offerings": [
+    "images:bunny:optimizer"
+   ],
+   "tier": "Optimizer",
+   "spec": {},
+   "price": {
+    "amount": 9.5,
+    "unit": "month"
+   },
+   "note": "$9.5/month per website."
+  }
+ ],
+ "notes": "Rates only; Bunny database read price is per billion rows on the page (per-million figure above is the writes line)."
+}

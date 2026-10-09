@@ -1,0 +1,10 @@
+{
+ "provider": "jina",
+ "currency": "USD",
+ "sources": [
+  "https://jina.ai/embeddings/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Page too large/noisy; no embedding token prices identified in scrape ($50 technical support line only)."
+}

@@ -1,0 +1,109 @@
+{
+ "provider": "fireworks-ai",
+ "currency": "USD",
+ "sources": [
+  "https://fireworks.ai/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:fireworks-ai:inference"
+   ],
+   "tier": "Embeddings up to 150M params",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.008,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:fireworks-ai:inference"
+   ],
+   "tier": "Embeddings 150M-350M params",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.016,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:fireworks-ai:inference"
+   ],
+   "tier": "Qwen3 8B embeddings",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.1,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:fireworks-ai:inference"
+   ],
+   "tier": "Fine-tuning: LoRA SFT up to 16B",
+   "spec": {},
+   "rates": [
+    {
+     "name": "training",
+     "amount": 0.5,
+     "unit": "1m-tokens"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:fireworks-ai:inference"
+   ],
+   "tier": "Fine-tuning: LoRA SFT 16.1B-80B",
+   "spec": {},
+   "rates": [
+    {
+     "name": "training",
+     "amount": 3,
+     "unit": "1m-tokens"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:fireworks-ai:inference"
+   ],
+   "tier": "Fine-tuning: LoRA SFT 80B-300B",
+   "spec": {},
+   "rates": [
+    {
+     "name": "training",
+     "amount": 6,
+     "unit": "1m-tokens"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:fireworks-ai:inference"
+   ],
+   "tier": "Fine-tuning: LoRA SFT >300B",
+   "spec": {},
+   "rates": [
+    {
+     "name": "training",
+     "amount": 10,
+     "unit": "1m-tokens"
+    }
+   ]
+  }
+ ],
+ "notes": "Per-model serverless inference prices are on a separate full pricing page (not scraped); on-demand GPU prices per GPU-second also elsewhere."
+}

@@ -8,6 +8,7 @@ import { CreateTeamForm } from "@/components/pages/TeamForms";
 import { APP_NAME } from "@/lib/brand";
 import { getPlan } from "@/server/plans";
 import { currentUser } from "@/server/session";
+import { Avatar } from "@/components/Avatar";
 import { listTeams } from "@/server/teams";
 
 export const metadata: Metadata = { title: `Teams | ${APP_NAME}` };
@@ -25,7 +26,7 @@ async function Body() {
         {teams.length > 0 && (
           <ul className="list">
             {teams.map((t) => (
-              <li key={t.id}><Link href={`/teams/${t.id}`} className="list-main"><b>{t.name}</b><small>{t.level}</small></Link></li>
+              <li key={t.id}><Link href={`/teams/${t.id}`} className="list-main"><Avatar value={t.logo} name={t.name} size={30} /><b>{t.name}</b><small>{t.level}</small></Link></li>
             ))}
           </ul>
         )}

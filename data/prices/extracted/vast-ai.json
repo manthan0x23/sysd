@@ -1,0 +1,10 @@
+{
+ "provider": "vast-ai",
+ "currency": "USD",
+ "sources": [
+  "https://vast.ai/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Page shows 'from $x/hr, median $y/hr' per GPU but the GPU names were not in the scrape, so rates cannot be attributed. Marketplace prices also vary live."
+}

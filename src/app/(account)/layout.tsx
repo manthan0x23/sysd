@@ -7,6 +7,7 @@ import { signOutAction } from "@/app/actions";
 import { Logo } from "@/components/Logo";
 import { AmbientFlow } from "@/components/pages/AmbientFlow";
 import { ThemeToggle } from "@/components/studio/ThemeToggle";
+import { AccountAvatar } from "@/components/pages/AccountAvatar";
 import { NavLinks } from "@/components/pages/NavLinks";
 import { APP_NAME, PLAN_LABEL } from "@/lib/brand";
 import { getPlan } from "@/server/plans";
@@ -23,6 +24,7 @@ async function Who() {
     <>
       {plan === "free" && <Link href="/upgrade" className="ph-gopro"><Crown size={14} aria-hidden /><span>Go Pro</span></Link>}
       <Link href="/upgrade" className={`ph-plan ${plan}`} title={plan === "pro" ? "Your Pro plan" : "Starter plan. See what Pro adds"}>{PLAN_LABEL[plan]}</Link>
+      <AccountAvatar value={u.avatar} name={u.name} />
       <span className="ph-name">{u.name}</span>
       <form action={signOutAction}><button className="ph-link" type="submit">Sign out</button></form>
     </>

@@ -1,0 +1,10 @@
+{
+ "provider": "heap",
+ "currency": "USD",
+ "sources": [
+  "https://www.heap.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "No pricing in scrape (quote-based)."
+}

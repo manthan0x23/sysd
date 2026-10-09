@@ -1,0 +1,23 @@
+{
+ "provider": "messagebird",
+ "currency": "USD",
+ "sources": [
+  "https://bird.com/en-us/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "sms:messagebird:sms"
+   ],
+   "tier": "Bird email plans (from)",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   },
+   "note": "'Paid plans from $15/month' (email). SMS example: 10,000 segments = $70 (~$0.007/segment, AT&T fees included)."
+  }
+ ],
+ "notes": "MessageBird is now Bird (bird.com)."
+}

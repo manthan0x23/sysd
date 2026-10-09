@@ -1,0 +1,35 @@
+{
+ "provider": "hex",
+ "currency": "USD",
+ "sources": [
+  "https://hex.tech/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "bi:hex:platform"
+   ],
+   "tier": "Professional",
+   "spec": {},
+   "price": {
+    "amount": 36,
+    "unit": "user-month"
+   },
+   "note": "Per editor per month."
+  },
+  {
+   "offerings": [
+    "bi:hex:platform"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 75,
+    "unit": "user-month"
+   },
+   "note": "Per editor per month."
+  }
+ ],
+ "notes": "Compute profiles priced per hour: Large $0.32, Extra large $0.65, 2XL $1.29, 4XL $2.58, A10G GPU $4.06 (CPU/RAM columns not labelled)."
+}

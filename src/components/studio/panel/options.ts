@@ -3,16 +3,18 @@ import { AUTO_HEADROOM, autoPlan, worstRatio } from "@/lib/fit";
 import { activePlan } from "@/lib/analysis";
 import type { StudioNode } from "@/lib/model";
 import { estimate, type Usage } from "@/lib/pricing/estimate";
+import { pickPlanInfo } from "@/lib/pricing/pick";
 import { tiers, TIER_LABEL, type Tier } from "@/lib/pricing/rank";
 import { fmtMoney } from "@/lib/format";
 import type { Need } from "@/lib/catalog";
 
-export interface Ranked<T> { item: T; cost: number | null; tier: Tier; note?: string }
+/** lowerBound: the price is only the cheapest listed tier, because its size could not be compared with the load. */
+export interface Ranked<T> { item: T; cost: number | null; tier: Tier; note?: string; lowerBound?: boolean }
 
 const haveOf = (p: Plan): Need => ({ cpu: p.spec?.vcpu ?? 0, ramGb: p.spec?.ramGb ?? 0, diskGb: p.spec?.diskGb ?? 0 });
 
 /** Monthly cost of an offering at this usage, using its cheapest suitable plan. Null when we have no real prices. */
-export function offeringCost(o: Offering, u: Usage): { cost: number | null; note?: string } {
+export function offeringCost(o: Offering, u: Usage): { cost: number | null; note?: string; lowerBound?: boolean } {
   if (o.typeId === "vps") {
     if (!u.need) return { cost: null };
     const p = autoPlan(o.id, u.need);
@@ -26,15 +28,16 @@ export function offeringCost(o: Offering, u: Usage): { cost: number | null; note
     const best = costs.reduce((a, b) => (b.c < a.c ? b : a));
     return { cost: best.c, note: `${best.p.label}, the cheapest model` };
   }
-  const e = estimate(o, undefined, u);
-  return { cost: e ? e.monthly : null };
+  const { plan: flat, sized } = pickPlanInfo(o.id, o.typeId, { rps: u.rps, dataGb: u.dataGb, readPct: u.read * 100, users: u.users }, o.product);
+  const e = estimate(o, flat, u);
+  return { cost: e ? e.monthly : null, note: flat && e ? flat.label : undefined, lowerBound: Boolean(flat && e && !sized && o.typeId !== "object") };
 }
 
 /** Every offering of a type, priced where we have real data and tiered against the cheapest. */
 export function rankOfferings(node: StudioNode, u: Usage): Ranked<Offering>[] {
   const list = offeringsOf(node.data.typeId).map((o) => ({ o, ...offeringCost(o, u) }));
   const t = tiers(list.map((x) => x.cost));
-  const ranked = list.map((x, i) => ({ item: x.o, cost: x.cost, tier: t[i], note: x.note }));
+  const ranked = list.map((x, i) => ({ item: x.o, cost: x.cost, tier: t[i], note: x.note, lowerBound: x.lowerBound }));
   // cheapest first, unpriced keep catalogue order at the end
   return [...ranked].sort((a, b) => (a.cost ?? Infinity) - (b.cost ?? Infinity));
 }

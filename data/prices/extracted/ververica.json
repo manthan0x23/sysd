@@ -1,0 +1,10 @@
+{
+ "provider": "ververica",
+ "currency": "USD",
+ "sources": [
+  "https://www.ververica.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape had no prices."
+}

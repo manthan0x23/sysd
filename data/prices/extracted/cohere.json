@@ -1,0 +1,125 @@
+{
+ "provider": "cohere",
+ "currency": "USD",
+ "sources": [
+  "https://cohere.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:cohere:api"
+   ],
+   "tier": "Command",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 2,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:cohere:api"
+   ],
+   "tier": "Command-light",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.6,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:cohere:api"
+   ],
+   "tier": "Command R (03-2024)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.5,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:cohere:api"
+   ],
+   "tier": "Command R+ (04-2024)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 15,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:cohere:api"
+   ],
+   "tier": "Command R+ (08-2024)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:cohere:api"
+   ],
+   "tier": "Aya Expanse (8B and 32B)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.5,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  }
+ ],
+ "notes": "These are the models listed on the scraped pricing page (older generation). Private-deployment instance prices ($3-$10/hour, $2,000-$6,500/month per instance) appear without model names. Embed/Rerank prices not on this page."
+}

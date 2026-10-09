@@ -1,0 +1,45 @@
+{
+ "provider": "resend",
+ "currency": "USD",
+ "sources": [
+  "https://resend.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "email:resend:email"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "email:resend:email"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "Extra emails $0.90 per 1,000."
+  },
+  {
+   "offerings": [
+    "email:resend:email"
+   ],
+   "tier": "Scale",
+   "spec": {},
+   "price": {
+    "amount": 90,
+    "unit": "month"
+   },
+   "note": "Extra emails $0.90 per 1,000."
+  }
+ ]
+}

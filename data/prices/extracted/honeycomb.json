@@ -1,0 +1,23 @@
+{
+ "provider": "honeycomb",
+ "currency": "USD",
+ "sources": [
+  "https://www.honeycomb.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "metrics:honeycomb:observability",
+    "tracing:honeycomb:tracing"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 150,
+    "unit": "month"
+   },
+   "note": "'Starting at $150/month' for 50M events (up to 750M) and 250M time-series points (up to 3.75B). Telemetry from $0.10/GB."
+  }
+ ]
+}

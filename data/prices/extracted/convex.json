@@ -1,0 +1,46 @@
+{
+ "provider": "convex",
+ "currency": "USD",
+ "sources": [
+  "https://www.convex.dev/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "baas:convex:platform"
+   ],
+   "tier": "Free / Starter",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "'Free or $0/month and pay as you go'."
+  },
+  {
+   "offerings": [
+    "baas:convex:platform"
+   ],
+   "tier": "Professional",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "user-month"
+   },
+   "note": "$25 per developer per month."
+  },
+  {
+   "offerings": [
+    "baas:convex:platform"
+   ],
+   "tier": "Plan above Professional (name not captured)",
+   "spec": {},
+   "price": {
+    "amount": 2500,
+    "unit": "month"
+   },
+   "note": "'$2,500 monthly minimum'; \"Everything in Professional, plus...\"."
+  }
+ ]
+}

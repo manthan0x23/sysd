@@ -1,0 +1,10 @@
+{
+ "provider": "infisical",
+ "currency": "USD",
+ "sources": [
+  "https://infisical.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Not fetched (rate-limited); pending."
+}

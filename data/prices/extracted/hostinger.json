@@ -1,0 +1,103 @@
+{
+ "provider": "hostinger",
+ "currency": "USD",
+ "sources": [
+  "https://www.hostinger.com/vps-hosting"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:hostinger:kvm-vps"
+   ],
+   "tier": "KVM 1",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 4,
+    "diskGb": 50,
+    "transferGb": 4000,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 11.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 6.49,
+    "unit": "month",
+    "note": "intro price for a 24-month term"
+   },
+   "listPrice": 19.49
+  },
+  {
+   "offerings": [
+    "vps:hostinger:kvm-vps"
+   ],
+   "tier": "KVM 2",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "diskGb": 100,
+    "transferGb": 8000,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 14.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 8.99,
+    "unit": "month",
+    "note": "intro price for a 24-month term"
+   },
+   "listPrice": 24.49
+  },
+  {
+   "offerings": [
+    "vps:hostinger:kvm-vps"
+   ],
+   "tier": "KVM 4",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "diskGb": 200,
+    "transferGb": 16000,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 28.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 12.99,
+    "unit": "month",
+    "note": "intro price for a 24-month term"
+   },
+   "listPrice": 42.99
+  },
+  {
+   "offerings": [
+    "vps:hostinger:kvm-vps"
+   ],
+   "tier": "KVM 8",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "diskGb": 400,
+    "transferGb": 32000,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 49.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 25.99,
+    "unit": "month",
+    "note": "intro price for a 24-month term"
+   },
+   "listPrice": 73.99
+  }
+ ],
+ "notes": "Price is the renewal rate; introPrice applies to the first 24-month term. Struck-through list price is not a real price."
+}

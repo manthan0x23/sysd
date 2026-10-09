@@ -1,0 +1,10 @@
+{
+ "provider": "a2-hosting",
+ "currency": "USD",
+ "sources": [
+  "https://www.a2hosting.com/vps-hosting/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "The scraped URL returned shared-hosting plans (Startup/Drive/Turbo), not VPS tiers. VPS pricing needs a different URL; not recorded."
+}

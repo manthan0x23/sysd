@@ -1,0 +1,10 @@
+{
+ "provider": "tigergraph",
+ "currency": "USD",
+ "sources": [
+  "https://www.tigergraph.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Savanna storage $0.025 per GB-month. Free tier exists; up to 32 vCPUs / 256 GB per workspace."
+}

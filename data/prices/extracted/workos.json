@@ -1,0 +1,22 @@
+{
+ "provider": "workos",
+ "currency": "USD",
+ "sources": [
+  "https://workos.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "auth:workos:authkit-sso"
+   ],
+   "tier": "SSO / Directory connection",
+   "spec": {},
+   "price": {
+    "amount": 125,
+    "unit": "month"
+   },
+   "note": "$125 per connection per month at low volume, tiering down to $100 / $80 / $65 at higher volume."
+  }
+ ]
+}

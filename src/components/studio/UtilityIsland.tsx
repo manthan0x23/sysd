@@ -4,13 +4,14 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useReactFlow } from "@xyflow/react";
-import { BarChart3, ChevronDown, Crown, Download, FilePen, FilePlus2, Home, Lock, Maximize, Menu as MenuIcon, Minus, Plus, RotateCcw, Save } from "lucide-react";
+import { AlignHorizontalDistributeCenter, BarChart3, PiggyBank, ChevronDown, Crown, Download, FilePen, FilePlus2, Home, Lock, Maximize, Menu as MenuIcon, Minus, Plus, RotateCcw, Save } from "lucide-react";
 import { fmtMoney } from "@/lib/format";
 import { EXPORTS, exportDesign, type ExportFormat } from "@/lib/exportClient";
 import { useStudio } from "@/store/useStudio";
 import { Num } from "./Num";
 import { ThemeToggle } from "./ThemeToggle";
 import { useAnalysis } from "./useAnalysis";
+import { optimizeForPrice } from "./optimize";
 import { saveNow } from "./useAutosave";
 
 const stamp = () => Date.now().toString(36);
@@ -58,6 +59,19 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
     if (r.ok) close(); else setExportError(r.error);
   };
 
+  /** Re-picks every service's provider and tier for the lowest price at the current load; the toast can undo it. */
+  const bestValue = () => {
+    const s = useStudio.getState();
+    const r = optimizeForPrice(s.nodes, s.edges, s.workload);
+    const changed = r.nodes.some((n, i) => n !== s.nodes[i]);
+    if (!changed) { s.setLinkNotice("Already the best value we have real prices for."); return; }
+    const saved = r.before - r.after;
+    const text = r.switches.length
+      ? `Switched ${r.switches.length} service${r.switches.length === 1 ? "" : "s"}: ${saved >= 0 ? `saves ${fmtMoney(saved)}/mo` : `${fmtMoney(-saved)}/mo more, because they now use real prices`} (${fmtMoney(r.before)} to ${fmtMoney(r.after)}).`
+      : "Set tiers to Auto. Prices did not change.";
+    s.applyOptimized(r.nodes, s.nodes, text);
+  };
+
   if (!open) return <button className="island fab fab-bottom" title="Open the tools" aria-label="Open the tools" onClick={() => useStudio.getState().setUi("util", true)}><MenuIcon className="ic" size={18} aria-hidden /></button>;
   return (
     <div className="island util-island" role="toolbar" aria-label="Canvas tools">
@@ -69,6 +83,7 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
           <>
             <button role="menuitem" className="mi" onClick={() => { close(); router.push(`/app?start=blank&fresh=${stamp()}`); }}><b>Blank canvas</b><small>Start from nothing</small></button>
             <button role="menuitem" className="mi" onClick={() => { close(); router.push(`/app?fresh=${stamp()}`); }}><b>Sample system</b><small>A web app with a cache, database and queue</small></button>
+            <button role="menuitem" className="mi" onClick={() => { close(); router.push(`/app?start=judge&fresh=${stamp()}`); }}><b>Online code judge</b><small>WebSocket servers, queue, sandboxed workers</small></button>
           </>
         )}
       </Menu>
@@ -82,6 +97,12 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
       <button className="ib" title="Zoom out" aria-label="Zoom out" onClick={() => void zoomOut({ duration: 200 })}><Minus className="ic" size={16} aria-hidden /></button>
       <button className="ib" title="Zoom in" aria-label="Zoom in" onClick={() => void zoomIn({ duration: 200 })}><Plus className="ic" size={16} aria-hidden /></button>
       <button className="ib" title="Fit everything on screen" aria-label="Fit to screen" onClick={() => void fitView({ duration: 300, padding: 0.2 })}><Maximize className="ic" size={16} aria-hidden /></button>
+      {!readOnly && (
+        <button className="ib" title="Tidy up: line the nodes up with even spacing" aria-label="Format layout" onClick={() => { useStudio.getState().formatLayout(); setTimeout(() => void fitView({ duration: 350, padding: 0.2 }), 60); }}><AlignHorizontalDistributeCenter className="ic" size={16} aria-hidden /></button>
+      )}
+      {!readOnly && (
+        <button className="ib" title="Best value: switch every service to its cheapest priced option at your load" aria-label="Best value" onClick={bestValue}><PiggyBank className="ic" size={16} aria-hidden /></button>
+      )}
       <i className="sep" aria-hidden />
       <button className="switch" role="switch" aria-checked={mode === "learn"} onClick={() => setMode(mode === "learn" ? "design" : "learn")} title="Show or hide the load bars and requests per second on the canvas">
         <span className="knob" aria-hidden /><span className="lbl2">Show load</span>
@@ -104,7 +125,18 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
           </>
         )}
       </Menu>
-      {isNew && <button className="ib" title="Reset to the sample" aria-label="Reset to the sample system" onClick={reset}><RotateCcw className="ic" size={16} aria-hidden /></button>}
+      {isNew && (
+        <Menu label="Reset to the sample" icon={<RotateCcw className="ic" size={16} aria-hidden />} width={240}>
+          {(close) => (
+            <>
+              <p className="menu-h">Reset to the sample?</p>
+              <p className="note">This replaces everything on the canvas, including your traffic numbers, with the sample system. It can&apos;t be undone.</p>
+              <button role="menuitem" className="mi" onClick={() => { reset(); close(); }}><b>Yes, reset</b></button>
+              <button role="menuitem" className="mi" onClick={close}><b>Keep my design</b></button>
+            </>
+          )}
+        </Menu>
+      )}
       <ThemeToggle />
       {!pro && <Link href="/upgrade" className="ib wide crown" title="Upgrade to Pro" aria-label="Upgrade to Pro"><Crown className="ic" size={16} aria-hidden /><span>Go Pro</span></Link>}
     </div>

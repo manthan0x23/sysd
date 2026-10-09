@@ -1,0 +1,31 @@
+{
+ "provider": "cockroachdb",
+ "currency": "USD",
+ "sources": [
+  "https://www.cockroachlabs.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "newsql:cockroachdb:cloud"
+   ],
+   "tier": "Usage-based (example region us-east-1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "compute per vCPU-hour",
+     "amount": 0.162,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned storage per GiB-month",
+     "amount": 0.155,
+     "unit": "gb-month"
+    }
+   ],
+   "note": "From the page's cost example: 12 vCPUs x $0.162 = $1,420/mo (730 hr); 100 GiB x 4.5x durability = 450 GiB x $0.155. $400 free credit."
+  }
+ ],
+ "notes": "Standard / Advanced / Basic plan names and their rates are in an interactive estimator; only this example's rates were captured."
+}

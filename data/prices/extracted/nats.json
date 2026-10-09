@@ -1,0 +1,45 @@
+{
+ "provider": "nats",
+ "currency": "USD",
+ "sources": [
+  "https://www.synadia.com/cloud"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "pubsub:nats:synadia-cloud"
+   ],
+   "tier": "Personal",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "pubsub:nats:synadia-cloud"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 49,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "pubsub:nats:synadia-cloud"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 199,
+    "unit": "month"
+   },
+   "note": "For pre-prod / non-critical."
+  }
+ ],
+ "notes": "'Bring Your Own NATS' also $49/month."
+}

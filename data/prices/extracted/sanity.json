@@ -1,0 +1,33 @@
+{
+ "provider": "sanity",
+ "currency": "USD",
+ "sources": [
+  "https://www.sanity.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cms:sanity:content-lake"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "cms:sanity:content-lake"
+   ],
+   "tier": "Growth",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "seat-month"
+   },
+   "note": "Add-ons: +$799/month dedicated support, $999 per extra dataset."
+  }
+ ]
+}

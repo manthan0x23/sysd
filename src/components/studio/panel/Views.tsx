@@ -3,7 +3,7 @@
 import { BUCKETS, TYPE_BY_ID, offeringLabel } from "@/lib/catalog";
 import { fmtCompact, fmtInt, fmtMoney, fmtPct, fmtUnit } from "@/lib/format";
 import { needOf, offeringOf } from "@/lib/model";
-import { splitFor, type SplitMode } from "@/lib/sim";
+import { splitFor, splitOptsFor, type SplitMode } from "@/lib/sim";
 import { useStudio } from "@/store/useStudio";
 import { LogSlider } from "../LogSlider";
 import { Num } from "../Num";
@@ -32,6 +32,7 @@ const MODE_TEXT: Record<SplitMode, string> = {
   single: "one link, takes everything",
   even: "split evenly",
   "cache-db": "reads to the cache, misses and writes to the database",
+  cdn: "only what the CDN cannot answer goes to the origin",
   manual: "shares set by you",
 };
 
@@ -42,6 +43,7 @@ export function TrafficView() {
   const byId = new Map(a.nodes.map((n) => [n.id, n]));
   const entry = a.sim.entryRps || 1;
   const roleOf = (id: string) => TYPE_BY_ID[byId.get(id)!.data.typeId].role;
+  const splitOpts = splitOptsFor(a.nodes);
 
   const rows = a.edges
     .filter((e) => byId.has(e.source) && byId.has(e.target))
@@ -51,7 +53,7 @@ export function TrafficView() {
   const fanouts = a.nodes
     .map((n) => ({ n, out: a.edges.filter((e) => e.source === n.id && byId.has(e.target)) }))
     .filter((x) => x.out.length > 1)
-    .map((x) => ({ ...x, ...splitFor(x.out, roleOf, a.workload.readPct) }));
+    .map((x) => ({ ...x, ...splitFor(x.out, roleOf, a.workload.readPct, splitOpts(x.n.id)) }));
 
   return (
     <div className="view-body">

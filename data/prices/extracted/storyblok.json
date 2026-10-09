@@ -1,0 +1,10 @@
+{
+ "provider": "storyblok",
+ "currency": "USD",
+ "sources": [
+  "https://www.storyblok.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "No plan prices in the scrape."
+}

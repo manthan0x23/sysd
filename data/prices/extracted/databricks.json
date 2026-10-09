@@ -1,0 +1,102 @@
+{
+ "provider": "databricks",
+ "currency": "USD",
+ "sources": [
+  "https://www.databricks.com/product/pricing",
+  "https://www.databricks.com/product/pricing/databricks-sql"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "lakehouse:databricks:lakehouse-platform"
+   ],
+   "tier": "Data engineering (Jobs), starting at",
+   "spec": {},
+   "rates": [
+    {
+     "name": "DBU",
+     "amount": 0.15,
+     "unit": "other"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "warehouse:databricks:sql-warehouse"
+   ],
+   "tier": "SQL Classic",
+   "spec": {},
+   "rates": [
+    {
+     "name": "DBU",
+     "amount": 0.22,
+     "unit": "other"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "warehouse:databricks:sql-warehouse"
+   ],
+   "tier": "SQL Pro",
+   "spec": {},
+   "rates": [
+    {
+     "name": "DBU",
+     "amount": 0.55,
+     "unit": "other"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "warehouse:databricks:sql-warehouse"
+   ],
+   "tier": "SQL Serverless",
+   "spec": {},
+   "rates": [
+    {
+     "name": "DBU (list)",
+     "amount": 0.7,
+     "unit": "other"
+    },
+    {
+     "name": "DBU (promo)",
+     "amount": 0.55,
+     "unit": "other"
+    }
+   ],
+   "note": "Promotion: 30% off the list price shown on the page."
+  },
+  {
+   "offerings": [
+    "spark:databricks:jobs-compute"
+   ],
+   "tier": "Jobs compute, starting at",
+   "spec": {},
+   "rates": [
+    {
+     "name": "DBU",
+     "amount": 0.15,
+     "unit": "other"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "mltrain:databricks:mosaic-ai"
+   ],
+   "tier": "AI, starting at",
+   "spec": {},
+   "rates": [
+    {
+     "name": "DBU",
+     "amount": 0.07,
+     "unit": "other"
+    }
+   ]
+  }
+ ],
+ "notes": "Prices are per DBU (Databricks Unit) per hour, plus the underlying cloud VM cost for classic compute. Rates vary by cloud and tier."
+}

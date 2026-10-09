@@ -1,0 +1,51 @@
+{
+ "provider": "netlify",
+ "currency": "USD",
+ "sources": [
+  "https://www.netlify.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "static:netlify:hosting",
+    "fn:netlify:functions",
+    "paas:netlify:platform"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "static:netlify:hosting",
+    "fn:netlify:functions",
+    "paas:netlify:platform"
+   ],
+   "tier": "Personal",
+   "spec": {},
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "static:netlify:hosting",
+    "fn:netlify:functions",
+    "paas:netlify:platform"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "'$20/month with' (per member; text cut off)."
+  }
+ ],
+ "notes": "Credit/usage allowances per plan not captured."
+}

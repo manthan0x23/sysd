@@ -1,0 +1,10 @@
+{
+ "provider": "yugabytedb",
+ "currency": "USD",
+ "sources": [
+  "https://www.yugabyte.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Two 'Starting at' prices ($125, $167) appear without labels; not recorded."
+}

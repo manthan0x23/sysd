@@ -1,0 +1,22 @@
+{
+ "provider": "pocketbase",
+ "currency": "USD",
+ "sources": [
+  "https://pocketbase.io/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "baas:pocketbase:self-hosted"
+   ],
+   "tier": "PocketBase (open source)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "No licence fee; you pay for the server it runs on."
+  }
+ ]
+}

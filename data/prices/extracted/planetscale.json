@@ -1,0 +1,47 @@
+{
+ "provider": "planetscale",
+ "currency": "USD",
+ "sources": [
+  "https://planetscale.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "postgres:planetscale:postgres"
+   ],
+   "tier": "Single node (from)",
+   "spec": {},
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   },
+   "note": "'Starting at $5/month for development and low-traffic workloads'."
+  },
+  {
+   "offerings": [
+    "postgres:planetscale:postgres"
+   ],
+   "tier": "Metal (from)",
+   "spec": {},
+   "price": {
+    "amount": 50,
+    "unit": "month"
+   },
+   "note": "'Starting at $50/month with local NVMe storage'."
+  },
+  {
+   "offerings": [
+    "mysql:planetscale:vitess-mysql"
+   ],
+   "tier": "Vitess shard (example config)",
+   "spec": {},
+   "price": {
+    "amount": 30,
+    "unit": "month"
+   },
+   "note": "Example: 1 shard + replicas = $30; with backup/egress estimate $41/month. Backup $0.023/GB beyond 20 GB; egress $0.06/GB beyond 100 GB."
+  }
+ ],
+ "notes": "Per-size tables are in an interactive configurator, not captured."
+}

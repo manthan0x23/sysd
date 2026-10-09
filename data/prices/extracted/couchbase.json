@@ -1,0 +1,69 @@
+{
+ "provider": "couchbase",
+ "currency": "USD",
+ "sources": [
+  "https://www.couchbase.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "mongodb:couchbase:capella"
+   ],
+   "tier": "Free",
+   "spec": {
+    "nodes": 1,
+    "storageGb": 8
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "mongodb:couchbase:capella"
+   ],
+   "tier": "Basic",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per node, from",
+     "amount": 0.15,
+     "unit": "hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "mongodb:couchbase:capella"
+   ],
+   "tier": "Developer Pro",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per node, from",
+     "amount": 0.35,
+     "unit": "hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "mongodb:couchbase:capella"
+   ],
+   "tier": "Enterprise",
+   "spec": {
+    "minNodes": 3
+   },
+   "rates": [
+    {
+     "name": "per node, from",
+     "amount": 0.49,
+     "unit": "hour"
+    }
+   ]
+  }
+ ],
+ "notes": "Per-node hourly 'from' prices. A detailed table on the page lists node sizes (e.g. 2 vCPU / 8 GB at $0.15/hr, 4 vCPU / 16 GB at $0.29/hr) but its columns were not labelled in the scrape."
+}

@@ -1,0 +1,226 @@
+{
+ "provider": "supabase",
+ "currency": "USD",
+ "sources": [
+  "https://supabase.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "baas:supabase:platform"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:supabase:platform"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   },
+   "note": "Includes $10/month compute credit (covers one Micro). Additional projects from $10/month."
+  },
+  {
+   "offerings": [
+    "baas:supabase:platform"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 599,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute Micro",
+   "spec": {
+    "ramGb": 1,
+    "cpuClass": "shared",
+    "directConnections": 60,
+    "poolerConnections": 200
+   },
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute Small",
+   "spec": {
+    "ramGb": 2,
+    "cpuClass": "shared",
+    "directConnections": 90,
+    "poolerConnections": 400
+   },
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute Medium",
+   "spec": {
+    "ramGb": 4,
+    "cpuClass": "shared",
+    "directConnections": 120,
+    "poolerConnections": 600
+   },
+   "price": {
+    "amount": 60,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute Large",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "cpuClass": "dedicated",
+    "directConnections": 160,
+    "poolerConnections": 800
+   },
+   "price": {
+    "amount": 110,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute XL",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "cpuClass": "dedicated",
+    "directConnections": 240,
+    "poolerConnections": 1000
+   },
+   "price": {
+    "amount": 210,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute 2XL",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "cpuClass": "dedicated",
+    "directConnections": 380,
+    "poolerConnections": 1500
+   },
+   "price": {
+    "amount": 410,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute 4XL",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "cpuClass": "dedicated",
+    "directConnections": 480,
+    "poolerConnections": 3000
+   },
+   "price": {
+    "amount": 960,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute 8XL",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128,
+    "cpuClass": "dedicated",
+    "directConnections": 490,
+    "poolerConnections": 6000
+   },
+   "price": {
+    "amount": 1870,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute 12XL",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 192,
+    "cpuClass": "dedicated",
+    "directConnections": 500,
+    "poolerConnections": 9000
+   },
+   "price": {
+    "amount": 2800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:supabase:database"
+   ],
+   "tier": "Compute 16XL",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 256,
+    "cpuClass": "dedicated",
+    "directConnections": 500,
+    "poolerConnections": 12000
+   },
+   "price": {
+    "amount": 3730,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "auth:supabase:auth"
+   ],
+   "tier": "Auth MAU",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per MAU beyond included",
+     "amount": 0.00325,
+     "unit": "mau"
+    }
+   ]
+  }
+ ],
+ "notes": "Compute add-on table: monthly price per instance size. Storage, egress, and Edge Function rates not parsed here."
+}

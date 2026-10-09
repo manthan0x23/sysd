@@ -1,0 +1,40 @@
+{
+ "provider": "buildkite",
+ "currency": "USD",
+ "sources": [
+  "https://buildkite.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "ci:buildkite:pipelines"
+   ],
+   "tier": "Hosted agents",
+   "spec": {},
+   "rates": [
+    {
+     "name": "Linux hosted agent",
+     "amount": 0.004,
+     "unit": "minute"
+    },
+    {
+     "name": "Mac hosted agent",
+     "amount": 0.02,
+     "unit": "minute"
+    },
+    {
+     "name": "extra agent per month",
+     "amount": 3.5,
+     "unit": "other"
+    },
+    {
+     "name": "Test Engine executions",
+     "amount": 15,
+     "unit": "1m-events"
+    }
+   ]
+  }
+ ],
+ "notes": "Plan base fees not captured."
+}

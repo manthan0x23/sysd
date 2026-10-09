@@ -3,8 +3,8 @@ import {
   addEdge, applyEdgeChanges, applyNodeChanges,
   type Connection, type Edge, type OnConnect, type OnEdgesChange, type OnNodesChange,
 } from "@xyflow/react";
-import { AUTO_PLAN_ID, TYPE_BY_ID, defaultOffering, offeringsOf, plansOf, selfHostedOf } from "@/lib/catalog";
-import { DEFAULT_CUSTOM, type CustomCost, type CustomPlan, type NodeData, type StudioNode } from "@/lib/model";
+import { AUTO_PLAN_ID, TYPE_BY_ID, checkLink, defaultOffering, offeringsOf, plansOf, selfHostedOf } from "@/lib/catalog";
+import { DEFAULT_CUSTOM, MAX_REPLICAS, type CustomCost, type CustomPlan, type NodeData, type StudioNode } from "@/lib/model";
 import { fromDoc, type DesignDoc } from "@/lib/doc";
 import { DEFAULT_WORKLOAD, type Workload } from "@/lib/sim";
 
@@ -41,9 +41,11 @@ export type View = "overview" | "inputs" | "traffic" | "load" | "cost" | "fit";
 /** Servers start on Auto (cheapest tier that fits); models start on the first listed one; the rest have no tiers. */
 export function defaultPlanId(typeId: string, offeringId: string | undefined): string | undefined {
   if (TYPE_BY_ID[typeId].host === "server") return AUTO_PLAN_ID;
-  return offeringId ? plansOf(offeringId)[0]?.id : undefined;
+  // Language models start on the first listed model; other tiered services start on Auto (the tier that fits the load).
+  return typeId === "llm" && offeringId ? plansOf(offeringId)[0]?.id : AUTO_PLAN_ID;
 }
 export type { StudioNode };
+import { formatNodes } from "@/lib/layout";
 
 const COL = 186;
 const HOST_SIZE = { server: { width: 520, height: 320 }, container: { width: 300, height: 190 } };
@@ -75,8 +77,8 @@ const INITIAL_NODES: StudioNode[] = [
 const link = (s: string, t: string): Edge => ({ id: `e-${s}-${t}`, source: s, target: t, type: "flow" });
 const INITIAL_EDGES: Edge[] = [
   link("client", "cdn"), link("client", "lb"),
-  // A CDN answers most requests itself, so only a small share reaches storage.
-  { ...link("cdn", "s3"), data: { weight: 5 } }, link("lb", "api"),
+  // A CDN answers most requests itself (its hit rate, 95% by default), so only a small share reaches storage.
+  link("cdn", "s3"), link("lb", "api"),
   link("api", "cache"), link("api", "db"), link("api", "queue"), link("queue", "worker"),
 ];
 
@@ -119,6 +121,20 @@ interface Studio {
   rememberDeleted: (label: string, nodes: StudioNode[], edges: Edge[]) => void;
   undoDelete: () => void;
   dismissDeleted: () => void;
+  /** Copies of a service (a database with 3 is a primary plus 2 read replicas). */
+  setReplicas: (id: string, n: number) => void;
+  /** Compute only: let the number of copies follow the load between min and max. Undefined turns it off. */
+  setAutoscale: (id: string, cfg: { min: number; max: number } | undefined) => void;
+  /** How often a cache or CDN answers without going further (0-100). */
+  setHitRate: (id: string, pct: number | undefined) => void;
+  /** The design before "Best value" ran, so the toast can undo it. */
+  optimized: { before: StudioNode[]; text: string; at: number } | null;
+  applyOptimized: (nodes: StudioNode[], before: StudioNode[], text: string) => void;
+  undoOptimized: () => void;
+  dismissOptimized: () => void;
+  /** A short message about a refused link, shown as a toast. */
+  linkNotice: { text: string; at: number } | null;
+  setLinkNotice: (text: string | null) => void;
   setIcon: (id: string, icon: string | undefined) => void;
   setOffering: (id: string, offeringId: string) => void;
   setPlan: (id: string, planId: string) => void;
@@ -129,6 +145,8 @@ interface Studio {
   selectEdge: (id: string | null) => void;
   setEdgeWeight: (id: string, weight: number | undefined) => void;
   setView: (v: View) => void;
+  /** Re-positions every node on an even, axis-aligned grid (src/lib/layout.ts). */
+  formatLayout: () => void;
   reset: () => void;
 }
 
@@ -167,7 +185,15 @@ export const useStudio = create<Studio>((set) => ({
   markSaved: ({ id, rev, json, status }) => set((s) => ({ design: { ...s.design, id: id ?? s.design.id, rev, lastJson: json, status: status ?? s.design.status, metaDirty: false, sync: "saved", error: null, level: s.design.level ?? "owner" } })),
   onNodesChange: (changes) => set((s) => ({ nodes: applyNodeChanges(changes, s.nodes) })),
   onEdgesChange: (changes) => set((s) => ({ edges: applyEdgeChanges(changes, s.edges) })),
-  onConnect: (c: Connection) => set((s) => ({ edges: addEdge({ ...c, type: "flow" }, s.edges) })),
+  onConnect: (c: Connection) => set((s) => {
+    // The canvas already refuses invalid drops; this guards every other caller too.
+    const from = s.nodes.find((n) => n.id === c.source), to = s.nodes.find((n) => n.id === c.target);
+    if (!from || !to || c.source === c.target) return {};
+    const check = checkLink(from.data.typeId, to.data.typeId);
+    if (!check.ok) return { linkNotice: { text: check.reason, at: Date.now() } };
+    if (s.edges.some((e) => e.source === c.source && e.target === c.target)) return { linkNotice: { text: "Those two are already linked.", at: Date.now() } };
+    return { edges: addEdge({ ...c, type: "flow" }, s.edges) };
+  }),
   addNode: (typeId, position, parentId) => {
     const id = `${typeId}-${Date.now().toString(36)}-${counter++}`;
     set((s) => ({ nodes: orderNodes([...s.nodes, makeNode(id, typeId, position, parentId)]), selectedId: id, selectedEdgeId: null }));
@@ -193,6 +219,17 @@ export const useStudio = create<Studio>((set) => ({
         }),
       ),
     })),
+  setReplicas: (id, n) => set((s) => ({ nodes: patchData(s.nodes, id, { replicas: Math.min(MAX_REPLICAS, Math.max(1, Math.round(n) || 1)) }) })),
+  setAutoscale: (id, cfg) => set((s) => ({
+    nodes: patchData(s.nodes, id, { autoscale: cfg && { min: Math.min(MAX_REPLICAS, Math.max(1, Math.round(cfg.min) || 1)), max: Math.min(MAX_REPLICAS, Math.max(Math.round(cfg.min) || 1, Math.round(cfg.max) || 1)) } }),
+  })),
+  setHitRate: (id, pct) => set((s) => ({ nodes: patchData(s.nodes, id, { hitRate: pct == null ? undefined : Math.min(100, Math.max(0, Math.round(pct))) }) })),
+  optimized: null,
+  applyOptimized: (nodes, before, text) => set({ nodes, optimized: { before, text, at: Date.now() } }),
+  undoOptimized: () => set((s) => (s.optimized ? { nodes: s.optimized.before, optimized: null } : {})),
+  dismissOptimized: () => set({ optimized: null }),
+  linkNotice: null,
+  setLinkNotice: (text) => set({ linkNotice: text ? { text, at: Date.now() } : null }),
   setIcon: (id, icon) => set((s) => ({ nodes: patchData(s.nodes, id, { icon }) })),
   setCustomCost: (id, customCost) => set((s) => ({ nodes: patchData(s.nodes, id, { customCost }) })),
   deleted: null,
@@ -246,6 +283,7 @@ export const useStudio = create<Studio>((set) => ({
   setEdgeWeight: (id, weight) =>
     set((s) => ({ edges: s.edges.map((e) => (e.id === id ? { ...e, data: { ...(e.data ?? {}), weight } } : e)) })),
   setView: (view) => set({ view }),
+  formatLayout: () => set((s) => ({ nodes: orderNodes(formatNodes(s.nodes, s.edges)) })),
   reset: () => set((s) => ({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD, design: s.design.id ? s.design : { ...s.design } })),
 }));
 

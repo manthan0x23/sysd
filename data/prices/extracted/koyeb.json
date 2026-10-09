@@ -1,0 +1,52 @@
+{
+ "provider": "koyeb",
+ "currency": "USD",
+ "sources": [
+  "https://www.koyeb.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "containers:koyeb:services"
+   ],
+   "tier": "Pro",
+   "spec": {
+    "includedComputeUsd": 10
+   },
+   "price": {
+    "amount": 29,
+    "unit": "month"
+   },
+   "note": "Plus compute."
+  },
+  {
+   "offerings": [
+    "containers:koyeb:services"
+   ],
+   "tier": "Scale",
+   "spec": {
+    "includedComputeUsd": 100
+   },
+   "price": {
+    "amount": 299,
+    "unit": "month"
+   },
+   "note": "Plus compute."
+  },
+  {
+   "offerings": [
+    "containers:koyeb:services"
+   ],
+   "tier": "Small instance",
+   "spec": {},
+   "price": {
+    "amount": 29.2,
+    "unit": "month"
+   },
+   "hourly": 0.04,
+   "note": "Page shows $0.04/hr for 'Small'; monthly = hourly x 730. CPU/RAM split not captured."
+  }
+ ],
+ "notes": "GPU rates ($0.50-$5.50/hr) are listed but GPU model names were not in the scrape. Storage $0.50/GB-month."
+}

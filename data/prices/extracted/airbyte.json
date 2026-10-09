@@ -1,0 +1,23 @@
+{
+ "provider": "airbyte",
+ "currency": "USD",
+ "sources": [
+  "https://airbyte.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "etl:airbyte:cloud",
+    "cdc:airbyte:cdc"
+   ],
+   "tier": "Standard",
+   "spec": {},
+   "price": {
+    "amount": 195,
+    "unit": "month"
+   },
+   "note": "'$195/mo'; $189/mo also shown. Plus/Pro tiers not captured with prices. Volume-based."
+  }
+ ]
+}

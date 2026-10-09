@@ -1,0 +1,54 @@
+{
+ "provider": "grafana",
+ "currency": "USD",
+ "sources": [
+  "https://grafana.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "logs:grafana:cloud-loki",
+    "metrics:grafana:cloud",
+    "tracing:grafana:cloud-tempo",
+    "timeseries:grafana:mimir-cloud"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "logs:grafana:cloud-loki",
+    "metrics:grafana:cloud",
+    "tracing:grafana:cloud-tempo",
+    "timeseries:grafana:mimir-cloud"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 19,
+    "unit": "month"
+   },
+   "note": "'From $19/month + usage'. Example estimate on page: $195/month at $6.50 per 1k series."
+  },
+  {
+   "offerings": [
+    "logs:grafana:cloud-loki",
+    "metrics:grafana:cloud",
+    "tracing:grafana:cloud-tempo",
+    "timeseries:grafana:mimir-cloud"
+   ],
+   "tier": "Advanced",
+   "spec": {},
+   "price": {
+    "amount": 25000,
+    "unit": "year"
+   },
+   "note": "'Starts at $25,000/year spend commit'."
+  }
+ ]
+}

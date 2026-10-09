@@ -1,0 +1,29 @@
+{
+ "provider": "decodable",
+ "currency": "USD",
+ "sources": [
+  "https://www.decodable.co/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "streamproc:decodable:platform"
+   ],
+   "tier": "Credits",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per credit (pay as you go)",
+     "amount": 0.12,
+     "unit": "other"
+    },
+    {
+     "name": "per credit (commit)",
+     "amount": 0.1,
+     "unit": "other"
+    }
+   ]
+  }
+ ]
+}

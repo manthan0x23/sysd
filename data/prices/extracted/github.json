@@ -1,0 +1,115 @@
+{
+ "provider": "github",
+ "currency": "USD",
+ "sources": [
+  "https://github.com/pricing",
+  "https://docs.github.com/en/billing/managing-billing-for-your-products/about-billing-for-github-actions"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "ci:github:actions",
+    "static:github:pages"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "user-month"
+   }
+  },
+  {
+   "offerings": [
+    "ci:github:actions",
+    "static:github:pages"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 4,
+    "unit": "user-month"
+   }
+  },
+  {
+   "offerings": [
+    "ci:github:actions",
+    "static:github:pages"
+   ],
+   "tier": "Enterprise",
+   "spec": {},
+   "price": {
+    "amount": 21,
+    "unit": "user-month"
+   }
+  },
+  {
+   "offerings": [
+    "ci:github:actions"
+   ],
+   "tier": "Actions minutes (pay as you go)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "Linux 1-core",
+     "amount": 0.002,
+     "unit": "minute"
+    },
+    {
+     "name": "Linux 2-core x64",
+     "amount": 0.006,
+     "unit": "minute"
+    },
+    {
+     "name": "Linux 2-core arm64",
+     "amount": 0.005,
+     "unit": "minute"
+    },
+    {
+     "name": "Windows 2-core",
+     "amount": 0.01,
+     "unit": "minute"
+    },
+    {
+     "name": "macOS 3/4-core",
+     "amount": 0.062,
+     "unit": "minute"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "ci:github:actions"
+   ],
+   "tier": "Actions storage",
+   "spec": {},
+   "rates": [
+    {
+     "name": "shared storage (artifacts/Packages)",
+     "amount": 0.25,
+     "unit": "gb-month"
+    },
+    {
+     "name": "Actions cache",
+     "amount": 0.07,
+     "unit": "gb-month"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "registry:github:container-registry"
+   ],
+   "tier": "Packages storage",
+   "spec": {},
+   "rates": [
+    {
+     "name": "shared storage",
+     "amount": 0.25,
+     "unit": "gb-month"
+    }
+   ]
+  }
+ ],
+ "notes": "Included minutes per plan not captured. Git LFS: $5/month for 50 GB bandwidth + 50 GB storage."
+}

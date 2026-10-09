@@ -1,0 +1,50 @@
+{
+ "provider": "clerk",
+ "currency": "USD",
+ "sources": [
+  "https://clerk.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "auth:clerk:auth"
+   ],
+   "tier": "Hobby",
+   "spec": {
+    "dashboardSeats": 3
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "auth:clerk:auth"
+   ],
+   "tier": "Pro",
+   "spec": {
+    "mruIncluded": 50000
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "Billed annually. Enhanced add-on $100/mo ($85 annual)."
+  },
+  {
+   "offerings": [
+    "auth:clerk:auth"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 250,
+    "unit": "month"
+   },
+   "note": "Billed annually."
+  }
+ ],
+ "notes": "MRU = monthly retained users; per-MRU overage not captured."
+}

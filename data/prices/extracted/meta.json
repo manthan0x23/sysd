@@ -1,0 +1,10 @@
+{
+ "provider": "meta",
+ "currency": "USD",
+ "sources": [
+  "https://developers.facebook.com/docs/whatsapp/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "WhatsApp Business pricing is per message category per country in a table not captured; only AI-agent comparison text came through. Prices NOT captured."
+}

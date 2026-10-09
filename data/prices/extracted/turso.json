@@ -1,0 +1,55 @@
+{
+ "provider": "turso",
+ "currency": "USD",
+ "sources": [
+  "https://turso.tech/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "sqlite:turso:libsql"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "sqlite:turso:libsql"
+   ],
+   "tier": "Developer",
+   "spec": {},
+   "price": {
+    "amount": 4.99,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "sqlite:turso:libsql"
+   ],
+   "tier": "Scaler",
+   "spec": {},
+   "price": {
+    "amount": 24.92,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "sqlite:turso:libsql"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 416.58,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Plan limits (storage 5/9/24/50 GB, rows read/written, overage per GB / billion rows) appear on the page without column labels in the scrape, so they are NOT recorded to avoid mislabelling."
+}

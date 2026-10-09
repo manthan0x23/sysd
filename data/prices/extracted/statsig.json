@@ -1,0 +1,22 @@
+{
+ "provider": "statsig",
+ "currency": "USD",
+ "sources": [
+  "https://www.statsig.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "flags:statsig:experiments"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 150,
+    "unit": "month"
+   },
+   "note": "5M events included, then $0.05 per 1K events."
+  }
+ ]
+}

@@ -1,6 +1,7 @@
 import type { Offering, Plan } from "../catalog";
 import { plansOf } from "../catalog";
 import { OBJECT_PRICES } from "./data";
+import { describeLimits } from "./estimate";
 
 const usd = (n: number) => (n >= 100 ? `$${Math.round(n)}` : n >= 1 ? `$${+n.toFixed(2)}` : `$${+n.toPrecision(2)}`);
 
@@ -18,7 +19,9 @@ export function offeringSummary(o: Offering): string {
   const plans = plansOf(o.id);
   if (plans.length) {
     const priced = plans.filter((x) => x.price != null);
-    if (priced.length) return `from ${usd(Math.min(...priced.map((x) => x.price!)))}/mo · ${plans.length} plans`;
+    const free = priced.some((x) => x.free);
+    const paid = priced.filter((x) => x.price! > 0);
+    if (priced.length) return `${free ? "Free tier" : "from"}${paid.length ? `${free ? ", then from" : ""} ${usd(Math.min(...paid.map((x) => x.price!)))}/mo` : ""} · ${plans.length} plan${plans.length === 1 ? "" : "s"}`;
     const t = plans.filter((x) => x.tokens);
     if (t.length) return `from ${usd(Math.min(...t.map((x) => x.tokens!.inPerM)))} in / ${usd(Math.min(...t.map((x) => x.tokens!.outPerM)))} out per 1M tokens · ${t.length} models`;
   }
@@ -29,6 +32,7 @@ export function planSummary(p: Plan): string {
   if (p.tokens) return `${usd(p.tokens.inPerM)} in · ${usd(p.tokens.outPerM)} out per 1M tokens`;
   const parts: string[] = [];
   if (p.spec) parts.push(`${p.spec.vcpu} vCPU`, `${p.spec.ramGb < 1 ? "512 MB" : `${p.spec.ramGb} GB`} RAM`, `${p.spec.diskGb} GB`);
-  if (p.price != null) parts.push(`${usd(p.price)}/mo${p.priceIntro != null ? ` (intro ${usd(p.priceIntro)})` : ""}`);
+  if (p.free) parts.push(`Free${describeLimits(p.limits)}`);
+  else if (p.price != null) parts.push(`${usd(p.price)}/mo${p.priceIntro != null ? ` (intro ${usd(p.priceIntro)})` : ""}`);
   return parts.join(" · ");
 }

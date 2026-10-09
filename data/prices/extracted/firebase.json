@@ -1,0 +1,10 @@
+{
+ "provider": "firebase",
+ "currency": "USD",
+ "sources": [
+  "https://firebase.google.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Only a Firestore-style per-request line was captured; Spark/Blaze plan pricing not parsed."
+}

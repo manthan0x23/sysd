@@ -1,0 +1,22 @@
+{
+ "provider": "kong",
+ "currency": "USD",
+ "sources": [
+  "https://konghq.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "apigw:kong:konnect"
+   ],
+   "tier": "Konnect Plus",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   },
+   "note": "'From $25/month plus usage'. Usage: $20 per 1M events up to 10M; dedicated cloud gateway control plane $500/month each + $0.15/GB bandwidth."
+  }
+ ]
+}

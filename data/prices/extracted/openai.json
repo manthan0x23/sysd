@@ -1,0 +1,745 @@
+{
+ "provider": "openai",
+ "currency": "USD",
+ "sources": [
+  "https://developers.openai.com/api/docs/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-astra (Standard)",
+   "spec": {
+    "mode": "Standard",
+    "model": "gpt-6-astra"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 50,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 1,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 12.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 20,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 2,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6.1-sol (Standard)",
+   "spec": {
+    "mode": "Standard",
+    "model": "gpt-6.1-sol"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.1,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 2.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 15,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.2,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-luna (Standard)",
+   "spec": {
+    "mode": "Standard",
+    "model": "gpt-6-luna"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.01,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 0.125,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 0.2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 0.75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.02,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-astra (Batch)",
+   "spec": {
+    "mode": "Batch",
+    "model": "gpt-6-astra"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 6.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 37.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 1,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6.1-sol (Batch)",
+   "spec": {
+    "mode": "Batch",
+    "model": "gpt-6.1-sol"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.05,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 1.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 7.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.1,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-luna (Batch)",
+   "spec": {
+    "mode": "Batch",
+    "model": "gpt-6-luna"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.05,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.005,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 0.0625,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 0.1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 0.375,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.01,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-astra (Flex)",
+   "spec": {
+    "mode": "Flex",
+    "model": "gpt-6-astra"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 6.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 37.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 1,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6.1-sol (Flex)",
+   "spec": {
+    "mode": "Flex",
+    "model": "gpt-6.1-sol"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.05,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 1.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 7.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.1,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-luna (Flex)",
+   "spec": {
+    "mode": "Flex",
+    "model": "gpt-6-luna"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.05,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.005,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 0.0625,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 0.1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 0.375,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.01,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-astra (Fast)",
+   "spec": {
+    "mode": "Fast",
+    "model": "gpt-6-astra"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 20,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 100,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 2,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 40,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 150,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 4,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6.1-sol (Fast)",
+   "spec": {
+    "mode": "Fast",
+    "model": "gpt-6.1-sol"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 20,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.2,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 8,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 30,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.4,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-luna (Fast)",
+   "spec": {
+    "mode": "Fast",
+    "model": "gpt-6-luna"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.02,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 0.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 0.4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 1.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 0.04,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6-astra (Ultrafast)",
+   "spec": {
+    "mode": "Ultrafast",
+    "model": "gpt-6-astra"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 60,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 300,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 6,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 120,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 450,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 12,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-6.1-sol (Ultrafast)",
+   "spec": {
+    "mode": "Ultrafast",
+    "model": "gpt-6.1-sol"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 12,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 60,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.6,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 24,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 90,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, long context",
+     "amount": 1.2,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-5.6-sol (Standard)",
+   "spec": {
+    "mode": "Standard",
+    "model": "gpt-5.6-sol",
+    "group": "Cyber models"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 20,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.4,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "input, long context",
+     "amount": 8,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, long context",
+     "amount": 30,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:openai:api"
+   ],
+   "tier": "gpt-5.6-cyber (Standard)",
+   "spec": {
+    "mode": "Standard",
+    "model": "gpt-5.6-cyber",
+    "group": "Cyber models"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 12.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 1.25,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write",
+     "amount": 15.625,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  }
+ ],
+ "notes": "Per million tokens. Tab-to-table mapping (Standard, Batch, Flex, Fast, Ultrafast) assumed from the page's tab order; Batch/Flex rows are 50% of Standard, consistent with that. Embeddings, Whisper/TTS, image prices are in other tables not exported here."
+}

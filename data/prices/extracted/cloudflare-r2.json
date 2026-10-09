@@ -1,0 +1,44 @@
+{
+ "provider": "cloudflare-r2",
+ "currency": "USD",
+ "sources": [
+  "https://developers.cloudflare.com/r2/pricing/"
+ ],
+ "fetchedAt": "2026-10-08",
+ "tiers": [
+  {
+   "offerings": [
+    "object:cloudflare:r2"
+   ],
+   "tier": "R2 Standard",
+   "spec": {
+    "freeStorageGb": 10,
+    "freeClassA1k": 1000,
+    "freeClassB1k": 10000
+   },
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 0.015,
+     "unit": "gb-month"
+    },
+    {
+     "name": "class A operations (per 1k)",
+     "amount": 0.0045,
+     "unit": "1k-requests"
+    },
+    {
+     "name": "class B operations (per 1k)",
+     "amount": 0.00036,
+     "unit": "1k-requests"
+    },
+    {
+     "name": "egress",
+     "amount": 0,
+     "unit": "gb"
+    }
+   ],
+   "note": "Carried over from the app's existing scraped data (2026-10-08); not re-fetched in this run."
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "provider": "snowflake",
+ "currency": "USD",
+ "sources": [
+  "https://www.snowflake.com/en/pricing-options/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Credit price depends on edition/cloud/region and is in an interactive table not captured."
+}

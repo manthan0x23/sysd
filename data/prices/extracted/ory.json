@@ -1,0 +1,23 @@
+{
+ "provider": "ory",
+ "currency": "USD",
+ "sources": [
+  "https://www.ory.sh/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "auth:ory:network"
+   ],
+   "tier": "Ory Network (smallest paid, yearly)",
+   "spec": {},
+   "price": {
+    "amount": 770,
+    "unit": "year"
+   },
+   "note": "Growth: $9,350/year. Plan names for the $770 plan not captured."
+  }
+ ],
+ "notes": "Billed yearly; monthly option shown on page but price not captured."
+}

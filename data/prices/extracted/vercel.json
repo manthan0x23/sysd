@@ -1,0 +1,419 @@
+{
+ "provider": "vercel",
+ "currency": "USD",
+ "sources": [
+  "https://vercel.com/pricing",
+  "https://vercel.com/docs/functions/usage-and-pricing",
+  "https://vercel.com/docs/image-optimization/limits-and-pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "paas:vercel:platform",
+    "static:vercel:hosting"
+   ],
+   "tier": "Hobby",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "paas:vercel:platform",
+    "static:vercel:hosting"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "Includes $20 of usage credit per month. Per-seat pricing not captured in the scraped lines."
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Cape Town, South Africa (cpt1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.2,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0166,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Cleveland, USA (cle1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.128,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0106,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Dublin, Ireland (dub1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.168,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0139,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Frankfurt, Germany (fra1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.184,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0152,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Hong Kong (hkg1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.176,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0146,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: London, UK (lhr1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.177,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0146,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Montreal, Canada (yul1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.147,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0122,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Mumbai, India (bom1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.14,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0116,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Osaka, Japan (kix1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.202,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0167,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Paris, France (cdg1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.177,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0146,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Portland, USA (pdx1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.128,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0106,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: San Francisco, USA (sfo1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.177,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0147,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: São Paulo, Brazil (gru1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.221,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0183,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Seoul, South Korea (icn1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.169,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.014,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Singapore (sin1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.16,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0133,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Stockholm, Sweden (arn1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.16,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0133,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Sydney, Australia (syd1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.18,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0149,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Tokyo, Japan (hnd1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.202,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0167,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "fn:vercel:functions"
+   ],
+   "tier": "Active CPU & memory: Washington D.C., USA (iad1)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.128,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "provisioned memory",
+     "amount": 0.0106,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "images:vercel:image-optimization"
+   ],
+   "tier": "Image optimization",
+   "spec": {},
+   "rates": [
+    {
+     "name": "transformations, per 1K",
+     "amount": 0.05,
+     "unit": "1k-requests"
+    },
+    {
+     "name": "cache reads, per 1M",
+     "amount": 0.4,
+     "unit": "1m-requests"
+    }
+   ],
+   "note": "Ranges on the page ($0.05-$0.0812 per 1K transformations; $0.40-$0.64 per 1M cache reads) depend on volume/region; the low end is recorded."
+  }
+ ],
+ "notes": "Function pricing is regional (CPU $/hour, memory $/GB-hour). Builds, Edge Network bandwidth, Cron Jobs limits not captured with certainty."
+}

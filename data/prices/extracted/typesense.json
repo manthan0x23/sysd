@@ -1,0 +1,30 @@
+{
+ "provider": "typesense",
+ "currency": "USD",
+ "sources": [
+  "https://cloud.typesense.org/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "search:typesense:cloud"
+   ],
+   "tier": "Cluster",
+   "spec": {},
+   "price": {
+    "amount": 21.6,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "bandwidth out",
+     "amount": 0.09,
+     "unit": "gb"
+    }
+   ],
+   "hourly": 0.03,
+   "note": "$0.03/hr per the smallest cluster shown; monthly = $21.60 as printed on the page."
+  }
+ ]
+}

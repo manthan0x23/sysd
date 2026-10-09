@@ -1,0 +1,227 @@
+{
+ "provider": "cloudflare",
+ "currency": "USD",
+ "sources": [
+  "https://developers.cloudflare.com/workers/platform/pricing/",
+  "https://www.cloudflare.com/plans/",
+  "https://developers.cloudflare.com/kv/platform/pricing/",
+  "https://developers.cloudflare.com/d1/platform/pricing/",
+  "https://developers.cloudflare.com/queues/platform/pricing/",
+  "https://developers.cloudflare.com/stream/pricing/",
+  "https://developers.cloudflare.com/images/pricing/",
+  "https://developers.cloudflare.com/realtime/sfu/pricing/",
+  "https://developers.cloudflare.com/pages/functions/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cdn:cloudflare:cdn",
+    "dns:cloudflare:dns",
+    "waf:cloudflare:waf-ddos",
+    "egress:cloudflare:no-egress-fees"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "cdn:cloudflare:cdn",
+    "dns:cloudflare:dns",
+    "waf:cloudflare:waf-ddos",
+    "egress:cloudflare:no-egress-fees"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "Billed annually; $25/month billed monthly."
+  },
+  {
+   "offerings": [
+    "cdn:cloudflare:cdn",
+    "dns:cloudflare:dns",
+    "waf:cloudflare:waf-ddos",
+    "egress:cloudflare:no-egress-fees"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   },
+   "note": "Billed annually; $250/month billed monthly."
+  },
+  {
+   "offerings": [
+    "cdn:cloudflare:cdn",
+    "dns:cloudflare:dns",
+    "waf:cloudflare:waf-ddos",
+    "egress:cloudflare:no-egress-fees"
+   ],
+   "tier": "Enterprise",
+   "spec": {},
+   "contact": true
+  },
+  {
+   "offerings": [
+    "fn:cloudflare:workers"
+   ],
+   "tier": "Workers Paid",
+   "spec": {},
+   "rates": [
+    {
+     "name": "requests",
+     "amount": 0.3,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "CPU time per million ms",
+     "amount": 0.02,
+     "unit": "other"
+    }
+   ],
+   "note": "Free plan: 100k requests/day, 10 ms CPU per request. Page lists '$7/user/month' pay-as-you-go seat (unlabelled)."
+  },
+  {
+   "offerings": [
+    "kv:cloudflare:kv"
+   ],
+   "tier": "Workers KV (Paid)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "reads beyond 10M/month",
+     "amount": 0.5,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "writes beyond 1M/month",
+     "amount": 5,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "deletes beyond 1M/month",
+     "amount": 5,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "list requests beyond 1M/month",
+     "amount": 5,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "stored data beyond 1 GB",
+     "amount": 0.5,
+     "unit": "gb-month"
+    }
+   ],
+   "note": "Free plan: 100k reads/day, 1k writes/day, 1 GB."
+  },
+  {
+   "offerings": [
+    "sqlite:cloudflare:d1"
+   ],
+   "tier": "D1 (Paid)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "rows read beyond 25B/month",
+     "amount": 0.001,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "rows written beyond 50M/month",
+     "amount": 1,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "storage beyond 5 GB",
+     "amount": 0.75,
+     "unit": "gb-month"
+    }
+   ],
+   "note": "Free plan: 5M rows read/day, 100k written/day, 5 GB."
+  },
+  {
+   "offerings": [
+    "queue:cloudflare:queues"
+   ],
+   "tier": "Queues (Paid)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "operations beyond 1M/month",
+     "amount": 0.4,
+     "unit": "1m-requests"
+    }
+   ],
+   "note": "Free plan: 10,000 operations/day. Each message = 3 operations (write, read, delete). Retention 4 days default (up to 14)."
+  },
+  {
+   "offerings": [
+    "media:cloudflare:stream"
+   ],
+   "tier": "Stream",
+   "spec": {},
+   "rates": [
+    {
+     "name": "delivery per 1,000 minutes",
+     "amount": 1,
+     "unit": "other"
+    },
+    {
+     "name": "storage per 1,000 minutes capacity per month",
+     "amount": 5,
+     "unit": "other"
+    }
+   ],
+   "note": "Ingress and encoding free; bandwidth included in delivery."
+  },
+  {
+   "offerings": [
+    "images:cloudflare:images"
+   ],
+   "tier": "Images",
+   "spec": {},
+   "rates": [
+    {
+     "name": "transformations beyond 5,000 free, per 1,000",
+     "amount": 0.5,
+     "unit": "other"
+    },
+    {
+     "name": "storage per 100k images per month",
+     "amount": 5,
+     "unit": "other"
+    },
+    {
+     "name": "delivery per 100k images",
+     "amount": 1,
+     "unit": "other"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "rtc:cloudflare:realtime"
+   ],
+   "tier": "Realtime (SFU + TURN)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "egress beyond 1,000 GB/month free",
+     "amount": 0.05,
+     "unit": "gb"
+    }
+   ]
+  }
+ ],
+ "notes": "Pages Functions share the Workers quota; static asset requests are free. R2 (previously scraped 2026-10-08 in src/lib/pricing/data.ts), Load Balancing, API Gateway, Cron Triggers pages not fetched/parsed here."
+}

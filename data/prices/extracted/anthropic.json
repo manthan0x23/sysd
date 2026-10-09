@@ -1,0 +1,691 @@
+{
+ "provider": "anthropic",
+ "currency": "USD",
+ "sources": [
+  "https://platform.claude.com/docs/en/about-claude/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Fable 5.1",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 50,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.25,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 12.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 20,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 5.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 20,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.2,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 8,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Sonnet 5.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.1,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 2.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 4,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Haiku 5.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.01,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 0.125,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 0.2,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Mythos 5.1 ",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 50,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.25,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 12.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 20,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Fable 5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 50,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 1,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 12.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 20,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Mythos 5 ",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 50,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 1,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 12.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 20,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 6.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 4.8",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 6.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 4.7",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 6.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 4.6",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 6.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 4.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 25,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 6.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 10,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 4.1",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 1.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 18.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 30,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Opus 4",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 1.5,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 18.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 30,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Sonnet 5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.2,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 2.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 4,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Sonnet 4.6",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 15,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.3,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 3.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 6,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Sonnet 4.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 15,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.3,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 3.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 6,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Sonnet 4",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 15,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.3,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 3.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 6,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Haiku 4.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.1,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 1.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:anthropic:claude-api"
+   ],
+   "tier": "Claude Haiku 3.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.8,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 4,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.08,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "cache write 5m",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "cache write 1h",
+     "amount": 1.6,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  }
+ ],
+ "notes": "Per million tokens (MTok). Cached-input = 'Hits and refreshes'. Same rates apply to Claude on AWS/Foundry via CCU billing ($0.01 per CCU)."
+}

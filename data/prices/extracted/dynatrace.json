@@ -1,0 +1,35 @@
+{
+ "provider": "dynatrace",
+ "currency": "USD",
+ "sources": [
+  "https://www.dynatrace.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "metrics:dynatrace:platform"
+   ],
+   "tier": "Grail data rates",
+   "spec": {},
+   "rates": [
+    {
+     "name": "ingest & process",
+     "amount": 0.2,
+     "unit": "gb"
+    },
+    {
+     "name": "retain (per GB-day)",
+     "amount": 0.0007,
+     "unit": "other"
+    },
+    {
+     "name": "query (per GB scanned)",
+     "amount": 0.0035,
+     "unit": "gb"
+    }
+   ],
+   "note": "Units for retain/query inferred from Dynatrace's model; page lines show only the numbers. Verify before relying on them."
+  }
+ ]
+}

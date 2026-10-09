@@ -1,0 +1,44 @@
+{
+ "provider": "chroma",
+ "currency": "USD",
+ "sources": [
+  "https://www.trychroma.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vector:chroma:cloud"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "write",
+     "amount": 2.5,
+     "unit": "gb"
+    },
+    {
+     "name": "storage",
+     "amount": 0.33,
+     "unit": "gb-month"
+    },
+    {
+     "name": "query (per TiB queried)",
+     "amount": 0.0075,
+     "unit": "tb"
+    },
+    {
+     "name": "network out",
+     "amount": 0.09,
+     "unit": "gb"
+    }
+   ],
+   "note": "$5 free credits, then usage."
+  }
+ ]
+}

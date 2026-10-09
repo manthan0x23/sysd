@@ -1,0 +1,46 @@
+{
+ "provider": "uptimerobot",
+ "currency": "USD",
+ "sources": [
+  "https://uptimerobot.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "uptime:uptimerobot:monitoring"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "uptime:uptimerobot:monitoring"
+   ],
+   "tier": "Solo",
+   "spec": {},
+   "price": {
+    "amount": 12,
+    "unit": "month"
+   },
+   "note": "'Starts at $144/year'; monthly price $12 derived = 144/12."
+  },
+  {
+   "offerings": [
+    "uptime:uptimerobot:monitoring"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 39,
+    "unit": "month"
+   },
+   "note": "'$46 (list) / $39 per month' shown as 'most popular'; $468/year."
+  }
+ ],
+ "notes": "Scale plan starts at a price cut off in the scrape. SMS/voice credits: 10 for $3, 100 for $15, 200 for $25, 500 for $55."
+}

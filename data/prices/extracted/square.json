@@ -1,0 +1,44 @@
+{
+ "provider": "square",
+ "currency": "USD",
+ "sources": [
+  "https://squareup.com/us/en/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "payments:square:payments"
+   ],
+   "tier": "Square Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "payments:square:payments"
+   ],
+   "tier": "Square Plus",
+   "spec": {},
+   "price": {
+    "amount": 49,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "payments:square:payments"
+   ],
+   "tier": "Square Premium",
+   "spec": {},
+   "price": {
+    "amount": 149,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Retail POS subscription prices as shown; per-transaction card rates not captured."
+}

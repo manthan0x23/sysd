@@ -1,0 +1,47 @@
+{
+ "provider": "nhost",
+ "currency": "USD",
+ "sources": [
+  "https://nhost.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "baas:nhost:platform"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "1 project; paused after 1 week of inactivity."
+  },
+  {
+   "offerings": [
+    "baas:nhost:platform"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   },
+   "note": "Database 10 GB included then $0.20/GB; storage 50 GB then $0.05/GB."
+  },
+  {
+   "offerings": [
+    "baas:nhost:platform"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 599,
+    "unit": "month"
+   },
+   "note": "Plan name for the $599 column not confirmed in the scrape."
+  }
+ ],
+ "notes": "Plan names inferred from column order (Starter/Pro/Team); verify."
+}

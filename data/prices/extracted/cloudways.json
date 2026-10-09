@@ -1,0 +1,96 @@
+{
+ "provider": "cloudways",
+ "currency": "USD",
+ "sources": [
+  "https://www.cloudways.com/en/pricing.php"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:cloudways:managed-cloud-servers"
+   ],
+   "tier": "1 GB / 1 vCPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 1,
+    "diskGb": 25,
+    "transferGb": 1000
+   },
+   "price": {
+    "amount": 14,
+    "unit": "month"
+   },
+   "hourly": 0.0208
+  },
+  {
+   "offerings": [
+    "vps:cloudways:managed-cloud-servers"
+   ],
+   "tier": "2 GB / 1 vCPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "diskGb": 50,
+    "transferGb": 2000
+   },
+   "price": {
+    "amount": 28,
+    "unit": "month"
+   },
+   "hourly": 0.0417
+  },
+  {
+   "offerings": [
+    "vps:cloudways:managed-cloud-servers"
+   ],
+   "tier": "4 GB / 2 vCPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 80,
+    "transferGb": 4000
+   },
+   "price": {
+    "amount": 54,
+    "unit": "month"
+   },
+   "hourly": 0.0804
+  },
+  {
+   "offerings": [
+    "vps:cloudways:managed-cloud-servers"
+   ],
+   "tier": "8 GB / 4 vCPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 160,
+    "transferGb": 5000
+   },
+   "price": {
+    "amount": 99,
+    "unit": "month"
+   },
+   "hourly": 0.1473
+  },
+  {
+   "offerings": [
+    "vps:cloudways:managed-cloud-servers"
+   ],
+   "tier": "128 GB / 24 vCPU",
+   "spec": {
+    "vcpu": 24,
+    "ramGb": 128,
+    "diskGb": 2560,
+    "transferGb": 11000
+   },
+   "price": {
+    "amount": 342,
+    "unit": "month"
+   },
+   "hourly": 1.0848
+  }
+ ],
+ "notes": "Managed hosting layer on top of DigitalOcean/Vultr/AWS/GCP; the page lists the 'Flexible' plan sizes. Price includes the Cloudways management fee."
+}

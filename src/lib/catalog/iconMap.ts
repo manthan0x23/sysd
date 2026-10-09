@@ -23,7 +23,7 @@ export const PRODUCT_ICON: Record<string, string> = {
   "Self-hosted|Java": "logos:java", "Self-hosted|.NET": "logos:dotnet", "Self-hosted|PHP": "logos:php", "Self-hosted|Ruby on Rails": "logos:rails",
   "Self-hosted|Bun": "logos:bun", "Self-hosted|Deno": "logos:deno",
   "Self-hosted|PostgreSQL": "logos:postgresql", "Self-hosted|MySQL / MariaDB": "logos:mysql", "Self-hosted|MongoDB": "logos:mongodb-icon",
-  "Self-hosted|Redis / Valkey": "logos:redis", "Self-hosted|Apache Kafka": "logos:kafka-icon", "Self-hosted|Elasticsearch / OpenSearch": "logos:elasticsearch",
+  "Self-hosted|Redis / Valkey": "logos:redis", "Self-hosted|Redis Pub/Sub": "logos:redis", "Self-hosted|Apache Kafka": "logos:kafka-icon", "Self-hosted|Elasticsearch / OpenSearch": "logos:elasticsearch",
   "Self-hosted|Grafana Loki": "logos:grafana", "Self-hosted|Prometheus + Grafana": "logos:grafana", "nginx|Self-hosted": "logos:nginx",
   "Docker|Container on your server": "logos:docker-icon", "Docker|Hub": "logos:docker-icon", "Docker|Registry": "logos:docker-icon",
   "Grafana|Cloud Loki": "logos:grafana", "Grafana|Cloud": "logos:grafana",

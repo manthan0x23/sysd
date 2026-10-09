@@ -10,11 +10,11 @@ import { UtilityIsland } from "./UtilityIsland";
 import { Canvas } from "./Canvas";
 import { Palette } from "./Palette";
 import { StudioSkeleton } from "./StudioSkeleton";
-import { UndoToast } from "./UndoToast";
+import { LinkNotice, OptimizeToast, UndoToast } from "./UndoToast";
 import { Panel } from "./panel/Panel";
 import { useAutosave } from "./useAutosave";
 
-export interface StudioUser { name: string; image: string | null }
+export interface StudioUser { name: string; avatar: string | null }
 
 function EmptyHint() {
   const empty = useStore((s) => s.nodes.length === 0);
@@ -59,6 +59,8 @@ export function Studio({ user, plan, initial, hydrateKey, shareToken }: { user: 
         {!ui.right && <button className="island fab fab-right" title="Open details and numbers" aria-label="Open details and numbers" onClick={() => useStudio.getState().setUi("right", true)}><PanelRight className="ic" size={18} aria-hidden /></button>}
         <BreakdownDock plan={plan} />
         {!readOnly && <UndoToast />}
+        {!readOnly && <LinkNotice />}
+        {!readOnly && <OptimizeToast />}
       </div>
     </ReactFlowProvider>
   );

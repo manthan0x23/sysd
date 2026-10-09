@@ -1,0 +1,22 @@
+{
+ "provider": "amplitude",
+ "currency": "USD",
+ "sources": [
+  "https://amplitude.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "analytics:amplitude:analytics"
+   ],
+   "tier": "Plus",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "'Starts at $0'; Growth and Enterprise by quote on the page."
+  }
+ ]
+}

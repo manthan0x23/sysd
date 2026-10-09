@@ -1,0 +1,56 @@
+{
+ "provider": "sentry",
+ "currency": "USD",
+ "sources": [
+  "https://sentry.io/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "errors:sentry:errors"
+   ],
+   "tier": "Developer (free)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "errors:sentry:errors"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 26,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "errors:sentry:errors"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 80,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "errors:sentry:errors"
+   ],
+   "tier": "Seer add-on",
+   "spec": {},
+   "price": {
+    "amount": 40,
+    "unit": "user-month"
+   },
+   "note": "'$40/active contributor/month'."
+  }
+ ],
+ "notes": "Prices as shown (monthly; annual is cheaper). Event quotas and overage rates not captured."
+}

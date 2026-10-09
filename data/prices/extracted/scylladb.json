@@ -1,0 +1,10 @@
+{
+ "provider": "scylladb",
+ "currency": "USD",
+ "sources": [
+  "https://www.scylladb.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Pricing is behind an interactive calculator; no list prices on the page."
+}

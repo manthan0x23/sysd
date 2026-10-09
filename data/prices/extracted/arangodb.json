@@ -1,0 +1,10 @@
+{
+ "provider": "arangodb",
+ "currency": "USD",
+ "sources": [
+  "https://arangodb.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Page is marketing only; no prices on it."
+}

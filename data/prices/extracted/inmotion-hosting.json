@@ -1,0 +1,10 @@
+{
+ "provider": "inmotion-hosting",
+ "currency": "USD",
+ "sources": [
+  "https://www.inmotionhosting.com/vps-hosting"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned only a blocked-script page; no prices captured. Re-fetch with a different URL needed."
+}

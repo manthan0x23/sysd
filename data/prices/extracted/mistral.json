@@ -1,0 +1,10 @@
+{
+ "provider": "mistral",
+ "currency": "USD",
+ "sources": [
+  "https://mistral.ai/pricing#api-pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "The scraped URL returned Le Chat consumer plans (Pro $14.99, Team $24.99/user), not API token prices. API per-model prices NOT captured."
+}

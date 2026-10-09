@@ -1,0 +1,432 @@
+{
+ "provider": "hetzner",
+ "currency": "USD",
+ "sources": [
+  "https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/",
+  "https://www.hetzner.com/cloud/cost-optimized/",
+  "https://www.hetzner.com/cloud/regular-performance/",
+  "https://www.hetzner.com/cloud/general-purpose/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CAX11",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 40,
+    "eurMonthly": 5.99,
+    "eurHourly": 0.0096,
+    "cpuKind": "Ampere®",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 6.99,
+    "unit": "month"
+   },
+   "hourly": 0.0112,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CAX21",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 80,
+    "eurMonthly": 10.49,
+    "eurHourly": 0.0168,
+    "cpuKind": "Ampere®",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 12.49,
+    "unit": "month"
+   },
+   "hourly": 0.02,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CAX31",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "diskGb": 160,
+    "eurMonthly": 20.99,
+    "eurHourly": 0.0336,
+    "cpuKind": "Ampere®",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 24.99,
+    "unit": "month"
+   },
+   "hourly": 0.04,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CAX41",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "diskGb": 320,
+    "eurMonthly": 40.99,
+    "eurHourly": 0.0657,
+    "cpuKind": "Ampere®",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 48.49,
+    "unit": "month"
+   },
+   "hourly": 0.0777,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CCX13",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "diskGb": 80,
+    "eurMonthly": 42.99,
+    "eurHourly": 0.0689,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 50.49,
+    "unit": "month"
+   },
+   "hourly": 0.0809,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CCX23",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "diskGb": 160,
+    "eurMonthly": 85.99,
+    "eurHourly": 0.1378,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 101.49,
+    "unit": "month"
+   },
+   "hourly": 0.1626,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CCX33",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "diskGb": 240,
+    "eurMonthly": 138.49,
+    "eurHourly": 0.2219,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 162.99,
+    "unit": "month"
+   },
+   "hourly": 0.2612,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CCX43",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "diskGb": 360,
+    "eurMonthly": 275.99,
+    "eurHourly": 0.4423,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 325.49,
+    "unit": "month"
+   },
+   "hourly": 0.5216,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CCX53",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128,
+    "diskGb": 600,
+    "eurMonthly": 533.49,
+    "eurHourly": 0.855,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 629.49,
+    "unit": "month"
+   },
+   "hourly": 1.0088,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CCX63",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 192,
+    "diskGb": 960,
+    "eurMonthly": 853.49,
+    "eurHourly": 1.3678,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 1006.99,
+    "unit": "month"
+   },
+   "hourly": 1.6138,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CPX22",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 80,
+    "eurMonthly": 19.49,
+    "eurHourly": 0.0312,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 22.99,
+    "unit": "month"
+   },
+   "hourly": 0.0368,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CPX32",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 160,
+    "eurMonthly": 35.49,
+    "eurHourly": 0.0569,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 41.99,
+    "unit": "month"
+   },
+   "hourly": 0.0673,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CPX42",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "diskGb": 320,
+    "eurMonthly": 69.49,
+    "eurHourly": 0.1114,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 81.99,
+    "unit": "month"
+   },
+   "hourly": 0.1314,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CPX52",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 24,
+    "diskGb": 480,
+    "eurMonthly": 100.49,
+    "eurHourly": 0.161,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 118.99,
+    "unit": "month"
+   },
+   "hourly": 0.1907,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CPX62",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "diskGb": 640,
+    "eurMonthly": 129.99,
+    "eurHourly": 0.2083,
+    "cpuKind": "AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 152.99,
+    "unit": "month"
+   },
+   "hourly": 0.2452,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CX23",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 40,
+    "eurMonthly": 5.49,
+    "eurHourly": 0.0088,
+    "cpuKind": "Intel®/AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 6.49,
+    "unit": "month"
+   },
+   "hourly": 0.0104,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CX33",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 80,
+    "eurMonthly": 8.49,
+    "eurHourly": 0.0136,
+    "cpuKind": "Intel®/AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 9.99,
+    "unit": "month"
+   },
+   "hourly": 0.016,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CX43",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "diskGb": 160,
+    "eurMonthly": 15.99,
+    "eurHourly": 0.0256,
+    "cpuKind": "Intel®/AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 18.49,
+    "unit": "month"
+   },
+   "hourly": 0.0296,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  },
+  {
+   "offerings": [
+    "vps:hetzner:cloud-servers"
+   ],
+   "tier": "CX53",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "diskGb": 320,
+    "eurMonthly": 29.49,
+    "eurHourly": 0.0473,
+    "cpuKind": "Intel®/AMD",
+    "diskType": "NVMe",
+    "region": "FSN/NBG/HEL"
+   },
+   "price": {
+    "amount": 34.99,
+    "unit": "month"
+   },
+   "hourly": 0.0561,
+   "note": "New prices from 15 June 2026, excl. IPv4 (€0.50/mo extra). 20 TB traffic included in EU."
+  }
+ ],
+ "notes": "Prices in USD as Hetzner lists them for the EU region (EUR monthly in eurMonthly). Specs matched by model name; tiers with no spec match have undefined vCPU/RAM. US and Singapore prices differ (dedicated vCPU CCX/CPX much higher) and are not exported. Volumes, load balancers and object storage prices not captured."
+}

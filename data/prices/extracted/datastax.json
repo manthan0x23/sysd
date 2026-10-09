@@ -1,0 +1,10 @@
+{
+ "provider": "datastax",
+ "currency": "USD",
+ "sources": [
+  "https://www.datastax.com/pricing/astra-db"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scraped URL (datastax.com/pricing/astra-db) redirected to IBM watsonx.data pricing. Astra DB prices NOT captured; needs a new source URL."
+}

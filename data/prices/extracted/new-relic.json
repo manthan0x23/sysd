@@ -1,0 +1,26 @@
+{
+ "provider": "new-relic",
+ "currency": "USD",
+ "sources": [
+  "https://newrelic.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "logs:new-relic:logs",
+    "metrics:new-relic:full-stack"
+   ],
+   "tier": "Standard (usage)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "data ingest beyond 100 GB free/month",
+     "amount": 0.4,
+     "unit": "gb"
+    }
+   ],
+   "note": "100 GB free ingest per month. User seat prices not captured."
+  }
+ ]
+}

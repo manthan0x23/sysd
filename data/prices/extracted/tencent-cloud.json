@@ -1,0 +1,10 @@
+{
+ "provider": "tencent-cloud",
+ "currency": "USD",
+ "sources": [
+  "https://www.tencentcloud.com/products/cvm"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned a marketing page without readable instance prices."
+}

@@ -1,0 +1,62 @@
+{
+ "provider": "temporal",
+ "currency": "USD",
+ "sources": [
+  "https://temporal.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "workflow:temporal:cloud"
+   ],
+   "tier": "Usage-based",
+   "spec": {},
+   "rates": [
+    {
+     "name": "actions, starting at",
+     "amount": 50,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "active storage",
+     "amount": 0.042,
+     "unit": "gb-hour"
+    },
+    {
+     "name": "retained storage",
+     "amount": 0.00105,
+     "unit": "gb-hour"
+    }
+   ],
+   "note": "$150 free credits for 90 days."
+  },
+  {
+   "offerings": [
+    "workflow:temporal:cloud"
+   ],
+   "tier": "Volume (self-service, down to)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "actions",
+     "amount": 25,
+     "unit": "1m-requests"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "workflow:temporal:cloud"
+   ],
+   "tier": "Committed tier",
+   "spec": {},
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   },
+   "note": "'Greater of $500/mo or 10% of usage'."
+  }
+ ],
+ "notes": "Named plans (Essentials/Business/etc.) are not identifiable in the scrape, so only the rates above are recorded."
+}

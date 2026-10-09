@@ -1,0 +1,31 @@
+{
+ "provider": "razorpay",
+ "currency": "USD",
+ "sources": [
+  "https://razorpay.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "payments:razorpay:payments"
+   ],
+   "tier": "Standard card rate (as shown, USD)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "percentage of transaction",
+     "amount": 2.7,
+     "unit": "percent"
+    },
+    {
+     "name": "fixed fee per transaction",
+     "amount": 0.3,
+     "unit": "fixed"
+    }
+   ],
+   "note": "Shown as '2.70% + $0.30 per card transaction' on the international/US page; the India INR rates differ and were not captured."
+  }
+ ],
+ "notes": "Enterprise Plan is for businesses processing $12M+ annually."
+}

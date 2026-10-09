@@ -1,0 +1,10 @@
+{
+ "provider": "paddle",
+ "currency": "USD",
+ "sources": [
+  "https://www.paddle.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape had no usable content."
+}

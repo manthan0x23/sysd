@@ -1,0 +1,10 @@
+{
+ "provider": "highlight",
+ "currency": "USD",
+ "sources": [
+  "https://www.highlight.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape had no plan prices."
+}

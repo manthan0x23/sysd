@@ -42,3 +42,9 @@ next-env.d.ts
 
 # keep the template of required variables, ignore real ones
 !.env.example
+
+# price pipeline: owner-only spreadsheet and large raw/pending scrape output (extracted/ is kept for review)
+/prices.xlsx
+/data/prices/raw/
+/data/prices/pending/
+/data/prices/free/

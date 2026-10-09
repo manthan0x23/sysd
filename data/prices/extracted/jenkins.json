@@ -1,0 +1,22 @@
+{
+ "provider": "jenkins",
+ "currency": "USD",
+ "sources": [
+  "https://www.jenkins.io/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "ci:jenkins:self-hosted"
+   ],
+   "tier": "Jenkins (open source)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "No licence fee; you pay for the server it runs on."
+  }
+ ]
+}

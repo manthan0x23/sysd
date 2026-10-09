@@ -1,0 +1,55 @@
+{
+ "provider": "pusher",
+ "currency": "USD",
+ "sources": [
+  "https://pusher.com/channels/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "pubsub:pusher:channels"
+   ],
+   "tier": "Startup",
+   "spec": {},
+   "price": {
+    "amount": 49,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "pubsub:pusher:channels"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 99,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "pubsub:pusher:channels"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 299,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "pubsub:pusher:channels"
+   ],
+   "tier": "Premium",
+   "spec": {},
+   "price": {
+    "amount": 499,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Higher plans (Growth $699, Plus $899, Growth Plus $1,199) also appear but their product line (Channels vs Beams) was not identifiable. Connection/message limits not captured."
+}

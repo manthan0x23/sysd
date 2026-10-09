@@ -1,0 +1,10 @@
+{
+ "provider": "firebolt",
+ "currency": "USD",
+ "sources": [
+  "https://www.firebolt.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned a near-empty page."
+}

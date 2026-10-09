@@ -56,6 +56,24 @@ export interface Offering {
 
 export interface Spec { vcpu: number; ramGb: number; diskGb: number }
 
+/**
+ * What a free tier includes, where the provider states it as a number. A free tier only "fits" when every limit we know
+ * covers the load; limits we do not know are never assumed, so a tier with none is listed but never picked by Auto.
+ */
+export interface Limits {
+  storageGb?: number;
+  ramGb?: number;
+  vcpu?: number;
+  /** Requests (or invocations, queries, messages) per month. */
+  requestsPerMonth?: number;
+  /** vCPU-hours (or compute units x hours) per month. */
+  computeHours?: number;
+  /** Monthly active users, for auth, analytics and similar. */
+  users?: number;
+  /** Outbound transfer in GB per month. */
+  egressGb?: number;
+}
+
 /** A tier you can pick: a server size, or an LLM model. Each one carries where its numbers came from. */
 export interface Plan {
   id: string;
@@ -64,6 +82,9 @@ export interface Plan {
   spec?: Spec;
   /** Sustained monthly price in USD (renewal price where an intro price exists). */
   price?: number;
+  /** A $0 plan. Its `limits` say how much it covers; beyond them the next tier applies. */
+  free?: boolean;
+  limits?: Limits;
   /** Promotional price, shown but never used for the estimate. */
   priceIntro?: number;
   /** Per-token pricing for LLM models, USD per million tokens. */

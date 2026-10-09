@@ -1,0 +1,42 @@
+{
+ "provider": "cloudinary",
+ "currency": "USD",
+ "sources": [
+  "https://cloudinary.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "images:cloudinary:media"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "images:cloudinary:media"
+   ],
+   "tier": "Plus",
+   "spec": {},
+   "price": {
+    "amount": 99,
+    "unit": "month"
+   },
+   "note": "'Yearly $99 / Per month $89' appears; which one is monthly-billing vs annual-billing is not clear from the scrape."
+  },
+  {
+   "offerings": [
+    "images:cloudinary:media"
+   ],
+   "tier": "Advanced",
+   "spec": {},
+   "contact": true,
+   "note": "Price not captured."
+  }
+ ]
+}

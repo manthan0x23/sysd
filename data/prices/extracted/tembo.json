@@ -1,0 +1,10 @@
+{
+ "provider": "tembo",
+ "currency": "USD",
+ "sources": [
+  "https://tembo.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scraped URL now shows Tembo's AI-coding-agent platform (Free / Pro $60 / Max $200), not Postgres hosting. Tembo Cloud (Postgres) prices NOT captured."
+}

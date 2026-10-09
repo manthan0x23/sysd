@@ -1,0 +1,10 @@
+{
+ "provider": "phonepe",
+ "currency": "USD",
+ "sources": [
+  "https://business.phonepe.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned no prices."
+}

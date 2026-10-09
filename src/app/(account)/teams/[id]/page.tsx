@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { connection } from "next/server";
 import { Suspense } from "react";
+import { TeamLogo } from "@/components/pages/TeamLogo";
 import { PageSkeleton } from "@/components/pages/PageSkeleton";
 import { TeamManager } from "@/components/pages/TeamForms";
 import { APP_NAME } from "@/lib/brand";
@@ -25,11 +26,11 @@ async function Body({ params }: { params: Promise<{ id: string }> }) {
     <>
       <main className="pm">
         <p className="crumb"><Link href="/teams">Teams</Link></p>
-        <h1>{t.name}</h1>
+        <div className="team-head"><TeamLogo teamId={t.id} name={t.name} logo={t.logo} canEdit={t.level === "owner"} size={48} /><h1>{t.name}</h1></div>
         <p className="lede">Owner: {t.owner?.name ?? "Unknown"} · You are {t.level === "owner" ? "the owner" : `an ${t.level}`}. <Link href="/home">See this team&apos;s designs</Link></p>
         <TeamManager
           teamId={t.id} isOwner={t.level === "owner"} me={u.id}
-          members={t.members.map((m) => ({ userId: m.userId, name: m.name, role: m.role }))}
+          members={t.members.map((m) => ({ userId: m.userId, name: m.name, avatar: m.avatar, role: m.role }))}
           invites={t.invites.map((i) => ({ id: i.id, role: i.role, expiresAt: i.expiresAt.toISOString() }))}
         />
       </main>

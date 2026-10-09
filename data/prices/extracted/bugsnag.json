@@ -1,0 +1,45 @@
+{
+ "provider": "bugsnag",
+ "currency": "USD",
+ "sources": [
+  "https://www.bugsnag.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "errors:bugsnag:errors"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "errors:bugsnag:errors"
+   ],
+   "tier": "Select",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "'Starting at $20/month' for smaller teams."
+  },
+  {
+   "offerings": [
+    "errors:bugsnag:errors"
+   ],
+   "tier": "Preferred",
+   "spec": {},
+   "price": {
+    "amount": 33,
+    "unit": "month"
+   },
+   "note": "'Starting at $33/month' for larger teams."
+  }
+ ]
+}

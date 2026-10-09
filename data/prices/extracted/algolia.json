@@ -1,0 +1,53 @@
+{
+ "provider": "algolia",
+ "currency": "USD",
+ "sources": [
+  "https://www.algolia.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "search:algolia:search"
+   ],
+   "tier": "Grow",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "extra search requests per 1K beyond 10K",
+     "amount": 0.5,
+     "unit": "1k-requests"
+    },
+    {
+     "name": "extra records per 1K beyond 100K",
+     "amount": 0.4,
+     "unit": "other"
+    }
+   ],
+   "note": "'Starting at $0/month'."
+  },
+  {
+   "offerings": [
+    "search:algolia:search"
+   ],
+   "tier": "Grow Plus",
+   "spec": {},
+   "rates": [
+    {
+     "name": "extra search requests per 1K beyond 10K",
+     "amount": 1.75,
+     "unit": "1k-requests"
+    },
+    {
+     "name": "extra records per 1K beyond 100K",
+     "amount": 0.4,
+     "unit": "other"
+    }
+   ]
+  }
+ ]
+}

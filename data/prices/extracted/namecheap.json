@@ -1,0 +1,95 @@
+{
+ "provider": "namecheap",
+ "currency": "USD",
+ "sources": [
+  "https://www.namecheap.com/hosting/vps/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:namecheap:vps"
+   ],
+   "tier": "1 CPU / 1 GB",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 1,
+    "diskGb": 20,
+    "transferGb": 1000
+   },
+   "price": {
+    "amount": 4.88,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 3.88,
+    "unit": "month",
+    "note": "first year; renews at $58.56/year"
+   }
+  },
+  {
+   "offerings": [
+    "vps:namecheap:vps"
+   ],
+   "tier": "2 CPU / 2 GB",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 2,
+    "diskGb": 40,
+    "transferGb": 1000
+   },
+   "price": {
+    "amount": 8.88,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 6.88,
+    "unit": "month",
+    "note": "first year; renews at $106.56/year"
+   }
+  },
+  {
+   "offerings": [
+    "vps:namecheap:vps"
+   ],
+   "tier": "4 CPU / 6 GB",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 6,
+    "diskGb": 120,
+    "transferGb": 3000
+   },
+   "price": {
+    "amount": 15.88,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 12.88,
+    "unit": "month",
+    "note": "first year; renews at $190.56/year"
+   }
+  },
+  {
+   "offerings": [
+    "vps:namecheap:vps"
+   ],
+   "tier": "8 CPU / 12 GB",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 12,
+    "diskGb": 240,
+    "transferGb": 6000
+   },
+   "price": {
+    "amount": 28.88,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 24.88,
+    "unit": "month",
+    "note": "first year; renews at $346.56/year"
+   }
+  }
+ ],
+ "notes": "Plan names are not on the scraped page, so tiers are labelled by size. Regular price = 'Was' price = renewal/12."
+}

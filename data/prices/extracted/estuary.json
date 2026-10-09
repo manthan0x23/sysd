@@ -1,0 +1,31 @@
+{
+ "provider": "estuary",
+ "currency": "USD",
+ "sources": [
+  "https://estuary.dev/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "etl:estuary:flow",
+    "cdc:estuary:flow"
+   ],
+   "tier": "Cloud",
+   "spec": {},
+   "rates": [
+    {
+     "name": "data moved",
+     "amount": 0.5,
+     "unit": "gb"
+    },
+    {
+     "name": "per connector, monthly",
+     "amount": 100,
+     "unit": "other"
+    }
+   ],
+   "note": "$0.50 per GB + $100 per connector (per month); 30-day free trial."
+  }
+ ]
+}

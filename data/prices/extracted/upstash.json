@@ -1,0 +1,334 @@
+{
+ "provider": "upstash",
+ "currency": "USD",
+ "sources": [
+  "https://upstash.com/pricing",
+  "https://upstash.com/pricing/qstash",
+  "https://upstash.com/pricing/kafka"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Free",
+   "spec": {
+    "maxDataGb": 0.25,
+    "bandwidthIncluded": "10 GB"
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "- per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Pay as You Go",
+   "spec": {
+    "maxDataGb": 100,
+    "bandwidthIncluded": "Unlimited"
+   },
+   "rates": [
+    {
+     "name": "commands",
+     "amount": 0.2,
+     "unit": "other"
+    },
+    {
+     "name": "storage beyond 1 GB",
+     "amount": 0.25,
+     "unit": "gb-month"
+    },
+    {
+     "name": "bandwidth beyond 200 GB",
+     "amount": 0.03,
+     "unit": "gb"
+    }
+   ],
+   "note": "$0.20 per 100K commands."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 250MB",
+   "spec": {
+    "maxDataGb": 0.244140625,
+    "bandwidthIncluded": "50 GB"
+   },
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   },
+   "note": "+$5/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 1GB",
+   "spec": {
+    "maxDataGb": 1,
+    "bandwidthIncluded": "100 GB"
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "+$10/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 5GB",
+   "spec": {
+    "maxDataGb": 5,
+    "bandwidthIncluded": "500 GB"
+   },
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   },
+   "note": "+$50/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 10GB",
+   "spec": {
+    "maxDataGb": 10,
+    "bandwidthIncluded": "1 TB"
+   },
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   },
+   "note": "+$100/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 50GB",
+   "spec": {
+    "maxDataGb": 50,
+    "bandwidthIncluded": "5 TB"
+   },
+   "price": {
+    "amount": 400,
+    "unit": "month"
+   },
+   "note": "+$200/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 100GB",
+   "spec": {
+    "maxDataGb": 100,
+    "bandwidthIncluded": "10 TB"
+   },
+   "price": {
+    "amount": 800,
+    "unit": "month"
+   },
+   "note": "+$400/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 500GB",
+   "spec": {
+    "maxDataGb": 500,
+    "bandwidthIncluded": "20 TB"
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   },
+   "note": "+$750/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 250MB",
+   "spec": {
+    "maxDataGb": 0.244140625,
+    "bandwidthIncluded": "50 GB"
+   },
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   },
+   "note": "+$5/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 1GB",
+   "spec": {
+    "maxDataGb": 1,
+    "bandwidthIncluded": "100 GB"
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "+$10/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 5GB",
+   "spec": {
+    "maxDataGb": 5,
+    "bandwidthIncluded": "500 GB"
+   },
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   },
+   "note": "+$50/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 10GB",
+   "spec": {
+    "maxDataGb": 10,
+    "bandwidthIncluded": "1 TB"
+   },
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   },
+   "note": "+$100/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 50GB",
+   "spec": {
+    "maxDataGb": 50,
+    "bandwidthIncluded": "5 TB"
+   },
+   "price": {
+    "amount": 400,
+    "unit": "month"
+   },
+   "note": "+$200/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 100GB",
+   "spec": {
+    "maxDataGb": 100,
+    "bandwidthIncluded": "10 TB"
+   },
+   "price": {
+    "amount": 800,
+    "unit": "month"
+   },
+   "note": "+$400/region per additional read region."
+  },
+  {
+   "offerings": [
+    "redis:upstash:redis",
+    "kv:upstash:redis-kv"
+   ],
+   "tier": "Redis Fixed 500GB",
+   "spec": {
+    "maxDataGb": 500,
+    "bandwidthIncluded": "20 TB"
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   },
+   "note": "+$750/region per additional read region."
+  },
+  {
+   "offerings": [
+    "queue:upstash:qstash"
+   ],
+   "tier": "QStash Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "queue:upstash:qstash"
+   ],
+   "tier": "QStash Pay as You Go",
+   "spec": {},
+   "rates": [
+    {
+     "name": "messages per 100K",
+     "amount": 1,
+     "unit": "other"
+    },
+    {
+     "name": "bandwidth beyond 50 GB",
+     "amount": 0.05,
+     "unit": "gb"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "queue:upstash:qstash"
+   ],
+   "tier": "QStash Fixed 1M",
+   "spec": {},
+   "price": {
+    "amount": 180,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "queue:upstash:qstash"
+   ],
+   "tier": "QStash Fixed 10M",
+   "spec": {},
+   "price": {
+    "amount": 420,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Upstash Kafka page not captured (fetch pending/failed)."
+}

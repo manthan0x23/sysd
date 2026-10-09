@@ -1,0 +1,45 @@
+{
+ "provider": "imgix",
+ "currency": "USD",
+ "sources": [
+  "https://imgix.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "images:imgix:rendering"
+   ],
+   "tier": "Starter tier (monthly)",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   },
+   "note": "Also $250/yr. Next tiers $75/mo ($750/yr) and $150/mo; plan names not captured."
+  },
+  {
+   "offerings": [
+    "images:imgix:rendering"
+   ],
+   "tier": "Second tier (monthly)",
+   "spec": {},
+   "price": {
+    "amount": 75,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "images:imgix:rendering"
+   ],
+   "tier": "Third tier (monthly)",
+   "spec": {},
+   "price": {
+    "amount": 150,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Credit-based; tier names not captured."
+}

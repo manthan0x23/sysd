@@ -132,6 +132,8 @@ const RAW: Record<string, Row[]> = {
   pubsub: [
     ["AWS", "SNS", M], ["Google Cloud", "Pub/Sub", M], ["Microsoft Azure", "Event Grid", M], ["Ably", "Realtime", SAAS],
     ["Pusher", "Channels", SAAS], ["PubNub", "Realtime", SAAS], ["NATS", "Synadia Cloud", M], ["Supabase", "Realtime", M],
+    // Redis publishes and subscribes on the same instance it caches on; priced like its Redis tiers.
+    ["Redis", "Pub/Sub", M], ["Upstash", "Redis Pub/Sub", S],
   ],
   stream: [
     ["Confluent", "Cloud", M], ["AWS", "MSK", M], ["AWS", "MSK Serverless", S], ["AWS", "Kinesis Data Streams", M], ["Redpanda", "Cloud", M],
@@ -241,7 +243,7 @@ const RAW: Record<string, Row[]> = {
 
 const SELF_HOST_LABEL: Record<string, string> = {
   postgres: "PostgreSQL", mysql: "MySQL / MariaDB", mongodb: "MongoDB", redis: "Redis / Valkey", memcached: "Memcached",
-  stream: "Apache Kafka", queue: "RabbitMQ", search: "Elasticsearch / OpenSearch", warehouse: "ClickHouse", object: "MinIO",
+  stream: "Apache Kafka", queue: "RabbitMQ", pubsub: "Redis Pub/Sub", search: "Elasticsearch / OpenSearch", warehouse: "ClickHouse", object: "MinIO",
   vector: "Qdrant", proxy: "nginx / Caddy", app: "Your app (Node, Java, Python, Go...)", worker: "Your worker",
   logs: "Grafana Loki", metrics: "Prometheus + Grafana", auth: "Keycloak", workflow: "Apache Airflow",
 };

@@ -1,0 +1,43 @@
+{
+ "provider": "imagekit",
+ "currency": "USD",
+ "sources": [
+  "https://imagekit.io/plans/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "images:imagekit:media"
+   ],
+   "tier": "Forever free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "images:imagekit:media"
+   ],
+   "tier": "Lite",
+   "spec": {},
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "images:imagekit:media"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 89,
+    "unit": "month"
+   }
+  }
+ ]
+}

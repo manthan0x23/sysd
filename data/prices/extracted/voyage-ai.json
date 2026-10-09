@@ -1,0 +1,298 @@
+{
+ "provider": "voyage-ai",
+ "currency": "USD",
+ "sources": [
+  "https://docs.voyageai.com/docs/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-4-large",
+   "spec": {
+    "freeTokens": "200 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.12,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-4",
+   "spec": {
+    "freeTokens": "200 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.06,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-4-lite",
+   "spec": {
+    "freeTokens": "200 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.02,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-context-4",
+   "spec": {
+    "freeTokens": "200 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.12,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-code-4",
+   "spec": {
+    "freeTokens": "200 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.12,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-finance-2 / voyage-law-2 / voyage-code-2",
+   "spec": {
+    "freeTokens": "50 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.12,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-multimodal-3.5 / voyage-multimodal-3 (multimodal)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.12,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "pixels",
+     "amount": 0.6,
+     "unit": "other"
+    }
+   ],
+   "note": "Pixels priced per billion."
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "rerank-3",
+   "spec": {
+    "freeTokens": "200 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.05,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "rerank-3-lite",
+   "spec": {
+    "freeTokens": "200 million"
+   },
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.02,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-context-3",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.18,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-code-3",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.18,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-3-large",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.18,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-3.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.06,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-3.5-lite",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.02,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-multilingual-2 / voyage-large-2-instruct / voyage-large-2",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.12,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-01 / voyage-lite-01 / voyage-lite-01-instruct / voyage-02 / voyage-lite-02-instruct / voyage-2",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.1,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-3",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.06,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "rerank-1 / rerank-2 / rerank-2.5",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.05,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "embeddings:voyage-ai:embeddings"
+   ],
+   "tier": "voyage-3-lite / rerank-lite-1 / rerank-2-lite / rerank-2.5-lite",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.02,
+     "unit": "1m-tokens-in"
+    }
+   ]
+  }
+ ]
+}

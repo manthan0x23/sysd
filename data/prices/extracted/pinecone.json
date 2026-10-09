@@ -1,0 +1,54 @@
+{
+ "provider": "pinecone",
+ "currency": "USD",
+ "sources": [
+  "https://www.pinecone.io/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vector:pinecone:serverless"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vector:pinecone:serverless"
+   ],
+   "tier": "Builder",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "'$20/month flat'."
+  },
+  {
+   "offerings": [
+    "vector:pinecone:serverless"
+   ],
+   "tier": "Standard",
+   "spec": {},
+   "price": {
+    "amount": 50,
+    "unit": "month"
+   },
+   "note": "'$50 monthly minimum applied to usage'; anything over is pay-as-you-go. Per-unit read/write/storage rates are in docs, not captured."
+  },
+  {
+   "offerings": [
+    "vector:pinecone:serverless"
+   ],
+   "tier": "Enterprise",
+   "spec": {},
+   "contact": true,
+   "note": "Minimum spend not captured."
+  }
+ ]
+}

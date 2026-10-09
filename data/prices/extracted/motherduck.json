@@ -1,0 +1,33 @@
+{
+ "provider": "motherduck",
+ "currency": "USD",
+ "sources": [
+  "https://motherduck.com/product/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "warehouse:motherduck:duckdb-cloud"
+   ],
+   "tier": "Free (from $0)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "warehouse:motherduck:duckdb-cloud"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 250,
+    "unit": "month"
+   },
+   "note": "$250 per org per month plus usage; 1 AI Unit = $1.00."
+  }
+ ]
+}

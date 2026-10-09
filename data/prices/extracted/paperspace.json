@@ -1,0 +1,45 @@
+{
+ "provider": "paperspace",
+ "currency": "USD",
+ "sources": [
+  "https://www.paperspace.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "gpu:paperspace:core"
+   ],
+   "tier": "Pro plan",
+   "spec": {},
+   "price": {
+    "amount": 8,
+    "unit": "month"
+   },
+   "note": "Names Free $0 / Pro $8 / Growth $39 per month shown; second set shows Pro $12 (different plan group, e.g. billing period)."
+  },
+  {
+   "offerings": [
+    "gpu:paperspace:core"
+   ],
+   "tier": "Growth plan",
+   "spec": {},
+   "price": {
+    "amount": 39,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "gpu:paperspace:core"
+   ],
+   "tier": "Free plan",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Machine (GPU-hour) rates not captured; Paperspace is now part of DigitalOcean."
+}

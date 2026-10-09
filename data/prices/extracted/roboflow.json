@@ -1,0 +1,33 @@
+{
+ "provider": "roboflow",
+ "currency": "USD",
+ "sources": [
+  "https://roboflow.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vision:roboflow:platform"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vision:roboflow:platform"
+   ],
+   "tier": "Core",
+   "spec": {},
+   "price": {
+    "amount": 39,
+    "unit": "month"
+   },
+   "note": "Credit packs: +10 credits $39 ($3.90/credit), +25 credits $89, +40 credits $139."
+  }
+ ]
+}

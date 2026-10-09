@@ -1,0 +1,33 @@
+{
+ "provider": "circleci",
+ "currency": "USD",
+ "sources": [
+  "https://circleci.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "ci:circleci:cloud"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "ci:circleci:cloud"
+   ],
+   "tier": "Performance",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   },
+   "note": "'Starting at $15/month'; extra credits $15 per 25,000; network/storage beyond limits 420 credits/GB ($0.252/GB)."
+  }
+ ]
+}

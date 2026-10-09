@@ -1,0 +1,90 @@
+{
+ "provider": "liquid-web",
+ "currency": "USD",
+ "sources": [
+  "https://www.liquidweb.com/vps-hosting/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:liquid-web:vps"
+   ],
+   "tier": "1 GB RAM",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 1,
+    "diskGb": 30,
+    "transferGb": 1000
+   },
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:liquid-web:vps"
+   ],
+   "tier": "4 GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 80,
+    "transferGb": 3000
+   },
+   "price": {
+    "amount": 17,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 8.5,
+    "unit": "month",
+    "note": "promo; struck-through regular price recorded as price"
+   }
+  },
+  {
+   "offerings": [
+    "vps:liquid-web:vps"
+   ],
+   "tier": "8 GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 240,
+    "transferGb": 5000
+   },
+   "price": {
+    "amount": 45,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 22.5,
+    "unit": "month",
+    "note": "promo; struck-through regular price recorded as price"
+   }
+  },
+  {
+   "offerings": [
+    "vps:liquid-web:vps"
+   ],
+   "tier": "16 GB RAM",
+   "spec": {
+    "vcpu": 6,
+    "ramGb": 16,
+    "diskGb": 440,
+    "transferGb": 7000
+   },
+   "price": {
+    "amount": 90,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 45,
+    "unit": "month",
+    "note": "promo; struck-through regular price recorded as price"
+   }
+  }
+ ],
+ "notes": "Struck-through price taken as regular. 1 GB plan shows only $5/mo. 10 Gbps network."
+}

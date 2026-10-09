@@ -1,0 +1,10 @@
+{
+ "provider": "lightstep",
+ "currency": "USD",
+ "sources": [
+  "https://docs.lightstep.com/docs/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned no content (docs URL)."
+}

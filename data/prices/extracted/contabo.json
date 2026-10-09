@@ -1,0 +1,113 @@
+{
+ "provider": "contabo",
+ "currency": "USD",
+ "sources": [
+  "https://contabo.com/en/vps/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:contabo:cloud-vps"
+   ],
+   "tier": "Cloud VPS 4",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 100,
+    "diskNote": "100 GB SSD"
+   },
+   "price": {
+    "amount": 5.28,
+    "unit": "month"
+   },
+   "note": "Price excludes VAT and is for a 24-month term."
+  },
+  {
+   "offerings": [
+    "vps:contabo:cloud-vps"
+   ],
+   "tier": "Cloud VPS 6",
+   "spec": {
+    "vcpu": 6,
+    "ramGb": 12,
+    "diskGb": 200,
+    "diskNote": "200 GB SSD / 100 GB NVMe"
+   },
+   "price": {
+    "amount": 7.2,
+    "unit": "month"
+   },
+   "note": "Price excludes VAT and is for a 24-month term."
+  },
+  {
+   "offerings": [
+    "vps:contabo:cloud-vps"
+   ],
+   "tier": "Cloud VPS 8",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 24,
+    "diskGb": 300,
+    "diskNote": "300 GB SSD / 150 GB NVMe"
+   },
+   "price": {
+    "amount": 13.44,
+    "unit": "month"
+   },
+   "note": "Price excludes VAT and is for a 24-month term."
+  },
+  {
+   "offerings": [
+    "vps:contabo:cloud-vps"
+   ],
+   "tier": "Cloud VPS 12",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 48,
+    "diskGb": 400,
+    "diskNote": "400 GB SSD / 200 GB NVMe"
+   },
+   "price": {
+    "amount": 24,
+    "unit": "month"
+   },
+   "note": "Price excludes VAT and is for a 24-month term."
+  },
+  {
+   "offerings": [
+    "vps:contabo:cloud-vps"
+   ],
+   "tier": "Cloud VPS 16",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "diskGb": 500,
+    "diskNote": "500 GB SSD / 250 GB NVMe"
+   },
+   "price": {
+    "amount": 35.6,
+    "unit": "month"
+   },
+   "note": "Price excludes VAT and is for a 24-month term."
+  },
+  {
+   "offerings": [
+    "vps:contabo:cloud-vps"
+   ],
+   "tier": "Cloud VPS 18",
+   "spec": {
+    "vcpu": 18,
+    "ramGb": 96,
+    "diskGb": 600,
+    "diskNote": "600 GB SSD / 300 GB NVMe"
+   },
+   "price": {
+    "amount": 47.04,
+    "unit": "month"
+   },
+   "note": "Price excludes VAT and is for a 24-month term."
+  }
+ ],
+ "notes": "The page quotes each plan as 'x (incl. VAT)' and 'y excluding VAT'; the ex-VAT figure is recorded. Only the larger Cloud VPS sizes are on this page."
+}

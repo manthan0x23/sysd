@@ -1,0 +1,315 @@
+{
+ "provider": "tidb",
+ "currency": "USD",
+ "sources": [
+  "https://www.pingcap.com/tidb-cloud-pricing-details/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiDB node 4 vCPU, 16 GiB",
+   "spec": {
+    "role": "TiDB",
+    "vcpu": 4,
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 322.37,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 0.4416
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiDB node 8 vCPU, 16 GiB",
+   "spec": {
+    "role": "TiDB",
+    "vcpu": 8,
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 570.86,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 0.782
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiDB node 8 vCPU, 32 GiB",
+   "spec": {
+    "role": "TiDB",
+    "vcpu": 8,
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 644.74,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 0.8832
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiDB node 16 vCPU, 32 GiB",
+   "spec": {
+    "role": "TiDB",
+    "vcpu": 16,
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 1141.72,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 1.564
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiDB node 16 vCPU, 64 GiB",
+   "spec": {
+    "role": "TiDB",
+    "vcpu": 16,
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 1289.47,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 1.7664
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiDB node 32 vCPU, 64 GiB",
+   "spec": {
+    "role": "TiDB",
+    "vcpu": 32,
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 2283.44,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 3.128
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiKV node 4 vCPU, 16 GiB",
+   "spec": {
+    "role": "TiKV",
+    "vcpu": 4,
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 322.37,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 0.4416
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiKV node 8 vCPU, 32 GiB",
+   "spec": {
+    "role": "TiKV",
+    "vcpu": 8,
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 644.74,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 0.8832
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiKV node 8 vCPU, 64 GiB",
+   "spec": {
+    "role": "TiKV",
+    "vcpu": 8,
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 1000.68,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 1.3708
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiKV node 16 vCPU, 64 GiB",
+   "spec": {
+    "role": "TiKV",
+    "vcpu": 16,
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 1289.47,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 1.7664
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiKV node 32 vCPU, 128 GiB",
+   "spec": {
+    "role": "TiKV",
+    "vcpu": 32,
+    "ramGb": 128
+   },
+   "price": {
+    "amount": 2578.94,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 3.5328
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiFlash node 8 vCPU, 64 GiB",
+   "spec": {
+    "role": "TiFlash",
+    "vcpu": 8,
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 1000.68,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 1.3708
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiFlash node 16 vCPU, 128 GiB",
+   "spec": {
+    "role": "TiFlash",
+    "vcpu": 16,
+    "ramGb": 128
+   },
+   "price": {
+    "amount": 1692.43,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 2.3184
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiFlash node 32 vCPU, 128 GiB",
+   "spec": {
+    "role": "TiFlash",
+    "vcpu": 32,
+    "ramGb": 128
+   },
+   "price": {
+    "amount": 2578.94,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 3.5328
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiFlash node 32 vCPU, 256 GiB",
+   "spec": {
+    "role": "TiFlash",
+    "vcpu": 32,
+    "ramGb": 256
+   },
+   "price": {
+    "amount": 3384.86,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 4.6368
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiProxy node Small",
+   "spec": {
+    "role": "TiProxy",
+    "size": "Small"
+   },
+   "price": {
+    "amount": 142.72,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 0.1955
+  },
+  {
+   "offerings": [
+    "newsql:tidb:cloud",
+    "mysql:tidb:cloud"
+   ],
+   "tier": "TiProxy node Large",
+   "spec": {
+    "role": "TiProxy",
+    "size": "Large"
+   },
+   "price": {
+    "amount": 570.86,
+    "unit": "month",
+    "note": "hourly x 730"
+   },
+   "hourly": 0.782
+  }
+ ],
+ "notes": "TiDB Cloud Dedicated node prices (compute/hour); a cluster needs TiDB + TiKV nodes (+ TiFlash optionally). Serverless/Starter tiers not captured on this page."
+}

@@ -1,0 +1,101 @@
+{
+ "provider": "prisma",
+ "currency": "USD",
+ "sources": [
+  "https://www.prisma.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "postgres:prisma:postgres"
+   ],
+   "tier": "Free",
+   "spec": {
+    "operations": 200000,
+    "storageGb": 1.01,
+    "databases": 50
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "Includes Prisma Compute allowance: 1M requests, 360 GB-hours memory, 4 vCPU-hours, 10 GB egress."
+  },
+  {
+   "offerings": [
+    "postgres:prisma:postgres"
+   ],
+   "tier": "Starter",
+   "spec": {
+    "operations": 1000000,
+    "storageGb": 10,
+    "databases": 1000
+   },
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "extra operations",
+     "amount": 8,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "extra storage",
+     "amount": 2,
+     "unit": "gb-month"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "postgres:prisma:postgres"
+   ],
+   "tier": "Pro",
+   "spec": {
+    "operations": 10000000,
+    "storageGb": 50
+   },
+   "price": {
+    "amount": 49,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "extra operations",
+     "amount": 2,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "extra storage",
+     "amount": 1.5,
+     "unit": "gb-month"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "postgres:prisma:postgres"
+   ],
+   "tier": "Business",
+   "spec": {
+    "operations": 50000000,
+    "storageGb": 100
+   },
+   "price": {
+    "amount": 129,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "extra operations",
+     "amount": 1,
+     "unit": "1m-requests"
+    }
+   ]
+  }
+ ],
+ "notes": "Operations-based pricing for Prisma Postgres. Prisma Compute (separate hosting product on the same plan): $0.006/GB-hour memory, $0.064/active vCPU-hour, $0.025/GB egress, $1 per million requests beyond allowance."
+}

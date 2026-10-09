@@ -1,0 +1,33 @@
+{
+ "provider": "doppler",
+ "currency": "USD",
+ "sources": [
+  "https://www.doppler.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "secrets:doppler:secrets"
+   ],
+   "tier": "Developer",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "Free for 3 users, then $8/month per additional user."
+  },
+  {
+   "offerings": [
+    "secrets:doppler:secrets"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 21,
+    "unit": "user-month"
+   }
+  }
+ ]
+}

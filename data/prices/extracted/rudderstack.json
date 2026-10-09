@@ -1,0 +1,22 @@
+{
+ "provider": "rudderstack",
+ "currency": "USD",
+ "sources": [
+  "https://www.rudderstack.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "analytics:rudderstack:cdp"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "Paid plans not captured."
+  }
+ ]
+}

@@ -4,16 +4,18 @@ import { Trash2, Upload } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 import { iconFromFile } from "@/lib/uploadIcon";
 import {
-  AUTO_PLAN_ID, BUCKETS, CUSTOM_PLAN_ID, TYPE_BY_ID, offeringLabel, plansOf,
+  AUTO_PLAN_ID, BUCKETS, CUSTOM_PLAN_ID, TYPE_BY_ID, checkLink, offeringLabel, plansOf,
 } from "@/lib/catalog";
+import { activePlan } from "@/lib/analysis";
+import { PRICE_SNAPSHOT } from "@/lib/catalog/plans";
 import { HOST_OVERHEAD } from "@/lib/fit";
 import { profileFor } from "@/lib/catalog/sizing";
 import { fmtInt, fmtMoney } from "@/lib/format";
-import { DEFAULT_CUSTOM, isAuto, needOf, offeringOf } from "@/lib/model";
+import { AUTOSCALE_TARGET, DEFAULT_CUSTOM, MAX_REPLICAS, hitRateOf, isAuto, needOf, offeringOf, scaleOf, type StudioNode } from "@/lib/model";
 import { OBJECT_PRICES } from "@/lib/pricing/data";
 import { SECONDS_PER_MONTH } from "@/lib/pricing/estimate";
 import { offeringSummary, planSummary } from "@/lib/pricing/summary";
-import { splitFor, CACHE_HIT } from "@/lib/sim";
+import { splitFor, splitOptsFor, CACHE_HIT } from "@/lib/sim";
 import { useReadOnly, useStudio } from "@/store/useStudio";
 import { Num } from "../Num";
 import { Picker, type PickerOption } from "../Picker";
@@ -23,6 +25,60 @@ import { nameOf } from "./names";
 import { money, rankOfferings, rankPlans, tierBadge } from "./options";
 
 const usd = (n: number) => `$${n.toLocaleString("en-US", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 })}`;
+
+/** Copies (replicas, autoscaling) and hit rate: the properties that make a node behave like the real thing. */
+function ScaleControls({ node, copies, backlog, ro }: { node: StudioNode; copies: number; backlog: number; ro: boolean }) {
+  const { setReplicas, setAutoscale, setHitRate } = useStudio.getState();
+  const d = node.data;
+  const type = TYPE_BY_ID[d.typeId];
+  const mode = scaleOf(d, Boolean(node.parentId));
+  const hit = hitRateOf(d);
+  const model = offeringOf(d)?.model;
+  if (mode === "none" && hit == null) {
+    if (type.role === "source" || type.cap == null) return null;
+    const why = node.parentId ? "Its copies come from the server it runs on, so scale the server block instead." : model === "self-hosted" ? "Put it on a server block, and size that." : model === "serverless" || model === "saas" ? "This is pay-per-use: the provider scales it for you, so cost follows traffic rather than copies." : "";
+    return why ? <p className="note">{why}</p> : null;
+  }
+  const label = type.role === "db" ? "Copies (1 primary + read replicas)" : "Copies";
+  const auto = mode === "auto" && d.autoscale;
+  return (
+    <div className="scale">
+      {mode !== "none" && (
+        <>
+          <div className="own-h">
+            <span>{label}</span>
+            {mode === "auto" && <label className="check"><input type="checkbox" disabled={ro} checked={Boolean(auto)} onChange={(e) => setAutoscale(node.id, e.target.checked ? { min: 1, max: Math.max(4, d.replicas ?? 1) } : undefined)} />Autoscale</label>}
+          </div>
+          {auto ? (
+            <div className="custom">
+              <label><span>Min</span><input type="number" min={1} max={MAX_REPLICAS} disabled={ro} value={d.autoscale!.min} onChange={(e) => setAutoscale(node.id, { min: +e.target.value, max: d.autoscale!.max })} /></label>
+              <label><span>Max</span><input type="number" min={1} max={MAX_REPLICAS} disabled={ro} value={d.autoscale!.max} onChange={(e) => setAutoscale(node.id, { min: d.autoscale!.min, max: +e.target.value })} /></label>
+            </div>
+          ) : (
+            <div className="stepper">
+              <button type="button" className="pill-btn" disabled={ro || (d.replicas ?? 1) <= 1} aria-label="One fewer copy" onClick={() => setReplicas(node.id, (d.replicas ?? 1) - 1)}>−</button>
+              <input type="number" min={1} max={MAX_REPLICAS} disabled={ro} value={d.replicas ?? 1} aria-label="Number of copies" onChange={(e) => setReplicas(node.id, +e.target.value)} />
+              <button type="button" className="pill-btn" disabled={ro || (d.replicas ?? 1) >= MAX_REPLICAS} aria-label="One more copy" onClick={() => setReplicas(node.id, (d.replicas ?? 1) + 1)}>+</button>
+            </div>
+          )}
+          <p className="note">
+            {auto ? `Running ${copies} cop${copies === 1 ? "y" : "ies"} at this load: it adds copies above ${Math.round(AUTOSCALE_TARGET * 100)}% busy, between ${d.autoscale!.min} and ${d.autoscale!.max}. ` : ""}
+            {type.role === "db" ? "Writes stay on the primary; reads spread over every copy. " : "Load divides evenly over the copies. "}
+            Each copy is billed as a full instance.
+          </p>
+          {backlog > 0 && <p className="note err">Messages arrive about {fmtInt(backlog)}/s faster than {copies} cop{copies === 1 ? "y" : "ies"} can drain them, so the queue backs up.</p>}
+        </>
+      )}
+      {hit != null && (
+        <label className="sl">
+          <span>Hit rate<b>{hit}%</b></span>
+          <input type="range" min={0} max={100} step={1} disabled={ro} value={hit} onChange={(e) => setHitRate(node.id, +e.target.value)} />
+          <small className="note">{type.id === "cdn" ? `${hit}% of requests are answered at the edge; ${100 - hit}% go on to the origin.` : `${hit}% of reads are answered from memory; the rest, and every write, still reach the database.`}</small>
+        </label>
+      )}
+    </div>
+  );
+}
 
 /** The selected service: its name, which provider runs it, which tier, and what that costs. */
 export function ComponentCard() {
@@ -43,7 +99,7 @@ export function ComponentCard() {
     // Compare options at an example load instead, and say so.
     const example = load === 0 && type.cap != null && !type.host;
     const rps = example ? Math.max(1, (a.sim.entryRps || a.workload.rps) * 0.1) : load;
-    const usage = { rps, dataGb: a.workload.dataGb, read: a.workload.readPct / 100, need: fit?.need };
+    const usage = { rps, dataGb: a.workload.dataGb, read: a.workload.readPct / 100, users: a.workload.users, need: fit?.need };
     const offering = offeringOf(node.data);
     return { type, fit, usage, example, offering, ranked: type.role === "source" ? [] : rankOfferings(node, usage), est: a.estimates[node.id] };
   }, [a, node]);
@@ -87,8 +143,14 @@ export function ComponentCard() {
       ];
       if (isAuto(node.data)) planValue = AUTO_PLAN_ID;
     } else if (rows.length) {
-      planOptions = rows.map((r) => ({ id: r.plan.id, title: r.plan.label, sub: planSummary(r.plan) + (r.plan.note ? "" : ""), trailing: money(r.cost), badge: tierBadge(r.tier) }));
-      if (!rows.some((r) => r.plan.id === planValue)) planValue = rows[0].plan.id;
+      const flat = type.id !== "llm";
+      const now = flat ? activePlan(node, { rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100, users: usage.users }) : undefined;
+      planOptions = [
+        ...(flat ? [{ id: AUTO_PLAN_ID, title: "Auto · sized to your load", sub: now ? `Now: ${now.label}${now.price != null ? ` · ${usd(now.price)}/mo` : ""}` : "Picks the cheapest tier that covers your load" }] : []),
+        ...rows.map((r) => ({ id: r.plan.id, title: r.plan.label, sub: planSummary(r.plan) + (r.plan.note ? "" : ""), trailing: r.plan.free ? "Free" : money(r.cost), badge: r.plan.free ? { label: "Free tier", tone: "ok" as const } : tierBadge(r.tier) })),
+      ];
+      if (flat && isAuto(node.data)) planValue = AUTO_PLAN_ID;
+      else if (!rows.some((r) => r.plan.id === planValue)) planValue = flat ? AUTO_PLAN_ID : rows[0].plan.id;
     } else {
       planOptions = [{ id: AUTO_PLAN_ID, title: "Auto · sized to your load", sub: "Tier lists load together with prices" }];
       planValue = AUTO_PLAN_ID;
@@ -97,7 +159,9 @@ export function ComponentCard() {
 
   const planLabel = type.host === "server" ? "Plan" : type.id === "llm" ? "Model" : "Tier";
   const sources = [...(offering && OBJECT_PRICES[offering.id] ? [OBJECT_PRICES[offering.id]] : []), ...(fit?.plan?.source ? [fit.plan] : [])];
-  const activeSrc = offering && plansOf(offering.id).find((p) => p.id === node.data.planId && p.source);
+  // The tier the price comes from: the one picked by name, or for Auto the one Auto landed on.
+  const activeSrc = offering && (plansOf(offering.id).find((p) => p.id === node.data.planId && p.source)
+    ?? (type.host !== "server" && type.id !== "llm" && isAuto(node.data) ? activePlan(node, { rps: usage.rps, dataGb: usage.dataGb, readPct: usage.read * 100, users: usage.users }) : undefined));
 
   return (
     <section className="card sel-card" aria-label="Selected service">
@@ -160,6 +224,8 @@ export function ComponentCard() {
         </>
       )}
 
+      {!type.host && type.role !== "source" && <ScaleControls node={node} copies={a.sim.instances[node.id] ?? 1} backlog={a.sim.backlog[node.id] ?? 0} ro={ro} />}
+
       {type.host === "server" && fit && fit.have && (
         <p className={`fitline ${fit.verdict}`}>
           {fit.verdict === "over" ? `Does not fit: ${fit.over.join(", ")} exceeded. ` : fit.verdict === "tight" ? "Tight: over 80% used. " : "Fits. "}
@@ -212,7 +278,7 @@ export function ComponentCard() {
         <div className="est">
           <div className="est-top"><span>Estimated at your load</span><b><Num value={est.monthly} format={(n) => `${fmtMoney(n)}/mo`} /></b></div>
           <ul>{est.lines.map((l) => <li key={l.label}><span>{l.label}</span><b>{usd(l.amount)}</b></li>)}</ul>
-          <small>{est.assumptions.join(" ")}{est.partial ? ` ${est.partial}` : ""}</small>
+          <small>{est.assumptions.join(" ")}{est.partial ? ` ${est.partial}` : ""}{PRICE_SNAPSHOT.review === "checks-only" && !activeSrc?.fetchedAt ? "" : " Captured from the provider\u2019s page and not yet checked line by line by a person."}</small>
         </div>
       )}
       {!est && !type.host && type.cap != null && offering && offering.model !== "self-hosted" && <p className="note">No real prices for this service yet, so its cost is an illustrative figure.</p>}
@@ -247,7 +313,9 @@ export function LinkEditor() {
 
   const siblings = a.edges.filter((e) => e.source === edge.source);
   const roleOf = (id: string) => TYPE_BY_ID[a.nodes.find((n) => n.id === id)!.data.typeId].role;
-  const { weights, mode } = splitFor(siblings, roleOf, a.workload.readPct);
+  const { weights, mode } = splitFor(siblings, roleOf, a.workload.readPct, splitOptsFor(a.nodes)(edge.source));
+  const check = checkLink(from.data.typeId, to.data.typeId);
+  const hitPct = hitRateOf(to.data) ?? Math.round(CACHE_HIT * 100);
   const share = weights[siblings.findIndex((e) => e.id === edge.id)] ?? 0;
   const manual = (edge.data as { weight?: number } | undefined)?.weight;
   const carried = a.sim.edgeLoad[edge.id] ?? 0;
@@ -256,7 +324,8 @@ export function LinkEditor() {
   const why: Record<string, string> = {
     single: `${nameOf(from)} has one link out, so everything it receives flows here.`,
     even: `${nameOf(from)} splits its traffic evenly over its ${siblings.length} links.`,
-    "cache-db": `Reads (${read}%) go to the cache. The database gets all writes plus the ${Math.round(read * (1 - CACHE_HIT))}% of requests that are reads the cache misses. Any other link gets a 10% async share.`,
+    "cache-db": `Reads (${read}%) go to the cache. The database gets all writes plus the ${Math.round(read * (1 - hitPct / 100))}% of requests that are reads the cache misses (hit rate ${hitPct}%, set on the cache). Any other link gets a 10% async share.`,
+    cdn: `${nameOf(from)} answers ${hitRateOf(from.data)}% of requests itself (its hit rate), so only the rest reaches the origin. Change the hit rate on the CDN.`,
     manual: "Some links out of this service have shares you set by hand; links you did not set split what is left.",
   };
 
@@ -264,8 +333,9 @@ export function LinkEditor() {
     <section className="card sel-card" aria-label="Selected link">
       <header className="card-h">
         <span className="ni"><span className="auto-dot" /></span>
-        <div><h3>{nameOf(from)} → {nameOf(to)}</h3><small>Link</small></div>
+        <div><h3>{nameOf(from)} → {nameOf(to)}</h3><small>Link · {check.ok ? check.role.label : "not a valid link"}</small></div>
       </header>
+      {!check.ok && <p className="note err" role="alert">{check.reason} The link is kept, but the simulator may give odd numbers. Remove it or rewire it.</p>}
       <div className="est-top"><span>Carries</span><b><Num value={carried} format={(n) => `${fmtInt(n)} req/s`} /></b></div>
       <p className="note">{Math.round(share * 100)}% of what {nameOf(from)} sends on. {why[mode]}</p>
       <label className="sl">

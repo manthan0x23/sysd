@@ -1,0 +1,921 @@
+{
+ "provider": "fly-io",
+ "currency": "USD",
+ "sources": [
+  "https://fly.io/docs/about/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-1x / 256MB",
+   "spec": {
+    "cpuPreset": "shared-cpu-1x",
+    "vcpu": 1,
+    "cpuKind": "shared",
+    "ramGb": 0.25
+   },
+   "price": {
+    "amount": 2.19,
+    "unit": "month"
+   },
+   "hourly": 0.003
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-1x / 512MB",
+   "spec": {
+    "cpuPreset": "shared-cpu-1x",
+    "vcpu": 1,
+    "cpuKind": "shared",
+    "ramGb": 0.5
+   },
+   "price": {
+    "amount": 3.69,
+    "unit": "month"
+   },
+   "hourly": 0.0051
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-1x / 1GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-1x",
+    "vcpu": 1,
+    "cpuKind": "shared",
+    "ramGb": 1
+   },
+   "price": {
+    "amount": 6.7,
+    "unit": "month"
+   },
+   "hourly": 0.0093
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-1x / 2GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-1x",
+    "vcpu": 1,
+    "cpuKind": "shared",
+    "ramGb": 2
+   },
+   "price": {
+    "amount": 12.7,
+    "unit": "month"
+   },
+   "hourly": 0.0176
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-2x / 512MB",
+   "spec": {
+    "cpuPreset": "shared-cpu-2x",
+    "vcpu": 2,
+    "cpuKind": "shared",
+    "ramGb": 0.5
+   },
+   "price": {
+    "amount": 4.39,
+    "unit": "month"
+   },
+   "hourly": 0.0061
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-2x / 1GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-2x",
+    "vcpu": 2,
+    "cpuKind": "shared",
+    "ramGb": 1
+   },
+   "price": {
+    "amount": 7.39,
+    "unit": "month"
+   },
+   "hourly": 0.0103
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-2x / 2GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-2x",
+    "vcpu": 2,
+    "cpuKind": "shared",
+    "ramGb": 2
+   },
+   "price": {
+    "amount": 13.39,
+    "unit": "month"
+   },
+   "hourly": 0.0186
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-2x / 4GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-2x",
+    "vcpu": 2,
+    "cpuKind": "shared",
+    "ramGb": 4
+   },
+   "price": {
+    "amount": 25.4,
+    "unit": "month"
+   },
+   "hourly": 0.0353
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-4x / 1GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-4x",
+    "vcpu": 4,
+    "cpuKind": "shared",
+    "ramGb": 1
+   },
+   "price": {
+    "amount": 8.78,
+    "unit": "month"
+   },
+   "hourly": 0.0122
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-4x / 2GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-4x",
+    "vcpu": 4,
+    "cpuKind": "shared",
+    "ramGb": 2
+   },
+   "price": {
+    "amount": 14.78,
+    "unit": "month"
+   },
+   "hourly": 0.0205
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-4x / 4GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-4x",
+    "vcpu": 4,
+    "cpuKind": "shared",
+    "ramGb": 4
+   },
+   "price": {
+    "amount": 26.79,
+    "unit": "month"
+   },
+   "hourly": 0.0372
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-4x / 8GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-4x",
+    "vcpu": 4,
+    "cpuKind": "shared",
+    "ramGb": 8
+   },
+   "price": {
+    "amount": 50.8,
+    "unit": "month"
+   },
+   "hourly": 0.0706
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-6x / 1.5GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-6x",
+    "vcpu": 6,
+    "cpuKind": "shared",
+    "ramGb": 1.5
+   },
+   "price": {
+    "amount": 13.16,
+    "unit": "month"
+   },
+   "hourly": 0.0183
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-6x / 3GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-6x",
+    "vcpu": 6,
+    "cpuKind": "shared",
+    "ramGb": 3
+   },
+   "price": {
+    "amount": 22.17,
+    "unit": "month"
+   },
+   "hourly": 0.0308
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-6x / 6GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-6x",
+    "vcpu": 6,
+    "cpuKind": "shared",
+    "ramGb": 6
+   },
+   "price": {
+    "amount": 40.18,
+    "unit": "month"
+   },
+   "hourly": 0.0558
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-6x / 12GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-6x",
+    "vcpu": 6,
+    "cpuKind": "shared",
+    "ramGb": 12
+   },
+   "price": {
+    "amount": 76.2,
+    "unit": "month"
+   },
+   "hourly": 0.1058
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-8x / 2GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-8x",
+    "vcpu": 8,
+    "cpuKind": "shared",
+    "ramGb": 2
+   },
+   "price": {
+    "amount": 17.55,
+    "unit": "month"
+   },
+   "hourly": 0.0244
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-8x / 4GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-8x",
+    "vcpu": 8,
+    "cpuKind": "shared",
+    "ramGb": 4
+   },
+   "price": {
+    "amount": 29.56,
+    "unit": "month"
+   },
+   "hourly": 0.0411
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-8x / 8GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-8x",
+    "vcpu": 8,
+    "cpuKind": "shared",
+    "ramGb": 8
+   },
+   "price": {
+    "amount": 53.57,
+    "unit": "month"
+   },
+   "hourly": 0.0744
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "shared-cpu-8x / 16GB",
+   "spec": {
+    "cpuPreset": "shared-cpu-8x",
+    "vcpu": 8,
+    "cpuKind": "shared",
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 101.6,
+    "unit": "month"
+   },
+   "hourly": 0.1411
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-1x / 2GB",
+   "spec": {
+    "cpuPreset": "performance-1x",
+    "vcpu": 1,
+    "cpuKind": "performance",
+    "ramGb": 2
+   },
+   "price": {
+    "amount": 33,
+    "unit": "month"
+   },
+   "hourly": 0.0458
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-1x / 4GB",
+   "spec": {
+    "cpuPreset": "performance-1x",
+    "vcpu": 1,
+    "cpuKind": "performance",
+    "ramGb": 4
+   },
+   "price": {
+    "amount": 45.01,
+    "unit": "month"
+   },
+   "hourly": 0.0625
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-1x / 8GB",
+   "spec": {
+    "cpuPreset": "performance-1x",
+    "vcpu": 1,
+    "cpuKind": "performance",
+    "ramGb": 8
+   },
+   "price": {
+    "amount": 69.02,
+    "unit": "month"
+   },
+   "hourly": 0.0959
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-2x / 4GB",
+   "spec": {
+    "cpuPreset": "performance-2x",
+    "vcpu": 2,
+    "cpuKind": "performance",
+    "ramGb": 4
+   },
+   "price": {
+    "amount": 66,
+    "unit": "month"
+   },
+   "hourly": 0.0917
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-2x / 8GB",
+   "spec": {
+    "cpuPreset": "performance-2x",
+    "vcpu": 2,
+    "cpuKind": "performance",
+    "ramGb": 8
+   },
+   "price": {
+    "amount": 90.01,
+    "unit": "month"
+   },
+   "hourly": 0.125
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-2x / 16GB",
+   "spec": {
+    "cpuPreset": "performance-2x",
+    "vcpu": 2,
+    "cpuKind": "performance",
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 138.04,
+    "unit": "month"
+   },
+   "hourly": 0.1917
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-4x / 8GB",
+   "spec": {
+    "cpuPreset": "performance-4x",
+    "vcpu": 4,
+    "cpuKind": "performance",
+    "ramGb": 8
+   },
+   "price": {
+    "amount": 132.01,
+    "unit": "month"
+   },
+   "hourly": 0.1833
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-4x / 16GB",
+   "spec": {
+    "cpuPreset": "performance-4x",
+    "vcpu": 4,
+    "cpuKind": "performance",
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 180.03,
+    "unit": "month"
+   },
+   "hourly": 0.25
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-4x / 32GB",
+   "spec": {
+    "cpuPreset": "performance-4x",
+    "vcpu": 4,
+    "cpuKind": "performance",
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 276.08,
+    "unit": "month"
+   },
+   "hourly": 0.3834
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-6x / 12GB",
+   "spec": {
+    "cpuPreset": "performance-6x",
+    "vcpu": 6,
+    "cpuKind": "performance",
+    "ramGb": 12
+   },
+   "price": {
+    "amount": 198.01,
+    "unit": "month"
+   },
+   "hourly": 0.275
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-6x / 24GB",
+   "spec": {
+    "cpuPreset": "performance-6x",
+    "vcpu": 6,
+    "cpuKind": "performance",
+    "ramGb": 24
+   },
+   "price": {
+    "amount": 270.04,
+    "unit": "month"
+   },
+   "hourly": 0.3751
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-6x / 48GB",
+   "spec": {
+    "cpuPreset": "performance-6x",
+    "vcpu": 6,
+    "cpuKind": "performance",
+    "ramGb": 48
+   },
+   "price": {
+    "amount": 414.12,
+    "unit": "month"
+   },
+   "hourly": 0.5752
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-8x / 16GB",
+   "spec": {
+    "cpuPreset": "performance-8x",
+    "vcpu": 8,
+    "cpuKind": "performance",
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 264.01,
+    "unit": "month"
+   },
+   "hourly": 0.3667
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-8x / 32GB",
+   "spec": {
+    "cpuPreset": "performance-8x",
+    "vcpu": 8,
+    "cpuKind": "performance",
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 360.06,
+    "unit": "month"
+   },
+   "hourly": 0.5001
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-8x / 64GB",
+   "spec": {
+    "cpuPreset": "performance-8x",
+    "vcpu": 8,
+    "cpuKind": "performance",
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 552.16,
+    "unit": "month"
+   },
+   "hourly": 0.7669
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-10x / 20GB",
+   "spec": {
+    "cpuPreset": "performance-10x",
+    "vcpu": 10,
+    "cpuKind": "performance",
+    "ramGb": 20
+   },
+   "price": {
+    "amount": 330.01,
+    "unit": "month"
+   },
+   "hourly": 0.4584
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-10x / 40GB",
+   "spec": {
+    "cpuPreset": "performance-10x",
+    "vcpu": 10,
+    "cpuKind": "performance",
+    "ramGb": 40
+   },
+   "price": {
+    "amount": 450.07,
+    "unit": "month"
+   },
+   "hourly": 0.6251
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-10x / 80GB",
+   "spec": {
+    "cpuPreset": "performance-10x",
+    "vcpu": 10,
+    "cpuKind": "performance",
+    "ramGb": 80
+   },
+   "price": {
+    "amount": 690.2,
+    "unit": "month"
+   },
+   "hourly": 0.9586
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-12x / 24GB",
+   "spec": {
+    "cpuPreset": "performance-12x",
+    "vcpu": 12,
+    "cpuKind": "performance",
+    "ramGb": 24
+   },
+   "price": {
+    "amount": 396.02,
+    "unit": "month"
+   },
+   "hourly": 0.55
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-12x / 48GB",
+   "spec": {
+    "cpuPreset": "performance-12x",
+    "vcpu": 12,
+    "cpuKind": "performance",
+    "ramGb": 48
+   },
+   "price": {
+    "amount": 540.09,
+    "unit": "month"
+   },
+   "hourly": 0.7501
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-12x / 96GB",
+   "spec": {
+    "cpuPreset": "performance-12x",
+    "vcpu": 12,
+    "cpuKind": "performance",
+    "ramGb": 96
+   },
+   "price": {
+    "amount": 828.24,
+    "unit": "month"
+   },
+   "hourly": 1.1503
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-14x / 28GB",
+   "spec": {
+    "cpuPreset": "performance-14x",
+    "vcpu": 14,
+    "cpuKind": "performance",
+    "ramGb": 28
+   },
+   "price": {
+    "amount": 462.02,
+    "unit": "month"
+   },
+   "hourly": 0.6417
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-14x / 56GB",
+   "spec": {
+    "cpuPreset": "performance-14x",
+    "vcpu": 14,
+    "cpuKind": "performance",
+    "ramGb": 56
+   },
+   "price": {
+    "amount": 630.1,
+    "unit": "month"
+   },
+   "hourly": 0.8751
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-14x / 112GB",
+   "spec": {
+    "cpuPreset": "performance-14x",
+    "vcpu": 14,
+    "cpuKind": "performance",
+    "ramGb": 112
+   },
+   "price": {
+    "amount": 966.28,
+    "unit": "month"
+   },
+   "hourly": 1.3421
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-16x / 32GB",
+   "spec": {
+    "cpuPreset": "performance-16x",
+    "vcpu": 16,
+    "cpuKind": "performance",
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 528.02,
+    "unit": "month"
+   },
+   "hourly": 0.7334
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-16x / 64GB",
+   "spec": {
+    "cpuPreset": "performance-16x",
+    "vcpu": 16,
+    "cpuKind": "performance",
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 720.12,
+    "unit": "month"
+   },
+   "hourly": 1.0002
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "performance-16x / 128GB",
+   "spec": {
+    "cpuPreset": "performance-16x",
+    "vcpu": 16,
+    "cpuKind": "performance",
+    "ramGb": 128
+   },
+   "price": {
+    "amount": 1104.32,
+    "unit": "month"
+   },
+   "hourly": 1.5338
+  },
+  {
+   "offerings": [
+    "app:fly-io:machines",
+    "containers:fly-io:machines"
+   ],
+   "tier": "Shared rates",
+   "spec": {},
+   "rates": [
+    {
+     "name": "extra RAM",
+     "amount": 6,
+     "unit": "gb-month"
+    },
+    {
+     "name": "volume",
+     "amount": 0.15,
+     "unit": "gb-month"
+    },
+    {
+     "name": "volume snapshot",
+     "amount": 0.08,
+     "unit": "gb-month"
+    },
+    {
+     "name": "outbound NA/EU",
+     "amount": 0.02,
+     "unit": "gb"
+    },
+    {
+     "name": "outbound APAC/SA",
+     "amount": 0.04,
+     "unit": "gb"
+    },
+    {
+     "name": "outbound Africa/India",
+     "amount": 0.12,
+     "unit": "gb"
+    },
+    {
+     "name": "dedicated IPv4",
+     "amount": 2,
+     "unit": "month"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "paas:fly-io:platform"
+   ],
+   "tier": "Managed Postgres: Basic",
+   "spec": {},
+   "price": {
+    "amount": 38,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 0.28,
+     "unit": "gb-month"
+    }
+   ],
+   "note": "Page: $38/mo (Basic) up to $1,922/mo (Performance)."
+  }
+ ],
+ "notes": "Prices listed are for the default region; Fly lists higher prices in some regions (e.g. 1 GB machine $7.73 Frankfurt, $8.50 Singapore)."
+}

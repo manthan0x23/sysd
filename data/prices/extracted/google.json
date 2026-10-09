@@ -1,0 +1,725 @@
+{
+ "provider": "google",
+ "currency": "USD",
+ "sources": [
+  "https://ai.google.dev/gemini-api/docs/pricing",
+  "https://mapsplatform.google.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.8 Flash",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3.75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.075,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 7.5,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.7 Flash",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3.75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.075,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 7.5,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.6 Flash",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.75,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3.75,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.075,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 7.5,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.5 Flash",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 9,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.15,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.5 Flash-Lite",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 2.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.03,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.1 Flash-Lite",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.025,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini Omni Flash",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 9,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini Omni Flash Preview",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 9,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.1 Pro Preview",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 12,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.2,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 4,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 18,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini Nano Banana 2.1 🍌",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 7.5,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.1 Flash Image (Nano Banana 2) 🍌",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 1.5,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.8 Flash TTS",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 9,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.125,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 18,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.8 Flash-Lite TTS",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 6,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.125,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 12,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3.1 Flash TTS Preview",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 20,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3 Flash Preview",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 3,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.05,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 3 Pro Image (Nano Banana Pro) 🍌",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 12,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 0.0011,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 120,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 2.5 Pro",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1.25,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.125,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 2.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 15,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 2.5 Flash",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 2.5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.03,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 2.5 Flash-Lite",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.4,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.01,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 2.5 Flash Image (Nano Banana) 🍌",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 0.039,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 2.5 Flash Preview TTS",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 0.5,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini 2.5 Pro Preview TTS",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 20,
+     "unit": "1m-tokens-out"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini Robotics ER 2 Preview",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input",
+     "amount": 0.1,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "llm:google:gemini-api"
+   ],
+   "tier": "Gemini Robotics ER 2 Streaming Preview",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 1,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 5,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "input from 2027-01-01",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output from 2027-01-01",
+     "amount": 10,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Promotional price through Dec 31, 2026; the higher price applies from Jan 1, 2027."
+  },
+  {
+   "offerings": [
+    "maps:google:maps-platform"
+   ],
+   "tier": "Maps subscription: Starter",
+   "spec": {},
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   },
+   "note": "Subscription plans vs pay-as-you-go ('save up to $180')."
+  },
+  {
+   "offerings": [
+    "maps:google:maps-platform"
+   ],
+   "tier": "Maps subscription: Essentials",
+   "spec": {},
+   "price": {
+    "amount": 275,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "maps:google:maps-platform"
+   ],
+   "tier": "Maps subscription: Pro",
+   "spec": {},
+   "price": {
+    "amount": 1200,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Gemini 'standard' paid-tier rows only (first table per model); batch/flex/priority tables skipped. Live / Translate / Transcribe (audio, mixed per-token and per-minute prices) skipped. Grounding with Search: 5,000 free/month then $14 per 1,000. Workspace SMTP relay, Looker, GA4 prices not in the scrape."
+}

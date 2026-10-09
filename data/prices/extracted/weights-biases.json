@@ -1,0 +1,22 @@
+{
+ "provider": "weights-biases",
+ "currency": "USD",
+ "sources": [
+  "https://wandb.ai/site/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "mltrain:weights-biases:platform"
+   ],
+   "tier": "Pro (from)",
+   "spec": {},
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   },
+   "note": "'$5/mo' appears; page also says free forever for academic research. Per-seat pricing not confirmed."
+  }
+ ]
+}

@@ -21,7 +21,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
     // On the sign-in itself, find or create the database profile and keep its id in the session token.
     async jwt({ token, user, account }) {
-      if (account && user) token.uid = await upsertUser(account.provider, account.providerAccountId, { name: user.name, email: user.email, image: user.image });
+      if (account && user) token.uid = await upsertUser(account.provider, account.providerAccountId, { name: user.name, email: user.email });
       return token;
     },
     session({ session, token }) {

@@ -1,0 +1,10 @@
+{
+ "provider": "mapbox",
+ "currency": "USD",
+ "sources": [
+  "https://www.mapbox.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Rates are in per-API tier tables (map loads, geocoding, directions) with free-tier rows; not parsed reliably."
+}

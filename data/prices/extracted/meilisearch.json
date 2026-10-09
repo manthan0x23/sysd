@@ -1,0 +1,34 @@
+{
+ "provider": "meilisearch",
+ "currency": "USD",
+ "sources": [
+  "https://www.meilisearch.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "search:meilisearch:cloud"
+   ],
+   "tier": "Build (from)",
+   "spec": {},
+   "price": {
+    "amount": 30,
+    "unit": "month"
+   },
+   "note": "Usage-based; base plan includes 100K docs and 50K searches at $30/month. 'Starting at $20/month' also appears (a smaller plan)."
+  },
+  {
+   "offerings": [
+    "search:meilisearch:cloud"
+   ],
+   "tier": "Resource-based example",
+   "spec": {},
+   "price": {
+    "amount": 23,
+    "unit": "month"
+   },
+   "note": "Example: instance $18/mo + disk $5/mo (32 GiB billed)."
+  }
+ ]
+}

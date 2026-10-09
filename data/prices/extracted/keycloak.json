@@ -1,0 +1,22 @@
+{
+ "provider": "keycloak",
+ "currency": "USD",
+ "sources": [
+  "https://www.keycloak.org/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "auth:keycloak:self-hosted"
+   ],
+   "tier": "Keycloak (open source)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "No licence fee; you pay for the server it runs on."
+  }
+ ]
+}

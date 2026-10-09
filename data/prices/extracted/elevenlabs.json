@@ -1,0 +1,63 @@
+{
+ "provider": "elevenlabs",
+ "currency": "USD",
+ "sources": [
+  "https://elevenlabs.io/pricing/api"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "speech:elevenlabs:voice"
+   ],
+   "tier": "Eleven v4 TTS",
+   "spec": {},
+   "rates": [
+    {
+     "name": "regular, per 1K characters",
+     "amount": 0.08,
+     "unit": "other"
+    },
+    {
+     "name": "promo until Oct 12, per 1K characters",
+     "amount": 0.022,
+     "unit": "other"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:elevenlabs:voice"
+   ],
+   "tier": "Eleven v4 Turbo TTS",
+   "spec": {},
+   "rates": [
+    {
+     "name": "regular, per 1K characters",
+     "amount": 0.04,
+     "unit": "other"
+    },
+    {
+     "name": "promo until Oct 12, per 1K characters",
+     "amount": 0.011,
+     "unit": "other"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:elevenlabs:voice"
+   ],
+   "tier": "Eleven v3 TTS",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per 1K characters",
+     "amount": 0.08,
+     "unit": "other"
+    }
+   ]
+  }
+ ],
+ "notes": "API pricing page. Speech-to-text ($0.22, unit not shown) not recorded."
+}

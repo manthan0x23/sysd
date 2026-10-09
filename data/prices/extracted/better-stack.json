@@ -1,0 +1,33 @@
+{
+ "provider": "better-stack",
+ "currency": "USD",
+ "sources": [
+  "https://betterstack.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "logs:better-stack:logs"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "uptime:better-stack:uptime"
+   ],
+   "tier": "Responder licence",
+   "spec": {},
+   "price": {
+    "amount": 9,
+    "unit": "user-month"
+   },
+   "note": "$9 per responder per month; extra status page $15/month ($12 annually). Paid telemetry plans start around $29-$34 (labels not captured)."
+  }
+ ]
+}

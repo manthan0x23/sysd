@@ -1,0 +1,25 @@
+{
+ "provider": "materialize",
+ "currency": "USD",
+ "sources": [
+  "https://materialize.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "streamproc:materialize:cloud"
+   ],
+   "tier": "On-demand",
+   "spec": {},
+   "rates": [
+    {
+     "name": "compute credit",
+     "amount": 1.5,
+     "unit": "other"
+    }
+   ]
+  }
+ ],
+ "notes": "$1.50 per compute credit, on-demand SaaS."
+}

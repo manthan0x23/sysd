@@ -1,0 +1,95 @@
+{
+ "provider": "godaddy",
+ "currency": "USD",
+ "sources": [
+  "https://www.godaddy.com/hosting/vps-hosting"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:godaddy:vps"
+   ],
+   "tier": "1 vCPU / 2 GB",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "diskGb": 40,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 14.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 8.99,
+    "unit": "month",
+    "note": "promo price"
+   }
+  },
+  {
+   "offerings": [
+    "vps:godaddy:vps"
+   ],
+   "tier": "2 vCPU / 4 GB",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 100,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 29.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 17.99,
+    "unit": "month",
+    "note": "promo price"
+   }
+  },
+  {
+   "offerings": [
+    "vps:godaddy:vps"
+   ],
+   "tier": "4 vCPU / 8 GB",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 200,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 59.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 34.99,
+    "unit": "month",
+    "note": "promo price"
+   }
+  },
+  {
+   "offerings": [
+    "vps:godaddy:vps"
+   ],
+   "tier": "4 vCPU / 16 GB",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "diskGb": 200,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 74.99,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 44.99,
+    "unit": "month",
+    "note": "promo price"
+   }
+  }
+ ],
+ "notes": "Struck-through price taken as the regular price; the promo term length is not on the page."
+}

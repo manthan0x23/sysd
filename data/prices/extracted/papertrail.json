@@ -1,0 +1,22 @@
+{
+ "provider": "papertrail",
+ "currency": "USD",
+ "sources": [
+  "https://www.papertrail.com/plans/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "logs:papertrail:logs"
+   ],
+   "tier": "Entry plan (from)",
+   "spec": {},
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   },
+   "note": "'Starts at $5.00'."
+  }
+ ]
+}

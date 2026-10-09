@@ -1,0 +1,33 @@
+{
+ "provider": "microsoft",
+ "currency": "USD",
+ "sources": [
+  "https://www.microsoft.com/en-us/power-platform/products/power-bi/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "bi:microsoft:power-bi"
+   ],
+   "tier": "Power BI Pro",
+   "spec": {},
+   "price": {
+    "amount": 14,
+    "unit": "user-month"
+   }
+  },
+  {
+   "offerings": [
+    "bi:microsoft:power-bi"
+   ],
+   "tier": "Power BI Premium Per User",
+   "spec": {},
+   "price": {
+    "amount": 24,
+    "unit": "user-month"
+   }
+  }
+ ],
+ "notes": "Entra External ID pricing not on this page."
+}

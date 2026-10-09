@@ -1,0 +1,49 @@
+{
+ "provider": "deno",
+ "currency": "USD",
+ "sources": [
+  "https://deno.com/deploy/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "fn:deno:deploy"
+   ],
+   "tier": "Free",
+   "spec": {
+    "requestsPerMonth": "1M"
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "fn:deno:deploy"
+   ],
+   "tier": "Pro",
+   "spec": {
+    "requestsPerMonth": "5M"
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "Then $2 per million requests. KV storage beyond included $0.75/GiB."
+  },
+  {
+   "offerings": [
+    "fn:deno:deploy"
+   ],
+   "tier": "Builder",
+   "spec": {},
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   },
+   "note": "KV storage beyond included $0.75/GiB."
+  }
+ ]
+}

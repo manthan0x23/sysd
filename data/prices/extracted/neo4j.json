@@ -1,0 +1,63 @@
+{
+ "provider": "neo4j",
+ "currency": "USD",
+ "sources": [
+  "https://neo4j.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "graph:neo4j:auradb"
+   ],
+   "tier": "AuraDB Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "graph:neo4j:auradb"
+   ],
+   "tier": "AuraDB Professional",
+   "spec": {
+    "minInstanceGb": 1
+   },
+   "rates": [
+    {
+     "name": "memory",
+     "amount": 0.09,
+     "unit": "gb-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "graph:neo4j:auradb"
+   ],
+   "tier": "AuraDB Business Critical",
+   "spec": {
+    "minInstanceGb": 2
+   },
+   "rates": [
+    {
+     "name": "memory",
+     "amount": 0.2,
+     "unit": "gb-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "graph:neo4j:auradb"
+   ],
+   "tier": "AuraDB Virtual Dedicated Cloud",
+   "spec": {},
+   "contact": true,
+   "note": "Custom pricing."
+  }
+ ],
+ "notes": "Capacity-based: price per GB of instance memory per hour. 'Aura Graph Analytics' is $0.40/GB/hour (separate product)."
+}

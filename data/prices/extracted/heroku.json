@@ -1,0 +1,1489 @@
+{
+ "provider": "heroku",
+ "currency": "USD",
+ "sources": [
+  "https://www.heroku.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Eco dyno",
+   "spec": {
+    "ramGb": 0.5,
+    "compute": "1x-4x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Basic dyno",
+   "spec": {
+    "ramGb": 0.5,
+    "compute": "1x-4x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 7,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Standard-1X dyno",
+   "spec": {
+    "ramGb": 0.5,
+    "compute": "1x-4x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Standard-2X dyno",
+   "spec": {
+    "ramGb": 1,
+    "compute": "2x-8x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 50,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Performance-M dyno",
+   "spec": {
+    "ramGb": 2.5,
+    "compute": "12x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 250,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Performance-L dyno",
+   "spec": {
+    "ramGb": 14,
+    "compute": "50x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Performance-L-RAM dyno",
+   "spec": {
+    "ramGb": 30,
+    "compute": "24x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Performance-XL dyno",
+   "spec": {
+    "ramGb": 62,
+    "compute": "50x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Performance-2XL dyno",
+   "spec": {
+    "ramGb": 126,
+    "compute": "100x",
+    "privateSpaceOnly": false
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Private-S dyno",
+   "spec": {
+    "ramGb": 1,
+    "compute": "12x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 125,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Private-M dyno",
+   "spec": {
+    "ramGb": 2.5,
+    "compute": "12x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 250,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Private-L dyno",
+   "spec": {
+    "ramGb": 14,
+    "compute": "50x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Private-L-RAM dyno",
+   "spec": {
+    "ramGb": 30,
+    "compute": "24x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Private-XL dyno",
+   "spec": {
+    "ramGb": 62,
+    "compute": "50x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Private-2XL dyno",
+   "spec": {
+    "ramGb": 126,
+    "compute": "100x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Shield-S dyno",
+   "spec": {
+    "ramGb": 1,
+    "compute": "12x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 150,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Shield-M dyno",
+   "spec": {
+    "ramGb": 2.5,
+    "compute": "12x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 300,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Shield-L dyno",
+   "spec": {
+    "ramGb": 14,
+    "compute": "50x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 600,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Shield-L-RAM dyno",
+   "spec": {
+    "ramGb": 30,
+    "compute": "24x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 600,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Shield-XL dyno",
+   "spec": {
+    "ramGb": 62,
+    "compute": "50x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 900,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Shield-2XL dyno",
+   "spec": {
+    "ramGb": 126,
+    "compute": "100x",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Classic 1CPU-0.5GB dyno",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 0.5,
+    "family": "Classic",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Classic 2CPU-1GB dyno",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 1,
+    "family": "Classic",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 50,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "General Purpose 2CPU-4GB dyno",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 4,
+    "family": "General Purpose",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 80,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "General Purpose 2CPU-8GB dyno",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "family": "General Purpose",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 160,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "General Purpose 4CPU-16GB dyno",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "family": "General Purpose",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 320,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "General Purpose 8CPU-32GB dyno",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "family": "General Purpose",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 640,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "General Purpose 16CPU-64GB dyno",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "family": "General Purpose",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Compute 2CPU-4GB dyno",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "family": "Compute",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 150,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Compute 4CPU-8GB dyno",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "family": "Compute",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 300,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Compute 8CPU-16GB dyno",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "family": "Compute",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 600,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Compute 16CPU-32GB dyno",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "family": "Compute",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Compute 32CPU-64GB dyno",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 64,
+    "family": "Compute",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 2400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Memory 1CPU-8GB dyno",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 8,
+    "family": "Memory",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Memory 2CPU-16GB dyno",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 16,
+    "family": "Memory",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 250,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Memory 4CPU-32GB dyno",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32,
+    "family": "Memory",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Memory 8CPU-64GB dyno",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 64,
+    "family": "Memory",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:heroku:dynos",
+    "paas:heroku:platform"
+   ],
+   "tier": "Memory 16CPU-128GB dyno",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 128,
+    "family": "Memory",
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Essential-0",
+   "spec": {
+    "sharedRam": true,
+    "diskGb": 1,
+    "maxConnections": 20
+   },
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Essential-1",
+   "spec": {
+    "sharedRam": true,
+    "diskGb": 10,
+    "maxConnections": 20
+   },
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Essential-2",
+   "spec": {
+    "sharedRam": true,
+    "diskGb": 32,
+    "maxConnections": 40
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-0",
+   "spec": {
+    "ramGb": 4,
+    "diskGb": 64,
+    "maxConnections": 120
+   },
+   "price": {
+    "amount": 50,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-2",
+   "spec": {
+    "ramGb": 8,
+    "diskGb": 256,
+    "maxConnections": 400
+   },
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-3",
+   "spec": {
+    "ramGb": 15,
+    "diskGb": 512,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-4",
+   "spec": {
+    "ramGb": 30,
+    "diskGb": 768,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-5",
+   "spec": {
+    "ramGb": 61,
+    "diskGb": 1024,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 1400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 1536,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 2000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-7",
+   "spec": {
+    "ramGb": 244,
+    "diskGb": 2048,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 3500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-8",
+   "spec": {
+    "ramGb": 488,
+    "diskGb": 3072,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 4500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 4096,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 5800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Standard-10",
+   "spec": {
+    "ramGb": 1024,
+    "diskGb": 8192,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 12000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-0",
+   "spec": {
+    "ramGb": 4,
+    "diskGb": 64,
+    "maxConnections": 120
+   },
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-2",
+   "spec": {
+    "ramGb": 8,
+    "diskGb": 256,
+    "maxConnections": 400
+   },
+   "price": {
+    "amount": 350,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-3",
+   "spec": {
+    "ramGb": 15,
+    "diskGb": 512,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-4",
+   "spec": {
+    "ramGb": 30,
+    "diskGb": 768,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 1200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-5",
+   "spec": {
+    "ramGb": 61,
+    "diskGb": 1024,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 2500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 1536,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 3500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-L-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 2048,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 4750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-XL-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 3072,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 6000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-7",
+   "spec": {
+    "ramGb": 244,
+    "diskGb": 2048,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 6000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-8",
+   "spec": {
+    "ramGb": 488,
+    "diskGb": 3072,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 8500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 4096,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 11000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-L-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 5120,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 12500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-XL-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 6144,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 14000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Premium-10",
+   "spec": {
+    "ramGb": 1024,
+    "diskGb": 8192,
+    "maxConnections": 500
+   },
+   "price": {
+    "amount": 24000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-0",
+   "spec": {
+    "ramGb": 4,
+    "diskGb": 68,
+    "maxConnections": 120,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 300,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-2",
+   "spec": {
+    "ramGb": 8,
+    "diskGb": 256,
+    "maxConnections": 400,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 600,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-3",
+   "spec": {
+    "ramGb": 15,
+    "diskGb": 512,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-4",
+   "spec": {
+    "ramGb": 30,
+    "diskGb": 768,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-5",
+   "spec": {
+    "ramGb": 61,
+    "diskGb": 1024,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 2800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 1536,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 3600,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-L-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 2048,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 5300,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-XL-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 3072,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 6800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-7",
+   "spec": {
+    "ramGb": 244,
+    "diskGb": 2048,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 7000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-8",
+   "spec": {
+    "ramGb": 488,
+    "diskGb": 3072,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 10000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 4096,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 13000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-L-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 5120,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 15000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-XL-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 6144,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 17000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Private-10",
+   "spec": {
+    "ramGb": 1024,
+    "diskGb": 8192,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 28000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-0",
+   "spec": {
+    "ramGb": 4,
+    "diskGb": 68,
+    "maxConnections": 120,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 350,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-2",
+   "spec": {
+    "ramGb": 8,
+    "diskGb": 256,
+    "maxConnections": 400,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-3",
+   "spec": {
+    "ramGb": 15,
+    "diskGb": 512,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-4",
+   "spec": {
+    "ramGb": 30,
+    "diskGb": 768,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 1800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-5",
+   "spec": {
+    "ramGb": 61,
+    "diskGb": 1024,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 3400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 1536,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 4400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-L-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 2048,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 6400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-XL-6",
+   "spec": {
+    "ramGb": 122,
+    "diskGb": 3072,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 8400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-7",
+   "spec": {
+    "ramGb": 244,
+    "diskGb": 2048,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 8400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-8",
+   "spec": {
+    "ramGb": 488,
+    "diskGb": 3072,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 12250,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 4096,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 16000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-L-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 5120,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 18500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-XL-9",
+   "spec": {
+    "ramGb": 768,
+    "diskGb": 6144,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 21000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:heroku:postgres"
+   ],
+   "tier": "Postgres Shield-10",
+   "spec": {
+    "ramGb": 1024,
+    "diskGb": 8192,
+    "maxConnections": 500,
+    "privateSpaceOnly": true
+   },
+   "price": {
+    "amount": 34000,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Key-Value Store plans are on the page but have no catalog offering to attach to, so they are not exported."
+}

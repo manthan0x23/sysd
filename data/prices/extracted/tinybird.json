@@ -1,0 +1,39 @@
+{
+ "provider": "tinybird",
+ "currency": "USD",
+ "sources": [
+  "https://www.tinybird.co/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "warehouse:tinybird:cloud"
+   ],
+   "tier": "Developer",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   },
+   "note": "'Starting at $25/month'."
+  },
+  {
+   "offerings": [
+    "warehouse:tinybird:cloud"
+   ],
+   "tier": "SaaS",
+   "spec": {},
+   "contact": true
+  },
+  {
+   "offerings": [
+    "warehouse:tinybird:cloud"
+   ],
+   "tier": "Enterprise",
+   "spec": {},
+   "contact": true
+  }
+ ],
+ "notes": "A Free plan also exists. A '$49/month' line appears elsewhere (unlabelled)."
+}

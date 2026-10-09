@@ -1,0 +1,33 @@
+{
+ "provider": "gitlab",
+ "currency": "USD",
+ "sources": [
+  "https://about.gitlab.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "ci:gitlab:ci-cd"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "user-month"
+   }
+  },
+  {
+   "offerings": [
+    "ci:gitlab:ci-cd"
+   ],
+   "tier": "Premium",
+   "spec": {},
+   "price": {
+    "amount": 29,
+    "unit": "user-month"
+   },
+   "note": "Includes $12 GitLab Credits (AI) per user/month. Ultimate price not captured (shown as contact/`$24 credits`)."
+  }
+ ]
+}

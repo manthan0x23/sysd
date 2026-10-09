@@ -1,0 +1,56 @@
+{
+ "provider": "keycdn",
+ "currency": "USD",
+ "sources": [
+  "https://www.keycdn.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cdn:keycdn:cdn"
+   ],
+   "tier": "North America & Europe (first tier)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "first tier",
+     "amount": 0.04,
+     "unit": "gb"
+    }
+   ],
+   "note": "Volume tiers: $0.04 / $0.03 / $0.02 / $0.01 per GB (break points not captured)."
+  },
+  {
+   "offerings": [
+    "cdn:keycdn:cdn"
+   ],
+   "tier": "Asia & Oceania (first tier)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "first tier",
+     "amount": 0.08,
+     "unit": "gb"
+    }
+   ],
+   "note": "Volume tiers: $0.08 / $0.06 / $0.04 / $0.02 per GB."
+  },
+  {
+   "offerings": [
+    "cdn:keycdn:cdn"
+   ],
+   "tier": "Africa & Latin America (first tier)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "first tier",
+     "amount": 0.1,
+     "unit": "gb"
+    }
+   ],
+   "note": "Volume tiers: $0.10 / $0.08 / $0.06 / $0.04 per GB."
+  }
+ ],
+ "notes": "Minimum usage $4/month; first 3 zones free, extra zones $1/month."
+}

@@ -1,0 +1,10 @@
+{
+ "provider": "veeam",
+ "currency": "USD",
+ "sources": [
+  "https://www.veeam.com/products/veeam-data-platform/pricing.html"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned a tiny/blocked page (<2 KB); needs a different URL or a JS-rendering fetch."
+}

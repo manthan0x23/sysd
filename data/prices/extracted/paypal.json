@@ -1,0 +1,26 @@
+{
+ "provider": "paypal",
+ "currency": "USD",
+ "sources": [
+  "https://www.paypal.com/us/business/paypal-business-fees"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "payments:paypal:braintree-checkout"
+   ],
+   "tier": "ACH (domestic)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "percentage of transaction",
+     "amount": 0.8,
+     "unit": "percent"
+    }
+   ],
+   "note": "ACH Services 0.80% capped at $5.00; Pay by Bank 1% capped at $10.00. PayPal checkout card/wallet rates are in tables not parsed."
+  }
+ ],
+ "notes": "Standard PayPal and Braintree card rates (percent + fixed) were not extracted from this large page."
+}

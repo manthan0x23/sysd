@@ -1,0 +1,102 @@
+{
+ "provider": "railway",
+ "currency": "USD",
+ "sources": [
+  "https://railway.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "paas:railway:platform",
+    "app:railway:services",
+    "containers:railway:services"
+   ],
+   "tier": "Free trial",
+   "spec": {
+    "maxVcpu": 1,
+    "maxRamGb": 0.5,
+    "volumeGb": 0.5
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "30-day trial with $5 credits, then $1/month; limits shown are after the trial."
+  },
+  {
+   "offerings": [
+    "paas:railway:platform",
+    "app:railway:services",
+    "containers:railway:services"
+   ],
+   "tier": "Hobby",
+   "spec": {
+    "maxVcpu": 48,
+    "maxRamGb": 48,
+    "maxReplicas": 5,
+    "includedUsageUsd": 5
+   },
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "paas:railway:platform",
+    "app:railway:services",
+    "containers:railway:services"
+   ],
+   "tier": "Pro",
+   "spec": {
+    "maxVcpu": 1000,
+    "maxRamGb": 1000,
+    "maxReplicas": 42,
+    "includedUsageUsd": 20
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "paas:railway:platform",
+    "app:railway:services",
+    "containers:railway:services"
+   ],
+   "tier": "Usage rates",
+   "spec": {},
+   "rates": [
+    {
+     "name": "memory",
+     "amount": 0.00000386,
+     "unit": "gb-second"
+    },
+    {
+     "name": "CPU",
+     "amount": 0.00000772,
+     "unit": "second"
+    },
+    {
+     "name": "volume",
+     "amount": 6e-8,
+     "unit": "gb-second"
+    },
+    {
+     "name": "egress",
+     "amount": 0.05,
+     "unit": "gb"
+    },
+    {
+     "name": "object storage",
+     "amount": 0.015,
+     "unit": "gb-month"
+    }
+   ],
+   "note": "CPU rate is per vCPU-second; volumes per GB-second. Billed by the second."
+  }
+ ],
+ "notes": "Higher plans (Enterprise) are contact-sales. Plan-name assignment of the two included-credit blocks inferred from card order (Hobby then Pro)."
+}

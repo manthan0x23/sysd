@@ -1,0 +1,114 @@
+{
+ "provider": "ovhcloud",
+ "currency": "USD",
+ "sources": [
+  "https://www.ovhcloud.com/en/vps/",
+  "https://www.ovhcloud.com/en/public-cloud/kubernetes/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:ovhcloud:vps"
+   ],
+   "tier": "VPS 2 vCores / 4 GB",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 40,
+    "diskType": "NVMe",
+    "bandwidth": "500 Mbps"
+   },
+   "price": {
+    "amount": 4.54,
+    "unit": "month"
+   },
+   "note": "'From' price on the page."
+  },
+  {
+   "offerings": [
+    "vps:ovhcloud:vps"
+   ],
+   "tier": "VPS 4 vCores / 8 GB",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 75,
+    "diskType": "NVMe",
+    "bandwidth": "1 Gbps"
+   },
+   "price": {
+    "amount": 8.5,
+    "unit": "month"
+   },
+   "note": "'From' price on the page."
+  },
+  {
+   "offerings": [
+    "vps:ovhcloud:vps"
+   ],
+   "tier": "VPS 6 vCores / 12 GB",
+   "spec": {
+    "vcpu": 6,
+    "ramGb": 12,
+    "diskGb": 100,
+    "diskType": "NVMe",
+    "bandwidth": "2 Gbps"
+   },
+   "price": {
+    "amount": 12.32,
+    "unit": "month"
+   },
+   "note": "'From' price on the page."
+  },
+  {
+   "offerings": [
+    "vps:ovhcloud:vps"
+   ],
+   "tier": "VPS 8 vCores / 24 GB",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 24,
+    "diskGb": 200,
+    "diskType": "NVMe",
+    "bandwidth": "3 Gbps"
+   },
+   "price": {
+    "amount": 23.37,
+    "unit": "month"
+   },
+   "note": "'From' price on the page."
+  },
+  {
+   "offerings": [
+    "k8s:ovhcloud:managed-kubernetes"
+   ],
+   "tier": "Free control plane",
+   "spec": {
+    "etcdMb": 400,
+    "maxNodes": 100
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "k8s:ovhcloud:managed-kubernetes"
+   ],
+   "tier": "Standard control plane",
+   "spec": {
+    "dedicatedEtcdGb": 8,
+    "maxNodes": 500
+   },
+   "rates": [
+    {
+     "name": "control plane",
+     "amount": 0.099,
+     "unit": "hour"
+    }
+   ]
+  }
+ ]
+}

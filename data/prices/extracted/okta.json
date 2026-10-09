@@ -1,0 +1,10 @@
+{
+ "provider": "okta",
+ "currency": "USD",
+ "sources": [
+  "https://www.okta.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned no prices (quote-based / JS)."
+}

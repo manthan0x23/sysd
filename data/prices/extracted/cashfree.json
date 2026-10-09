@@ -1,0 +1,20 @@
+{
+ "provider": "cashfree",
+ "currency": "INR",
+ "sources": [
+  "https://www.cashfree.com/payment-gateway-charges/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "payments:cashfree:payments"
+   ],
+   "tier": "Platform fee (auto-debit < ₹1000)",
+   "spec": {},
+   "contact": true,
+   "note": "Fees in INR: platform fee ₹20 shown for one method, ₹7.5 + ₹7.5 for others; card rates around 1.95%-2.0% (method labels not captured)."
+  }
+ ],
+ "notes": "Method-level rate table not parsed reliably; not exported as prices."
+}

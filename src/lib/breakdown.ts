@@ -22,7 +22,7 @@ export function breakdown(doc: DesignDoc) {
     return {
       id: n.id, name: n.data.name || kind.short || kind.label, service: kind.label,
       provider: o ? (o.provider === "Self-hosted" ? o.product : o.provider) : "",
-      plan: a.fits[n.id]?.plan?.label ?? "",
+      plan: `${a.fits[n.id]?.plan?.label ?? ""}${(sim.instances[n.id] ?? 1) > 1 ? ` × ${sim.instances[n.id]}` : ""}`.trim(),
       reqPerSec: load, cost, share: sim.cost > 0 ? cost / sim.cost : 0,
       perMillion: load > 0 ? cost / ((load * SECONDS_PER_MONTH) / 1e6) : null,
       util: sim.util[n.id] ?? null,

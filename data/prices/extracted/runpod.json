@@ -1,0 +1,351 @@
+{
+ "provider": "runpod",
+ "currency": "USD",
+ "sources": [
+  "https://www.runpod.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "H200",
+   "spec": {
+    "gpuModel": "H200",
+    "vramGb": 141,
+    "ramGb": 276,
+    "vcpu": 24
+   },
+   "price": {
+    "amount": 5.29,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "B200",
+   "spec": {
+    "gpuModel": "B200",
+    "vramGb": 180,
+    "ramGb": 283,
+    "vcpu": 28
+   },
+   "price": {
+    "amount": 7.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "RTX Pro 6000",
+   "spec": {
+    "gpuModel": "RTX Pro 6000",
+    "vramGb": 96,
+    "ramGb": 188,
+    "vcpu": 16
+   },
+   "price": {
+    "amount": 2.49,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "H100 NVL",
+   "spec": {
+    "gpuModel": "H100 NVL",
+    "vramGb": 94,
+    "ramGb": 94,
+    "vcpu": 16
+   },
+   "price": {
+    "amount": 3.19,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "H100 PCIe",
+   "spec": {
+    "gpuModel": "H100 PCIe",
+    "vramGb": 80,
+    "ramGb": 188,
+    "vcpu": 16
+   },
+   "price": {
+    "amount": 2.89,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "H100 SXM",
+   "spec": {
+    "gpuModel": "H100 SXM",
+    "vramGb": 80,
+    "ramGb": 125,
+    "vcpu": 20
+   },
+   "price": {
+    "amount": 3.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "A100 PCIe",
+   "spec": {
+    "gpuModel": "A100 PCIe",
+    "vramGb": 80,
+    "ramGb": 117,
+    "vcpu": 8
+   },
+   "price": {
+    "amount": 1.79,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "A100 SXM",
+   "spec": {
+    "gpuModel": "A100 SXM",
+    "vramGb": 80,
+    "ramGb": 125,
+    "vcpu": 16
+   },
+   "price": {
+    "amount": 1.79,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "Pro 6000 MIG 48GB",
+   "spec": {
+    "gpuModel": "Pro 6000 MIG 48GB",
+    "vramGb": 48,
+    "ramGb": 62,
+    "vcpu": 8
+   },
+   "price": {
+    "amount": 1.29,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "L40S",
+   "spec": {
+    "gpuModel": "L40S",
+    "vramGb": 48,
+    "ramGb": 94,
+    "vcpu": 16
+   },
+   "price": {
+    "amount": 1.09,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "RTX 6000 Ada",
+   "spec": {
+    "gpuModel": "RTX 6000 Ada",
+    "vramGb": 48,
+    "ramGb": 167,
+    "vcpu": 10
+   },
+   "price": {
+    "amount": 0.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "A40",
+   "spec": {
+    "gpuModel": "A40",
+    "vramGb": 48,
+    "ramGb": 50,
+    "vcpu": 9
+   },
+   "price": {
+    "amount": 0.59,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "L40",
+   "spec": {
+    "gpuModel": "L40",
+    "vramGb": 48,
+    "ramGb": 94,
+    "vcpu": 8
+   },
+   "price": {
+    "amount": 0.82,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "RTX A6000",
+   "spec": {
+    "gpuModel": "RTX A6000",
+    "vramGb": 48,
+    "ramGb": 50,
+    "vcpu": 9
+   },
+   "price": {
+    "amount": 0.59,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "RTX 5090",
+   "spec": {
+    "gpuModel": "RTX 5090",
+    "vramGb": 32,
+    "ramGb": 35,
+    "vcpu": 9
+   },
+   "price": {
+    "amount": 1.19,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "Pro 6000 MIG 24GB",
+   "spec": {
+    "gpuModel": "Pro 6000 MIG 24GB",
+    "vramGb": 24,
+    "ramGb": 31,
+    "vcpu": 4
+   },
+   "price": {
+    "amount": 0.69,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "L4",
+   "spec": {
+    "gpuModel": "L4",
+    "vramGb": 24,
+    "ramGb": 50,
+    "vcpu": 12
+   },
+   "price": {
+    "amount": 0.59,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "RTX 3090",
+   "spec": {
+    "gpuModel": "RTX 3090",
+    "vramGb": 24,
+    "ramGb": 125,
+    "vcpu": 16
+   },
+   "price": {
+    "amount": 0.5,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "RTX 4090",
+   "spec": {
+    "gpuModel": "RTX 4090",
+    "vramGb": 24,
+    "ramGb": 41,
+    "vcpu": 6
+   },
+   "price": {
+    "amount": 0.89,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  },
+  {
+   "offerings": [
+    "gpu:runpod:gpu-pods"
+   ],
+   "tier": "RTX A5000",
+   "spec": {
+    "gpuModel": "RTX A5000",
+    "vramGb": 24,
+    "ramGb": 25,
+    "vcpu": 9
+   },
+   "price": {
+    "amount": 0.27,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand."
+  }
+ ],
+ "notes": "Billed per second on the page; price shown per hour. Only cards that parsed fully are recorded."
+}

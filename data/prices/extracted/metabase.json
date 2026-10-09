@@ -1,0 +1,43 @@
+{
+ "provider": "metabase",
+ "currency": "USD",
+ "sources": [
+  "https://www.metabase.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "bi:metabase:cloud"
+   ],
+   "tier": "Starter",
+   "spec": {
+    "includedUsers": 5
+   },
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "extra user",
+     "amount": 6,
+     "unit": "user-month"
+    }
+   ],
+   "note": "$90/month shown as the annual-billing price ($1,080/yr); extra users $6/user/month or $65/user/year."
+  },
+  {
+   "offerings": [
+    "bi:metabase:cloud"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 575,
+    "unit": "month"
+   },
+   "note": "$517.50/month shown as annual billing; per-user add-on not captured."
+  }
+ ]
+}

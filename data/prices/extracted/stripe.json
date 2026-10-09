@@ -1,0 +1,31 @@
+{
+ "provider": "stripe",
+ "currency": "USD",
+ "sources": [
+  "https://stripe.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "payments:stripe:payments"
+   ],
+   "tier": "Cards (domestic)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "percentage of transaction",
+     "amount": 2.9,
+     "unit": "percent"
+    },
+    {
+     "name": "fixed fee per transaction",
+     "amount": 0.3,
+     "unit": "fixed"
+    }
+   ],
+   "note": "Per successful transaction. International cards, currency conversion and other methods cost more; ACH direct debit 0.8% capped at $5."
+  }
+ ],
+ "notes": "Billing (0.7% of billed volume) and Connect pricing separate."
+}

@@ -1,0 +1,47 @@
+{
+ "provider": "confluent",
+ "currency": "USD",
+ "sources": [
+  "https://www.confluent.io/confluent-cloud/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "stream:confluent:cloud"
+   ],
+   "tier": "Basic cluster",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "'Starting at $0/Month'; throughput-based usage billing applies."
+  },
+  {
+   "offerings": [
+    "stream:confluent:cloud"
+   ],
+   "tier": "Standard cluster",
+   "spec": {},
+   "price": {
+    "amount": 385,
+    "unit": "month"
+   },
+   "note": "'~$385/Month' starting estimate."
+  },
+  {
+   "offerings": [
+    "stream:confluent:cloud"
+   ],
+   "tier": "Enterprise cluster",
+   "spec": {},
+   "price": {
+    "amount": 895,
+    "unit": "month"
+   },
+   "note": "'~$895/Month' starting estimate."
+  }
+ ],
+ "notes": "Cluster base estimates only; ingress/egress/storage/partition rates and Flink/connector prices are in tables not captured as labelled data."
+}

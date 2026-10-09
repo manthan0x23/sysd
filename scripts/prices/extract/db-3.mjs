@@ -1,0 +1,9 @@
+import { write, plan } from "./lib.mjs";
+
+write("crunchy-data", [["Hobby-0", 9], ["Hobby-1", 18], ["Hobby-2", 35], ["Hobby-4", 70], ["Standard-4", 70], ["Standard-8", 140]].map(([n, p]) => plan("postgres:crunchy-data:crunchy-bridge", n, p, "month")), { notes: "vCPU/RAM per plan name not captured in the scrape; plans 'start at $10/mo' per copy while the Hobby-0 card shows $9 (current). Prices are for the provider of choice (AWS/Azure/GCP)." });
+write("cockroachdb", [plan("newsql:cockroachdb:cloud", "Usage-based (example region us-east-1)", null, "month", { rates: [["compute per vCPU-hour", 0.162, "vcpu-hour"], ["provisioned storage per GiB-month", 0.155, "gb-month"]], note: "From the page's cost example: 12 vCPUs x $0.162 = $1,420/mo (730 hr); 100 GiB x 4.5x durability = 450 GiB x $0.155. $400 free credit." })], { notes: "Standard / Advanced / Basic plan names and their rates are in an interactive estimator; only this example's rates were captured." });
+write("yugabytedb", [], { notes: "Two 'Starting at' prices ($125, $167) appear without labels; not recorded." });
+write("singlestore", [plan("newsql:singlestore:helios", "Standard", null, "hour", { rates: [["starts at", 0.99, "hour"]] }), plan("newsql:singlestore:helios", "Enterprise", null, "hour", { rates: [["starts at", 1.49, "hour"]] })], { notes: "Usage in credits ($3.9x per credit, cut off). Free shared edition also exists." });
+write("redis", [plan("redis:redis:cloud", "Free", 0, "month"), plan("redis:redis:cloud", "Essentials (from)", 5, "month", { hourly: 0.007, note: "'From $0.007/hour; total $5/month'." }), plan("redis:redis:cloud", "Pro (from)", null, "hour", { rates: [["from", 0.014, "hour"]], note: "Minimum $200/month." })]);
+write("influxdata", [], { notes: "Scrape had no plan prices ($250 credit promo only)." });
+write("questdb", [], { notes: "Scrape had no plan prices." });

@@ -1,0 +1,59 @@
+{
+ "provider": "timescale",
+ "currency": "USD",
+ "sources": [
+  "https://www.tigerdata.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "timeseries:timescale:cloud"
+   ],
+   "tier": "Performance",
+   "spec": {
+    "cpuMax": 8,
+    "ramGbMax": 32,
+    "diskTbMax": 16,
+    "iopsMax": 5000
+   },
+   "price": {
+    "amount": 30,
+    "unit": "month",
+    "note": "compute starts at"
+   },
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 0.177,
+     "unit": "gb-month"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "timeseries:timescale:cloud"
+   ],
+   "tier": "Scale",
+   "spec": {
+    "cpuMax": 32,
+    "ramGbMax": 128,
+    "diskTbMax": 64,
+    "iopsMax": 40000
+   },
+   "price": {
+    "amount": 36,
+    "unit": "month",
+    "note": "compute starts at"
+   },
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 0.212,
+     "unit": "gb-month"
+    }
+   ]
+  }
+ ],
+ "notes": "Vendor is now Tiger Data. Enterprise tier is contact-sales. A third spec column (up to 64 CPU / 256 GB) is Enterprise."
+}

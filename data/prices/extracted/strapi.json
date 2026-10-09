@@ -1,0 +1,43 @@
+{
+ "provider": "strapi",
+ "currency": "USD",
+ "sources": [
+  "https://strapi.io/pricing-cloud"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cms:strapi:cloud"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 35,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "cms:strapi:cloud"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 90,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "cms:strapi:cloud"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 450,
+    "unit": "month"
+   }
+  }
+ ]
+}

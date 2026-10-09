@@ -1,0 +1,57 @@
+{
+ "provider": "memcachier",
+ "currency": "USD",
+ "sources": [
+  "https://www.memcachier.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "memcached:memcachier:cloud"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "memcached:memcachier:cloud"
+   ],
+   "tier": "Basic",
+   "spec": {},
+   "price": {
+    "amount": 14,
+    "unit": "month"
+   },
+   "note": "'~$14/month'."
+  },
+  {
+   "offerings": [
+    "memcached:memcachier:cloud"
+   ],
+   "tier": "Advanced",
+   "spec": {},
+   "price": {
+    "amount": 58,
+    "unit": "month"
+   },
+   "note": "'~$58/month'."
+  },
+  {
+   "offerings": [
+    "memcached:memcachier:cloud"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 440,
+    "unit": "month"
+   },
+   "note": "'~$440/month'."
+  }
+ ]
+}

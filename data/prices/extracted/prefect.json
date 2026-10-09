@@ -1,0 +1,43 @@
+{
+ "provider": "prefect",
+ "currency": "USD",
+ "sources": [
+  "https://www.prefect.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "workflow:prefect:cloud"
+   ],
+   "tier": "Hobby",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "workflow:prefect:cloud"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "workflow:prefect:cloud"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 100,
+    "unit": "user-month"
+   }
+  }
+ ]
+}

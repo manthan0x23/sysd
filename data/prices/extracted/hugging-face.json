@@ -1,0 +1,46 @@
+{
+ "provider": "hugging-face",
+ "currency": "USD",
+ "sources": [
+  "https://huggingface.co/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "inference:hugging-face:inference-endpoints"
+   ],
+   "tier": "Pro account",
+   "spec": {},
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "inference:hugging-face:inference-endpoints"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "user-month"
+   }
+  },
+  {
+   "offerings": [
+    "inference:hugging-face:inference-endpoints"
+   ],
+   "tier": "Enterprise",
+   "spec": {},
+   "price": {
+    "amount": 50,
+    "unit": "user-month"
+   },
+   "contact": true,
+   "note": "'Talk to sales'; $50/user/month shown."
+  }
+ ],
+ "notes": "These are account plans. Inference Endpoints are priced by instance-hour in a table not captured. Storage: $12/TB/month base private, public repos from $8-18/TB depending on volume."
+}

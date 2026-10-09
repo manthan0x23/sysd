@@ -1,4 +1,5 @@
-import type { Plan } from "./types";
+import type { Limits, Plan } from "./types";
+import snapshot from "../pricing/snapshot.json";
 import { slug } from "./offerings";
 
 const FETCHED = "2026-10-08";
@@ -29,7 +30,7 @@ const model = (id: string, label: string, inPerM: number, outPerM: number, cache
  * fetched are listed; everything else offers Auto / Custom until Phase 2 ingestion loads it
  * (Vultr and Hetzner are next: the first fetch failed / returned a partial page).
  */
-export const PLANS: Record<string, Plan[]> = {
+const HAND_PLANS: Record<string, Plan[]> = {
   "vps:hostinger:kvm-vps": [hostinger(1, 1, 4, 50, 6.49, 11.99), hostinger(2, 2, 8, 100, 8.99, 14.99), hostinger(4, 4, 16, 200, 12.99, 28.99), hostinger(8, 8, 32, 400, 25.99, 49.99)],
   "vps:digitalocean:droplets": [droplet(1, 0.5, 10, 4), droplet(1, 1, 25, 6), droplet(1, 2, 50, 12), droplet(2, 2, 60, 18), droplet(2, 4, 80, 24), droplet(4, 8, 160, 48), droplet(8, 16, 320, 96)],
   "vps:akamai-linode:shared-cpu": [linode("Nanode 1 GB", 1, 1, 25, 5), linode("Linode 2 GB", 1, 2, 50, 10), linode("Linode 4 GB", 2, 4, 80, 20), linode("Linode 8 GB", 4, 8, 160, 40), linode("Linode 16 GB", 6, 16, 320, 80)],
@@ -48,6 +49,33 @@ export const PLANS: Record<string, Plan[]> = {
     model("gpt-5-6-cyber", "gpt-5.6-cyber", 12.5, 75, 1.25, OPENAI),
   ],
 };
+
+/**
+ * Prices captured by the price pipeline (scripts/prices, built by `npm run prices:snapshot`). Each offering's plans
+ * point at the page they came from and the day they were fetched. `snapshot.review` says how far they were checked:
+ * "checks-only" means mechanical sanity checks, not a person comparing each figure with the page.
+ */
+interface SnapPlan { i: string; l: string; c?: number; r?: number; d?: number; p?: number; t?: [number, number, number?]; n?: number; f?: 1; lim?: Limits }
+const snap = snapshot as unknown as { version: number; review: string; notes: string[]; sources: Record<string, { url: string; at: string }>; plans: Record<string, SnapPlan[]> };
+export const PRICE_SNAPSHOT = { version: snap.version, review: snap.review };
+const fromSnapshot = (): Record<string, Plan[]> => Object.fromEntries(Object.entries(snap.plans).map(([offering, list]) => [
+  offering,
+  list.map((p): Plan => ({
+    id: p.i, label: p.l,
+    ...(p.c != null && p.r != null ? { spec: { vcpu: p.c, ramGb: p.r, diskGb: p.d ?? 0 } } : {}),
+    ...(p.p != null ? { price: p.p } : {}),
+    ...(p.f ? { free: true } : {}),
+    ...(p.lim ? { limits: p.lim } : {}),
+    ...(p.t ? { tokens: { inPerM: p.t[0], outPerM: p.t[1], cachedPerM: p.t[2] } } : {}),
+    source: snap.sources[offering]?.url, fetchedAt: snap.sources[offering]?.at,
+    ...(p.n != null ? { note: snap.notes[p.n] } : {}),
+  })),
+]));
+/** Captured plans replace the hand-entered ones for the same offering; hand-entered ones stay where nothing was captured. */
+const CAPTURED: Record<string, Plan[]> = { ...HAND_PLANS, ...fromSnapshot() };
+/** Redis Pub/Sub runs on a normal Redis instance, so it is billed with that instance's tiers. */
+const SAME_AS: Record<string, string> = { "pubsub:redis:pub-sub": "redis:redis:cloud", "pubsub:upstash:redis-pub-sub": "redis:upstash:redis" };
+export const PLANS: Record<string, Plan[]> = { ...CAPTURED, ...Object.fromEntries(Object.entries(SAME_AS).filter(([, from]) => CAPTURED[from]).map(([id, from]) => [id, CAPTURED[from]])) };
 
 export const CUSTOM_PLAN_ID = "custom";
 /** Pick the cheapest tier that fits the workload, recomputed whenever the numbers change. */

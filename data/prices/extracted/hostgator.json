@@ -1,0 +1,93 @@
+{
+ "provider": "hostgator",
+ "currency": "USD",
+ "sources": [
+  "https://www.hostgator.com/vps-hosting"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:hostgator:vps"
+   ],
+   "tier": "Snappy 1000 (NVMe 2)",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "diskGb": 50,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 4.95,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 2.24,
+    "unit": "month",
+    "note": "first invoice only; the page also shows $2.09"
+   }
+  },
+  {
+   "offerings": [
+    "vps:hostgator:vps"
+   ],
+   "tier": "Snappy 2000 (NVMe 4)",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 100,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 9.35,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 4.18,
+    "unit": "month",
+    "note": "first invoice only"
+   }
+  },
+  {
+   "offerings": [
+    "vps:hostgator:vps"
+   ],
+   "tier": "Snappy 4000 (NVMe 8)",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 200,
+    "diskType": "NVMe"
+   },
+   "price": {
+    "amount": 18.7,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 8.36,
+    "unit": "month",
+    "note": "first invoice only"
+   }
+  },
+  {
+   "offerings": [
+    "vps:hostgator:vps"
+   ],
+   "tier": "Snappy 8000 (NVMe 16)",
+   "spec": {
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 39.53,
+    "unit": "month"
+   },
+   "introPrice": {
+    "amount": 17.67,
+    "unit": "month",
+    "note": "first invoice only"
+   },
+   "note": "vCPU/disk for this size not shown in the scrape."
+  }
+ ],
+ "notes": "Same platform family as Bluehost. Entry-plan price appears twice on the page ($2.09 and $2.24), so treat it as ~$2.2."
+}

@@ -7,7 +7,9 @@ import { Copy, Crown } from "lucide-react";
 import { signOutAction } from "@/app/actions";
 import { duplicateDesignAction } from "@/app/actions/designs";
 import { copySharedAction } from "@/app/actions/shares";
+import { Avatar } from "@/components/Avatar";
 import { Logo } from "@/components/Logo";
+import { AvatarPicker } from "@/components/pages/AvatarPicker";
 import { APP_NAME, PLAN_LABEL } from "@/lib/brand";
 import { useStudio } from "@/store/useStudio";
 import { ShareButton } from "./ShareButton";
@@ -30,6 +32,7 @@ export function TopIsland({ user, plan, dirty, shareToken }: { user: StudioUser;
   const [focus, setFocus] = useState(false);
   const [sharing, setSharing] = useState(false);
   const [menu, setMenu] = useState(false);
+  const [picking, setPicking] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const root = useRef<HTMLDivElement>(null);
   const open = hover || pinned || focus || sharing || menu;
@@ -72,21 +75,21 @@ export function TopIsland({ user, plan, dirty, shareToken }: { user: StudioUser;
 
       <div className="acct-wrap">
         <button className="avatar-btn" aria-label={`Account: ${user.name}`} aria-haspopup="menu" aria-expanded={menu} title={user.name} onClick={() => setMenu((m) => !m)}>
-          {user.image
-            // eslint-disable-next-line @next/next/no-img-element -- avatar comes from GitHub/Google, so there is no fixed host to allow-list
-            ? <img src={user.image} alt="" width={30} height={30} referrerPolicy="no-referrer" className="avatar-img" />
-            : <span className="avatar big">{user.name.slice(0, 1).toUpperCase()}</span>}
+          <Avatar value={user.avatar} name={user.name} size={32} />
         </button>
         {menu && (
           <div className="menu-pop down" role="menu">
             <p className="menu-h"><b>{user.name}</b><Link href="/upgrade" className={`ph-plan ${plan}`}>{pro ? "Pro" : `${PLAN_LABEL.free} plan`}</Link></p>
             {!pro && <Link role="menuitem" className="mi" href="/upgrade"><b>Upgrade to Pro</b><small>AI agent, teams and exports</small></Link>}
+            <button role="menuitem" className="mi" type="button" onClick={() => { setMenu(false); setPicking(true); }}><b>Change avatar</b><small>Letter, logo or character</small></button>
             <Link role="menuitem" className="mi" href="/home"><b>Home</b><small>All your designs</small></Link>
             <Link role="menuitem" className="mi" href="/teams"><b>Teams</b><small>{pro ? "Manage your teams" : "Join or view teams"}</small></Link>
             <form action={signOutAction}><button role="menuitem" className="mi" type="submit"><b>Sign out</b></button></form>
           </div>
         )}
       </div>
+
+      {picking && <AvatarPicker current={user.avatar} name={user.name} onClose={() => setPicking(false)} />}
 
       <div className="wing wing-r" inert={!open} aria-hidden={!open}>
         <div className="wing-in">

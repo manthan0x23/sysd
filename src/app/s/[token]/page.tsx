@@ -21,7 +21,7 @@ async function Gate({ params }: { params: Promise<{ token: string }> }) {
   if (!shared) notFound();
   const initial = { id: null, title: shared.title, status: "saved" as const, rev: 0, teamId: null, level: null, shared: true, doc: shared.doc };
   const plan = await getPlan(u.id);
-  return <Studio user={{ name: u.name, image: u.image }} plan={plan} initial={initial} hydrateKey={`s-${token}`} shareToken={token} />;
+  return <Studio user={{ name: u.name, avatar: u.avatar }} plan={plan} initial={initial} hydrateKey={`s-${token}`} shareToken={token} />;
 }
 
 export default function SharedPage({ params }: { params: Promise<{ token: string }> }) {

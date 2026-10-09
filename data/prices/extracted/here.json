@@ -1,0 +1,26 @@
+{
+ "provider": "here",
+ "currency": "EUR",
+ "sources": [
+  "https://www.here.com/get-started/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "maps:here:platform"
+   ],
+   "tier": "Vector tile requests (30,001 - 5M)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per 1,000 transactions",
+     "amount": 0.07,
+     "unit": "1k-requests"
+    }
+   ],
+   "note": "In EUR: €0.070 per 1,000 (30,001 to 5M), €0.056 (5M-10M)."
+  }
+ ],
+ "notes": "Advanced vector €0.191, raster €0.095, advanced raster €0.191 per 1,000 in the same first band."
+}

@@ -1,0 +1,22 @@
+{
+ "provider": "stytch",
+ "currency": "USD",
+ "sources": [
+  "https://stytch.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "auth:stytch:auth"
+   ],
+   "tier": "Pay as you go",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "Free base; custom email branding add-on $99."
+  }
+ ]
+}

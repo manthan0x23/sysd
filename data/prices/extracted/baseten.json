@@ -1,0 +1,10 @@
+{
+ "provider": "baseten",
+ "currency": "USD",
+ "sources": [
+  "https://www.baseten.co/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Model API token prices appeared but model names were not attached in the scrape; dedicated GPU rates not parsed. Not recorded."
+}

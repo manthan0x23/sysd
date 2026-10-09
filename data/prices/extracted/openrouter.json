@@ -1,0 +1,56 @@
+{
+ "provider": "openrouter",
+ "currency": "USD",
+ "sources": [
+  "https://openrouter.ai/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:openrouter:router"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "25+ free models; 50 requests/day."
+  },
+  {
+   "offerings": [
+    "llm:openrouter:router"
+   ],
+   "tier": "Standard",
+   "spec": {
+    "models": "500+"
+   },
+   "rates": [
+    {
+     "name": "platform fee",
+     "amount": 5.5,
+     "unit": "percent"
+    }
+   ],
+   "note": "BYOK: $25,000 of list-price inference/month with no fee, 5% after."
+  },
+  {
+   "offerings": [
+    "llm:openrouter:router"
+   ],
+   "tier": "Business",
+   "spec": {
+    "models": "500+"
+   },
+   "rates": [
+    {
+     "name": "platform fee",
+     "amount": 8,
+     "unit": "percent"
+    }
+   ]
+  }
+ ],
+ "notes": "OpenRouter passes through each model provider's price and adds the platform fee on top. Enterprise: fee discounts by quote."
+}

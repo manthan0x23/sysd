@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useMemo, type DragEvent } from "react";
+import { useCallback, useEffect, useMemo, useState, type DragEvent } from "react";
 import {
   Background, BackgroundVariant, MarkerType, ReactFlow, useReactFlow,
   type Edge, type NodeChange,
 } from "@xyflow/react";
-import { TYPE_BY_ID } from "@/lib/catalog";
+import { TYPE_BY_ID, checkLink } from "@/lib/catalog";
+import { routeEdges, type Pt } from "@/lib/route";
 import { useStudio, type StudioNode } from "@/store/useStudio";
 import { FlowEdge, type FlowEdgeData } from "./FlowEdge";
 import { HostNode } from "./HostNode";
@@ -31,13 +32,48 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
   const learn = mode === "learn";
 
   const viewNodes = useMemo<StudioNode[]>(
-    () => nodes.map((n) => ({ ...n, selected: n.id === selectedId, data: { ...n.data, util: sim.util[n.id], load: sim.load[n.id], showMetrics: learn, fit: fits[n.id] } })),
+    () => nodes.map((n) => ({ ...n, selected: n.id === selectedId, data: { ...n.data, util: sim.util[n.id], load: sim.load[n.id], instances: sim.instances[n.id], backlog: sim.backlog[n.id], showMetrics: learn, fit: fits[n.id] } })),
     [nodes, sim, fits, learn, selectedId],
   );
+  /** The meaning of a link, or why it is not valid. Old designs may hold links the rules now refuse; they stay, flagged. */
+  const linkInfo = useCallback((e: Edge): Pick<FlowEdgeData, "role" | "invalid"> => {
+    const a = nodes.find((n) => n.id === e.source), b = nodes.find((n) => n.id === e.target);
+    if (!a || !b) return {};
+    const c = checkLink(a.data.typeId, b.data.typeId);
+    return c.ok ? { role: c.role.label } : { invalid: c.reason };
+  }, [nodes]);
+  // Plan the links once the nodes stop moving, so they run around nodes instead of through them.
+  const [routes, setRoutes] = useState<Record<string, Pt[]>>({});
+  useEffect(() => {
+    const t = setTimeout(() => setRoutes(routeEdges(nodes, edges)), 140);
+    return () => clearTimeout(t);
+  }, [nodes, edges]);
+  /** What a link looks like next to the selection: lit when it touches it, faded when something else is selected. */
+  const focusOf = useCallback((e: Edge): "hl" | "dim" | undefined => {
+    if (selectedEdgeId) return e.id === selectedEdgeId ? "hl" : "dim";
+    if (!selectedId) return undefined;
+    const kids = new Set<string>([selectedId]);
+    for (const n of nodes) if (n.parentId && kids.has(n.parentId)) kids.add(n.id);
+    return kids.has(e.source) || kids.has(e.target) ? "hl" : "dim";
+  }, [selectedId, selectedEdgeId, nodes]);
   const viewEdges = useMemo<Edge<FlowEdgeData>[]>(
-    () => edges.map((e) => ({ ...e, selected: e.id === selectedEdgeId, markerEnd: { type: MarkerType.ArrowClosed, width: 14, height: 14, color: "currentColor" }, data: { weight: (e.data as { weight?: number } | undefined)?.weight, load: sim.edgeLoad[e.id], show: learn } })),
-    [edges, sim, learn, selectedEdgeId],
+    () => edges.map((e) => ({ ...e, selected: e.id === selectedEdgeId, markerEnd: { type: MarkerType.ArrowClosed, width: 14, height: 14, color: "currentColor" }, data: { weight: (e.data as { weight?: number } | undefined)?.weight, load: sim.edgeLoad[e.id], show: learn, route: routes[e.id], busy: (sim.edgeLoad[e.id] ?? 0) >= 0.15 * (sim.entryRps || 1), focus: focusOf(e), ...linkInfo(e) }, zIndex: focusOf(e) === "hl" ? 5 : 0 })),
+    [edges, linkInfo, sim, learn, selectedEdgeId, routes, focusOf],
   );
+
+  const isValidConnection = useCallback((c: { source: string; target: string }) => {
+    if (c.source === c.target) return false;
+    const a = nodes.find((n) => n.id === c.source), b = nodes.find((n) => n.id === c.target);
+    return Boolean(a && b && checkLink(a.data.typeId, b.data.typeId).ok && !edges.some((e) => e.source === c.source && e.target === c.target));
+  }, [nodes, edges]);
+  /** Dropping a link on a node that cannot take it says why, instead of silently doing nothing. */
+  const onConnectEnd = useCallback((_: unknown, state: { isValid: boolean | null; fromNode: { id: string } | null; toNode: { id: string } | null }) => {
+    if (state.isValid !== false || !state.fromNode || !state.toNode || state.fromNode.id === state.toNode.id) return;
+    const a = nodes.find((n) => n.id === state.fromNode!.id), b = nodes.find((n) => n.id === state.toNode!.id);
+    if (!a || !b) return;
+    const c = checkLink(a.data.typeId, b.data.typeId);
+    useStudio.getState().setLinkNotice(c.ok ? "Those two are already linked." : c.reason);
+  }, [nodes]);
 
   // Selection is owned by our store (the inspector reads it), so ignore React Flow's own select changes.
   const handleNodes = useCallback((changes: NodeChange<StudioNode>[]) => onNodesChange(changes.filter((c) => c.type !== "select")), [onNodesChange]);
@@ -103,10 +139,10 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
     <section className="canvas" aria-label="System canvas">
       <ReactFlow
         nodes={viewNodes} edges={viewEdges} nodeTypes={nodeTypes} edgeTypes={edgeTypes}
-        onNodesChange={handleNodes} onEdgesChange={onEdgesChange} onConnect={onConnect}
+        onNodesChange={handleNodes} onEdgesChange={onEdgesChange} onConnect={onConnect} isValidConnection={isValidConnection} onConnectEnd={onConnectEnd}
         onNodeClick={(_, n) => select(n.id)} onEdgeClick={(_, e) => selectEdge(e.id)} onPaneClick={() => { select(null); selectEdge(null); }} onNodeDragStop={onNodeDragStop}
         onDrop={onDrop} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = "move"; }}
-        defaultEdgeOptions={{ type: "flow" }}
+        defaultEdgeOptions={{ type: "flow" }} proOptions={{ hideAttribution: true }}
         snapToGrid snapGrid={GRID} minZoom={0.2} maxZoom={1.6} nodesDraggable={!readOnly} nodesConnectable={!readOnly}
         fitView fitViewOptions={{ padding: { top: "80px", right: "400px", bottom: "110px", left: "260px" } }}
         deleteKeyCode={readOnly ? null : ["Backspace", "Delete"]}

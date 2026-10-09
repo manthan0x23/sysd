@@ -1,0 +1,22 @@
+{
+ "provider": "jaeger",
+ "currency": "USD",
+ "sources": [
+  "https://www.jaegertracing.io/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "tracing:jaeger:self-hosted"
+   ],
+   "tier": "Jaeger (open source)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "No licence fee; you pay for the server it runs on."
+  }
+ ]
+}

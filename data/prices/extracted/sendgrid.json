@@ -1,0 +1,10 @@
+{
+ "provider": "sendgrid",
+ "currency": "USD",
+ "sources": [
+  "https://sendgrid.com/en-us/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape (4 KB) did not include plan prices; needs another URL."
+}

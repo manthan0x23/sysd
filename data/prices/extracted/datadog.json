@@ -1,0 +1,93 @@
+{
+ "provider": "datadog",
+ "currency": "USD",
+ "sources": [
+  "https://www.datadoghq.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "metrics:datadog:infrastructure-apm"
+   ],
+   "tier": "Infrastructure Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "Up to 5 hosts, 1-day metric retention."
+  },
+  {
+   "offerings": [
+    "metrics:datadog:infrastructure-apm"
+   ],
+   "tier": "Infrastructure Pro",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   },
+   "note": "Per host per month (annual billing)."
+  },
+  {
+   "offerings": [
+    "metrics:datadog:infrastructure-apm"
+   ],
+   "tier": "APM",
+   "spec": {},
+   "price": {
+    "amount": 31,
+    "unit": "month"
+   },
+   "note": "Per host per month with Infrastructure attached, billed annually; $36 on-demand."
+  },
+  {
+   "offerings": [
+    "tracing:datadog:apm-traces",
+    "metrics:datadog:infrastructure-apm"
+   ],
+   "tier": "APM Pro",
+   "spec": {},
+   "price": {
+    "amount": 35,
+    "unit": "month"
+   },
+   "note": "Per host per month; adds Data Streams Monitoring."
+  },
+  {
+   "offerings": [
+    "logs:datadog:log-management"
+   ],
+   "tier": "Log ingest",
+   "spec": {},
+   "rates": [
+    {
+     "name": "ingested or scanned GB",
+     "amount": 0.1,
+     "unit": "gb"
+    }
+   ],
+   "note": "Indexing priced separately per million events (retention-dependent) - not captured."
+  },
+  {
+   "offerings": [
+    "errors:datadog:error-tracking"
+   ],
+   "tier": "Error Tracking",
+   "spec": {},
+   "contact": true,
+   "note": "Price not captured."
+  },
+  {
+   "offerings": [
+    "uptime:datadog:synthetics"
+   ],
+   "tier": "Synthetics",
+   "spec": {},
+   "contact": true,
+   "note": "Price not captured."
+  }
+ ],
+ "notes": "Page is very large (350 KB); only the headline 'Starting At' prices were verified. Many per-feature prices exist."
+}

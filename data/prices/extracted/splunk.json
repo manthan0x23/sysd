@@ -1,0 +1,23 @@
+{
+ "provider": "splunk",
+ "currency": "USD",
+ "sources": [
+  "https://www.splunk.com/en_us/products/pricing/platform-pricing.html"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "logs:splunk:cloud"
+   ],
+   "tier": "Observability Cloud",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   },
+   "note": "'Starting at $15 per host per month' (per host)."
+  }
+ ],
+ "notes": "Splunk Cloud Platform (logs) is quote-based; AppDynamics from $6/CPU-core/month annually."
+}

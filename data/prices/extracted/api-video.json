@@ -1,0 +1,10 @@
+{
+ "provider": "api-video",
+ "currency": "USD",
+ "sources": [
+  "https://api.video/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Only 'as low as $0.00285 / $0.0017' per-minute figures and monthly plan prices ($33 yearly-billing etc.) without plan names; not recorded."
+}

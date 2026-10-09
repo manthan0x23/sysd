@@ -1,0 +1,58 @@
+{
+ "provider": "fastly",
+ "currency": "USD",
+ "sources": [
+  "https://www.fastly.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "fn:fastly:compute"
+   ],
+   "tier": "Compute requests",
+   "spec": {},
+   "rates": [
+    {
+     "name": "100k-1M tier",
+     "amount": 2.5,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "1M-5M",
+     "amount": 2.25,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "5M-25M",
+     "amount": 2.1,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "25M-100M",
+     "amount": 2,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "beyond 100M",
+     "amount": 1.75,
+     "unit": "1m-requests"
+    }
+   ],
+   "note": "Per-million-request tiers as listed (unit assumed per 1M)."
+  },
+  {
+   "offerings": [
+    "cdn:fastly:cdn"
+   ],
+   "tier": "Platform packages",
+   "spec": {},
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   },
+   "note": "Page lists packages at $1,500 and $6,000 per month, others contact sales; package names not captured."
+  }
+ ],
+ "notes": "Next-Gen WAF and CDN bandwidth rates were not in the scrape."
+}

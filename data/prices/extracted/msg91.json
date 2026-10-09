@@ -1,0 +1,10 @@
+{
+ "provider": "msg91",
+ "currency": "USD",
+ "sources": [
+  "https://msg91.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned a feature matrix without prices."
+}

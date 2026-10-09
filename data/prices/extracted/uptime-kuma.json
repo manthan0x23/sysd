@@ -1,0 +1,22 @@
+{
+ "provider": "uptime-kuma",
+ "currency": "USD",
+ "sources": [
+  "https://github.com/louislam/uptime-kuma"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "uptime:uptime-kuma:self-hosted"
+   ],
+   "tier": "Uptime Kuma (open source)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "No licence fee; you pay for the server it runs on."
+  }
+ ]
+}

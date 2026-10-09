@@ -1,0 +1,35 @@
+{
+ "provider": "turbopuffer",
+ "currency": "USD",
+ "sources": [
+  "https://turbopuffer.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vector:turbopuffer:vector-db"
+   ],
+   "tier": "Launch",
+   "spec": {},
+   "price": {
+    "amount": 16,
+    "unit": "month"
+   },
+   "note": "Minimum usage per month."
+  },
+  {
+   "offerings": [
+    "vector:turbopuffer:vector-db"
+   ],
+   "tier": "Scale",
+   "spec": {},
+   "price": {
+    "amount": 256,
+    "unit": "month"
+   },
+   "note": "Minimum usage per month."
+  }
+ ],
+ "notes": "Per-GB and per-query rates are in a calculator, not captured."
+}

@@ -1,0 +1,139 @@
+{
+ "provider": "xata",
+ "currency": "USD",
+ "sources": [
+  "https://xata.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "micro",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 1,
+    "vcpuNote": "≤2 vCPU"
+   },
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   },
+   "hourly": 0.012
+  },
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "small",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 2,
+    "vcpuNote": "≤2 vCPU"
+   },
+   "price": {
+    "amount": 18,
+    "unit": "month"
+   },
+   "hourly": 0.024
+  },
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "medium",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "vcpuNote": "≤2 vCPU"
+   },
+   "price": {
+    "amount": 35,
+    "unit": "month"
+   },
+   "hourly": 0.048
+  },
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "large",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "vcpuNote": "2 vCPU"
+   },
+   "price": {
+    "amount": 70,
+    "unit": "month"
+   },
+   "hourly": 0.096
+  },
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "xlarge",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "vcpuNote": "4 vCPU"
+   },
+   "price": {
+    "amount": 140,
+    "unit": "month"
+   },
+   "hourly": 0.192
+  },
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "2xlarge",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "vcpuNote": "8 vCPU"
+   },
+   "price": {
+    "amount": 280,
+    "unit": "month"
+   },
+   "hourly": 0.384
+  },
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "4xlarge",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "vcpuNote": "16 vCPU"
+   },
+   "price": {
+    "amount": 561,
+    "unit": "month"
+   },
+   "hourly": 0.768
+  },
+  {
+   "offerings": [
+    "postgres:xata:postgres"
+   ],
+   "tier": "8xlarge",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128,
+    "vcpuNote": "32 vCPU"
+   },
+   "price": {
+    "amount": 1121,
+    "unit": "month"
+   },
+   "hourly": 1.536
+  }
+ ],
+ "notes": "Storage $0.28/GB-month on top of instance price."
+}

@@ -1,0 +1,56 @@
+{
+ "provider": "pubnub",
+ "currency": "USD",
+ "sources": [
+  "https://www.pubnub.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "pubsub:pubnub:realtime"
+   ],
+   "tier": "Platform Pro (1,000 MAU, example)",
+   "spec": {},
+   "price": {
+    "amount": 190,
+    "unit": "month"
+   },
+   "note": "Estimated. Pricing is MAU-based: up to 10K MAU = ($130 base + $0.04/MAU, capped at $500) x 1.1; 10K-50K MAU = ($500 base + $0.035 per additional MAU) x 1.1."
+  },
+  {
+   "offerings": [
+    "pubsub:pubnub:realtime"
+   ],
+   "tier": "Platform Pro (10,000 MAU, example)",
+   "spec": {},
+   "price": {
+    "amount": 550,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "pubsub:pubnub:realtime"
+   ],
+   "tier": "Platform Pro (50,000 MAU, example)",
+   "spec": {},
+   "price": {
+    "amount": 2100,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "chat:pubnub:chat"
+   ],
+   "tier": "Platform Pro (same MAU pricing)",
+   "spec": {},
+   "price": {
+    "amount": 190,
+    "unit": "month"
+   },
+   "note": "Chat uses the same MAU-based platform pricing; 1,000 MAU example."
+  }
+ ]
+}

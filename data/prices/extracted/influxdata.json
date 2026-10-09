@@ -1,0 +1,10 @@
+{
+ "provider": "influxdata",
+ "currency": "USD",
+ "sources": [
+  "https://www.influxdata.com/influxdb-cloud-pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape had no plan prices ($250 credit promo only)."
+}

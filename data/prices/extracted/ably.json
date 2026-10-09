@@ -1,0 +1,46 @@
+{
+ "provider": "ably",
+ "currency": "USD",
+ "sources": [
+  "https://ably.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "pubsub:ably:realtime"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "pubsub:ably:realtime"
+   ],
+   "tier": "Pay as you go (list)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "messages per million",
+     "amount": 2.5,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "channels per million",
+     "amount": 1,
+     "unit": "1m-requests"
+    },
+    {
+     "name": "connections per million minutes",
+     "amount": 1,
+     "unit": "other"
+    }
+   ],
+   "note": "Volume discounts: messages as low as $0.50/M, channels/connections as low as $0.20/M. Units for channels/connections inferred."
+  }
+ ]
+}

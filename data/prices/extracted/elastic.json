@@ -1,0 +1,10 @@
+{
+ "provider": "elastic",
+ "currency": "USD",
+ "sources": [
+  "https://www.elastic.co/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Pricing hub page: the real prices are on the sub-pages (serverless / hosted), which were not fetched."
+}

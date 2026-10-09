@@ -1,0 +1,22 @@
+{
+ "provider": "growthbook",
+ "currency": "USD",
+ "sources": [
+  "https://www.growthbook.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "flags:growthbook:cloud"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 40,
+    "unit": "seat-month"
+   },
+   "note": "Managed warehouse beyond 2M events $30/M; CDN beyond 2M requests $10/M, bandwidth $1/GB beyond 20GB."
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "provider": "ferretdb",
+ "currency": "USD",
+ "sources": [
+  "https://www.ferretdb.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned no usable content."
+}

@@ -1,0 +1,36 @@
+{
+ "provider": "dbt-labs",
+ "currency": "USD",
+ "sources": [
+  "https://www.getdbt.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "etl:dbt-labs:dbt-cloud"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 100,
+    "unit": "seat-month"
+   },
+   "note": "One developer seat."
+  },
+  {
+   "offerings": [
+    "etl:dbt-labs:dbt-cloud"
+   ],
+   "tier": "dbt State (pay as you go)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per DATT",
+     "amount": 0.094,
+     "unit": "other"
+    }
+   ]
+  }
+ ]
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { Avatar } from "@/components/Avatar";
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Check, Copy } from "lucide-react";
@@ -23,7 +24,7 @@ export function CreateTeamForm() {
   );
 }
 
-interface Member { userId: string; name: string | null; role: Role }
+interface Member { userId: string; name: string | null; avatar: string | null; role: Role }
 interface Invite { id: string; role: Role; expiresAt: string }
 
 export function TeamManager({ teamId, isOwner, me, members, invites }: { teamId: string; isOwner: boolean; me: string; members: Member[]; invites: Invite[] }) {
@@ -47,7 +48,7 @@ export function TeamManager({ teamId, isOwner, me, members, invites }: { teamId:
       <ul className="list">
         {members.map((m) => (
           <li key={m.userId}>
-            <span className="list-main"><b>{m.name ?? "Unnamed"}{m.userId === me ? " (you)" : ""}</b><small>{m.role}</small></span>
+            <span className="list-main"><Avatar value={m.avatar} name={m.name ?? "?"} size={28} /><b>{m.name ?? "Unnamed"}{m.userId === me ? " (you)" : ""}</b><small>{m.role}</small></span>
             <span className="acts">
               {isOwner && (
                 <select value={m.role} disabled={pending} aria-label={`Role for ${m.name ?? "member"}`} onChange={(e) => act(() => setRoleAction(teamId, m.userId, e.target.value as Role))}>

@@ -23,7 +23,7 @@ async function Gate({ params }: { params: Promise<{ id: string }> }) {
   try { d = await getDesign(u.id, id); } catch (e) { if (e instanceof UserError) notFound(); throw e; }
   const initial = { id: d.id, title: d.title, status: d.status, rev: d.rev, teamId: d.teamId, level: d.level, doc: d.doc };
   const plan = await getPlan(u.id);
-  return <Studio user={{ name: u.name, image: u.image }} plan={plan} initial={initial} hydrateKey={`d-${d.id}`} />;
+  return <Studio user={{ name: u.name, avatar: u.avatar }} plan={plan} initial={initial} hydrateKey={`d-${d.id}`} />;
 }
 
 export default function DesignPage({ params }: { params: Promise<{ id: string }> }) {

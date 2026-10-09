@@ -1,0 +1,54 @@
+{
+ "provider": "tigris",
+ "currency": "USD",
+ "sources": [
+  "https://www.tigrisdata.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "object:tigris:object-storage"
+   ],
+   "tier": "Standard",
+   "spec": {},
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 0.02,
+     "unit": "gb-month"
+    },
+    {
+     "name": "class A requests",
+     "amount": 0.005,
+     "unit": "1k-requests"
+    },
+    {
+     "name": "class B requests",
+     "amount": 0.0005,
+     "unit": "1k-requests"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "object:tigris:object-storage"
+   ],
+   "tier": "Infrequent Access",
+   "spec": {},
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 0.01,
+     "unit": "gb-month"
+    },
+    {
+     "name": "class A requests",
+     "amount": 0.005,
+     "unit": "1k-requests"
+    }
+   ]
+  }
+ ],
+ "notes": "Two colder classes at $0.004/GB-month also appear in the price table; their names were not captured. Egress not charged per the page's comparison (not confirmed here)."
+}

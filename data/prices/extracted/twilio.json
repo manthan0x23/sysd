@@ -1,0 +1,51 @@
+{
+ "provider": "twilio",
+ "currency": "USD",
+ "sources": [
+  "https://www.twilio.com/en-us/sms/pricing/us",
+  "https://www.twilio.com/en-us/video/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "sms:twilio:sms-verify"
+   ],
+   "tier": "SMS long code, US outbound",
+   "spec": {},
+   "rates": [
+    {
+     "name": "outbound SMS",
+     "amount": 0.0083,
+     "unit": "sms"
+    },
+    {
+     "name": "inbound SMS",
+     "amount": 0.0083,
+     "unit": "sms"
+    },
+    {
+     "name": "outbound MMS",
+     "amount": 0.022,
+     "unit": "message"
+    }
+   ],
+   "note": "US long-code rates; carrier fees extra. Toll-free/short-code rows exist on the page."
+  },
+  {
+   "offerings": [
+    "rtc:twilio:video-voice"
+   ],
+   "tier": "Video group room",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per participant-minute",
+     "amount": 0.004,
+     "unit": "minute"
+    }
+   ]
+  }
+ ],
+ "notes": "Verify (OTP) and voice prices are on other pages not fetched."
+}

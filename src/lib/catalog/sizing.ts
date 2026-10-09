@@ -19,6 +19,8 @@ export const PROFILES: Record<string, SizingProfile> = {
     ({ rps, dataGb }) => { const ram = 0.1 + 1.4 * 0.05 * dataGb; return { cpu: 0.25 + rps / 50000, ramGb: ram, diskGb: 2 * ram }; }),
   memcached: p("Cache holds 5% of data. RAM: 0.1 GB + 1.15x cache size. CPU: ~50k ops/s per core. No disk.",
     ({ rps, dataGb }) => ({ cpu: 0.25 + rps / 50000, ramGb: 0.1 + 1.15 * 0.05 * dataGb, diskGb: 0.5 })),
+  pubsub: p("Redis Pub/Sub: messages are not stored, so RAM is small (0.1 GB + 2 MB per msg/s of buffers). CPU: 0.25 core + 1 per 20k deliveries/s (each message goes to every subscriber, about 3). Disk: none.",
+    ({ rps }) => ({ cpu: 0.25 + (rps * 3) / 20000, ramGb: 0.1 + rps * 0.002, diskGb: 0.5 })),
   kafka: p("CPU: 1 core + 1 per 4k msgs/s. RAM: 3 GB (heap + page cache) + 2 MB per msg/s. Disk: 1 KB messages kept 3 days.",
     ({ rps }) => ({ cpu: 1 + rps / 4000, ramGb: 3 + rps * 0.002, diskGb: max(5, rps * 0.0864 * 3) })),
   rabbitmq: p("CPU: 0.5 core + 1 per 3k msgs/s. RAM: 0.5 GB + 0.5 MB per msg/s. Disk: 2 GB.",

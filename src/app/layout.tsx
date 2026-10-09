@@ -5,6 +5,7 @@ import { APP_NAME } from "@/lib/brand";
 import "@xyflow/react/dist/style.css";
 import "./globals.css";
 import "./studio.css";
+import "./avatar.css";
 
 const sans = Figtree({ variable: "--font-sans", subsets: ["latin"] });
 const serif = EB_Garamond({ variable: "--font-serif", subsets: ["latin"], style: ["normal", "italic"], weight: ["400", "500"] });

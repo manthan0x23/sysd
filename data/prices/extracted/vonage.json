@@ -1,0 +1,30 @@
+{
+ "provider": "vonage",
+ "currency": "USD",
+ "sources": [
+  "https://www.vonage.com/communications-apis/sms/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "sms:vonage:sms"
+   ],
+   "tier": "SMS (US)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "send",
+     "amount": 0.0086,
+     "unit": "sms"
+    },
+    {
+     "name": "receive",
+     "amount": 0.00691,
+     "unit": "sms"
+    }
+   ],
+   "note": "Country not labelled in the scrape; other rates shown per country."
+  }
+ ]
+}

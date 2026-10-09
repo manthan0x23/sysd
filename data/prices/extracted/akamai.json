@@ -1,0 +1,10 @@
+{
+ "provider": "akamai",
+ "currency": "USD",
+ "sources": [
+  "https://www.akamai.com/products/content-delivery-network"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned a tiny/blocked page (<2 KB); needs a different URL or a JS-rendering fetch."
+}

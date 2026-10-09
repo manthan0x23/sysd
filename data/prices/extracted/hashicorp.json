@@ -1,0 +1,25 @@
+{
+ "provider": "hashicorp",
+ "currency": "USD",
+ "sources": [
+  "https://www.hashicorp.com/en/products/vault/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "secrets:hashicorp:hcp-vault"
+   ],
+   "tier": "HCP Vault Dedicated (smallest cluster, from)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "per cluster",
+     "amount": 0.62,
+     "unit": "hour"
+    }
+   ],
+   "note": "Second tier starts at $1.58 per cluster-hour. $500 credit for new accounts."
+  }
+ ]
+}

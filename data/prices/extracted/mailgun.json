@@ -1,0 +1,60 @@
+{
+ "provider": "mailgun",
+ "currency": "USD",
+ "sources": [
+  "https://www.mailgun.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "email:mailgun:email"
+   ],
+   "tier": "Free",
+   "spec": {
+    "emailsPerDay": 100
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "email:mailgun:email"
+   ],
+   "tier": "Basic",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   },
+   "note": "'Starting at'; extra emails from $1.80 per 1,000."
+  },
+  {
+   "offerings": [
+    "email:mailgun:email"
+   ],
+   "tier": "Foundation",
+   "spec": {},
+   "price": {
+    "amount": 35,
+    "unit": "month"
+   },
+   "note": "Extra emails from $1.30 per 1,000."
+  },
+  {
+   "offerings": [
+    "email:mailgun:email"
+   ],
+   "tier": "Scale",
+   "spec": {},
+   "price": {
+    "amount": 90,
+    "unit": "month"
+   },
+   "note": "Extra emails from $1.30 per 1,000 (per page)."
+  }
+ ],
+ "notes": "Email volume per plan depends on the volume slider (default 50,000/month); tier assignment of $35 and $90 to Foundation/Scale follows the page order."
+}

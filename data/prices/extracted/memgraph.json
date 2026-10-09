@@ -1,0 +1,10 @@
+{
+ "provider": "memgraph",
+ "currency": "USD",
+ "sources": [
+  "https://memgraph.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Page shows 'free, forever' open source and enterprise by quote; no list prices."
+}

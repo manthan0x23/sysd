@@ -1,0 +1,22 @@
+{
+ "provider": "docker-container",
+ "currency": "USD",
+ "sources": [
+  "https://www.docker.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "container:docker:container-on-your-server"
+   ],
+   "tier": "Docker Engine (open source)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "No licence fee; runs on your server."
+  }
+ ]
+}

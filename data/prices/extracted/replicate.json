@@ -1,0 +1,310 @@
+{
+ "provider": "replicate",
+ "currency": "USD",
+ "sources": [
+  "https://replicate.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "CPU (Small)",
+   "spec": {
+    "hardwareId": "cpu-small",
+    "gpus": 0,
+    "ramGb": 2
+   },
+   "price": {
+    "amount": 0.09,
+    "unit": "hour"
+   },
+   "perSecond": 0.000025
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "CPU",
+   "spec": {
+    "hardwareId": "cpu",
+    "gpus": 0,
+    "ramGb": 8
+   },
+   "price": {
+    "amount": 0.36,
+    "unit": "hour"
+   },
+   "perSecond": 0.0001
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "Nvidia A100 (80GB) GPU",
+   "spec": {
+    "hardwareId": "gpu-a100-large",
+    "gpus": 1,
+    "gpuRamGb": 80,
+    "ramGb": 144
+   },
+   "price": {
+    "amount": 5.04,
+    "unit": "hour"
+   },
+   "perSecond": 0.0014
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "2x Nvidia A100 (80GB) GPU",
+   "spec": {
+    "hardwareId": "gpu-a100-large-2x",
+    "gpus": 2,
+    "gpuRamGb": 160,
+    "ramGb": 288
+   },
+   "price": {
+    "amount": 10.08,
+    "unit": "hour"
+   },
+   "perSecond": 0.0028
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "Nvidia H100 GPU",
+   "spec": {
+    "hardwareId": "gpu-h100",
+    "gpus": 1,
+    "gpuRamGb": 80,
+    "ramGb": 144
+   },
+   "price": {
+    "amount": 5.49,
+    "unit": "hour"
+   },
+   "perSecond": 0.001525
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "Nvidia L40S GPU",
+   "spec": {
+    "hardwareId": "gpu-l40s",
+    "gpus": 1,
+    "gpuRamGb": 48,
+    "ramGb": 65
+   },
+   "price": {
+    "amount": 3.51,
+    "unit": "hour"
+   },
+   "perSecond": 0.000975
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "2x Nvidia L40S GPU",
+   "spec": {
+    "hardwareId": "gpu-l40s-2x",
+    "gpus": 2,
+    "gpuRamGb": 96,
+    "ramGb": 144
+   },
+   "price": {
+    "amount": 7.02,
+    "unit": "hour"
+   },
+   "perSecond": 0.00195
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "Nvidia T4 GPU",
+   "spec": {
+    "hardwareId": "gpu-t4",
+    "gpus": 1,
+    "gpuRamGb": 16,
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 0.81,
+    "unit": "hour"
+   },
+   "perSecond": 0.000225
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "4x Nvidia A100 (80GB) GPU",
+   "spec": {
+    "hardwareId": "gpu-a100-large-4x",
+    "gpus": 100
+   },
+   "price": {
+    "amount": 20.16,
+    "unit": "hour"
+   },
+   "perSecond": 0.0056
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "8x Nvidia A100 (80GB) GPU",
+   "spec": {
+    "hardwareId": "gpu-a100-large-8x",
+    "gpus": 100
+   },
+   "price": {
+    "amount": 40.32,
+    "unit": "hour"
+   },
+   "perSecond": 0.0112
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "2x Nvidia H100 GPU",
+   "spec": {
+    "hardwareId": "gpu-h100-2x",
+    "gpus": 100
+   },
+   "price": {
+    "amount": 10.98,
+    "unit": "hour"
+   },
+   "perSecond": 0.00305
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "4x Nvidia H100 GPU",
+   "spec": {
+    "hardwareId": "gpu-h100-4x",
+    "gpus": 100
+   },
+   "price": {
+    "amount": 21.96,
+    "unit": "hour"
+   },
+   "perSecond": 0.0061
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "8x Nvidia H100 GPU",
+   "spec": {
+    "hardwareId": "gpu-h100-8x",
+    "gpus": 100
+   },
+   "price": {
+    "amount": 43.92,
+    "unit": "hour"
+   },
+   "perSecond": 0.0122
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "Nvidia H200 GPU",
+   "spec": {
+    "hardwareId": "gpu-h200",
+    "gpus": 200
+   },
+   "price": {
+    "amount": 5.49,
+    "unit": "hour"
+   },
+   "perSecond": 0.001525
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "2x Nvidia H200 GPU",
+   "spec": {
+    "hardwareId": "gpu-h200-2x",
+    "gpus": 200
+   },
+   "price": {
+    "amount": 10.98,
+    "unit": "hour"
+   },
+   "perSecond": 0.00305
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "4x Nvidia H200 GPU",
+   "spec": {
+    "hardwareId": "gpu-h200-4x",
+    "gpus": 200
+   },
+   "price": {
+    "amount": 21.96,
+    "unit": "hour"
+   },
+   "perSecond": 0.0061
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "8x Nvidia H200 GPU",
+   "spec": {
+    "hardwareId": "gpu-h200-8x",
+    "gpus": 200
+   },
+   "price": {
+    "amount": 43.92,
+    "unit": "hour"
+   },
+   "perSecond": 0.0122
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "4x Nvidia L40S GPU",
+   "spec": {
+    "hardwareId": "gpu-l40s-4x",
+    "gpus": 40
+   },
+   "price": {
+    "amount": 14.04,
+    "unit": "hour"
+   },
+   "perSecond": 0.0039
+  },
+  {
+   "offerings": [
+    "inference:replicate:models"
+   ],
+   "tier": "8x Nvidia L40S GPU",
+   "spec": {
+    "hardwareId": "gpu-l40s-8x",
+    "gpus": 40
+   },
+   "price": {
+    "amount": 28.08,
+    "unit": "hour"
+   },
+   "perSecond": 0.0078
+  }
+ ],
+ "notes": "Hardware prices for custom/private models. Public model prices are per run/token and listed per model, not here."
+}

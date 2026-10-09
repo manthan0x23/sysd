@@ -1,0 +1,14 @@
+import { write, plan } from "./lib.mjs";
+
+write("planetscale", [
+  plan("postgres:planetscale:postgres", "Single node (from)", 5, "month", { note: "'Starting at $5/month for development and low-traffic workloads'." }),
+  plan("postgres:planetscale:postgres", "Metal (from)", 50, "month", { note: "'Starting at $50/month with local NVMe storage'." }),
+  plan("mysql:planetscale:vitess-mysql", "Vitess shard (example config)", 30, "month", { note: "Example: 1 shard + replicas = $30; with backup/egress estimate $41/month. Backup $0.023/GB beyond 20 GB; egress $0.06/GB beyond 100 GB." }),
+], { notes: "Per-size tables are in an interactive configurator, not captured." });
+write("mailgun", [plan("email:mailgun:email", "Free", 0, "month", { spec: { emailsPerDay: 100 } }), plan("email:mailgun:email", "Basic", 15, "month", { note: "'Starting at'; extra emails from $1.80 per 1,000." }), plan("email:mailgun:email", "Foundation", 35, "month", { note: "Extra emails from $1.30 per 1,000." }), plan("email:mailgun:email", "Scale", 90, "month", { note: "Extra emails from $1.30 per 1,000 (per page)." })], { notes: "Email volume per plan depends on the volume slider (default 50,000/month); tier assignment of $35 and $90 to Foundation/Scale follows the page order." });
+const pct = (offerings, tier, p, fixed, note) => ({ offerings: [].concat(offerings), tier, spec: {}, rates: [{ name: "percentage of transaction", amount: p, unit: "percent" }, ...(fixed !== undefined ? [{ name: "fixed fee per transaction", amount: fixed, unit: "fixed" }] : [])], ...(note ? { note } : {}) });
+write("razorpay", [pct("payments:razorpay:payments", "Standard card rate (as shown, USD)", 2.7, 0.3, "Shown as '2.70% + $0.30 per card transaction' on the international/US page; the India INR rates differ and were not captured.")], { notes: "Enterprise Plan is for businesses processing $12M+ annually." });
+write("adyen", [pct("payments:adyen:payments", "Processing fee + card scheme", 0, 0.13, "Adyen charges a $0.13 processing fee plus interchange/scheme fees; Affirm BNPL rows show 4.19%-4.99% + $0.30. Percentages for cards not captured.")], { notes: "Interchange++ pricing; the page's figures are partial." });
+write("paypal", [pct("payments:paypal:braintree-checkout", "ACH (domestic)", 0.8, undefined, "ACH Services 0.80% capped at $5.00; Pay by Bank 1% capped at $10.00. PayPal checkout card/wallet rates are in tables not parsed.")], { notes: "Standard PayPal and Braintree card rates (percent + fixed) were not extracted from this large page." });
+write("paddle", [], { notes: "Scrape had no usable content." });
+write("tinybird", [plan("warehouse:tinybird:cloud", "Developer", 25, "month", { note: "'Starting at $25/month'." }), plan("warehouse:tinybird:cloud", "SaaS", null, "month", { contact: true }), plan("warehouse:tinybird:cloud", "Enterprise", null, "month", { contact: true })], { notes: "A Free plan also exists. A '$49/month' line appears elsewhere (unlabelled)." });

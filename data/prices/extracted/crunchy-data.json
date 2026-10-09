@@ -1,0 +1,77 @@
+{
+ "provider": "crunchy-data",
+ "currency": "USD",
+ "sources": [
+  "https://www.crunchydata.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "postgres:crunchy-data:crunchy-bridge"
+   ],
+   "tier": "Hobby-0",
+   "spec": {},
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:crunchy-data:crunchy-bridge"
+   ],
+   "tier": "Hobby-1",
+   "spec": {},
+   "price": {
+    "amount": 18,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:crunchy-data:crunchy-bridge"
+   ],
+   "tier": "Hobby-2",
+   "spec": {},
+   "price": {
+    "amount": 35,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:crunchy-data:crunchy-bridge"
+   ],
+   "tier": "Hobby-4",
+   "spec": {},
+   "price": {
+    "amount": 70,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:crunchy-data:crunchy-bridge"
+   ],
+   "tier": "Standard-4",
+   "spec": {},
+   "price": {
+    "amount": 70,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:crunchy-data:crunchy-bridge"
+   ],
+   "tier": "Standard-8",
+   "spec": {},
+   "price": {
+    "amount": 140,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "vCPU/RAM per plan name not captured in the scrape; plans 'start at $10/mo' per copy while the Hobby-0 card shows $9 (current). Prices are for the provider of choice (AWS/Azure/GCP)."
+}

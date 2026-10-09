@@ -1,0 +1,93 @@
+{
+ "provider": "deepseek",
+ "currency": "USD",
+ "sources": [
+  "https://api-docs.deepseek.com/quick_start/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:deepseek:api"
+   ],
+   "tier": "deepseek-flash (V4.1 Flash)",
+   "spec": {
+    "contextTokens": 1000000
+   },
+   "rates": [
+    {
+     "name": "input (cache miss), peak",
+     "amount": 0.3,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, peak",
+     "amount": 1.2,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, peak",
+     "amount": 0.006,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input (cache miss), off-peak",
+     "amount": 0.15,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, off-peak",
+     "amount": 0.6,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, off-peak",
+     "amount": 0.003,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "llm:deepseek:api"
+   ],
+   "tier": "deepseek-v4-pro (0813)",
+   "spec": {
+    "contextTokens": 1000000
+   },
+   "rates": [
+    {
+     "name": "input (cache miss), peak",
+     "amount": 1.32,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, peak",
+     "amount": 3.96,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, peak",
+     "amount": 0.044,
+     "unit": "1m-tokens-cached"
+    },
+    {
+     "name": "input (cache miss), off-peak",
+     "amount": 0.66,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output, off-peak",
+     "amount": 1.98,
+     "unit": "1m-tokens-out"
+    },
+    {
+     "name": "cached input, off-peak",
+     "amount": 0.022,
+     "unit": "1m-tokens-cached"
+    }
+   ]
+  }
+ ],
+ "notes": "Off-peak rates are half of peak. Peak hours 01:00-04:00 and 06:00-10:00 UTC, Mon-Fri excl. Chinese public holidays."
+}

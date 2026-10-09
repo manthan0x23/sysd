@@ -1,0 +1,14 @@
+{
+  "provider": "neon",
+  "currency": "USD",
+  "sources": ["https://neon.com/pricing"],
+  "fetchedAt": "2026-10-09",
+  "tiers": [
+    { "offerings": ["postgres:neon:serverless-postgres", "newsql:neon:serverless-postgres"], "tier": "Free", "spec": { "cuMax": 2, "ramGbMax": 8, "storageGbPerProject": 1, "includedCuHours": 100, "projects": 100 }, "price": { "amount": 0, "unit": "month" } },
+    { "offerings": ["postgres:neon:serverless-postgres", "newsql:neon:serverless-postgres"], "tier": "Launch", "spec": { "cuMax": 16, "ramGbMax": 64, "branchesIncluded": 10 }, "rates": [
+      { "name": "compute", "amount": 0.106, "unit": "cu-hour" }, { "name": "storage", "amount": 0.35, "unit": "gb-month" }, { "name": "history", "amount": 0.2, "unit": "gb-month" }, { "name": "extra branch", "amount": 0.002, "unit": "hour" }, { "name": "object storage", "amount": 0.023, "unit": "gb-month" } ] },
+    { "offerings": ["postgres:neon:serverless-postgres", "newsql:neon:serverless-postgres"], "tier": "Scale", "spec": { "cuMax": 56, "ramGbMax": 224, "branchesIncluded": 25 }, "rates": [
+      { "name": "compute", "amount": 0.222, "unit": "cu-hour" }, { "name": "storage", "amount": 0.35, "unit": "gb-month" }, { "name": "history", "amount": 0.2, "unit": "gb-month" }, { "name": "extra branch", "amount": 0.002, "unit": "hour" }, { "name": "object storage", "amount": 0.023, "unit": "gb-month" } ] }
+  ],
+  "notes": "1 CU = about 4 GB RAM. Compute scales to zero when idle. Network transfer: 500 GB per project included, then $0.10/GB on the plan table. The page also lists an unlabelled $0.01/GB line; not used."
+}

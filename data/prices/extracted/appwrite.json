@@ -1,0 +1,179 @@
+{
+ "provider": "appwrite",
+ "currency": "USD",
+ "sources": [
+  "https://appwrite.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Starter",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 1
+   },
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Standard",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 2
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Standard Plus",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4
+   },
+   "price": {
+    "amount": 49,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Professional",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8
+   },
+   "price": {
+    "amount": 85,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Business",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16
+   },
+   "price": {
+    "amount": 160,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Business Plus",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 299,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Enterprise",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32
+   },
+   "price": {
+    "amount": 425,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Enterprise Plus",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 699,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Scale",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64
+   },
+   "price": {
+    "amount": 999,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Scale Plus",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 128
+   },
+   "price": {
+    "amount": 1699,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Scale Pro",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128
+   },
+   "price": {
+    "amount": 2399,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "baas:appwrite:cloud"
+   ],
+   "tier": "Scale Max",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 256
+   },
+   "price": {
+    "amount": 4099,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Dedicated database compute tiers. Appwrite plan fees (Free/Pro/Scale) not captured."
+}

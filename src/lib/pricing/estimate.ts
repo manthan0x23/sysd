@@ -16,6 +16,8 @@ export interface Usage {
   dataGb: number;
   /** 0..1 */
   read: number;
+  /** Monthly active users (the workload's users), for tiers limited by them. */
+  users?: number;
   /** What a server must hold, including OS overhead. */
   need?: Need;
 }
@@ -26,6 +28,18 @@ export interface Estimate {
   assumptions: string[];
   /** Set when the page lacked something and the number is a lower bound. */
   partial?: string;
+}
+
+/** "covers up to 0.5 GB storage, 1M requests a month" from the limits we know. */
+export function describeLimits(l: Plan["limits"]): string {
+  if (!l) return "";
+  const big = (n: number) => (n >= 1e9 ? `${+(n / 1e9).toPrecision(3)}B` : n >= 1e6 ? `${+(n / 1e6).toPrecision(3)}M` : n >= 1e3 ? `${+(n / 1e3).toPrecision(3)}k` : String(n));
+  const parts = [
+    l.storageGb != null && `${l.storageGb} GB storage`, l.requestsPerMonth != null && `${big(l.requestsPerMonth)} requests a month`,
+    l.users != null && `${big(l.users)} monthly users`, l.computeHours != null && `${big(l.computeHours)} compute hours a month`,
+    l.ramGb != null && `${l.ramGb} GB RAM`, l.vcpu != null && `${l.vcpu} vCPU`, l.egressGb != null && `${l.egressGb} GB transfer a month`,
+  ].filter(Boolean);
+  return parts.length ? `, covers up to ${parts.join(", ")}` : "";
 }
 
 const money = (n: number) => Math.round(n * 100) / 100;
@@ -76,6 +90,20 @@ export function estimate(o: Offering | undefined, plan: Plan | undefined, u: Usa
   if (!o) return null;
   if (o.typeId === "object") return objectEstimate(o, u);
   if (o.typeId === "llm") return plan ? tokenEstimate(plan, u) : null;
+  // Any other tier with a flat monthly price (managed databases, caches, app platforms...).
+  if (o.typeId !== "vps" && plan?.free) {
+    return {
+      monthly: 0, lines: [{ label: `${plan.label} (free)`, amount: 0 }],
+      assumptions: [`Free tier${describeLimits(plan.limits)}. Beyond its limits the next paid tier applies.`, ...(plan.note ? [plan.note] : [])],
+    };
+  }
+  if (o.typeId !== "vps" && plan?.price != null) {
+    const sized = plan.spec ? ` (${plan.spec.vcpu} vCPU, ${plan.spec.ramGb} GB RAM)` : "";
+    return {
+      monthly: money(plan.price), lines: [{ label: `${plan.label}${sized}`, amount: money(plan.price) }],
+      assumptions: ["Listed monthly price of this tier, picked by data size only. Check its CPU and memory against your traffic; usage above the tier's limits is not included.", ...(plan.note ? [plan.note] : [])],
+    };
+  }
   if (o.typeId === "vps") return plan?.price != null ? { monthly: plan.price, lines: [{ label: plan.label, amount: plan.price }], assumptions: ["Sustained price; intro discounts are ignored."] } : null;
   return null;
 }

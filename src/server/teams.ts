@@ -24,25 +24,25 @@ export async function createTeam(userId: string, name: string) {
 }
 
 export async function listTeams(userId: string) {
-  const rows = await db.select({ id: teams.id, name: teams.name, ownerId: teams.ownerId, role: teamMembers.role })
+  const rows = await db.select({ id: teams.id, name: teams.name, logo: teams.logo, ownerId: teams.ownerId, role: teamMembers.role })
     .from(teams).leftJoin(teamMembers, and(eq(teamMembers.teamId, teams.id), eq(teamMembers.userId, userId)))
     .where(or(eq(teams.ownerId, userId), eq(teamMembers.userId, userId))).orderBy(asc(teams.name));
-  return rows.map((r) => ({ id: r.id, name: r.name, level: (r.ownerId === userId ? "owner" : r.role) as "owner" | Role }));
+  return rows.map((r) => ({ id: r.id, name: r.name, logo: r.logo, level: (r.ownerId === userId ? "owner" : r.role) as "owner" | Role }));
 }
 
 export async function getTeam(userId: string, teamId: string) {
   const level = await teamLevel(userId, teamId);
   if (!level) throw new UserError("That team does not exist, or you are not in it.");
   const [t] = await db.select().from(teams).where(eq(teams.id, teamId)).limit(1);
-  const members = await db.select({ userId: users.id, name: users.name, image: users.image, role: teamMembers.role })
+  const members = await db.select({ userId: users.id, name: users.name, avatar: users.avatar, role: teamMembers.role })
     .from(teamMembers).innerJoin(users, eq(users.id, teamMembers.userId)).where(eq(teamMembers.teamId, teamId)).orderBy(asc(teamMembers.createdAt));
-  const [owner] = await db.select({ id: users.id, name: users.name, image: users.image }).from(users).where(eq(users.id, t.ownerId)).limit(1);
+  const [owner] = await db.select({ id: users.id, name: users.name, avatar: users.avatar }).from(users).where(eq(users.id, t.ownerId)).limit(1);
   // Pending invites are only visible to the owner, and never include the secret part of the link.
   const invites = level === "owner"
     ? await db.select({ id: teamInvites.id, role: teamInvites.role, createdAt: teamInvites.createdAt, expiresAt: teamInvites.expiresAt })
       .from(teamInvites).where(and(eq(teamInvites.teamId, teamId), isNull(teamInvites.acceptedAt), isNull(teamInvites.revokedAt), gt(teamInvites.expiresAt, new Date())))
     : [];
-  return { id: t.id, name: t.name, level, owner, members, invites };
+  return { id: t.id, name: t.name, logo: t.logo, level, owner, members, invites };
 }
 
 /** Returns the invite token once. Only its hash is stored, so the link cannot be recovered later. */

@@ -1,0 +1,35 @@
+{
+ "provider": "sendbird",
+ "currency": "USD",
+ "sources": [
+  "https://sendbird.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "chat:sendbird:chat"
+   ],
+   "tier": "Starter (lower paid tier)",
+   "spec": {},
+   "price": {
+    "amount": 349,
+    "unit": "month"
+   },
+   "note": "Billed annually; $399/month billed monthly. Plan name not captured."
+  },
+  {
+   "offerings": [
+    "chat:sendbird:chat"
+   ],
+   "tier": "Growth (higher paid tier)",
+   "spec": {},
+   "price": {
+    "amount": 499,
+    "unit": "month"
+   },
+   "note": "Billed annually; $599/month billed monthly. Plan name not captured."
+  }
+ ],
+ "notes": "Tier names are descriptions from the page copy ('Get started with chat', 'Grow your business'), not official plan names."
+}

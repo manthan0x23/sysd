@@ -1,0 +1,59 @@
+{
+ "provider": "livekit",
+ "currency": "USD",
+ "sources": [
+  "https://livekit.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "rtc:livekit:cloud"
+   ],
+   "tier": "Build",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "rtc:livekit:cloud"
+   ],
+   "tier": "Ship",
+   "spec": {},
+   "price": {
+    "amount": 50,
+    "unit": "month"
+   },
+   "note": "'Starting at'."
+  },
+  {
+   "offerings": [
+    "rtc:livekit:cloud"
+   ],
+   "tier": "Scale",
+   "spec": {},
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   },
+   "note": "'Starting at'."
+  },
+  {
+   "offerings": [
+    "rtc:livekit:cloud"
+   ],
+   "tier": "Agent session",
+   "spec": {},
+   "rates": [
+    {
+     "name": "agent session",
+     "amount": 0.01,
+     "unit": "minute"
+    }
+   ]
+  }
+ ]
+}

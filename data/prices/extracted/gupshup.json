@@ -1,0 +1,10 @@
+{
+ "provider": "gupshup",
+ "currency": "USD",
+ "sources": [
+  "https://www.gupshup.io/developer/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned no prices."
+}

@@ -1,0 +1,26 @@
+{
+ "provider": "onesignal",
+ "currency": "USD",
+ "sources": [
+  "https://onesignal.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "sms:onesignal:push"
+   ],
+   "tier": "Free / pay-as-you-go push",
+   "spec": {},
+   "rates": [
+    {
+     "name": "email beyond 20,000 free sends",
+     "amount": 1.5,
+     "unit": "1k-emails"
+    }
+   ],
+   "note": "Email: 20,000 free sends/month then $1.50 per 1,000. Mobile push for up to 1,000 MAU shown at $0.012 per MAU (truncated line)."
+  }
+ ],
+ "notes": "Plan names/base fees not reliably captured; an example bill on the page shows a $19 platform cost."
+}

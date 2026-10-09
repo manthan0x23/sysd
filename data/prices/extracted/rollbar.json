@@ -1,0 +1,22 @@
+{
+ "provider": "rollbar",
+ "currency": "USD",
+ "sources": [
+  "https://rollbar.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "errors:rollbar:errors"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "'Plans starting at $0'; paid plan prices not captured."
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "provider": "hivemq",
+ "currency": "USD",
+ "sources": [
+  "https://www.hivemq.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "iot:hivemq:cloud"
+   ],
+   "tier": "Launch (self-managed software)",
+   "spec": {},
+   "price": {
+    "amount": 299,
+    "unit": "month"
+   },
+   "note": "1 broker deployment, community support."
+  },
+  {
+   "offerings": [
+    "iot:hivemq:cloud"
+   ],
+   "tier": "Next plan up",
+   "spec": {},
+   "price": {
+    "amount": 499,
+    "unit": "month"
+   },
+   "note": "Plan name not confirmed (likely 'Run' by page order)."
+  }
+ ],
+ "notes": "Cloud (managed) usage price starts $0.34/hour + $0.80/million messages for the Agentic AI Ops add-on only; managed MQTT cluster prices not captured."
+}

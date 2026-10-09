@@ -1,0 +1,31 @@
+{
+ "provider": "adyen",
+ "currency": "USD",
+ "sources": [
+  "https://www.adyen.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "payments:adyen:payments"
+   ],
+   "tier": "Processing fee + card scheme",
+   "spec": {},
+   "rates": [
+    {
+     "name": "percentage of transaction",
+     "amount": 0,
+     "unit": "percent"
+    },
+    {
+     "name": "fixed fee per transaction",
+     "amount": 0.13,
+     "unit": "fixed"
+    }
+   ],
+   "note": "Adyen charges a $0.13 processing fee plus interchange/scheme fees; Affirm BNPL rows show 4.19%-4.99% + $0.30. Percentages for cards not captured."
+  }
+ ],
+ "notes": "Interchange++ pricing; the page's figures are partial."
+}

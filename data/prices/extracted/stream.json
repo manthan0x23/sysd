@@ -1,0 +1,35 @@
+{
+ "provider": "stream",
+ "currency": "USD",
+ "sources": [
+  "https://getstream.io/chat/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "chat:stream:chat"
+   ],
+   "tier": "Start",
+   "spec": {},
+   "price": {
+    "amount": 399,
+    "unit": "month"
+   },
+   "note": "Billed annually; $499 billed monthly."
+  },
+  {
+   "offerings": [
+    "chat:stream:chat"
+   ],
+   "tier": "Elevate",
+   "spec": {},
+   "price": {
+    "amount": 599,
+    "unit": "month"
+   },
+   "note": "Billed annually; $675 billed monthly."
+  }
+ ],
+ "notes": "Free Maker plan and Enterprise exist; limits (MAU, concurrent connections) not captured."
+}

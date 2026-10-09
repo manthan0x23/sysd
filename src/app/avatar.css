@@ -1,0 +1,20 @@
+.av { display: inline-grid; place-items: center; flex: none; border-radius: 50%; overflow: hidden; color: #1a1a1a; font: 600 14px/1 var(--font-sans), system-ui, sans-serif; border: 1.5px solid var(--ring); box-sizing: border-box; user-select: none; }
+.av svg { display: block; }
+.av-back { position: fixed; inset: 0; z-index: 90; background: color-mix(in oklab, #000 45%, transparent); display: grid; place-items: center; padding: 16px; }
+.av-dlg { width: min(440px, 100%); max-height: min(560px, 100%); overflow: auto; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: 0 18px 50px color-mix(in oklab, #000 28%, transparent); }
+.av-dlg h2 { margin: 0 0 12px; font-size: 16px; }
+.av-prev { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; color: var(--ink2); font-size: 13px; }
+.av-tabs { display: flex; gap: 4px; margin-bottom: 12px; border-bottom: 1px solid var(--line); }
+.av-tabs button { all: unset; cursor: pointer; padding: 6px 10px; font-size: 13px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.av-tabs button[aria-selected="true"] { border-color: var(--ac); font-weight: 600; }
+.av-tabs button:focus-visible, .av-grid button:focus-visible, .av-swatches button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.av-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 8px; margin-bottom: 12px; }
+.av-grid button { all: unset; cursor: pointer; display: grid; place-items: center; border-radius: 50%; padding: 2px; }
+.av-grid button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--ac); }
+.av-swatches { display: flex; gap: 8px; margin-bottom: 12px; }
+.av-swatches button { all: unset; cursor: pointer; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--ring); box-sizing: border-box; }
+.av-swatches button[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink); }
+.av-foot { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+.av-err { margin-right: auto; color: #dc3d43; font-size: 13px; }
+.av-up { display: grid; gap: 10px; justify-items: start; margin-bottom: 12px; }
+.av-up .note { color: var(--ink2); font-size: 12.5px; margin: 0; }

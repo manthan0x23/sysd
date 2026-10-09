@@ -7,6 +7,7 @@ export * from "./services";
 export * from "./offerings";
 export * from "./icons";
 export * from "./plans";
+export * from "./connections";
 
 /** Search across type names, categories and every provider/product name ("neon" finds Postgres). */
 export function searchTypes(q: string): { type: ServiceType; via?: string }[] {

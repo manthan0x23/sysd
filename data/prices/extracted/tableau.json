@@ -1,0 +1,34 @@
+{
+ "provider": "tableau",
+ "currency": "USD",
+ "sources": [
+  "https://www.tableau.com/pricing/teams-orgs"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "bi:tableau:cloud"
+   ],
+   "tier": "Tableau Standard (from)",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "user-month"
+   },
+   "note": "'Starting at $15 USD/user/month, billed annually'. Creator/Explorer/Viewer role prices not captured."
+  },
+  {
+   "offerings": [
+    "bi:tableau:cloud"
+   ],
+   "tier": "Tableau Enterprise (from)",
+   "spec": {},
+   "price": {
+    "amount": 35,
+    "unit": "user-month"
+   },
+   "note": "'Starting at $35 USD/user/month, billed annually'."
+  }
+ ]
+}

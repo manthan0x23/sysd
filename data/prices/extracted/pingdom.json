@@ -1,0 +1,22 @@
+{
+ "provider": "pingdom",
+ "currency": "USD",
+ "sources": [
+  "https://www.pingdom.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "uptime:pingdom:monitoring"
+   ],
+   "tier": "Synthetic Monitoring (from)",
+   "spec": {},
+   "price": {
+    "amount": 16.5,
+    "unit": "month"
+   },
+   "note": "'Starting at $16.5/mo'. RUM listed at $198/year-ish tier; not recorded."
+  }
+ ]
+}

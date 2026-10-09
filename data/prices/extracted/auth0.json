@@ -1,0 +1,44 @@
+{
+ "provider": "auth0",
+ "currency": "USD",
+ "sources": [
+  "https://auth0.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "auth:auth0:customer-identity"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "auth:auth0:customer-identity"
+   ],
+   "tier": "Essentials",
+   "spec": {},
+   "price": {
+    "amount": 35,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "auth:auth0:customer-identity"
+   ],
+   "tier": "Professional",
+   "spec": {},
+   "price": {
+    "amount": 240,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Prices shown for the default MAU band on the page; price scales with monthly active users (band not captured)."
+}

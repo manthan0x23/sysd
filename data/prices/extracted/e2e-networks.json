@@ -1,0 +1,1027 @@
+{
+ "provider": "e2e-networks",
+ "currency": "USD",
+ "sources": [
+  "https://www.e2enetworks.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA B200 192 GB",
+   "spec": {
+    "gpuModel": "NVIDIA B200",
+    "vramGb": 192,
+    "vcpu": 32,
+    "ramGb": 400
+   },
+   "price": {
+    "amount": 6.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA H200 141 GB",
+   "spec": {
+    "gpuModel": "NVIDIA H200",
+    "vramGb": 141,
+    "vcpu": 30,
+    "ramGb": 375
+   },
+   "price": {
+    "amount": 3.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA H100 80 GB",
+   "spec": {
+    "gpuModel": "NVIDIA H100",
+    "vramGb": 80,
+    "vcpu": 26,
+    "ramGb": 250
+   },
+   "price": {
+    "amount": 2.69,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA RTX PRO 6000 96 GB",
+   "spec": {
+    "gpuModel": "NVIDIA RTX PRO 6000",
+    "vramGb": 96,
+    "vcpu": 32,
+    "ramGb": 170
+   },
+   "price": {
+    "amount": 1.9,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA A100 80 GB",
+   "spec": {
+    "gpuModel": "NVIDIA A100",
+    "vramGb": 80,
+    "vcpu": 16,
+    "ramGb": 115
+   },
+   "price": {
+    "amount": 2.1,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA A100 40 GB",
+   "spec": {
+    "gpuModel": "NVIDIA A100",
+    "vramGb": 40,
+    "vcpu": 16,
+    "ramGb": 115
+   },
+   "price": {
+    "amount": 1.98,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA A40 48 GB",
+   "spec": {
+    "gpuModel": "NVIDIA A40",
+    "vramGb": 48,
+    "vcpu": 16,
+    "ramGb": 100
+   },
+   "price": {
+    "amount": 1.44,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA L40S 48 GB",
+   "spec": {
+    "gpuModel": "NVIDIA L40S",
+    "vramGb": 48,
+    "vcpu": 60,
+    "ramGb": 220
+   },
+   "price": {
+    "amount": 1.2,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA A30 24 GB",
+   "spec": {
+    "gpuModel": "NVIDIA A30",
+    "vramGb": 24,
+    "vcpu": 16,
+    "ramGb": 90
+   },
+   "price": {
+    "amount": 1.35,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "NVIDIA L4 24 GB",
+   "spec": {
+    "gpuModel": "NVIDIA L4",
+    "vramGb": 24,
+    "vcpu": 25,
+    "ramGb": 110
+   },
+   "price": {
+    "amount": 0.57,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; monthly/annual by quote."
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.8GB",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 100,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 35.64,
+    "unit": "month"
+   },
+   "hourly": 0.049
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.16GB",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "diskGb": 150,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 70.13,
+    "unit": "month"
+   },
+   "hourly": 0.096
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.32GB",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "diskGb": 200,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 141.42,
+    "unit": "month"
+   },
+   "hourly": 0.194
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.64GB",
+   "spec": {
+    "vcpu": 20,
+    "ramGb": 64,
+    "diskGb": 400,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 281.69,
+    "unit": "month"
+   },
+   "hourly": 0.386
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.96GB",
+   "spec": {
+    "vcpu": 24,
+    "ramGb": 96,
+    "diskGb": 600,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 423.11,
+    "unit": "month"
+   },
+   "hourly": 0.58
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.128GB",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128,
+    "diskGb": 800,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 563.95,
+    "unit": "month"
+   },
+   "hourly": 0.773
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.192GB",
+   "spec": {
+    "vcpu": 40,
+    "ramGb": 192,
+    "diskGb": 1000,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 845.07,
+    "unit": "month"
+   },
+   "hourly": 1.16
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "High-Performance Computing SSD Series C3: C3.250GB",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 256,
+    "diskGb": 1500,
+    "family": "High-Performance Computing SSD Series C3"
+   },
+   "price": {
+    "amount": 1126.75,
+    "unit": "month"
+   },
+   "hourly": 1.54
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Memory Intensive Cloud - 3rd Generation: M3.32GB",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32,
+    "diskGb": 100,
+    "family": "Memory Intensive Cloud - 3rd Generation"
+   },
+   "price": {
+    "amount": 58.64,
+    "unit": "month"
+   },
+   "hourly": 0.08
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Memory Intensive Cloud - 3rd Generation: M3.48GB",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 48,
+    "diskGb": 150,
+    "family": "Memory Intensive Cloud - 3rd Generation"
+   },
+   "price": {
+    "amount": 117.27,
+    "unit": "month"
+   },
+   "hourly": 0.161
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Memory Intensive Cloud - 3rd Generation: M3.96GB",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 96,
+    "diskGb": 200,
+    "family": "Memory Intensive Cloud - 3rd Generation"
+   },
+   "price": {
+    "amount": 234.55,
+    "unit": "month"
+   },
+   "hourly": 0.321
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Memory Intensive Cloud - 3rd Generation: M3.128GB",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 128,
+    "diskGb": 300,
+    "family": "Memory Intensive Cloud - 3rd Generation"
+   },
+   "price": {
+    "amount": 351.82,
+    "unit": "month"
+   },
+   "hourly": 0.482
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Memory Intensive Cloud - 3rd Generation: M3.192GB",
+   "spec": {
+    "vcpu": 24,
+    "ramGb": 192,
+    "diskGb": 450,
+    "family": "Memory Intensive Cloud - 3rd Generation"
+   },
+   "price": {
+    "amount": 470.25,
+    "unit": "month"
+   },
+   "hourly": 0.644
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Memory Intensive Cloud - 3rd Generation: M3.256GB",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 256,
+    "diskGb": 600,
+    "family": "Memory Intensive Cloud - 3rd Generation"
+   },
+   "price": {
+    "amount": 939.35,
+    "unit": "month"
+   },
+   "hourly": 1.29
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-4.30GB",
+   "spec": {
+    "ramGb": 30,
+    "diskGb": 125,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 72.43,
+    "unit": "month"
+   },
+   "hourly": 0.099
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-8.60GB",
+   "spec": {
+    "ramGb": 60,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 137.97,
+    "unit": "month"
+   },
+   "hourly": 0.189
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-12.90GB",
+   "spec": {
+    "ramGb": 90,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 206.95,
+    "unit": "month"
+   },
+   "hourly": 0.283
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-16-120GB",
+   "spec": {
+    "ramGb": 120,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 275.94,
+    "unit": "month"
+   },
+   "hourly": 0.378
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-24.180GB",
+   "spec": {
+    "ramGb": 180,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 413.91,
+    "unit": "month"
+   },
+   "hourly": 0.567
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-32.240GB",
+   "spec": {
+    "ramGb": 240,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 551.88,
+    "unit": "month"
+   },
+   "hourly": 0.756
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-48.360GB",
+   "spec": {
+    "ramGb": 360,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 827.82,
+    "unit": "month"
+   },
+   "hourly": 1.13
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-64.480GB",
+   "spec": {
+    "ramGb": 480,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 1103.76,
+    "unit": "month"
+   },
+   "hourly": 1.51
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-96.720GB",
+   "spec": {
+    "ramGb": 720,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 1655.64,
+    "unit": "month"
+   },
+   "hourly": 2.27
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Linux Smart Dedicated Compute - SDC3 Series: SDC3-120.900GB",
+   "spec": {
+    "ramGb": 900,
+    "diskGb": 250,
+    "family": "Linux Smart Dedicated Compute - SDC3 Series"
+   },
+   "price": {
+    "amount": 2069.55,
+    "unit": "month"
+   },
+   "hourly": 2.84
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-2.6GB",
+   "spec": {
+    "vcpu": 2,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 32.32,
+    "unit": "month"
+   },
+   "hourly": 0.044
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-4.12GB",
+   "spec": {
+    "vcpu": 4,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 64.64,
+    "unit": "month"
+   },
+   "hourly": 0.089
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-6.18GB",
+   "spec": {
+    "vcpu": 6,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 97.96,
+    "unit": "month"
+   },
+   "hourly": 0.134
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-8.24GB",
+   "spec": {
+    "vcpu": 8,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 129.28,
+    "unit": "month"
+   },
+   "hourly": 0.177
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-16.48GB",
+   "spec": {
+    "vcpu": 16,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 258.56,
+    "unit": "month"
+   },
+   "hourly": 0.354
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-24.72GB",
+   "spec": {
+    "vcpu": 24,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 402.59,
+    "unit": "month"
+   },
+   "hourly": 0.551
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-32.96GB",
+   "spec": {
+    "vcpu": 32,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 517.31,
+    "unit": "month"
+   },
+   "hourly": 0.708
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-48.144GB",
+   "spec": {
+    "vcpu": 48,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 776.14,
+    "unit": "month"
+   },
+   "hourly": 1.06
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-64.192GB",
+   "spec": {
+    "vcpu": 64,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 1034.75,
+    "unit": "month"
+   },
+   "hourly": 1.42
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-96.288GB",
+   "spec": {
+    "vcpu": 96,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 1554.89,
+    "unit": "month"
+   },
+   "hourly": 2.13
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-128.384GB",
+   "spec": {
+    "vcpu": 128,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 2069.5,
+    "unit": "month"
+   },
+   "hourly": 2.83
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-160.480GB",
+   "spec": {
+    "vcpu": 160,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 2587.11,
+    "unit": "month"
+   },
+   "hourly": 3.54
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-192.576GB",
+   "spec": {
+    "vcpu": 192,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 3148.03,
+    "unit": "month"
+   },
+   "hourly": 4.31
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-224.672GB",
+   "spec": {
+    "vcpu": 224,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 3621.83,
+    "unit": "month"
+   },
+   "hourly": 4.96
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series: E1LC-256.768GB",
+   "spec": {
+    "vcpu": 256,
+    "family": "E1 Series"
+   },
+   "price": {
+    "amount": 4138.33,
+    "unit": "month"
+   },
+   "hourly": 5.67
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-2.8GB",
+   "spec": {
+    "vcpu": 2,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 254.93,
+    "unit": "month"
+   },
+   "hourly": 0.35
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-4.16GB",
+   "spec": {
+    "vcpu": 4,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 509.85,
+    "unit": "month"
+   },
+   "hourly": 0.7
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-6.24GB",
+   "spec": {
+    "vcpu": 6,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 764.78,
+    "unit": "month"
+   },
+   "hourly": 1.05
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-8.32GB",
+   "spec": {
+    "vcpu": 8,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 1019.71,
+    "unit": "month"
+   },
+   "hourly": 1.4
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-16.64GB",
+   "spec": {
+    "vcpu": 16,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 2039.41,
+    "unit": "month"
+   },
+   "hourly": 2.8
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-24.96GB",
+   "spec": {
+    "vcpu": 24,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 3059.12,
+    "unit": "month"
+   },
+   "hourly": 4.2
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-32.128GB",
+   "spec": {
+    "vcpu": 32,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 4078.82,
+    "unit": "month"
+   },
+   "hourly": 5.6
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-48.192GB",
+   "spec": {
+    "vcpu": 48,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 6118.24,
+    "unit": "month"
+   },
+   "hourly": 8.4
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-64.256GB",
+   "spec": {
+    "vcpu": 64,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 8157.65,
+    "unit": "month"
+   },
+   "hourly": 11.2
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E1 Series Windows: E1WC-96.384GB",
+   "spec": {
+    "vcpu": 96,
+    "family": "E1 Series Windows"
+   },
+   "price": {
+    "amount": 12236.47,
+    "unit": "month"
+   },
+   "hourly": 16.8
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Load Balancer: E2E-LB-2",
+   "spec": {
+    "vcpu": 4,
+    "family": "Load Balancer"
+   },
+   "price": {
+    "amount": 21.9,
+    "unit": "month"
+   },
+   "hourly": 0.03
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Load Balancer: E2E-LB-3",
+   "spec": {
+    "vcpu": 8,
+    "family": "Load Balancer"
+   },
+   "price": {
+    "amount": 43.8,
+    "unit": "month"
+   },
+   "hourly": 0.06
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Load Balancer: E2E-LB-4",
+   "spec": {
+    "vcpu": 12,
+    "family": "Load Balancer"
+   },
+   "price": {
+    "amount": 87.6,
+    "unit": "month"
+   },
+   "hourly": 0.12
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "Load Balancer: E2E-LB-5",
+   "spec": {
+    "vcpu": 24,
+    "family": "Load Balancer"
+   },
+   "price": {
+    "amount": 175.2,
+    "unit": "month"
+   },
+   "hourly": 0.24
+  },
+  {
+   "offerings": [
+    "vps:e2e-networks:cloud-compute"
+   ],
+   "tier": "E2E Kubernetes Service: C3.8GB Master Node",
+   "spec": {
+    "vcpu": 4,
+    "family": "E2E Kubernetes Service"
+   },
+   "price": {
+    "amount": 35.64,
+    "unit": "month"
+   }
+  }
+ ]
+}

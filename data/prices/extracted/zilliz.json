@@ -1,0 +1,46 @@
+{
+ "provider": "zilliz",
+ "currency": "USD",
+ "sources": [
+  "https://zilliz.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vector:zilliz:cloud-milvus"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vector:zilliz:cloud-milvus"
+   ],
+   "tier": "Standard (serverless)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "'From $0/month'; usage-based."
+  },
+  {
+   "offerings": [
+    "vector:zilliz:cloud-milvus"
+   ],
+   "tier": "Enterprise (dedicated)",
+   "spec": {},
+   "price": {
+    "amount": 197,
+    "unit": "month"
+   },
+   "note": "'From $197/month' (dedicated)."
+  }
+ ],
+ "notes": "Page also shows 'From $126/GB/month (Dedicated)' under Standard, which looks like a mis-scrape of a $126/month CU price; not used. Example storage $0.10 (unit not captured)."
+}

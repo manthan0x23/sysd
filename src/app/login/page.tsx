@@ -42,7 +42,7 @@ async function LoginBody({ searchParams }: { searchParams: Promise<{ next?: stri
         {PROVIDERS.some((p) => !p.configured) && (
           <p className="login-note">A provider shows “not set up yet” until its client ID and secret are in <code>.env.local</code>. See <code>.env.example</code>.</p>
         )}
-        <p className="login-fine">We receive your name, email address and profile picture from the provider, and nothing else. By continuing you agree to the <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link>.</p>
+        <p className="login-fine">We receive your name and email address from the provider (not your profile picture), and nothing else. By continuing you agree to the <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link>.</p>
       </section>
     </main>
   );

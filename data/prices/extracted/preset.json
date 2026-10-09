@@ -1,0 +1,34 @@
+{
+ "provider": "preset",
+ "currency": "USD",
+ "sources": [
+  "https://preset.io/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "bi:preset:superset-cloud"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "Free for up to 5 users."
+  },
+  {
+   "offerings": [
+    "bi:preset:superset-cloud"
+   ],
+   "tier": "Professional",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "user-month"
+   },
+   "note": "'$25/user/month billed monthly'."
+  }
+ ]
+}

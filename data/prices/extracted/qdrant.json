@@ -1,0 +1,44 @@
+{
+ "provider": "qdrant",
+ "currency": "USD",
+ "sources": [
+  "https://qdrant.tech/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vector:qdrant:cloud"
+   ],
+   "tier": "Free tier",
+   "spec": {
+    "vcpu": 0.5,
+    "ramGb": 1,
+    "diskGb": 4,
+    "nodes": 1
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vector:qdrant:cloud"
+   ],
+   "tier": "Standard (usage-based)",
+   "spec": {},
+   "contact": true,
+   "note": "Usage-based; rates are in the calculator (cloud.qdrant.io/calculator), not on the page."
+  },
+  {
+   "offerings": [
+    "vector:qdrant:cloud"
+   ],
+   "tier": "Premium",
+   "spec": {},
+   "contact": true,
+   "note": "Minimum spend required."
+  }
+ ]
+}

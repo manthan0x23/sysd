@@ -1,0 +1,10 @@
+{
+ "provider": "mixpanel",
+ "currency": "USD",
+ "sources": [
+  "https://mixpanel.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Only a '$120 per month' / '$140 per month' pair (monthly vs yearly billing?) appears, with no plan name in the scrape; not recorded."
+}

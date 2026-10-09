@@ -1,0 +1,39 @@
+{
+ "provider": "astronomer",
+ "currency": "USD",
+ "sources": [
+  "https://www.astronomer.io/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "workflow:astronomer:astro"
+   ],
+   "tier": "Developer",
+   "spec": {},
+   "rates": [
+    {
+     "name": "deployment, starting at",
+     "amount": 0.35,
+     "unit": "hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "workflow:astronomer:astro"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "rates": [
+    {
+     "name": "deployment, starting at",
+     "amount": 0.42,
+     "unit": "hour"
+    }
+   ]
+  }
+ ],
+ "notes": "Deployments run continuously, fixed hourly price per size; larger sizes not captured."
+}

@@ -1,0 +1,33 @@
+{
+ "provider": "axiom",
+ "currency": "USD",
+ "sources": [
+  "https://axiom.co/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "logs:axiom:logs"
+   ],
+   "tier": "Personal",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "logs:axiom:logs"
+   ],
+   "tier": "Axiom Cloud",
+   "spec": {},
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   },
+   "note": "Platform fee $25/month + usage; RBAC $50/mo, extended audit logs $50/mo, SAML SSO $100/mo add-ons."
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "provider": "fivetran",
+ "currency": "USD",
+ "sources": [
+  "https://www.fivetran.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Only a 'median monthly list price $22.06' sample and per-model-run rates ($0.002-$0.01) were captured; Fivetran bills per monthly active rows (MAR) with tiers not in the scrape."
+}

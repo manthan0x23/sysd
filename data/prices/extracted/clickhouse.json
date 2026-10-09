@@ -1,0 +1,74 @@
+{
+ "provider": "clickhouse",
+ "currency": "USD",
+ "sources": [
+  "https://clickhouse.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "warehouse:clickhouse:cloud"
+   ],
+   "tier": "Basic",
+   "spec": {
+    "storageTbMax": 1,
+    "memoryGibTotal": "8-12"
+   },
+   "price": {
+    "amount": 53,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 25.3,
+     "unit": "tb-month"
+    },
+    {
+     "name": "compute",
+     "amount": 0.2181,
+     "unit": "unit-hour"
+    }
+   ],
+   "note": "'From $53/month'; storage up to 1 TB."
+  },
+  {
+   "offerings": [
+    "warehouse:clickhouse:cloud"
+   ],
+   "tier": "Scale",
+   "spec": {},
+   "price": {
+    "amount": 437,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "storage",
+     "amount": 25.3,
+     "unit": "tb-month"
+    },
+    {
+     "name": "compute",
+     "amount": 0.2985,
+     "unit": "unit-hour"
+    }
+   ],
+   "note": "'From $437/month'."
+  },
+  {
+   "offerings": [
+    "warehouse:clickhouse:cloud"
+   ],
+   "tier": "Enterprise",
+   "spec": {},
+   "price": {
+    "amount": 571,
+    "unit": "month"
+   },
+   "note": "'From $571/month'."
+  }
+ ],
+ "notes": "Compute billed per 'unit' (8 GiB RAM unit; unit size inferred, not on the scraped lines)."
+}

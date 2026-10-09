@@ -1,0 +1,35 @@
+{
+ "provider": "mux",
+ "currency": "USD",
+ "sources": [
+  "https://www.mux.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "media:mux:video"
+   ],
+   "tier": "Launch",
+   "spec": {},
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   },
+   "note": "$20/mo for $100 in usage credit; Free plan has $20 monthly usage credit."
+  },
+  {
+   "offerings": [
+    "media:mux:video"
+   ],
+   "tier": "Scale",
+   "spec": {},
+   "price": {
+    "amount": 500,
+    "unit": "month"
+   },
+   "note": "$500/mo for $1,000 in usage credit."
+  }
+ ],
+ "notes": "Storage from $0.0024/min; delivery/encoding rates per resolution tier not captured."
+}

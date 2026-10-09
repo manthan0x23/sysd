@@ -1,0 +1,10 @@
+{
+ "provider": "segment",
+ "currency": "USD",
+ "sources": [
+  "https://segment.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape had no plan prices."
+}

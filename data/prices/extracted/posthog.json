@@ -1,0 +1,10 @@
+{
+ "provider": "posthog",
+ "currency": "USD",
+ "sources": [
+  "https://posthog.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Pay-as-you-go with per-product free tiers; product rates (events, replays, flags) are in a calculator not captured in usable form."
+}

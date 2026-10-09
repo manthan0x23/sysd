@@ -1,0 +1,1178 @@
+{
+ "provider": "upcloud",
+ "currency": "EUR",
+ "sources": [
+  "https://upcloud.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 1 GB / 1 CPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 1,
+    "diskGb": 10,
+    "family": "Starter",
+    "bandwidth": "250 Mbit/s"
+   },
+   "price": {
+    "amount": 3,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 2 GB / 1 CPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "diskGb": 20,
+    "family": "Starter",
+    "bandwidth": "250 Mbit/s"
+   },
+   "price": {
+    "amount": 6,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 2 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 2,
+    "diskGb": 30,
+    "family": "Starter",
+    "bandwidth": "250 Mbit/s"
+   },
+   "price": {
+    "amount": 8,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 4 GB / 1 CPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 4,
+    "diskGb": 30,
+    "family": "Starter",
+    "bandwidth": "250 Mbit/s"
+   },
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 4 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 30,
+    "family": "Starter",
+    "bandwidth": "500 Mbit/s"
+   },
+   "price": {
+    "amount": 12,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 8 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "diskGb": 40,
+    "family": "Starter",
+    "bandwidth": "500 Mbit/s"
+   },
+   "price": {
+    "amount": 18,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 8 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 40,
+    "family": "Starter",
+    "bandwidth": "500 Mbit/s"
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 16 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 16,
+    "diskGb": 50,
+    "family": "Starter",
+    "bandwidth": "500 Mbit/s"
+   },
+   "price": {
+    "amount": 24,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Starter 16 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "diskGb": 50,
+    "family": "Starter",
+    "bandwidth": "500 Mbit/s"
+   },
+   "price": {
+    "amount": 28,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 1 GB / 1 CPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 1,
+    "diskGb": 25,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 2 GB / 1 CPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "diskGb": 25,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 12,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 2 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 2,
+    "diskGb": 50,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 16,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 4 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "diskGb": 50,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 26,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 8 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "diskGb": 100,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 38,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 8 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "diskGb": 100,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 52,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 16 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 16,
+    "diskGb": 150,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 72,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 16 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "diskGb": 150,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 92,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 16 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "diskGb": 200,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 148,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 32 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32,
+    "diskGb": 200,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 142,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 32 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "diskGb": 200,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 192,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 32 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "diskGb": 300,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 310,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 64 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 64,
+    "diskGb": 300,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 268,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 64 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "diskGb": 300,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 384,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 64 GB / 32 CPU",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 64,
+    "diskGb": 300,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 620,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 96 GB / 24 CPU",
+   "spec": {
+    "vcpu": 24,
+    "ramGb": 96,
+    "diskGb": 400,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 576,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 96 GB / 48 CPU",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 96,
+    "diskGb": 400,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 1056,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 128 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 128,
+    "diskGb": 400,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 480,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 128 GB / 32 CPU",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128,
+    "diskGb": 400,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 768,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 128 GB / 64 CPU",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 128,
+    "diskGb": 500,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 1248,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 192 GB / 38 CPU",
+   "spec": {
+    "vcpu": 38,
+    "ramGb": 192,
+    "diskGb": 500,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 1024,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 256 GB / 48 CPU",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 256,
+    "diskGb": 500,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 1364,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 384 GB / 64 CPU",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 384,
+    "diskGb": 500,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 1992,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Premium 512 GB / 80 CPU",
+   "spec": {
+    "vcpu": 80,
+    "ramGb": 512,
+    "diskGb": 500,
+    "family": "Premium"
+   },
+   "price": {
+    "amount": 2552,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 4 GB / 1 CPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 4,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 12,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 4 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 8 GB / 1 CPU",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 8,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 8 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 24,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 8 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 32,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 16 GB / 2 CPU",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 16,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 34,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 16 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 68,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 16 GB / 6 CPU",
+   "spec": {
+    "vcpu": 6,
+    "ramGb": 16,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 74,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 16 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 80,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 24 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 24,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 72,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 24 GB / 6 CPU",
+   "spec": {
+    "vcpu": 6,
+    "ramGb": 24,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 78,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 24 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 24,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 84,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 24 GB / 12 CPU",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 24,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 90,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 32 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 90,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 32 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 130,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 32 GB / 12 CPU",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 32,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 145,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 32 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 160,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 48 GB / 4 CPU",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 48,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 160,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 48 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 48,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 190,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 48 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 48,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 230,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 64 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 64,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 220,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 64 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 270,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 64 GB / 20 CPU",
+   "spec": {
+    "vcpu": 20,
+    "ramGb": 64,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 285,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 64 GB / 32 CPU",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 64,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 300,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 96 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 96,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 240,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 96 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 96,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 340,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 96 GB / 20 CPU",
+   "spec": {
+    "vcpu": 20,
+    "ramGb": 96,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 380,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 128 GB / 8 CPU",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 128,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 340,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 128 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 128,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 370,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 128 GB / 32 CPU",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 460,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 192 GB / 16 CPU",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 192,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 560,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 192 GB / 32 CPU",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 192,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 670,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 192 GB / 64 CPU",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 192,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 700,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 256 GB / 24 CPU",
+   "spec": {
+    "vcpu": 24,
+    "ramGb": 256,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 720,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 256 GB / 32 CPU",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 256,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 740,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 256 GB / 64 CPU",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 256,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 820,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 384 GB / 32 CPU",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 384,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 880,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 384 GB / 48 CPU",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 384,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 920,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 384 GB / 64 CPU",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 384,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 980,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 512 GB / 48 CPU",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 512,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 1200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 512 GB / 64 CPU",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 512,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 1400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vps:upcloud:cloud-servers"
+   ],
+   "tier": "Cloud Native 512 GB / 80 CPU",
+   "spec": {
+    "vcpu": 80,
+    "ramGb": 512,
+    "family": "Cloud Native"
+   },
+   "price": {
+    "amount": 1800,
+    "unit": "month"
+   }
+  }
+ ],
+ "notes": "Prices are in EUR as listed; transfer is zero-cost."
+}

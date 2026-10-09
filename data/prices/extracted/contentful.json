@@ -1,0 +1,32 @@
+{
+ "provider": "contentful",
+ "currency": "USD",
+ "sources": [
+  "https://www.contentful.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cms:contentful:platform"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "cms:contentful:platform"
+   ],
+   "tier": "Lite",
+   "spec": {},
+   "price": {
+    "amount": 300,
+    "unit": "month"
+   }
+  }
+ ]
+}

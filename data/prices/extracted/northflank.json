@@ -1,0 +1,105 @@
+{
+ "provider": "northflank",
+ "currency": "USD",
+ "sources": [
+  "https://northflank.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "paas:northflank:platform"
+   ],
+   "tier": "Usage rates",
+   "spec": {},
+   "rates": [
+    {
+     "name": "vCPU",
+     "amount": 0.01667,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "memory",
+     "amount": 0.00833,
+     "unit": "gb-ram-hour"
+    },
+    {
+     "name": "network egress",
+     "amount": 0.06,
+     "unit": "gb"
+    },
+    {
+     "name": "SSD storage",
+     "amount": 0.15,
+     "unit": "gb-month"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "paas:northflank:platform"
+   ],
+   "tier": "NVIDIA L4 24GB",
+   "spec": {
+    "gpuModel": "NVIDIA L4 24GB"
+   },
+   "price": {
+    "amount": 0.8,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "paas:northflank:platform"
+   ],
+   "tier": "NVIDIA A100 40GB",
+   "spec": {
+    "gpuModel": "NVIDIA A100 40GB"
+   },
+   "price": {
+    "amount": 1.42,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "paas:northflank:platform"
+   ],
+   "tier": "NVIDIA A100 80GB",
+   "spec": {
+    "gpuModel": "NVIDIA A100 80GB"
+   },
+   "price": {
+    "amount": 1.76,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "paas:northflank:platform"
+   ],
+   "tier": "NVIDIA H100 80GB",
+   "spec": {
+    "gpuModel": "NVIDIA H100 80GB"
+   },
+   "price": {
+    "amount": 2.74,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "paas:northflank:platform"
+   ],
+   "tier": "NVIDIA RTX PRO 6000 96GB",
+   "spec": {
+    "gpuModel": "NVIDIA RTX PRO 6000 96GB"
+   },
+   "price": {
+    "amount": 3,
+    "unit": "hour"
+   }
+  }
+ ],
+ "notes": "Fixed-size container plans exist on the page ($2.70/mo for 256 MB up) but their CPU labels were not captured; per-vCPU/GB rates above are enough to price any size."
+}

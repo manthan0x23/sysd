@@ -1,0 +1,1108 @@
+{
+ "provider": "render",
+ "currency": "USD",
+ "sources": [
+  "https://render.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "Free / 512 MB RAM (free)",
+   "spec": {
+    "ramGb": 0.5,
+    "plan": "free"
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "Less than 1 CPU / 512 MB RAM (0.5c-512mb)",
+   "spec": {
+    "vcpu": 0.5,
+    "ramGb": 0.5,
+    "plan": "0.5c-512mb"
+   },
+   "price": {
+    "amount": 7,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "1 CPU / 2 GB RAM (1c-2g)",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "plan": "1c-2g"
+   },
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "2 CPU / 4 GB RAM (2c-4g)",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "plan": "2c-4g"
+   },
+   "price": {
+    "amount": 85,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "2 CPU / 8 GB RAM (2c-8g)",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "plan": "2c-8g"
+   },
+   "price": {
+    "amount": 135,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "2 CPU / 16 GB RAM (2c-16g)",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 16,
+    "plan": "2c-16g"
+   },
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "4 CPU / 8 GB RAM (4c-8g)",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "plan": "4c-8g"
+   },
+   "price": {
+    "amount": 175,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "4 CPU / 16 GB RAM (4c-16g)",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "plan": "4c-16g"
+   },
+   "price": {
+    "amount": 225,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "4 CPU / 32 GB RAM (4c-32g)",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32,
+    "plan": "4c-32g"
+   },
+   "price": {
+    "amount": 350,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "8 CPU / 16 GB RAM (8c-16g)",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "plan": "8c-16g"
+   },
+   "price": {
+    "amount": 300,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "8 CPU / 32 GB RAM (8c-32g)",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "plan": "8c-32g"
+   },
+   "price": {
+    "amount": 450,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "8 CPU / 64 GB RAM (8c-64g)",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 64,
+    "plan": "8c-64g"
+   },
+   "price": {
+    "amount": 1000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "12 CPU / 24 GB RAM (12c-24g)",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 24,
+    "plan": "12c-24g"
+   },
+   "price": {
+    "amount": 450,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "12 CPU / 48 GB RAM (12c-48g)",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 48,
+    "plan": "12c-48g"
+   },
+   "price": {
+    "amount": 800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "app:render:web-services",
+    "paas:render:platform",
+    "worker:render:background-workers"
+   ],
+   "tier": "12 CPU / 96 GB RAM (12c-96g)",
+   "spec": {
+    "vcpu": 12,
+    "ramGb": 96,
+    "plan": "12c-96g"
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres Free( limitations apply) / 256 MB RAM",
+   "spec": {
+    "ramGb": 0.25,
+    "maxConnections": 100,
+    "plan": "free"
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres Less than 1 CPU / 256 MB RAM",
+   "spec": {
+    "vcpu": 0.5,
+    "ramGb": 0.25,
+    "maxConnections": 100,
+    "plan": "0.1c-256mb"
+   },
+   "price": {
+    "amount": 6,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres Less than 1 CPU / 1 GB RAM",
+   "spec": {
+    "vcpu": 0.5,
+    "ramGb": 1,
+    "maxConnections": 100,
+    "plan": "0.5c-1g"
+   },
+   "price": {
+    "amount": 19,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 1 CPU / 2GB RAM",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "maxConnections": 100,
+    "plan": "1c-2g"
+   },
+   "price": {
+    "amount": 40,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 1 CPU / 4GB RAM",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 4,
+    "maxConnections": 100,
+    "plan": "1c-4g"
+   },
+   "price": {
+    "amount": 55,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 2 CPU / 4GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "maxConnections": 100,
+    "plan": "2c-4g"
+   },
+   "price": {
+    "amount": 75,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 2 CPU / 8GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "maxConnections": 200,
+    "plan": "2c-8g"
+   },
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 2 CPU / 16GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 16,
+    "maxConnections": 400,
+    "plan": "2c-16g"
+   },
+   "price": {
+    "amount": 160,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 4 CPU / 16GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "maxConnections": 400,
+    "plan": "4c-16g"
+   },
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 4 CPU / 32GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32,
+    "maxConnections": 500,
+    "plan": "4c-32g"
+   },
+   "price": {
+    "amount": 350,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 8 CPU / 32GB RAM",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "maxConnections": 500,
+    "plan": "8c-32g"
+   },
+   "price": {
+    "amount": 400,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 8 CPU / 64GB RAM",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 64,
+    "maxConnections": 500,
+    "plan": "8c-64g"
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 16 CPU / 64GB RAM",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 64,
+    "maxConnections": 500,
+    "plan": "16c-64g"
+   },
+   "price": {
+    "amount": 800,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 16 CPU / 128GB RAM",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 128,
+    "maxConnections": 500,
+    "plan": "16c-128g"
+   },
+   "price": {
+    "amount": 1500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 32 CPU / 128GB RAM",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 128,
+    "maxConnections": 500,
+    "plan": "32c-128g"
+   },
+   "price": {
+    "amount": 1700,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 32 CPU / 256GB RAM",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 256,
+    "maxConnections": 500,
+    "plan": "32c-256g"
+   },
+   "price": {
+    "amount": 2500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 48 CPU / 192GB RAM",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 192,
+    "maxConnections": 500,
+    "plan": "48c-192g"
+   },
+   "price": {
+    "amount": 2500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 48 CPU / 384GB RAM",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 384,
+    "maxConnections": 500,
+    "plan": "48c-384g"
+   },
+   "price": {
+    "amount": 4500,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 64 CPU / 256GB RAM",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 256,
+    "maxConnections": 500,
+    "plan": "64c-256g"
+   },
+   "price": {
+    "amount": 3000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 64 CPU / 512GB RAM",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 512,
+    "maxConnections": 500,
+    "plan": "64c-512g"
+   },
+   "price": {
+    "amount": 6000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 96 CPU / 384GB RAM",
+   "spec": {
+    "vcpu": 96,
+    "ramGb": 384,
+    "maxConnections": 500,
+    "plan": "96c-384g"
+   },
+   "price": {
+    "amount": 4600,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 96 CPU / 768GB RAM",
+   "spec": {
+    "vcpu": 96,
+    "ramGb": 768,
+    "maxConnections": 500,
+    "plan": "96-768g"
+   },
+   "price": {
+    "amount": 9000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 128 CPU / 512GB RAM",
+   "spec": {
+    "vcpu": 128,
+    "ramGb": 512,
+    "maxConnections": 500,
+    "plan": "128c-512g"
+   },
+   "price": {
+    "amount": 6200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:render:postgres"
+   ],
+   "tier": "Postgres 128 CPU / 1024GB RAM",
+   "spec": {
+    "vcpu": 128,
+    "ramGb": 1024,
+    "maxConnections": 500,
+    "plan": "128c-1024g"
+   },
+   "price": {
+    "amount": 11000,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 25 MB RAM",
+   "spec": {
+    "ramGb": 0.0244140625,
+    "maxConnections": 50,
+    "plan": "free"
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 256 MB RAM",
+   "spec": {
+    "ramGb": 0.25,
+    "storageGb": 0.25,
+    "maxConnections": 200,
+    "plan": "256mb"
+   },
+   "price": {
+    "amount": 10,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 1 GB RAM",
+   "spec": {
+    "ramGb": 1,
+    "storageGb": 2.5,
+    "maxConnections": 250,
+    "plan": "1g"
+   },
+   "price": {
+    "amount": 20,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 3 GB RAM",
+   "spec": {
+    "ramGb": 3,
+    "storageGb": 3,
+    "maxConnections": 3000,
+    "plan": "3g"
+   },
+   "price": {
+    "amount": 60,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 5 GB RAM",
+   "spec": {
+    "ramGb": 5,
+    "storageGb": 5,
+    "maxConnections": 5000,
+    "plan": "5g"
+   },
+   "price": {
+    "amount": 100,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 10 GB RAM",
+   "spec": {
+    "ramGb": 10,
+    "storageGb": 10,
+    "maxConnections": 10000,
+    "plan": "10g"
+   },
+   "price": {
+    "amount": 200,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 20 GB RAM",
+   "spec": {
+    "ramGb": 20,
+    "storageGb": 20,
+    "maxConnections": 20000,
+    "plan": "20g"
+   },
+   "price": {
+    "amount": 350,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 40 GB RAM",
+   "spec": {
+    "ramGb": 40,
+    "storageGb": 40,
+    "maxConnections": 40000,
+    "plan": "40g"
+   },
+   "price": {
+    "amount": 600,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "redis:render:key-value"
+   ],
+   "tier": "Key Value 50 GB RAM",
+   "spec": {
+    "ramGb": 50,
+    "storageGb": 50,
+    "maxConnections": 50000,
+    "plan": "50g"
+   },
+   "price": {
+    "amount": 750,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job Less than 1 CPU / 512 MB RAM",
+   "spec": {
+    "vcpu": 0.5,
+    "ramGb": 0.5,
+    "plan": "0.5c-512mb"
+   },
+   "price": {
+    "amount": 0.00016,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 1 CPU / 2 GB RAM",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 2,
+    "plan": "1c-2g"
+   },
+   "price": {
+    "amount": 0.00058,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 2 CPU / 4 GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "plan": "2c-4g"
+   },
+   "price": {
+    "amount": 0.00197,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 2 CPU / 8 GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "plan": "2c-8g"
+   },
+   "price": {
+    "amount": 0.00313,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 2 CPU / 16 GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 16,
+    "plan": "2c-16g"
+   },
+   "price": {
+    "amount": 0.00463,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 4 CPU / 8 GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "plan": "4c-8g"
+   },
+   "price": {
+    "amount": 0.00405,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 4 CPU / 16 GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "plan": "4c-16g"
+   },
+   "price": {
+    "amount": 0.00521,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 4 CPU / 32 GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 32,
+    "plan": "4c-32g"
+   },
+   "price": {
+    "amount": 0.0081,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 8 CPU / 16 GB RAM",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "plan": "8c-16g"
+   },
+   "price": {
+    "amount": 0.00694,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 8 CPU / 32 GB RAM",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 32,
+    "plan": "8c-32g"
+   },
+   "price": {
+    "amount": 0.01042,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Cron job 8 CPU / 64 GB RAM",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 64,
+    "plan": "8c-64g"
+   },
+   "price": {
+    "amount": 0.02315,
+    "unit": "minute"
+   },
+   "note": "Billed per minute while the job runs."
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Workflow task: flex",
+   "spec": {
+    "vcpu": 1,
+    "ramGb": 4
+   },
+   "rates": [
+    {
+     "name": "active CPU",
+     "amount": 0.2,
+     "unit": "vcpu-hour"
+    },
+    {
+     "name": "active memory",
+     "amount": 0.05,
+     "unit": "gb-ram-hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Workflow task 2 CPU / 4 GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "plan": "2c-4g"
+   },
+   "price": {
+    "amount": 0.4,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Workflow task 2 CPU / 8 GB RAM",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 8,
+    "plan": "2c-8g"
+   },
+   "price": {
+    "amount": 0.7,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Workflow task 4 CPU / 8 GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "plan": "4c-8g"
+   },
+   "price": {
+    "amount": 1,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "worker:render:background-workers"
+   ],
+   "tier": "Workflow task 4 CPU / 16 GB RAM",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 16,
+    "plan": "4c-16g"
+   },
+   "price": {
+    "amount": 1.5,
+    "unit": "hour"
+   }
+  },
+  {
+   "offerings": [
+    "paas:render:platform"
+   ],
+   "tier": "Workspace: Hobby",
+   "spec": {
+    "bandwidthIncludedGb": 5
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "paas:render:platform"
+   ],
+   "tier": "Workspace: Pro",
+   "spec": {
+    "bandwidthIncludedGb": 25
+   },
+   "price": {
+    "amount": 25,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "paas:render:platform"
+   ],
+   "tier": "Workspace: Scale",
+   "spec": {
+    "bandwidthIncludedGb": 1024
+   },
+   "price": {
+    "amount": 499,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "paas:render:platform",
+    "app:render:web-services"
+   ],
+   "tier": "Shared rates",
+   "spec": {},
+   "rates": [
+    {
+     "name": "bandwidth over included",
+     "amount": 0.15,
+     "unit": "gb"
+    },
+    {
+     "name": "persistent disk",
+     "amount": 0.25,
+     "unit": "gb-month"
+    }
+   ]
+  }
+ ],
+ "notes": "Workspace plan names/prices read from the three header prices ($0 / $25 / $499); confirm per-seat status on the page before billing logic relies on it."
+}

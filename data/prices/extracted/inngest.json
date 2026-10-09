@@ -1,0 +1,48 @@
+{
+ "provider": "inngest",
+ "currency": "USD",
+ "sources": [
+  "https://www.inngest.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "workflow:inngest:cloud",
+    "worker:inngest:functions"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "workflow:inngest:cloud",
+    "worker:inngest:functions"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 99,
+    "unit": "month"
+   },
+   "note": "'Starting at'."
+  },
+  {
+   "offerings": [
+    "workflow:inngest:cloud",
+    "worker:inngest:functions"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 499,
+    "unit": "month"
+   },
+   "note": "'Starting at'."
+  }
+ ]
+}

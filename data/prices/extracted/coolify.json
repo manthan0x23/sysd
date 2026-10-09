@@ -1,0 +1,22 @@
+{
+ "provider": "coolify",
+ "currency": "USD",
+ "sources": [
+  "https://coolify.io/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "paas:coolify:self-hosted-paas"
+   ],
+   "tier": "Coolify Cloud",
+   "spec": {},
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   },
+   "note": "$5/month base (connect 2 servers) + $3/month per additional server. Self-hosted Coolify is free; you pay for your own servers."
+  }
+ ]
+}

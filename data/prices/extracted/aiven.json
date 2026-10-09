@@ -1,0 +1,69 @@
+{
+ "provider": "aiven",
+ "currency": "USD",
+ "sources": [
+  "https://aiven.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "postgres:aiven:postgresql"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:aiven:postgresql"
+   ],
+   "tier": "Developer",
+   "spec": {},
+   "price": {
+    "amount": 5,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "postgres:aiven:postgresql"
+   ],
+   "tier": "Hobbyist (from)",
+   "spec": {},
+   "price": {
+    "amount": 12,
+    "unit": "month"
+   },
+   "hourly": 0.02
+  },
+  {
+   "offerings": [
+    "postgres:aiven:postgresql"
+   ],
+   "tier": "Startup (from)",
+   "spec": {},
+   "price": {
+    "amount": 75,
+    "unit": "month"
+   },
+   "hourly": 0.1
+  },
+  {
+   "offerings": [
+    "postgres:aiven:postgresql"
+   ],
+   "tier": "Business (from)",
+   "spec": {},
+   "price": {
+    "amount": 180,
+    "unit": "month"
+   },
+   "hourly": 0.25
+  }
+ ],
+ "notes": "PostgreSQL plans only. Premium tier price and the MySQL / Valkey / Kafka plans on Aiven's separate pages not captured."
+}

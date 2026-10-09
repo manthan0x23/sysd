@@ -1,0 +1,58 @@
+{
+ "provider": "postmark",
+ "currency": "USD",
+ "sources": [
+  "https://postmarkapp.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "email:postmark:email"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "email:postmark:email"
+   ],
+   "tier": "Basic",
+   "spec": {},
+   "price": {
+    "amount": 15,
+    "unit": "month"
+   },
+   "note": "Extra emails $1.80 per 1,000."
+  },
+  {
+   "offerings": [
+    "email:postmark:email"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 16.5,
+    "unit": "month"
+   },
+   "note": "Extra emails $1.30 per 1,000."
+  },
+  {
+   "offerings": [
+    "email:postmark:email"
+   ],
+   "tier": "Platform",
+   "spec": {},
+   "price": {
+    "amount": 18,
+    "unit": "month"
+   },
+   "note": "Extra emails $1.20 per 1,000."
+  }
+ ],
+ "notes": "Prices are for the 10K emails/month starting volume; higher volumes cost more."
+}

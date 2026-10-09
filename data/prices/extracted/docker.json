@@ -1,0 +1,57 @@
+{
+ "provider": "docker",
+ "currency": "USD",
+ "sources": [
+  "https://www.docker.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "registry:docker:hub"
+   ],
+   "tier": "Personal",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "user-month"
+   }
+  },
+  {
+   "offerings": [
+    "registry:docker:hub"
+   ],
+   "tier": "Pro",
+   "spec": {},
+   "price": {
+    "amount": 11,
+    "unit": "user-month"
+   },
+   "note": "$9/user/month on annual plan."
+  },
+  {
+   "offerings": [
+    "registry:docker:hub"
+   ],
+   "tier": "Team",
+   "spec": {},
+   "price": {
+    "amount": 16,
+    "unit": "user-month"
+   },
+   "note": "$15/user/month on annual plan."
+  },
+  {
+   "offerings": [
+    "registry:docker:hub"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 24,
+    "unit": "user-month"
+   },
+   "note": "Annual plan price; monthly plan not offered at this price on the page."
+  }
+ ]
+}

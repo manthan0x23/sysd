@@ -1,0 +1,131 @@
+{
+ "provider": "cloudamqp",
+ "currency": "USD",
+ "sources": [
+  "https://www.cloudamqp.com/plans.html"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Shared (free)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Shared (paid)",
+   "spec": {},
+   "price": {
+    "amount": 19,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Dedicated, 4 GB disk (first listed group)",
+   "spec": {
+    "diskGb": 4
+   },
+   "price": {
+    "amount": 49,
+    "unit": "month"
+   },
+   "note": "Dedicated plans are listed in more than one group (LavinMQ / RabbitMQ at different prices, e.g. a second 4 GB plan at $147); this first group's product is not labelled in the scrape."
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Dedicated, 10 GB disk (first listed group)",
+   "spec": {
+    "diskGb": 10
+   },
+   "price": {
+    "amount": 99,
+    "unit": "month"
+   },
+   "note": "Dedicated plans are listed in more than one group (LavinMQ / RabbitMQ at different prices, e.g. a second 4 GB plan at $147); this first group's product is not labelled in the scrape."
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Dedicated, 20 GB disk (first listed group)",
+   "spec": {
+    "diskGb": 20
+   },
+   "price": {
+    "amount": 199,
+    "unit": "month"
+   },
+   "note": "Dedicated plans are listed in more than one group (LavinMQ / RabbitMQ at different prices, e.g. a second 4 GB plan at $147); this first group's product is not labelled in the scrape."
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Dedicated, 50 GB disk (first listed group)",
+   "spec": {
+    "diskGb": 50
+   },
+   "price": {
+    "amount": 499,
+    "unit": "month"
+   },
+   "note": "Dedicated plans are listed in more than one group (LavinMQ / RabbitMQ at different prices, e.g. a second 4 GB plan at $147); this first group's product is not labelled in the scrape."
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Dedicated, 100 GB disk (first listed group)",
+   "spec": {
+    "diskGb": 100
+   },
+   "price": {
+    "amount": 999,
+    "unit": "month"
+   },
+   "note": "Dedicated plans are listed in more than one group (LavinMQ / RabbitMQ at different prices, e.g. a second 4 GB plan at $147); this first group's product is not labelled in the scrape."
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Dedicated, 200 GB disk (first listed group)",
+   "spec": {
+    "diskGb": 200
+   },
+   "price": {
+    "amount": 1999,
+    "unit": "month"
+   },
+   "note": "Dedicated plans are listed in more than one group (LavinMQ / RabbitMQ at different prices, e.g. a second 4 GB plan at $147); this first group's product is not labelled in the scrape."
+  },
+  {
+   "offerings": [
+    "queue:cloudamqp:rabbitmq"
+   ],
+   "tier": "Dedicated, 300 GB disk (first listed group)",
+   "spec": {
+    "diskGb": 300
+   },
+   "price": {
+    "amount": 2999,
+    "unit": "month"
+   },
+   "note": "Dedicated plans are listed in more than one group (LavinMQ / RabbitMQ at different prices, e.g. a second 4 GB plan at $147); this first group's product is not labelled in the scrape."
+  }
+ ],
+ "notes": "Plan names (animal names) and per-plan message quotas not captured. VPC add-on $99/month, extra disk $0.35/GB."
+}

@@ -1,0 +1,34 @@
+{
+ "provider": "weaviate",
+ "currency": "USD",
+ "sources": [
+  "https://weaviate.io/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "vector:weaviate:cloud"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "vector:weaviate:cloud"
+   ],
+   "tier": "Flex",
+   "spec": {},
+   "price": {
+    "amount": 45,
+    "unit": "month"
+   },
+   "note": "'Starts at $45/mo'."
+  }
+ ],
+ "notes": "Database AI services (embedding) from $0.025 per 1M tokens. $30/organization monthly plan appears for an add-on."
+}

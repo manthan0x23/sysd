@@ -1,0 +1,47 @@
+{
+ "provider": "plausible",
+ "currency": "USD",
+ "sources": [
+  "https://plausible.io/#pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "analytics:plausible:analytics"
+   ],
+   "tier": "Starter",
+   "spec": {},
+   "price": {
+    "amount": 9,
+    "unit": "month"
+   },
+   "note": "Monthly billing price $9 ($90/yr, ~$7.50/mo annual). Price depends on monthly pageviews; band not captured."
+  },
+  {
+   "offerings": [
+    "analytics:plausible:analytics"
+   ],
+   "tier": "Growth",
+   "spec": {},
+   "price": {
+    "amount": 14,
+    "unit": "month"
+   },
+   "note": "Monthly $14 ($140/yr)."
+  },
+  {
+   "offerings": [
+    "analytics:plausible:analytics"
+   ],
+   "tier": "Business",
+   "spec": {},
+   "price": {
+    "amount": 19,
+    "unit": "month"
+   },
+   "note": "Monthly $19 ($190/yr)."
+  }
+ ],
+ "notes": "Plans: Starter, Growth, Business (Enterprise by quote). Monthly-billing prices at the default pageview band."
+}

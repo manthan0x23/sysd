@@ -1,0 +1,31 @@
+{
+ "provider": "xai",
+ "currency": "USD",
+ "sources": [
+  "https://docs.x.ai/docs/models"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "llm:xai:grok-api"
+   ],
+   "tier": "Grok 4.7",
+   "spec": {},
+   "rates": [
+    {
+     "name": "input",
+     "amount": 2,
+     "unit": "1m-tokens-in"
+    },
+    {
+     "name": "output",
+     "amount": 6,
+     "unit": "1m-tokens-out"
+    }
+   ],
+   "note": "Also on the page: speech-to-speech $0.08/min, TTS $15/1M chars, STT $0.10/hr batch / $0.20/hr streaming, images from $0.02, video from $0.02/sec."
+  }
+ ],
+ "notes": "Only the headline model block was captured; other Grok models were not in the scrape."
+}

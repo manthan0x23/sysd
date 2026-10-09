@@ -1,0 +1,10 @@
+{
+ "provider": "starburst",
+ "currency": "USD",
+ "sources": [
+  "https://www.starburst.io/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape had no prices."
+}

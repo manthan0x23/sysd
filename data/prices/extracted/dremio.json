@@ -1,0 +1,10 @@
+{
+ "provider": "dremio",
+ "currency": "USD",
+ "sources": [
+  "https://www.dremio.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Only a $400 free-trial credit line captured; no list prices."
+}

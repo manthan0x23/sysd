@@ -1,0 +1,68 @@
+{
+ "provider": "assemblyai",
+ "currency": "USD",
+ "sources": [
+  "https://www.assemblyai.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "speech:assemblyai:speech"
+   ],
+   "tier": "Universal-3.5 Pro (pre-recorded)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "transcription",
+     "amount": 0.21,
+     "unit": "hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:assemblyai:speech"
+   ],
+   "tier": "Universal-2 (pre-recorded)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "transcription",
+     "amount": 0.15,
+     "unit": "hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:assemblyai:speech"
+   ],
+   "tier": "Universal-3.6 Pro Realtime",
+   "spec": {},
+   "rates": [
+    {
+     "name": "streaming transcription",
+     "amount": 0.45,
+     "unit": "hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "speech:assemblyai:speech"
+   ],
+   "tier": "Universal-Streaming",
+   "spec": {},
+   "rates": [
+    {
+     "name": "streaming transcription",
+     "amount": 0.15,
+     "unit": "hour"
+    }
+   ],
+   "note": "Multilingual variant $0.15/hr."
+  }
+ ],
+ "notes": "Add-ons per hour: diarization $0.02 (pre-recorded) / $0.12 (realtime), keyterms $0.05, medical mode $0.15, PII redaction $0.12 (realtime)."
+}

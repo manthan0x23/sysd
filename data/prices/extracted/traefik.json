@@ -1,0 +1,22 @@
+{
+ "provider": "traefik",
+ "currency": "USD",
+ "sources": [
+  "https://traefik.io/traefik/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "proxy:traefik:self-hosted"
+   ],
+   "tier": "Traefik (open source)",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "No licence fee; you pay for the server it runs on."
+  }
+ ]
+}

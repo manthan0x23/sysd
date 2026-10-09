@@ -1,0 +1,41 @@
+{
+ "provider": "backblaze",
+ "currency": "USD",
+ "sources": [
+  "https://www.backblaze.com/cloud-storage/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "object:backblaze:b2"
+   ],
+   "tier": "B2 Cloud Storage",
+   "spec": {},
+   "price": {
+    "amount": 6.95,
+    "unit": "tb-month"
+   },
+   "rates": [
+    {
+     "name": "egress beyond free (3x stored/month)",
+     "amount": 0.01,
+     "unit": "gb"
+    }
+   ],
+   "note": "Egress free up to 3x monthly average storage; overage rate per existing catalog data ($0.01/GB) not re-confirmed on this scrape."
+  },
+  {
+   "offerings": [
+    "archive:backblaze:b2-cold-use"
+   ],
+   "tier": "B2 Cloud Storage (same price)",
+   "spec": {},
+   "price": {
+    "amount": 6.95,
+    "unit": "tb-month"
+   }
+  }
+ ],
+ "notes": "Page shows 'Starts at $6.95/TB/mo' and a second 'Starts at $15/TB/mo' figure whose product was not identifiable in the scrape (not recorded)."
+}

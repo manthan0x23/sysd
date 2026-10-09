@@ -1,0 +1,39 @@
+{
+ "provider": "singlestore",
+ "currency": "USD",
+ "sources": [
+  "https://www.singlestore.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "newsql:singlestore:helios"
+   ],
+   "tier": "Standard",
+   "spec": {},
+   "rates": [
+    {
+     "name": "starts at",
+     "amount": 0.99,
+     "unit": "hour"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "newsql:singlestore:helios"
+   ],
+   "tier": "Enterprise",
+   "spec": {},
+   "rates": [
+    {
+     "name": "starts at",
+     "amount": 1.49,
+     "unit": "hour"
+    }
+   ]
+  }
+ ],
+ "notes": "Usage in credits ($3.9x per credit, cut off). Free shared edition also exists."
+}

@@ -1,0 +1,249 @@
+{
+ "provider": "modal",
+ "currency": "USD",
+ "sources": [
+  "https://modal.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia B300",
+   "spec": {
+    "gpuModel": "Nvidia B300"
+   },
+   "price": {
+    "amount": 7.099,
+    "unit": "hour"
+   },
+   "perSecond": 0.001972,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia B200",
+   "spec": {
+    "gpuModel": "Nvidia B200"
+   },
+   "price": {
+    "amount": 6.25,
+    "unit": "hour"
+   },
+   "perSecond": 0.001736,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia H200 SXM",
+   "spec": {
+    "gpuModel": "Nvidia H200 SXM"
+   },
+   "price": {
+    "amount": 4.54,
+    "unit": "hour"
+   },
+   "perSecond": 0.001261,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia H100 SXM5",
+   "spec": {
+    "gpuModel": "Nvidia H100 SXM5"
+   },
+   "price": {
+    "amount": 3.949,
+    "unit": "hour"
+   },
+   "perSecond": 0.001097,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia RTX PRO 6000",
+   "spec": {
+    "gpuModel": "Nvidia RTX PRO 6000"
+   },
+   "price": {
+    "amount": 3.031,
+    "unit": "hour"
+   },
+   "perSecond": 0.000842,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia A100, 80 GB",
+   "spec": {
+    "gpuModel": "Nvidia A100, 80 GB"
+   },
+   "price": {
+    "amount": 2.498,
+    "unit": "hour"
+   },
+   "perSecond": 0.000694,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia A100, 40 GB",
+   "spec": {
+    "gpuModel": "Nvidia A100, 40 GB"
+   },
+   "price": {
+    "amount": 2.099,
+    "unit": "hour"
+   },
+   "perSecond": 0.000583,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia L40S",
+   "spec": {
+    "gpuModel": "Nvidia L40S"
+   },
+   "price": {
+    "amount": 1.951,
+    "unit": "hour"
+   },
+   "perSecond": 0.000542,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia A10",
+   "spec": {
+    "gpuModel": "Nvidia A10"
+   },
+   "price": {
+    "amount": 1.102,
+    "unit": "hour"
+   },
+   "perSecond": 0.000306,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia L4",
+   "spec": {
+    "gpuModel": "Nvidia L4"
+   },
+   "price": {
+    "amount": 0.799,
+    "unit": "hour"
+   },
+   "perSecond": 0.000222,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "gpu:modal:gpu-functions",
+    "inference:modal:inference"
+   ],
+   "tier": "Nvidia T4",
+   "spec": {
+    "gpuModel": "Nvidia T4"
+   },
+   "price": {
+    "amount": 0.59,
+    "unit": "hour"
+   },
+   "perSecond": 0.000164,
+   "note": "Per-second billing; hourly = per-second x 3600."
+  },
+  {
+   "offerings": [
+    "worker:modal:functions",
+    "gpu:modal:gpu-functions"
+   ],
+   "tier": "CPU and memory",
+   "spec": {},
+   "rates": [
+    {
+     "name": "CPU core",
+     "amount": 0.00003942,
+     "unit": "second"
+    },
+    {
+     "name": "memory",
+     "amount": 0.00000222,
+     "unit": "gb-second"
+    },
+    {
+     "name": "volumes",
+     "amount": 0.09,
+     "unit": "gb-month"
+    },
+    {
+     "name": "network egress",
+     "amount": 0.04,
+     "unit": "gb"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "worker:modal:functions"
+   ],
+   "tier": "Starter plan",
+   "spec": {
+    "seats": 3,
+    "includedComputeUsd": 30,
+    "egressTib": 1
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "Plus compute; $30/month free credits."
+  },
+  {
+   "offerings": [
+    "worker:modal:functions"
+   ],
+   "tier": "Team plan",
+   "spec": {
+    "seats": "unlimited",
+    "includedComputeUsd": 100,
+    "egressTib": 10
+   },
+   "price": {
+    "amount": 250,
+    "unit": "month"
+   },
+   "note": "Plus compute; $100/month credits."
+  }
+ ],
+ "notes": "Training and inference offerings use the same per-second GPU prices."
+}

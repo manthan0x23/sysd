@@ -1,0 +1,34 @@
+{
+ "provider": "emqx",
+ "currency": "USD",
+ "sources": [
+  "https://www.emqx.com/en/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "iot:emqx:cloud"
+   ],
+   "tier": "Serverless",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   },
+   "note": "'Starts at $0/month' with a free monthly quota, up to 1,000 connections; pay-as-you-go beyond."
+  },
+  {
+   "offerings": [
+    "iot:emqx:cloud"
+   ],
+   "tier": "Dedicated Flex (from)",
+   "spec": {},
+   "price": {
+    "amount": 234,
+    "unit": "month"
+   },
+   "note": "'Starts at $234/month'."
+  }
+ ]
+}

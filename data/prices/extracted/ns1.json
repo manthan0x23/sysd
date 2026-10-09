@@ -1,0 +1,22 @@
+{
+ "provider": "ns1",
+ "currency": "USD",
+ "sources": [
+  "https://ns1.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "dns:ns1:managed-dns"
+   ],
+   "tier": "Essentials",
+   "spec": {},
+   "price": {
+    "amount": 99,
+    "unit": "month"
+   },
+   "note": "'Starting at $99.00 USD'; $69.30 also displayed (likely annual-billing discount)."
+  }
+ ]
+}

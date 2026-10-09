@@ -1,0 +1,33 @@
+{
+ "provider": "hygraph",
+ "currency": "USD",
+ "sources": [
+  "https://hygraph.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cms:hygraph:cms"
+   ],
+   "tier": "Free",
+   "spec": {},
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "cms:hygraph:cms"
+   ],
+   "tier": "Growth",
+   "spec": {},
+   "price": {
+    "amount": 199,
+    "unit": "month"
+   },
+   "note": "'From $199'."
+  }
+ ]
+}

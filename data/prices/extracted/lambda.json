@@ -1,0 +1,519 @@
+{
+ "provider": "lambda",
+ "currency": "USD",
+ "sources": [
+  "https://lambda.ai/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "1-Click Cluster NVIDIA HGX B200 x16 (2 weeks – 1 year)",
+   "spec": {
+    "gpuModel": "NVIDIA HGX B200",
+    "gpus": "16"
+   },
+   "price": {
+    "amount": 9.86,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, reserved cluster."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "1-Click Cluster NVIDIA HGX B200 x64 (2 weeks – 1 year)",
+   "spec": {
+    "gpuModel": "NVIDIA HGX B200",
+    "gpus": "64"
+   },
+   "price": {
+    "amount": 9.36,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, reserved cluster."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "1-Click Cluster NVIDIA HGX B200 x256+ (2 weeks – 1 year)",
+   "spec": {
+    "gpuModel": "NVIDIA HGX B200",
+    "gpus": "256+"
+   },
+   "price": {
+    "amount": 8.87,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, reserved cluster."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "1-Click Cluster NVIDIA H100 x16 (2 weeks – 1 year)",
+   "spec": {
+    "gpuModel": "NVIDIA H100",
+    "gpus": "16"
+   },
+   "price": {
+    "amount": 6.16,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, reserved cluster."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "1-Click Cluster NVIDIA H100 x64 (2 weeks – 1 year)",
+   "spec": {
+    "gpuModel": "NVIDIA H100",
+    "gpus": "64"
+   },
+   "price": {
+    "amount": 5.85,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, reserved cluster."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "1-Click Cluster NVIDIA H100 x256 (2 weeks – 1 year)",
+   "spec": {
+    "gpuModel": "NVIDIA H100",
+    "gpus": "256"
+   },
+   "price": {
+    "amount": 5.54,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, reserved cluster."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA B200 SXM6 180 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA B200 SXM6",
+    "vramGb": 180,
+    "vcpu": 208,
+    "ramGb": 2900,
+    "storageNote": "22 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 6.69,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA H100 SXM 80 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA H100 SXM",
+    "vramGb": 80,
+    "vcpu": 208,
+    "ramGb": 1800,
+    "storageNote": "22 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 3.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A100 SXM 80 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A100 SXM",
+    "vramGb": 80,
+    "vcpu": 240,
+    "ramGb": 1800,
+    "storageNote": "19.5 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 2.79,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A100 SXM 40 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A100 SXM",
+    "vramGb": 40,
+    "vcpu": 124,
+    "ramGb": 1800,
+    "storageNote": "5.8 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA Tesla V100 16 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA Tesla V100",
+    "vramGb": 16,
+    "vcpu": 88,
+    "ramGb": 448,
+    "storageNote": "5.8 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 0.79,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA B200 SXM6 180 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA B200 SXM6",
+    "vramGb": 180,
+    "vcpu": 104,
+    "ramGb": 1440,
+    "storageNote": "11 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 6.79,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA H100 SXM 80 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA H100 SXM",
+    "vramGb": 80,
+    "vcpu": 104,
+    "ramGb": 900,
+    "storageNote": "11 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 4.09,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A100 PCIe 40 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A100 PCIe",
+    "vramGb": 40,
+    "vcpu": 120,
+    "ramGb": 900,
+    "storageNote": "1 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A6000 48 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A6000",
+    "vramGb": 48,
+    "vcpu": 56,
+    "ramGb": 400,
+    "storageNote": "1 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.09,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA B200 SXM6 180 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA B200 SXM6",
+    "vramGb": 180,
+    "vcpu": 52,
+    "ramGb": 720,
+    "storageNote": "5.5 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 6.89,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA H100 SXM 80 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA H100 SXM",
+    "vramGb": 80,
+    "vcpu": 52,
+    "ramGb": 450,
+    "storageNote": "5.5 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 4.19,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A100 PCIe 40 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A100 PCIe",
+    "vramGb": 40,
+    "vcpu": 60,
+    "ramGb": 450,
+    "storageNote": "1 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A6000 48 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A6000",
+    "vramGb": 48,
+    "vcpu": 28,
+    "ramGb": 200,
+    "storageNote": "1 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.09,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA B200 SXM6 180 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA B200 SXM6",
+    "vramGb": 180,
+    "vcpu": 26,
+    "ramGb": 360,
+    "storageNote": "2.75 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 6.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA GH200 96 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA GH200",
+    "vramGb": 96,
+    "vcpu": 64,
+    "ramGb": 432,
+    "storageNote": "4 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 2.29,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA H100 SXM 80 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA H100 SXM",
+    "vramGb": 80,
+    "vcpu": 26,
+    "ramGb": 225,
+    "storageNote": "2.75 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 4.29,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA H100 PCIe 80 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA H100 PCIe",
+    "vramGb": 80,
+    "vcpu": 26,
+    "ramGb": 225,
+    "storageNote": "1 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 3.29,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A100 SXM 40 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A100 SXM",
+    "vramGb": 40,
+    "vcpu": 30,
+    "ramGb": 220,
+    "storageNote": "512 GiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A100 PCIe 40 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A100 PCIe",
+    "vramGb": 40,
+    "vcpu": 30,
+    "ramGb": 225,
+    "storageNote": "512 GiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.99,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A10 24 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A10",
+    "vramGb": 24,
+    "vcpu": 30,
+    "ramGb": 226,
+    "storageNote": "1.3 TiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.29,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA A6000 48 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA A6000",
+    "vramGb": 48,
+    "vcpu": 14,
+    "ramGb": 100,
+    "storageNote": "512 GiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 1.09,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  },
+  {
+   "offerings": [
+    "gpu:lambda:gpu-cloud"
+   ],
+   "tier": "NVIDIA Quadro RTX 6000 24 GB (Instances pricing)",
+   "spec": {
+    "gpuModel": "NVIDIA Quadro RTX 6000",
+    "vramGb": 24,
+    "vcpu": 14,
+    "ramGb": 46,
+    "storageNote": "512 GiB SSD",
+    "section": "Instances pricing"
+   },
+   "price": {
+    "amount": 0.69,
+    "unit": "hour"
+   },
+   "note": "Per GPU-hour, on-demand; vCPUs/RAM/storage are per instance (all GPUs in it)."
+  }
+ ],
+ "notes": "Table order/sections follow the page; section name is stored in spec.section."
+}

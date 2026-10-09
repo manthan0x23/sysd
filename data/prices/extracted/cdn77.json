@@ -1,0 +1,43 @@
+{
+ "provider": "cdn77",
+ "currency": "USD",
+ "sources": [
+  "https://www.cdn77.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "cdn:cdn77:cdn"
+   ],
+   "tier": "Growth plan",
+   "spec": {},
+   "price": {
+    "amount": 990,
+    "unit": "month"
+   },
+   "rates": [
+    {
+     "name": "overage",
+     "amount": 3.96,
+     "unit": "tb"
+    }
+   ]
+  },
+  {
+   "offerings": [
+    "cdn:cdn77:cdn"
+   ],
+   "tier": "Object Storage egress (pay as you go)",
+   "spec": {},
+   "rates": [
+    {
+     "name": "egress",
+     "amount": 0.09,
+     "unit": "gb"
+    }
+   ],
+   "note": "Also shown: $100/month for a $0.02/GB committed tier."
+  }
+ ]
+}

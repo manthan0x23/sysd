@@ -1,0 +1,10 @@
+{
+ "provider": "questdb",
+ "currency": "USD",
+ "sources": [
+  "https://questdb.com/pricing/"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape had no plan prices."
+}

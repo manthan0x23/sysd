@@ -1,0 +1,10 @@
+{
+ "provider": "matillion",
+ "currency": "USD",
+ "sources": [
+  "https://www.matillion.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [],
+ "notes": "Scrape returned no prices (pricing is credit-based by quote)."
+}

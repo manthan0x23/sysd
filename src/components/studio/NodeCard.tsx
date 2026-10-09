@@ -15,6 +15,7 @@ export function NodeCard({ id, data, selected }: NodeProps<StudioNode>) {
   const type = TYPE_BY_ID[data.typeId];
   const offering = offeringOf(data);
   const u = data.util;
+  const copies = data.instances ?? 1;
   const hot = u != null && u >= 0.8;
   const provider = offering ? (offering.provider === "Self-hosted" ? offering.product : offering.provider) : type.id === "client" ? "Web, mobile" : "";
   const sub = data.name ? `${type.short ?? type.label} · ${provider}` : provider;
@@ -29,6 +30,8 @@ export function NodeCard({ id, data, selected }: NodeProps<StudioNode>) {
       {type.role !== "source" && <Handle type="target" position={Position.Left} />}
       <ServiceIcon typeId={data.typeId} offering={offering} custom={data.icon} />
       <div className="nm"><NodeTitle id={id} name={data.name} fallback={type.short ?? type.label} /><small>{sub}</small></div>
+      {copies > 1 && <span className="copies" title={data.autoscale ? `Autoscaling ${data.autoscale.min} to ${data.autoscale.max}: ${copies} copies at this load` : `${copies} copies`}>{data.autoscale ? `${copies}×` : `×${copies}`}</span>}
+      {(data.backlog ?? 0) > 0 && data.showMetrics && <span className="backlog" title="Messages arrive faster than this can drain them">backlog +{Math.round(data.backlog!)}/s</span>}
       {data.showMetrics && u != null && (
         <div className="ut">
           <div className="bar"><i style={{ width: `${Math.min(u * 100, 100)}%` }} /></div>

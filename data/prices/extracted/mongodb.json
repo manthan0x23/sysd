@@ -1,0 +1,182 @@
+{
+ "provider": "mongodb",
+ "currency": "USD",
+ "sources": [
+  "https://www.mongodb.com/pricing"
+ ],
+ "fetchedAt": "2026-10-09",
+ "tiers": [
+  {
+   "offerings": [
+    "mongodb:mongodb:atlas"
+   ],
+   "tier": "Free",
+   "spec": {
+    "storageGb": 0.5,
+    "cpu": "shared",
+    "ram": "shared"
+   },
+   "price": {
+    "amount": 0,
+    "unit": "month"
+   }
+  },
+  {
+   "offerings": [
+    "mongodb:mongodb:atlas"
+   ],
+   "tier": "Flex",
+   "spec": {
+    "storageGb": 5,
+    "cpu": "shared",
+    "ram": "shared"
+   },
+   "price": {
+    "amount": 30,
+    "unit": "month",
+    "note": "'Up to $30/month'; billed $0.011/hour until the cap"
+   },
+   "hourly": 0.011
+  },
+  {
+   "offerings": [
+    "mongodb:mongodb:atlas"
+   ],
+   "tier": "Dedicated (from M10)",
+   "spec": {
+    "storageGbRange": "10 GB to 4 TB",
+    "ramGbRange": "2 to 768",
+    "vcpuRange": "2 to 96",
+    "vcpu": 2,
+    "ramGb": 2,
+    "storageGb": 10
+   },
+   "price": {
+    "amount": 56.94,
+    "unit": "month",
+    "note": "'Starts at'"
+   },
+   "hourly": 0.08
+  },
+  {
+   "offerings": [
+    "vector:mongodb:atlas-vector-search"
+   ],
+   "tier": "Search node S20",
+   "spec": {
+    "vcpu": 2,
+    "ramGb": 4,
+    "storageGb": 106
+   },
+   "hourly": 0.12,
+   "price": {
+    "amount": 87.6,
+    "unit": "month",
+    "note": "hourly x 730"
+   }
+  },
+  {
+   "offerings": [
+    "vector:mongodb:atlas-vector-search"
+   ],
+   "tier": "Search node S30",
+   "spec": {
+    "vcpu": 4,
+    "ramGb": 8,
+    "storageGb": 213
+   },
+   "hourly": 0.24,
+   "price": {
+    "amount": 175.2,
+    "unit": "month",
+    "note": "hourly x 730"
+   }
+  },
+  {
+   "offerings": [
+    "vector:mongodb:atlas-vector-search"
+   ],
+   "tier": "Search node S40",
+   "spec": {
+    "vcpu": 8,
+    "ramGb": 16,
+    "storageGb": 426
+   },
+   "hourly": 0.48,
+   "price": {
+    "amount": 350.4,
+    "unit": "month",
+    "note": "hourly x 730"
+   }
+  },
+  {
+   "offerings": [
+    "vector:mongodb:atlas-vector-search"
+   ],
+   "tier": "Search node S50",
+   "spec": {
+    "vcpu": 16,
+    "ramGb": 32,
+    "storageGb": 855
+   },
+   "hourly": 0.99,
+   "price": {
+    "amount": 722.7,
+    "unit": "month",
+    "note": "hourly x 730"
+   }
+  },
+  {
+   "offerings": [
+    "vector:mongodb:atlas-vector-search"
+   ],
+   "tier": "Search node S60",
+   "spec": {
+    "vcpu": 32,
+    "ramGb": 64,
+    "storageGb": 1710
+   },
+   "hourly": 1.77,
+   "price": {
+    "amount": 1292.1,
+    "unit": "month",
+    "note": "hourly x 730"
+   }
+  },
+  {
+   "offerings": [
+    "vector:mongodb:atlas-vector-search"
+   ],
+   "tier": "Search node S70",
+   "spec": {
+    "vcpu": 48,
+    "ramGb": 96,
+    "storageGb": 2564
+   },
+   "hourly": 2.5,
+   "price": {
+    "amount": 1825,
+    "unit": "month",
+    "note": "hourly x 730"
+   }
+  },
+  {
+   "offerings": [
+    "vector:mongodb:atlas-vector-search"
+   ],
+   "tier": "Search node S80",
+   "spec": {
+    "vcpu": 64,
+    "ramGb": 128,
+    "storageGb": 3420
+   },
+   "hourly": 3.26,
+   "price": {
+    "amount": 2379.8,
+    "unit": "month",
+    "note": "hourly x 730"
+   }
+  }
+ ],
+ "notes": "Atlas Infinite (public preview) is listed at $0.09/hour; not exported. Dedicated tiers beyond the 'from' price are in an interactive calculator, not on the page."
+}
