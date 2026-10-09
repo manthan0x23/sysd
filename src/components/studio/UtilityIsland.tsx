@@ -4,10 +4,11 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useReactFlow } from "@xyflow/react";
-import { AlignHorizontalDistributeCenter, BarChart3, PiggyBank, ChevronDown, Crown, Download, FilePen, FilePlus2, Home, Lock, Maximize, Menu as MenuIcon, Minus, Plus, RotateCcw, Save } from "lucide-react";
+import { AlignHorizontalDistributeCenter, BarChart3, PiggyBank, ChevronDown, Crown, Download, FilePen, FilePlus2, Hand, Home, Lock, Maximize, Menu as MenuIcon, Minus, MousePointer2, Plus, Redo2, RotateCcw, Route, Save, Undo2 } from "lucide-react";
 import { fmtMoney } from "@/lib/format";
 import { EXPORTS, exportDesign, type ExportFormat } from "@/lib/exportClient";
-import { useStudio } from "@/store/useStudio";
+import { redo, undo, useStudio } from "@/store/useStudio";
+import { TemplateDialog } from "./TemplateGallery";
 import { Num } from "./Num";
 import { ThemeToggle } from "./ThemeToggle";
 import { useAnalysis } from "./useAnalysis";
@@ -45,6 +46,10 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
   const setDock = useStudio((s) => s.setDock);
   const design = useStudio((s) => s.design);
   const reset = useStudio((s) => s.reset);
+  const [picking, setPicking] = useState(false);
+  const tool = useStudio((s) => s.tool);
+  const histLen = useStudio((s) => s.histLen);
+  const simOpen = useStudio((s) => s.req != null);
   const [exporting, setExporting] = useState<ExportFormat | null>(null);
   const [exportError, setExportError] = useState<string | null>(null);
   const open = useStudio((s) => s.ui.util);
@@ -74,6 +79,8 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
 
   if (!open) return <button className="island fab fab-bottom" title="Open the tools" aria-label="Open the tools" onClick={() => useStudio.getState().setUi("util", true)}><MenuIcon className="ic" size={18} aria-hidden /></button>;
   return (
+    <>
+    {picking && <TemplateDialog onClose={() => setPicking(false)} onPick={(t) => { setPicking(false); router.push(`/app?start=${t.id}&fresh=${stamp()}`); }} />}
     <div className="island util-island" role="toolbar" aria-label="Canvas tools">
       <button className="ib fold" title="Fold into an icon" aria-label="Fold the tools into an icon" onClick={() => useStudio.getState().setUi("util", false)}><ChevronDown className="ic" size={16} aria-hidden /></button>
       <i className="sep" aria-hidden />
@@ -83,16 +90,21 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
           <>
             <button role="menuitem" className="mi" onClick={() => { close(); router.push(`/app?start=blank&fresh=${stamp()}`); }}><b>Blank canvas</b><small>Start from nothing</small></button>
             <button role="menuitem" className="mi" onClick={() => { close(); router.push(`/app?fresh=${stamp()}`); }}><b>Sample system</b><small>A web app with a cache, database and queue</small></button>
-            <button role="menuitem" className="mi" onClick={() => { close(); router.push(`/app?start=judge&fresh=${stamp()}`); }}><b>Online code judge</b><small>WebSocket servers, queue, sandboxed workers</small></button>
+            <button role="menuitem" className="mi" onClick={() => { close(); setPicking(true); }}><b>From a template…</b><small>Ten designs, easy to complex: blog to ride hailing</small></button>
           </>
         )}
       </Menu>
       {!readOnly && (
         <>
+          <button className="ib" title="Undo (Ctrl+Z)" aria-label="Undo" disabled={histLen.past === 0} onClick={undo}><Undo2 className="ic" size={16} aria-hidden /></button>
+          <button className="ib" title="Redo (Ctrl+Shift+Z)" aria-label="Redo" disabled={histLen.future === 0} onClick={redo}><Redo2 className="ic" size={16} aria-hidden /></button>
           <button className="ib" title="Save as a draft" aria-label="Save draft" onClick={() => void saveNow("draft")}><FilePen className="ic" size={17} aria-hidden /></button>
           <button className="ib" title="Save (Ctrl+S)" aria-label="Save" onClick={() => void saveNow("saved")}><Save className="ic" size={17} aria-hidden /></button>
         </>
       )}
+      <i className="sep" aria-hidden />
+      <button className={`ib ${tool === "select" ? "on" : ""}`} title="Select: drag on empty canvas to box-select (V)" aria-label="Select tool" aria-pressed={tool === "select"} onClick={() => useStudio.getState().setTool("select")}><MousePointer2 className="ic" size={16} aria-hidden /></button>
+      <button className={`ib ${tool === "pan" ? "on" : ""}`} title="Pan: drag to move the view (H). Or hold Space." aria-label="Pan tool" aria-pressed={tool === "pan"} onClick={() => useStudio.getState().setTool("pan")}><Hand className="ic" size={16} aria-hidden /></button>
       <i className="sep" aria-hidden />
       <button className="ib" title="Zoom out" aria-label="Zoom out" onClick={() => void zoomOut({ duration: 200 })}><Minus className="ic" size={16} aria-hidden /></button>
       <button className="ib" title="Zoom in" aria-label="Zoom in" onClick={() => void zoomIn({ duration: 200 })}><Plus className="ic" size={16} aria-hidden /></button>
@@ -103,6 +115,7 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
       {!readOnly && (
         <button className="ib" title="Best value: switch every service to its cheapest priced option at your load" aria-label="Best value" onClick={bestValue}><PiggyBank className="ic" size={16} aria-hidden /></button>
       )}
+      <button className={`ib ${simOpen ? "on" : ""}`} title="Follow one request through the design, step by step" aria-label="Follow one request" aria-pressed={simOpen} onClick={() => useStudio.getState().setReq(simOpen ? null : { step: 0, playing: true })}><Route className="ic" size={16} aria-hidden /></button>
       <i className="sep" aria-hidden />
       <button className="switch" role="switch" aria-checked={mode === "learn"} onClick={() => setMode(mode === "learn" ? "design" : "learn")} title="Show or hide the load bars and requests per second on the canvas">
         <span className="knob" aria-hidden /><span className="lbl2">Show load</span>
@@ -140,5 +153,6 @@ export function UtilityIsland({ plan }: { plan: "free" | "pro" }) {
       <ThemeToggle />
       {!pro && <Link href="/upgrade" className="ib wide crown" title="Upgrade to Pro" aria-label="Upgrade to Pro"><Crown className="ic" size={16} aria-hidden /><span>Go Pro</span></Link>}
     </div>
+    </>
   );
 }

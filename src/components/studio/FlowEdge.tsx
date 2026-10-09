@@ -38,13 +38,21 @@ export function FlowEdge(props: EdgeProps<Edge<FlowEdgeData, "flow">>) {
   const path = planned ? planned.d : stepPath;
   const labelX = planned ? planned.label[0] : stepX, labelY = planned ? planned.label[1] : stepY;
   const ro = useReadOnly();
+  // While the request simulator runs, links show where the request has been (walked), is now (tracing), and has not reached.
+  const rf = useStudio((st) => st.reqFocus);
+  const trace = rf ? (rf.edgeId === id ? "tracing" : rf.walked.includes(id) ? "walked" : "unseen") : "";
   const flowing = Boolean(data?.show && data.load && data.load > 0);
   // Labels only where they say something: busy links, or whatever is selected. The rest stay quiet.
   const labelled = flowing && (Boolean(data?.busy) || data?.focus === "hl" || selected);
   return (
     <>
-      <BaseEdge id={id} path={path} markerEnd={markerEnd} interactionWidth={18} className={`${selected ? "selected" : ""} ${flowing ? "flowing" : ""} ${data?.focus ?? ""} ${data?.invalid ? "invalid" : ""}`} />
-      {(flowing || selected || data?.invalid) && (
+      <BaseEdge id={id} path={path} markerEnd={markerEnd} interactionWidth={18} className={`${selected ? "selected" : ""} ${flowing && !rf ? "flowing" : ""} ${rf ? "" : data?.focus ?? ""} ${data?.invalid ? "invalid" : ""} ${trace}`} />
+      {rf && trace === "tracing" && (
+        <circle key={rf.key} r={6} className="req-dot">
+          <animateMotion dur={`${Math.max(0.25, rf.ms / 1000)}s`} fill="freeze" calcMode="linear" path={path} {...(rf.reverse ? { keyPoints: "1;0", keyTimes: "0;1" } : {})} />
+        </circle>
+      )}
+      {!rf && (flowing || selected || data?.invalid) && (
         <EdgeLabelRenderer>
           {labelled && (
             <span className={`pill ${selected ? "on" : ""}`} style={{ transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)` }}>

@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import { LayoutGrid, PanelRight } from "lucide-react";
-import { ReactFlowProvider } from "@xyflow/react";
-import { useStudio, useStudio as useStore, type InitialDesign } from "@/store/useStudio";
+import { ReactFlowProvider, useReactFlow } from "@xyflow/react";
+import { startHistory, useStudio, useStudio as useStore, type InitialDesign } from "@/store/useStudio";
 import { BreakdownDock } from "./BreakdownDock";
 import { TopIsland } from "./TopIsland";
 import { UtilityIsland } from "./UtilityIsland";
@@ -13,18 +13,24 @@ import { StudioSkeleton } from "./StudioSkeleton";
 import { LinkNotice, OptimizeToast, UndoToast } from "./UndoToast";
 import { Panel } from "./panel/Panel";
 import { useAutosave } from "./useAutosave";
+import { RequestSim } from "./RequestSim";
+import { TemplateGallery } from "./TemplateGallery";
+import { useShortcuts } from "./useShortcuts";
 
 export interface StudioUser { name: string; avatar: string | null }
 
+/** A blank canvas offers ready-made designs to start from, easy to complex. */
 function EmptyHint() {
   const empty = useStore((s) => s.nodes.length === 0);
   const readOnly = useStore((s) => s.design.shared || s.design.level === "view");
+  const { fitView } = useReactFlow();
   if (!empty || readOnly) return null;
   return (
-    <div className="empty-hint" role="note">
-      <h2>An empty canvas</h2>
-      <p>Drag a service from the left to begin. Start with a <b>Client</b> (under Clients) so traffic has somewhere to come from.</p>
-      <button className="pill-btn" onClick={() => useStore.getState().loadSample()}>Load the sample system instead</button>
+    <div className="empty-hint" role="region" aria-label="Start from a template">
+      <h2>Start from a template</h2>
+      <p>Pick a working design to explore, or drag a service from the left (start with a <b>Client</b>) to build your own.</p>
+      <TemplateGallery onPick={(t) => { useStore.getState().applyDoc(t.doc(), t.title); setTimeout(() => void fitView({ duration: 400, padding: 0.2 }), 80); }} />
+      <button className="pill-btn" onClick={() => useStore.getState().loadSample()}>Or load the small sample system</button>
     </div>
   );
 }
@@ -44,6 +50,8 @@ export function Studio({ user, plan, initial, hydrateKey, shareToken }: { user: 
     return useStudio.subscribe((st, prev) => { if (st.ui !== prev.ui) try { localStorage.setItem("sysd.ui", JSON.stringify(st.ui)); } catch { /* storage unavailable */ } });
   }, []);
   const readOnly = useStudio((s) => s.design.shared || s.design.level === "view");
+  useShortcuts(readOnly);
+  useEffect(() => startHistory(), []);
 
   if (!ready) return <StudioSkeleton />;
   return (
@@ -58,6 +66,7 @@ export function Studio({ user, plan, initial, hydrateKey, shareToken }: { user: 
         <Panel />
         {!ui.right && <button className="island fab fab-right" title="Open details and numbers" aria-label="Open details and numbers" onClick={() => useStudio.getState().setUi("right", true)}><PanelRight className="ic" size={18} aria-hidden /></button>}
         <BreakdownDock plan={plan} />
+        <RequestSim />
         {!readOnly && <UndoToast />}
         {!readOnly && <LinkNotice />}
         {!readOnly && <OptimizeToast />}

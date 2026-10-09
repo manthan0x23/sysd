@@ -7,6 +7,8 @@ import { AUTO_PLAN_ID, TYPE_BY_ID, checkLink, defaultOffering, offeringsOf, plan
 import { DEFAULT_CUSTOM, MAX_REPLICAS, type CustomCost, type CustomPlan, type NodeData, type StudioNode } from "@/lib/model";
 import { fromDoc, type DesignDoc } from "@/lib/doc";
 import { DEFAULT_WORKLOAD, type Workload } from "@/lib/sim";
+import { PASTE_STEP, alignNodes, cloneClip, clipOf, distributeNodes, nudgeNodes, type AlignMode, type Clip, type DistributeAxis } from "@/lib/selection";
+import type { TraceKind } from "@/lib/trace";
 
 export type Mode = "design" | "learn";
 export type Status = "draft" | "saved";
@@ -36,6 +38,9 @@ export interface DesignState {
 export interface InitialDesign { id: string | null; title: string; status: Status; rev: number; teamId: string | null; level: Level | null; shared?: boolean; doc: DesignDoc | null }
 
 const NEW_DESIGN: DesignState = { id: null, title: "Untitled design", status: "draft", rev: 0, teamId: null, level: null, shared: false, sync: "idle", error: null, lastJson: "", metaDirty: false, key: null };
+export interface ReqState { kind: TraceKind; /** A client link to start on; absent = the default entry. */ entry?: string; step: number; playing: boolean; speed: number }
+/** One step lit on the canvas: the link a dot travels (and which way), the nodes working, and the links already walked. */
+export interface ReqFocus { key: number; edgeId?: string; reverse?: boolean; nodes: string[]; walked: string[]; ms: number }
 export type View = "overview" | "inputs" | "traffic" | "load" | "cost" | "fit";
 
 /** Servers start on Auto (cheapest tier that fits); models start on the first listed one; the rest have no tiers. */
@@ -89,6 +94,32 @@ interface Studio {
   mode: Mode;
   selectedId: string | null;
   selectedEdgeId: string | null;
+  /** Two or more nodes picked at once (marquee, shift-click, select all). selectedId is null while this is set. */
+  multi: string[];
+  /** What a drag on empty canvas does: draw a selection box, or pan the view. */
+  tool: "select" | "pan";
+  setTool: (t: "select" | "pan") => void;
+  /** React Flow's own selection changes (marquee, shift-click), folded into selectedId / multi. */
+  applySelect: (changes: { id: string; selected: boolean }[]) => void;
+  selectAll: () => void;
+  selectMany: (ids: string[]) => void;
+  copySelection: () => boolean;
+  paste: () => void;
+  duplicateSelection: () => void;
+  removeSelection: () => void;
+  alignSelection: (mode: AlignMode) => void;
+  distributeSelection: (axis: DistributeAxis) => void;
+  nudgeSelection: (dx: number, dy: number) => void;
+  /** How many steps Undo and Redo can go (see startHistory). */
+  histLen: { past: number; future: number };
+  /** Puts a ready-made design on the (empty) canvas, keeping the design's identity and replacing its name. */
+  applyDoc: (doc: DesignDoc, title: string) => void;
+  /** The request simulator: which kind of request, and where in its journey. Null when closed. */
+  req: ReqState | null;
+  setReq: (patch: Partial<ReqState> | null) => void;
+  /** What the simulator is showing right now, so the canvas can light it up. */
+  reqFocus: ReqFocus | null;
+  setReqFocus: (f: ReqFocus | null) => void;
   view: View;
   /** Whether the cost and traffic breakdown table is open. */
   dockOpen: boolean;
@@ -154,13 +185,76 @@ let counter = 0;
 const patchData = (nodes: StudioNode[], id: string, patch: Partial<NodeData>) =>
   nodes.map((n) => (n.id === id ? { ...n, data: { ...n.data, ...patch } } : n));
 
-export const useStudio = create<Studio>((set) => ({
+type StudioState = Studio;
+/** What the selection currently is: the group if there is one, else the single node. */
+const selectedIds = (s: Pick<StudioState, "multi" | "selectedId">) => (s.multi.length ? s.multi : s.selectedId ? [s.selectedId] : []);
+
+/** Copied nodes wait here (not on the system clipboard); each paste lands a little further along. */
+let clipboard: { clip: Clip; pastes: number } | null = null;
+
+/** Adds fresh copies of a clip to the canvas and selects them. */
+function addCopies(s: StudioState, clip: Clip, offset: number): Partial<StudioState> {
+  const made = cloneClip(clip, s.nodes, offset, offset);
+  if (!made.nodes.length) return {};
+  const tops = made.nodes.filter((n) => !n.parentId || !made.nodes.some((m) => m.id === n.parentId)).map((n) => n.id);
+  return {
+    nodes: orderNodes([...s.nodes, ...made.nodes]), edges: [...s.edges, ...made.edges],
+    ...(tops.length >= 2 ? { multi: tops, selectedId: null } : { multi: [], selectedId: tops[0] ?? null }), selectedEdgeId: null,
+  };
+}
+
+export const useStudio = create<Studio>((set, get) => ({
   nodes: INITIAL_NODES,
   edges: INITIAL_EDGES,
   workload: DEFAULT_WORKLOAD,
   mode: "learn",
   selectedId: "db",
   selectedEdgeId: null,
+  multi: [],
+  tool: "select",
+  setTool: (tool) => set({ tool }),
+  applySelect: (changes) => set((s) => {
+    const cur = new Set<string>([...s.multi, ...(s.selectedId ? [s.selectedId] : [])]);
+    for (const c of changes) { if (c.selected) cur.add(c.id); else cur.delete(c.id); }
+    const ids = [...cur].filter((id) => s.nodes.some((n) => n.id === id));
+    const now = selectedIds(s);
+    if (ids.length === now.length && ids.every((id) => now.includes(id))) return {};
+    return ids.length >= 2 ? { multi: ids, selectedId: null, selectedEdgeId: null } : { multi: [], selectedId: ids[0] ?? null, ...(ids.length ? { selectedEdgeId: null } : {}) };
+  }),
+  selectAll: () => set((s) => {
+    const ids = s.nodes.map((n) => n.id);
+    return ids.length >= 2 ? { multi: ids, selectedId: null, selectedEdgeId: null } : { multi: [], selectedId: ids[0] ?? null };
+  }),
+  selectMany: (ids) => set(() => (ids.length >= 2 ? { multi: ids, selectedId: null, selectedEdgeId: null } : { multi: [], selectedId: ids[0] ?? null, selectedEdgeId: null })),
+  copySelection: () => {
+    const s = get();
+    const ids = selectedIds(s);
+    if (!ids.length) return false;
+    clipboard = { clip: clipOf(s.nodes, s.edges, ids), pastes: 0 };
+    return true;
+  },
+  paste: () => set((s) => {
+    if (!clipboard) return {};
+    clipboard.pastes++;
+    return addCopies(s, clipboard.clip, PASTE_STEP * clipboard.pastes);
+  }),
+  duplicateSelection: () => set((s) => {
+    const ids = selectedIds(s);
+    return ids.length ? addCopies(s, clipOf(s.nodes, s.edges, ids), PASTE_STEP) : {};
+  }),
+  removeSelection: () => { const ids = selectedIds(get()); if (ids.length) get().removeNodes(ids); },
+  alignSelection: (mode) => set((s) => ({ nodes: alignNodes(s.nodes, selectedIds(s), mode) })),
+  distributeSelection: (axis) => set((s) => ({ nodes: distributeNodes(s.nodes, selectedIds(s), axis) })),
+  nudgeSelection: (dx, dy) => set((s) => ({ nodes: nudgeNodes(s.nodes, selectedIds(s), dx, dy) })),
+  histLen: { past: 0, future: 0 },
+  applyDoc: (doc, title) => set((s) => {
+    const body = fromDoc(doc);
+    return { nodes: orderNodes(body.nodes), edges: body.edges, workload: body.workload, multi: [], selectedId: null, selectedEdgeId: null, view: "overview", req: null, reqFocus: null, design: { ...s.design, title, metaDirty: true } };
+  }),
+  req: null,
+  setReq: (patch) => set((s) => (patch === null ? { req: null, reqFocus: null } : { req: { ...(s.req ?? { kind: "read-miss" as TraceKind, step: 0, playing: false, speed: 1 }), ...patch } })),
+  reqFocus: null,
+  setReqFocus: (reqFocus) => set({ reqFocus }),
   view: "overview",
   dockOpen: false,
   dockFull: false,
@@ -168,14 +262,14 @@ export const useStudio = create<Studio>((set) => ({
   setDock: (dockOpen) => set({ dockOpen }),
   ui: { left: true, right: true, util: true },
   setUi: (key, open) => set((s) => ({ ui: { ...s.ui, [key]: open } })),
-  loadSample: () => set({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD }),
+  loadSample: () => set({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, multi: [], req: null, reqFocus: null, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD }),
   design: NEW_DESIGN,
   hydrate: (key, d) =>
     set(() => {
-      if (!d) return { nodes: INITIAL_NODES, edges: INITIAL_EDGES, workload: DEFAULT_WORKLOAD, selectedId: "db", selectedEdgeId: null, view: "overview", design: { ...NEW_DESIGN, key } };
+      if (!d) return { nodes: INITIAL_NODES, edges: INITIAL_EDGES, workload: DEFAULT_WORKLOAD, multi: [], req: null, reqFocus: null, selectedId: "db", selectedEdgeId: null, view: "overview", design: { ...NEW_DESIGN, key } };
       const body = d.doc ? fromDoc(d.doc) : { nodes: INITIAL_NODES, edges: INITIAL_EDGES, workload: DEFAULT_WORKLOAD };
       return {
-        nodes: orderNodes(body.nodes), edges: body.edges, workload: body.workload, selectedId: null, selectedEdgeId: null, view: "overview",
+        nodes: orderNodes(body.nodes), edges: body.edges, workload: body.workload, multi: [], req: null, reqFocus: null, selectedId: null, selectedEdgeId: null, view: "overview",
         design: { id: d.id, title: d.title, status: d.status, rev: d.rev, teamId: d.teamId, level: d.level, shared: Boolean(d.shared), sync: "idle", error: null, lastJson: d.doc ? JSON.stringify(d.doc) : "", metaDirty: false, key },
       };
     }),
@@ -196,7 +290,7 @@ export const useStudio = create<Studio>((set) => ({
   }),
   addNode: (typeId, position, parentId) => {
     const id = `${typeId}-${Date.now().toString(36)}-${counter++}`;
-    set((s) => ({ nodes: orderNodes([...s.nodes, makeNode(id, typeId, position, parentId)]), selectedId: id, selectedEdgeId: null }));
+    set((s) => ({ nodes: orderNodes([...s.nodes, makeNode(id, typeId, position, parentId)]), selectedId: id, selectedEdgeId: null, multi: [] }));
     return id;
   },
   reparent: (id, parentId, position) =>
@@ -257,7 +351,7 @@ export const useStudio = create<Studio>((set) => ({
     const label = removedNodes.length > 1 ? `${removedNodes.length} services` : (first.data.name || TYPE_BY_ID[first.data.typeId].short || TYPE_BY_ID[first.data.typeId].label);
     return {
       nodes, edges: s.edges.filter((e) => !removedEdges.includes(e)),
-      selectedId: s.selectedId && gone.has(s.selectedId) ? null : s.selectedId, selectedEdgeId: null,
+      selectedId: s.selectedId && gone.has(s.selectedId) ? null : s.selectedId, selectedEdgeId: null, multi: s.multi.filter((id) => !gone.has(id)),
       deleted: { label, nodes: removedNodes, edges: removedEdges, at: Date.now() },
     };
   }),
@@ -278,14 +372,65 @@ export const useStudio = create<Studio>((set) => ({
     set((s) => ({ nodes: s.nodes.map((n) => (n.id === id ? { ...n, data: { ...n.data, custom: { ...(n.data.custom ?? DEFAULT_CUSTOM), ...patch } } } : n)) })),
   setWorkload: (patch) => set((s) => ({ workload: { ...s.workload, ...patch } })),
   setMode: (mode) => set({ mode }),
-  select: (selectedId) => set({ selectedId, selectedEdgeId: null }),
-  selectEdge: (selectedEdgeId) => set({ selectedEdgeId, selectedId: null }),
+  select: (selectedId) => set({ selectedId, selectedEdgeId: null, multi: [] }),
+  selectEdge: (selectedEdgeId) => set({ selectedEdgeId, selectedId: null, multi: [] }),
   setEdgeWeight: (id, weight) =>
     set((s) => ({ edges: s.edges.map((e) => (e.id === id ? { ...e, data: { ...(e.data ?? {}), weight } } : e)) })),
   setView: (view) => set({ view }),
   formatLayout: () => set((s) => ({ nodes: orderNodes(formatNodes(s.nodes, s.edges)) })),
-  reset: () => set((s) => ({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD, design: s.design.id ? s.design : { ...s.design } })),
+  reset: () => set((s) => ({ nodes: INITIAL_NODES, edges: INITIAL_EDGES, multi: [], req: null, reqFocus: null, selectedId: "db", selectedEdgeId: null, view: "overview", workload: DEFAULT_WORKLOAD, design: s.design.id ? s.design : { ...s.design } })),
 }));
 
 /** True on share pages and for team viewers: the canvas can be explored but nothing can be changed. */
 export const useReadOnly = () => useStudio((s) => s.design.shared || s.design.level === "view");
+
+
+// ---- undo and redo for the canvas itself (nodes and links), as opposed to the delete / best-value toasts
+
+interface Snap { nodes: StudioNode[]; edges: Edge[] }
+const hist: { past: Snap[]; future: Snap[]; base: Snap; key: string; flush: (() => void) | null } = { past: [], future: [], base: { nodes: [], edges: [] }, key: "", flush: null };
+const MAX_HISTORY = 100;
+/** What counts as a change worth undoing: where things are and what they are, not how React Flow measured them. */
+const keyOf = (s: Snap) => JSON.stringify([s.nodes.map((n) => [n.id, n.parentId, n.position, n.data, n.style]), s.edges.map((e) => [e.id, e.source, e.target, e.data])]);
+const publish = () => useStudio.setState({ histLen: { past: hist.past.length, future: hist.future.length } });
+const restore = (to: Snap) => { hist.base = to; hist.key = keyOf(to); useStudio.setState({ nodes: to.nodes, edges: to.edges, selectedId: null, selectedEdgeId: null, multi: [] }); publish(); };
+
+/** Starts recording edits. A burst of changes (a drag, typing a name) becomes one step. Call once; returns a stop function. */
+export function startHistory(): () => void {
+  const reset = () => { const s = useStudio.getState(); hist.past = []; hist.future = []; hist.base = { nodes: s.nodes, edges: s.edges }; hist.key = keyOf(hist.base); publish(); };
+  reset();
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const commit = () => {
+    clearTimeout(timer);
+    const s = useStudio.getState();
+    const now = { nodes: s.nodes, edges: s.edges }, key = keyOf(now);
+    if (key === hist.key) { hist.base = now; return; }
+    hist.past.push(hist.base);
+    if (hist.past.length > MAX_HISTORY) hist.past.shift();
+    hist.future = [];
+    hist.base = now; hist.key = key;
+    publish();
+  };
+  hist.flush = commit;
+  const stop = useStudio.subscribe((st, prev) => {
+    if (st.design.key !== prev.design.key) { clearTimeout(timer); reset(); return; }
+    if (st.nodes !== prev.nodes || st.edges !== prev.edges) { clearTimeout(timer); timer = setTimeout(commit, 400); }
+  });
+  return () => { stop(); clearTimeout(timer); hist.flush = null; };
+}
+
+export function undo(): void {
+  hist.flush?.();
+  const prev = hist.past.pop();
+  if (!prev) return;
+  hist.future.push(hist.base);
+  restore(prev);
+}
+
+export function redo(): void {
+  hist.flush?.();
+  const next = hist.future.pop();
+  if (!next) return;
+  hist.past.push(hist.base);
+  restore(next);
+}

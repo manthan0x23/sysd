@@ -17,6 +17,8 @@
     "test:layout": "tsx scripts/test-layout.mts",
     "test:route": "tsx scripts/test-route.mts",
     "test:trace": "tsx scripts/test-trace.mts",
+    "test:templates": "tsx scripts/test-templates.mts",
+    "test:select": "tsx scripts/test-select.mts",
     "test:smart": "tsx scripts/test-smart.mts",
     "test:uploads": "tsx scripts/test-uploads.mts",
     "plan": "node scripts/set-plan.mjs",

@@ -128,3 +128,10 @@ The sign-in provider photo is no longer stored. `src/lib/avatar.ts` defines an a
 ## Marketing notes (judgment, not data)
 
 Target learners first, then indie founders. Hook: "See the bill for your app before you build it." Short screen-recorded demos, public example designs, build in public, one Product Hunt / Show HN launch once the live site is solid. Measure sign-ups, saved designs and shared designs weekly.
+
+
+## Canvas editing, request simulator, templates (2026-10-09)
+- `src/lib/templates/`: ten templates (easy: blog, todo, shortener; medium: chat, shop, photos; complex: judge, feed, video, ride). `build.ts` has the helpers (`node`, `links` with per-link weights, `traffic`, `laid`, `off`). Opened with `/app?start=<id>`; the blank canvas shows the gallery (`TemplateGallery.tsx`); New design > "From a template…" opens it as a dialog. `npm run test:templates` checks offerings, link rules, traces and that nothing starts overloaded.
+- Group editing: `src/lib/selection.ts` (clone, align, distribute, nudge, pure) + store (`multi`, `applySelect`, `duplicateSelection`, `copySelection`/`paste`, `alignSelection`...). Marquee = drag on empty canvas (tool "select"; "pan" tool, H, or hold Space to pan). Shortcuts in `useShortcuts.ts` (Ctrl+C/V/D/A/Z, Shift+Ctrl+Z, arrows, Esc). `SelectionBar.tsx` floats over a group. Undo/redo of nodes and links: `startHistory`/`undo`/`redo` at the bottom of `useStudio.ts`. `npm run test:select`.
+- Request simulator: `RequestSim.tsx` walks `traceRequest` (now with an optional entry link and `entryLinks`), lights nodes/links through `reqFocus` in the store, and animates a dot along the link in `FlowEdge.tsx`.
+- Not done: dropping the simulator into lectures (phase four), pan-to-follow during a trace, saving which template a design came from.

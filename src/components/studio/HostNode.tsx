@@ -3,7 +3,7 @@
 import { Handle, NodeResizer, NodeToolbar, Position, type NodeProps } from "@xyflow/react";
 import { TYPE_BY_ID, offeringLabel } from "@/lib/catalog";
 import { needOf, offeringOf, type StudioNode } from "@/lib/model";
-import { Trash2 } from "lucide-react";
+import { CopyPlus, Trash2 } from "lucide-react";
 import { useReadOnly, useStudio } from "@/store/useStudio";
 import { Num } from "./Num";
 import { NodeTitle } from "./NodeTitle";
@@ -26,16 +26,19 @@ const VERDICT = { fits: "Fits", tight: "Tight", over: "Does not fit", open: "" }
 export function HostNode({ id, data, selected }: NodeProps<StudioNode>) {
   const readOnly = useReadOnly();
   const ro = readOnly;
+  const alone = useStudio((s) => s.multi.length === 0);
+  const tracing = useStudio((s) => Boolean(s.reqFocus?.nodes.includes(id)));
   const type = TYPE_BY_ID[data.typeId];
   const fit = data.fit;
   const offering = offeringOf(data);
   const have = fit?.have;
   const server = type.host === "server";
   return (
-    <div className={`host ${type.host} ${selected ? "sel" : ""} ${fit?.verdict ?? ""}`}>
-      <NodeResizer isVisible={selected && !readOnly} minWidth={server ? 360 : 220} minHeight={server ? 220 : 130} lineStyle={{ borderColor: "var(--ring)" }} handleStyle={{ background: "var(--surface)", border: "1.5px solid var(--ring)", width: 9, height: 9, borderRadius: 3 }} />
-      {selected && !ro && (
+    <div className={`host ${type.host} ${selected ? "sel" : ""} ${tracing ? "tracing" : ""} ${fit?.verdict ?? ""}`}>
+      <NodeResizer isVisible={selected && !readOnly && alone} minWidth={server ? 360 : 220} minHeight={server ? 220 : 130} lineStyle={{ borderColor: "var(--ring)" }} handleStyle={{ background: "var(--surface)", border: "1.5px solid var(--ring)", width: 9, height: 9, borderRadius: 3 }} />
+      {selected && !ro && alone && (
         <NodeToolbar position={Position.Top} offset={8}>
+          <button className="ntb" onClick={() => useStudio.getState().duplicateSelection()} title="Duplicate (Ctrl+D)" aria-label={`Duplicate ${data.name || "this service"}`}><CopyPlus className="ic" size={15} aria-hidden /></button>
           <button className="ntb" onClick={() => useStudio.getState().removeNodes([id])} title="Delete (Backspace)" aria-label={`Delete ${data.name || "this service"}`}><Trash2 className="ic" size={15} aria-hidden /></button>
         </NodeToolbar>
       )}

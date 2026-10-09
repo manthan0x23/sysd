@@ -6,7 +6,7 @@ import { Studio } from "@/components/studio/Studio";
 import { StudioSkeleton } from "@/components/studio/StudioSkeleton";
 import { APP_NAME } from "@/lib/brand";
 import { BLANK_DOC } from "@/lib/doc";
-import { CODE_JUDGE_TITLE, codeJudgeDoc } from "@/lib/templates/codeJudge";
+import { TEMPLATE_BY_ID } from "@/lib/templates";
 import { getPlan } from "@/server/plans";
 import { currentUser } from "@/server/session";
 
@@ -20,12 +20,12 @@ async function Gate({ searchParams }: { searchParams: Promise<{ fresh?: string; 
   const sp = await searchParams;
   const fresh = sp.fresh?.replace(/[^\w-]/g, "").slice(0, 16) || "0";
   const blank = sp.start === "blank";
-  const judge = sp.start === "judge";
+  const template = sp.start ? TEMPLATE_BY_ID[sp.start] : undefined;
   const initial = blank
     ? { id: null, title: "Untitled design", status: "draft" as const, rev: 0, teamId: null, level: null, doc: BLANK_DOC }
-    : judge ? { id: null, title: CODE_JUDGE_TITLE, status: "draft" as const, rev: 0, teamId: null, level: null, doc: codeJudgeDoc() } : null;
+    : template ? { id: null, title: template.title, status: "draft" as const, rev: 0, teamId: null, level: null, doc: template.doc() } : null;
   const plan = await getPlan(u.id);
-  return <Studio user={{ name: u.name, avatar: u.avatar }} plan={plan} initial={initial} hydrateKey={`new-${fresh}${blank ? "-blank" : judge ? "-judge" : ""}`} />;
+  return <Studio user={{ name: u.name, avatar: u.avatar }} plan={plan} initial={initial} hydrateKey={`new-${fresh}${blank ? "-blank" : template ? `-${template.id}` : ""}`} />;
 }
 
 export default function CanvasPage({ searchParams }: { searchParams: Promise<{ fresh?: string; start?: string }> }) {

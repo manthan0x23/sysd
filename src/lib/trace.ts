@@ -50,7 +50,18 @@ const MAX_STEPS = 120;
 
 const nameOf = (n: StudioNode) => n.data.name || TYPE_BY_ID[n.data.typeId]?.short || TYPE_BY_ID[n.data.typeId]?.label || n.id;
 
-export function traceRequest(nodes: StudioNode[], edges: Edge[], sim: SimResult, kind: TraceKind): Trace {
+const ENTRY_KINDS: LinkKind[] = ["edge", "cdn", "compute", "storage", "service"];
+
+/** The links a request can start on: from each client into the system. The simulator lets you pick one. */
+export function entryLinks(nodes: StudioNode[], edges: Edge[]): { edgeId: string; from: string; to: string }[] {
+  const byId = new Map(nodes.map((n) => [n.id, n]));
+  return edges
+    .filter((e) => byId.get(e.source) && byId.get(e.target) && TYPE_BY_ID[byId.get(e.source)!.data.typeId]?.role === "source" && ENTRY_KINDS.includes(kindOf(byId.get(e.target)!.data.typeId)))
+    .map((e) => ({ edgeId: e.id, from: e.source, to: e.target }));
+}
+
+/** `entryEdgeId`: start on this client link instead of the default (the CDN for reads, otherwise the first server). */
+export function traceRequest(nodes: StudioNode[], edges: Edge[], sim: SimResult, kind: TraceKind, entryEdgeId?: string): Trace {
   const byId = new Map(nodes.map((n) => [n.id, n]));
   const outs = new Map<string, Edge[]>();
   for (const e of edges) if (byId.has(e.source) && byId.has(e.target)) outs.set(e.source, [...(outs.get(e.source) ?? []), e]);
@@ -164,11 +175,12 @@ export function traceRequest(nodes: StudioNode[], edges: Edge[], sim: SimResult,
   };
 
   // ---- entry: a client, and the link it uses
-  const client = nodes.find((n) => TYPE_BY_ID[n.data.typeId]?.role === "source" && out(n.id).length);
+  const chosen = entryEdgeId ? edges.find((e) => e.id === entryEdgeId && byId.has(e.source) && byId.has(e.target) && TYPE_BY_ID[ty(e.source)]?.role === "source") : undefined;
+  const client = chosen ? byId.get(chosen.source) : nodes.find((n) => TYPE_BY_ID[n.data.typeId]?.role === "source" && out(n.id).length);
   if (!client) return { kind, steps: [], answerMs: 0, backgroundMs: null, notes: ["Add a client and link it to something to trace a request."] };
   const entry = out(client.id).filter((e) => ["edge", "cdn", "compute", "storage", "service"].includes(kd(e.target)));
   const viaCdn = entry.find((e) => kd(e.target) === "cdn");
-  const first = (read && viaCdn) || entry.find((e) => kd(e.target) !== "cdn") || entry[0];
+  const first = (chosen && entry.find((e) => e.id === chosen.id)) || (read && viaCdn) || entry.find((e) => kd(e.target) !== "cdn") || entry[0];
   if (!first) return { kind, steps: [], answerMs: 0, backgroundMs: null, notes: [`${nm(client.id)} is not linked to anything the request can enter through.`] };
 
   work(client.id, `${nm(client.id)} sends ${read ? "a read" : "a write"}`, read

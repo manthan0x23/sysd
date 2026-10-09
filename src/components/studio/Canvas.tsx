@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState, type DragEvent } from "react";
 import {
-  Background, BackgroundVariant, MarkerType, ReactFlow, useReactFlow,
+  Background, BackgroundVariant, MarkerType, ReactFlow, SelectionMode, useReactFlow,
   type Edge, type NodeChange,
 } from "@xyflow/react";
 import { TYPE_BY_ID, checkLink } from "@/lib/catalog";
@@ -12,6 +12,7 @@ import { FlowEdge, type FlowEdgeData } from "./FlowEdge";
 import { HostNode } from "./HostNode";
 import { NodeCard } from "./NodeCard";
 import { DRAG_TYPE } from "./Palette";
+import { SelectionBar } from "./SelectionBar";
 import { useAnalysis } from "./useAnalysis";
 
 const nodeTypes = { card: NodeCard, host: HostNode };
@@ -26,14 +27,17 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
   const mode = useStudio((s) => s.mode);
   const selectedId = useStudio((s) => s.selectedId);
   const selectedEdgeId = useStudio((s) => s.selectedEdgeId);
+  const multi = useStudio((s) => s.multi);
+  const tool = useStudio((s) => s.tool);
+  const tracing = useStudio((s) => s.reqFocus != null);
   const { onNodesChange, onEdgesChange, onConnect, addNode, reparent, select, selectEdge, rememberDeleted } = useStudio.getState();
   const { screenToFlowPosition, getInternalNode } = useReactFlow();
 
   const learn = mode === "learn";
 
   const viewNodes = useMemo<StudioNode[]>(
-    () => nodes.map((n) => ({ ...n, selected: n.id === selectedId, data: { ...n.data, util: sim.util[n.id], load: sim.load[n.id], instances: sim.instances[n.id], backlog: sim.backlog[n.id], showMetrics: learn, fit: fits[n.id] } })),
-    [nodes, sim, fits, learn, selectedId],
+    () => nodes.map((n) => ({ ...n, selected: n.id === selectedId || multi.includes(n.id), data: { ...n.data, util: sim.util[n.id], load: sim.load[n.id], instances: sim.instances[n.id], backlog: sim.backlog[n.id], showMetrics: learn, fit: fits[n.id] } })),
+    [nodes, sim, fits, learn, selectedId, multi],
   );
   /** The meaning of a link, or why it is not valid. Old designs may hold links the rules now refuse; they stay, flagged. */
   const linkInfo = useCallback((e: Edge): Pick<FlowEdgeData, "role" | "invalid"> => {
@@ -51,11 +55,11 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
   /** What a link looks like next to the selection: lit when it touches it, faded when something else is selected. */
   const focusOf = useCallback((e: Edge): "hl" | "dim" | undefined => {
     if (selectedEdgeId) return e.id === selectedEdgeId ? "hl" : "dim";
-    if (!selectedId) return undefined;
-    const kids = new Set<string>([selectedId]);
+    if (!selectedId && !multi.length) return undefined;
+    const kids = new Set<string>(selectedId ? [selectedId] : multi);
     for (const n of nodes) if (n.parentId && kids.has(n.parentId)) kids.add(n.id);
     return kids.has(e.source) || kids.has(e.target) ? "hl" : "dim";
-  }, [selectedId, selectedEdgeId, nodes]);
+  }, [selectedId, selectedEdgeId, multi, nodes]);
   const viewEdges = useMemo<Edge<FlowEdgeData>[]>(
     () => edges.map((e) => ({ ...e, selected: e.id === selectedEdgeId, markerEnd: { type: MarkerType.ArrowClosed, width: 14, height: 14, color: "currentColor" }, data: { weight: (e.data as { weight?: number } | undefined)?.weight, load: sim.edgeLoad[e.id], show: learn, route: routes[e.id], busy: (sim.edgeLoad[e.id] ?? 0) >= 0.15 * (sim.entryRps || 1), focus: focusOf(e), ...linkInfo(e) }, zIndex: focusOf(e) === "hl" ? 5 : 0 })),
     [edges, linkInfo, sim, learn, selectedEdgeId, routes, focusOf],
@@ -76,7 +80,13 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
   }, [nodes]);
 
   // Selection is owned by our store (the inspector reads it), so ignore React Flow's own select changes.
-  const handleNodes = useCallback((changes: NodeChange<StudioNode>[]) => onNodesChange(changes.filter((c) => c.type !== "select")), [onNodesChange]);
+  // Selection changes (a marquee, shift-click) are folded into selectedId / multi; everything else goes to React Flow as usual.
+  const handleNodes = useCallback((changes: NodeChange<StudioNode>[]) => {
+    const picks = changes.flatMap((c) => (c.type === "select" ? [{ id: c.id, selected: c.selected }] : []));
+    if (picks.length) useStudio.getState().applySelect(picks);
+    const rest = changes.filter((c) => c.type !== "select");
+    if (rest.length) onNodesChange(rest);
+  }, [onNodesChange]);
 
   const absOf = (id: string) => getInternalNode(id)?.internals.positionAbsolute ?? { x: 0, y: 0 };
 
@@ -140,9 +150,10 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
       <ReactFlow
         nodes={viewNodes} edges={viewEdges} nodeTypes={nodeTypes} edgeTypes={edgeTypes}
         onNodesChange={handleNodes} onEdgesChange={onEdgesChange} onConnect={onConnect} isValidConnection={isValidConnection} onConnectEnd={onConnectEnd}
-        onNodeClick={(_, n) => select(n.id)} onEdgeClick={(_, e) => selectEdge(e.id)} onPaneClick={() => { select(null); selectEdge(null); }} onNodeDragStop={onNodeDragStop}
+        onNodeClick={(e, n) => { if (!(e.shiftKey || e.metaKey || e.ctrlKey)) select(n.id); }} onEdgeClick={(_, e) => selectEdge(e.id)} onPaneClick={() => { select(null); selectEdge(null); }} onNodeDragStop={onNodeDragStop}
         onDrop={onDrop} onDragOver={(e) => { e.preventDefault(); e.dataTransfer.dropEffect = "move"; }}
         defaultEdgeOptions={{ type: "flow" }} proOptions={{ hideAttribution: true }}
+        selectionOnDrag={tool === "select" && !readOnly} selectionMode={SelectionMode.Partial} disableKeyboardA11y panOnDrag={tool === "pan" ? true : [1, 2]} panActivationKeyCode="Space" multiSelectionKeyCode={["Shift", "Meta", "Control"]}
         snapToGrid snapGrid={GRID} minZoom={0.2} maxZoom={1.6} nodesDraggable={!readOnly} nodesConnectable={!readOnly}
         fitView fitViewOptions={{ padding: { top: "80px", right: "400px", bottom: "110px", left: "260px" } }}
         deleteKeyCode={readOnly ? null : ["Backspace", "Delete"]}
@@ -155,6 +166,7 @@ export function Canvas({ readOnly }: { readOnly: boolean }) {
         }}
       >
         <Background variant={BackgroundVariant.Dots} gap={22} size={1.2} color="var(--dot)" />
+        {!readOnly && multi.length > 1 && !tracing && <SelectionBar ids={multi} />}
       </ReactFlow>
     </section>
   );
