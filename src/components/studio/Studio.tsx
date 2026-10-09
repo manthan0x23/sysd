@@ -6,7 +6,7 @@ import { ReactFlowProvider, useReactFlow } from "@xyflow/react";
 import { startHistory, useStudio, useStudio as useStore, type InitialDesign } from "@/store/useStudio";
 import { BreakdownDock } from "./BreakdownDock";
 import { TopIsland } from "./TopIsland";
-import { UtilityIsland } from "./UtilityIsland";
+import { FileIsland, UtilityIsland } from "./UtilityIsland";
 import { Canvas } from "./Canvas";
 import { Palette } from "./Palette";
 import { StudioSkeleton } from "./StudioSkeleton";
@@ -59,6 +59,7 @@ export function Studio({ user, plan, initial, hydrateKey, shareToken }: { user: 
       <div className={`studio ${readOnly ? "readonly" : ""} ${ui.left ? "" : "no-left"} ${ui.right ? "" : "no-right"}`}>
         <Canvas readOnly={readOnly} />
         <TopIsland user={user} plan={plan} dirty={dirty} shareToken={shareToken} />
+        <FileIsland plan={plan} />
         <UtilityIsland plan={plan} />
         <EmptyHint />
         {!readOnly && <Palette />}
